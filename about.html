@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MYA Hotel Boutique & Co About Page.">
+    <meta name="keywords"
+        content="hotel, booking, business, restaurant, spa, resort, landing, agency, corporate, start up, site design, new business site, business template, professional template, classic, modern">
+    <title>MYA Hotel Boutique & Co About Page.</title>
+
+    <link rel="icon" href="assets/img/favicons/favicon.png" type="image/x-icon">
+
+    <!-- Css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/aos.css">
+    <link rel="stylesheet" href="assets/css/vendor/remixicon.css">
+    <link rel="stylesheet" href="assets/css/vendor/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/semantic.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.min.css">
+
+    <!-- Tailwind css -->
+    <script src="assets/js/vendor/tailwindcss3.4.0.js"></script>
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div class="lh-loader min-w-full w-full h-screen fixed top-0 left-0 flex items-center justify-center bg-[#fff] z-[25]">
+        <span class="loader w-[100px] h-[100px] flex relative items-center justify-center"></span>
+    </div>
+
+    <!-- Header -->
+<!-- Header -->
+    <header>
+        <div class="relative">
+            <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px] lg:flex hidden">
+                <div class="w-1/2 py-[10px] flex">
+                    <div class="pr-[15px] border-r border-solid border-[#ddd]">
+                        <i class="ri-mail-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
+                        <a href="mailto:info@myahotelboutique.com">info@myahotelboutique.com</a>
+                    </div>
+                    <div class="flex items-center pl-[15px] lh-location">
+                        <div class="flex items-center custom-select text-[14px] text-[#777]">
+                            <i class="ri-earth-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
+                            <select class="hidden">
+                                <option value="option1">English</option>
+                                <option value="option2">Spanish</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/2 py-[10px] flex justify-end">
+                    <div class="pr-[15px] border-r border-solid border-[#ddd]">
+                        <i class="ri-phone-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
+                        +52 (646) 388-2369
+                    </div>
+                    <div class="mx-[-5px] pl-[15px]">
+                        <a href="javascript:void(0)"><i class="ri-facebook-box-line facebook mx-[5px] text-[18px] text-[#3b5998]"></i></a>
+                        <a href="javascript:void(0)"><i class="ri-twitter-x-line twitter mx-[5px] text-[18px] text-[#03a9f4]"></i></a>
+                        <a href="javascript:void(0)"><i class="ri-linkedin-box-line linkedin mx-[5px] text-[18px] text-[#3b5998]"></i></a>
+                        <a href="javascript:void(0)"><i class="ri-instagram-line instagram mx-[5px] text-[18px] text-[#7b6c55]"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lh-header bg-stone-200 absolute w-full z-[16] py-[6px]">
+            <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+                <nav class="flex flex-nowrap w-full py-[3px]">
+                    <a class="navbar-brand py-[5px]" href="index.html">
+                        <img src="assets/img/logo/logo.png" alt="logo" class="xl:w-[65px] w-[35px] relative z-[2]">
+                    </a>
+                    <button class="navbar-toggler shadow-none flex basis-[auto] grow items-center text-[24px] text-[#111827] lg:hidden flex justify-end" type="button" data-bs-toggle="collapse" data-bs-target="#" aria-label="Toggle navigation">
+                        <i class="ri-menu-2-line"></i>
+                    </button>
+                    <div class="flex basis-[auto] grow items-center lg:flex hidden">
+                        <ul class="navbar-nav flex w-full relative z-[3] flex-row justify-end">
+                            <li class="ml-[30px] nav-item dropdown">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="index.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="ml-[30px] nav-item dropdown">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="room.html">
+                                    Rooms
+                                </a>
+                            </li>
+                            <li class="ml-[30px] nav-item dropdown">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link relative dropdown-toggle" href="javascript:void(0)">
+                                    Pages <i class="ri-arrow-down-s-line ml-[5px]"></i>
+                                </a>
+                                <ul class="dropdown-menu min-w-[150px] text-left opacity-0 invisible bg-[#fff] shadow-[0_0_3px_1px_rgba(0,0,0,0.2)] block z-[9] rounded-t-[0] rounded-b-[10px] mt-[30px] transition-all duration-[0.3s] ease-in-out">
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="about.html">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="contact.html">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="facilities.html">Facilities</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="faq.html">Faq</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="services.html">Services</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="spa.html">Spa</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="team.html">Team</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="ml-[30px] nav-item dropdown">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link relative dropdown-toggle" href="javascript:void(0)">
+                                    Blog <i class="ri-arrow-down-s-line ml-[5px]"></i>
+                                </a>
+                                <ul class="dropdown-menu min-w-[150px] text-left opacity-0 invisible bg-[#fff] shadow-[0_0_3px_1px_rgba(0,0,0,0.2)] block z-[9] rounded-t-[0] rounded-b-[10px] mt-[30px] transition-all duration-[0.3s] ease-in-out">
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="blog.html">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-[14px] text-[#777] capitalize hover:text-[#7b6c55]" href="blog-details.html">Blog-details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="ml-[30px] nav-item dropdown">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="oliveafarmtotable.html">
+                                    Olivea Farm to Table
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile-menu -->
+    <div class="lh-sidebar-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[17]"></div>
+    <div id="lh_mobile_menu" class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fff] overflow-y-auto z-[20] p-[15px]">
+        <div class="w-full flex flex-wrap justify-between border-b-2 border-solid border-[#e3e1e1] pb-[10px] mb-[10px]">
+            <span class="text-[18px] text-[#7b6c55] font-semibold">My Menu</span>
+            <button type="button" class="lh-close relative border-0 text-[30px] leading-[1px] text-[#999] bg-[#fff]">×</button>
+        </div>
+        <div class="lh-menu-inner flex flex-col justify-between">
+            <input type="text" placeholder="Search" class="lh-menu-box h-[45px] w-full px-[10px] m-0 border-0 outline-none rounded-[5px] bg-[#eee]">
+            <div class="lh-menu-content">
+                <ul>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="index.html" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Home</a>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Categories</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="gallery.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">gallery 1</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="gallery-2.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">gallery 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Room</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="room.html" class="block capitalize opacity-80 pl-[20px] hover:text-[#444] border-b border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Room</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="room-details.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Room-details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Pages</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="about.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">About Us</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="contact.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Contact</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="facilities.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Facilities</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="faq.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Faq</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="prices.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Prices</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="services.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Services</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="spa.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Spa</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="team.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Team</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="checkout.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Checkout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] no-underline hover:text-[#444] border-b border-solid border-[#e3e1e1] p-[10px]">Blog</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="blog.html" class="block capitalize opacity-80 pl-[20px] border-b border-solid hover:text-[#444] border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Blog</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="blog-details.html" class="block capitalize opacity-80 pl-[20px] border-b border-solid hover:text-[#444] border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Blog-details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="oliveafarmtotable.html" class="block capitalize text-[15px] font-normal text-[#444] no-underline border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px]">Restaurant</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Mobile-menu -->
+    <div class="lh-sidebar-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[17]"></div>
+    <div id="lh_mobile_menu" class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fff] overflow-y-auto z-[20] p-[15px]">
+        <div class="w-full flex flex-wrap justify-between border-b-2 border-solid border-[#e3e1e1] pb-[10px] mb-[10px]">
+            <span class="text-[18px] text-[#ed5b31] font-semibold">My Menu</span>
+            <button type="button" class="lh-close relative border-0 text-[30px] leading-[1px] text-[#999] bg-[#fff]">×</button>
+        </div>
+        <div class="lh-menu-inner flex flex-col justify-between">
+            <input type="text" placeholder="Search" class="lh-menu-box h-[45px] w-full px-[10px] m-0 border-0 outline-none rounded-[5px] bg-[#eee]">
+            <div class="lh-menu-content">
+                <ul>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="index.html" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Home</a>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Categories</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="gallery.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">gallery 1</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="gallery-2.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">gallery 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Room</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="room.html" class="block capitalize opacity-80 pl-[20px] hover:text-[#444] border-b border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Room</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="room-details.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Room-details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] hover:text-[#444] no-underline border-b border-solid border-[#e3e1e1] p-[10px]">Pages</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="about.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">About Us</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="contact.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Contact</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="facilities.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Facilities</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="faq.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Faq</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="prices.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Prices</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="services.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Services</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="spa.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Spa</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="team.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Team</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="checkout.html" class="block capitalize opacity-80 pl-[20px] border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Checkout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="#" class="block capitalize text-[15px] font-normal text-[#444] no-underline hover:text-[#444] border-b border-solid border-[#e3e1e1] p-[10px]">Blog</a>
+                        <ul class="sub-menu shadow-none transition-none hidden w-full static visible opacity-100 p-0 mb-0">
+                            <li class="relative leading-[28px]">
+                                <a href="blog.html" class="block capitalize opacity-80 pl-[20px] border-b border-solid hover:text-[#444] border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Blog</a>
+                            </li>
+                            <li class="relative leading-[28px]">
+                                <a href="blog-details.html" class="block capitalize opacity-80 pl-[20px] border-b border-solid hover:text-[#444] border-[#e3e1e1] p-[10px] text-[14px] text-[#444] no-underline font-light">Blog-details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown drop-list leading-[28px]">
+                        <a href="oliveafarmtotable.html" class="block capitalize text-[15px] font-normal text-[#444] no-underline border-b hover:text-[#444] border-solid border-[#e3e1e1] p-[10px]">Restaurant</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <section class="section-banner">
+        <div class="banner-image flex flex-wrap w-full justify-center sm:h-[400px] h-[300px] m-0 bg-[url('assets/img/about/about-banner.png')] bg-cover bg-bottom">
+            <div class="w-full sm:h-[400px] h-[300px] absolute bg-[#000000bf]"></div>
+            <div class="banner-section flex items-center justify-center text-center z-2">
+                <div class="lh-banner-contain mt-[65px]">
+                    <h2 class="mb-[12px] 2xl:text-[40px] xl:text-[38px] lg:text-[36px] md:text-[34px] sm:text-[30px] text-[28px] font-bold">About Us</h2>
+                    <div class="lh-breadcrumb">
+                        <h5 class="text-[16px]">
+                            <span>
+                                <a href="index.html" class="text-[#fff] hover:text-[#fff]">Home</a>
+                            </span>
+                            <span class="font-bold"> / </span>
+                            <span>
+                                <a href="javascript:void(0)" class="text-[#fff] hover:text-[#fff]">About Us</a>
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section-about relative xl:py-[100px] py-[70px]">
+        <div class="before:bg-[url('assets/img/theme/6.png')] dark-opicity-5 bg-size-full before:absolute before:z-[-1] 2xl:before:w-[240px] 2xl:before:h-[130px] before:h-[100px] before:w-[180px] before:bottom-[100px] before:left-[-80px]"></div>
+        <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+            <div class="flex flex-wrap mb-[-24px]">
+                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="before:bg-[url('assets/img/theme/1.png')] bg-size-full dark-opicity-5 before:absolute before:z-[-1] 2xl:before:w-[150px] before:w-[120px] 2xl:before:h-[150px] before:h-[120px] before:top-0 2xl:before:left-[-150px] before:left-[-130px]"></div>
+                    <img src="assets/img/about/about-page-1.png" alt="about-page-1" class="w-100">
+                </div>
+                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="h-full flex flex-col justify-center">
+                        <div class="text-left w-full lg:mb-[30px] mb-[12px]">
+                            <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
+                                The world's best <span class="text-[#ed5b31]">Luxury Hotel</span>
+                            </h2>
+                        </div>
+                        <div class="xl:pb-[24px] pb-[15px] border-b border-solid border-[#e3e1e1]">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem corrupti libero itaque,
+                                exercitationem nemo porro enim officiis consectetur fugit debitis repellendus sed
+                                ratione maxime adipisci eos vitae cupiditate neque expedita!</p>
+                        </div>
+                        <div class="flex flex-wrap mb-[-15px] ld-about-rows relative xl:py-[24px] py-[15px]">
+                            <div class="sm:w-1/2 w-full mb-[15px] sm:pr-[12px] pr-[0]">
+                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
+                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Mission
+                                </h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
+                                    Dicta modi incidunt cupiditate!</p>
+                            </div>
+                            <div class="sm:w-1/2 w-full mb-[15px] sm:pl-[12px] pl-[0]">
+                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
+                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Vision
+                                </h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
+                                    Dicta modi incidunt cupiditate!</p>
+                            </div>
+                        </div>
+                        <div class="text-[18px] font-medium">
+                            <i class="ri-phone-line text-[#ed5b31]"></i> +1 987 654 3210
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="section-amenities bg-[#f7f5f1] relative xl:py-[100px] py-[70px]">
+        <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] relative">
+            <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="2000">
+                <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
+                    Amenities At <span class="text-[#ed5b31]">Hotel</span>
+                </h2>
+            </div>
+            <div class="flex flex-wrap mb-[-24px]">
+                <div class="md:w-1/2 w-full px-[12px] mb-[24px]">
+                    <div class="lh-amenities shadow-[0_0_50px_0_rgba(0,0,0,0.1)] flex rounded-[15px] bg-[#fff] overflow-hidden" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
+                                <img src="assets/img/amenities/1.png" alt="amenities_1" class="w-full h-full xl:rounded-none rounded-[15px]">
+                            </div>
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] px-[24px] pb-[24px] flex items-center justify-center">
+                                <div class="lh-amenities-in relative xl:p-[24px] px-[0]">
+                                    <h4 class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0] right-[0] text-[55px] font-extrabold leading-[55px] text-[#0000000d]"> 01</h4>
+                                    <div class="lh-top-dish pb-[15px]">
+                                        <img src="assets/img/amenities/amenities-dish-1.svg" class="svg-img w-[50px] h-[50px]" alt="amenities-dish-1">
+                                    </div>
+                                    <div class="amenities-contain">
+                                        <h4 class="amenities-heading xl:text-[22px] text-[18px] font-bold text-[#000] leading-[1.2]">Our Restaurant</h4>
+                                        <p class="text-[14px] lg:py-[15px] md:py-[10px] py-[5px]">
+                                            This is the dolor sit amet adipisicing elit. Ducimus corrupti sit amet
+                                            tempore placeat ipsa.</p>
+                                        <a href="facilities.html" class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
+                                            more <i class="ri-arrow-right-line text-[15px] ml-[2px] duration-[0.2s] ease-in-out"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full px-[12px] mb-[24px]">
+                    <div class="lh-amenities shadow-[0_0_50px_0_rgba(0,0,0,0.1)] flex rounded-[15px] bg-[#fff] overflow-hidden" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
+                                <img src="assets/img/amenities/2.png" alt="amenities_2" class="w-full h-full xl:rounded-none rounded-[15px]">
+                            </div>
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] px-[24px] pb-[24px] flex items-center justify-center">
+                                <div class="lh-amenities-in relative xl:p-[24px] px-[0]">
+                                    <h4 class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0] right-[0] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">02</h4>
+                                    <div class="lh-top-dish pb-[15px]">
+                                        <img src="assets/img/amenities/amenities-dish-2.svg" class="svg-img w-[50px] h-[50px]" alt="amenities-dish-2">
+                                    </div>
+                                    <div class="amenities-contain">
+                                        <h4 class="amenities-heading xl:text-[22px] text-[18px] font-bold text-[#000] leading-[1.2]">Spa & Beauty</h4>
+                                        <p class="text-[14px] lg:py-[15px] md:py-[10px] py-[5px]">
+                                            This is the dolor sit amet adipisicing elit. Ducimus corrupti sit amet
+                                            tempore placeat ipsa.</p>
+                                        <a href="facilities.html" class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
+                                            more <i class="ri-arrow-right-line text-[15px] ml-[2px] duration-[0.2s] ease-in-out"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full px-[12px] mb-[24px]">
+                    <div class="lh-amenities shadow-[0_0_50px_0_rgba(0,0,0,0.1)] flex rounded-[15px] bg-[#fff] overflow-hidden" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] px-[24px] pt-[24px] flex items-center justify-center">
+                                <div class="lh-amenities-in relative xl:p-[24px] px-[0] lh-amenities-right">
+                                    <h4 class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0] right-[0] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">03</h4>
+                                    <div class="lh-top-dish pb-[15px]">
+                                        <img src="assets/img/amenities/amenities-dish-4.svg" class="svg-img w-[50px] h-[50px]" alt="amenities-dish-3">
+                                    </div>
+                                    <div class="amenities-contain">
+                                        <h4 class="amenities-heading xl:text-[22px] text-[18px] font-bold text-[#000] leading-[1.2]">Golf & Garden</h4>
+                                        <p class="text-[14px] xl:py-[15px] lg:py-[15px] md:py-[10px] py-[5px]">
+                                            This is the dolor sit amet adipisicing elit. Ducimus corrupti sit amet
+                                            tempore placeat ipsa.</p>
+                                        <a href="facilities.html" class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read more
+                                            <i class="ri-arrow-right-line text-[15px] ml-[2px] duration-[0.2s] ease-in-out"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
+                                <img src="assets/img/amenities/3.png" alt="amenities_3" class="w-full h-full xl:rounded-none rounded-[15px]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full px-[12px] mb-[24px]">
+                    <div class="lh-amenities shadow-[0_0_50px_0_rgba(0,0,0,0.1)] flex rounded-[15px] bg-[#fff] overflow-hidden" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] px-[24px] pt-[24px] flex items-center justify-center">
+                                <div class="lh-amenities-in relative xl:p-[24px] px-[0] lh-amenities-right">
+                                    <h4 class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0] right-[0] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">04</h4>
+                                    <div class="lh-top-dish pb-[15px]">
+                                        <img src="assets/img/amenities/amenities-dish-3.svg" class="svg-img w-[50px] h-[50px]" alt="amenities-dish-4">
+                                    </div>
+                                    <div class="amenities-contain">
+                                        <h4 class="amenities-heading xl:text-[22px] text-[18px] font-bold text-[#000] leading-[1.2]">Fitness & Gym</h4>
+                                        <p class="text-[14px] lg:py-[15px] md:py-[10px] py-[5px]">
+                                            This is the dolor sit amet adipisicing elit. Ducimus corrupti sit amet
+                                            tempore placeat ipsa.</p>
+                                        <a href="facilities.html" class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read more
+                                            <i class="ri-arrow-right-line text-[15px] ml-[2px] duration-[0.2s] ease-in-out"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
+                                <img src="assets/img/amenities/4.png" alt="amenities_4" class="w-full h-full xl:rounded-none rounded-[15px]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section-ab-team xl:py-[100px] py-[70px]">
+        <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+            <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
+                    Behind our <span class="text-[#ed5b31]">Hotel</span>
+                </h2>
+            </div>
+            <div class="flex flex-wrap mb-[-24px]">
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="500">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/1.png" alt="team-1" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Alisha Scoff</h5>
+                            <p class="text-[14px]">Owner</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/2.png" alt="team-2" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Tomas Finn</h5>
+                            <p class="text-[14px]">Manager</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/3.png" alt="team-3" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Alfred Gun</h5>
+                            <p class="text-[14px]">Front Office</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/4.png" alt="team-4" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Katty Olson</h5>
+                            <p class="text-[14px]">Supervisor</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="500">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/5.png" alt="team-5" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Tiffany Enifer</h5>
+                            <p class="text-[14px]">Front Office</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/6.png" alt="team-6" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#"><i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                                <a href="#"><i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i></a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Arnold Taylor</h5>
+                            <p class="text-[14px]">Master Chef</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/7.png" alt="team-7" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#">
+                                    <i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Megan Black</h5>
+                            <p class="text-[14px]">Room Cleaner</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="lh-team">
+                        <div class="lh-team-image duration-[0.3s] ease-in-out p-[12px] relative truncate border-[1px] border-solid border-[#000] rounded-[15px] bg-[#fff]">
+                            <img src="assets/img/team/8.png" alt="team-8" class="w-full rounded-[15px]">
+                            <div class="lh-team-inner translate-y-[-50%] translate-x-[-50%] duration-[0.6s] ease-in-out p-[2px] absolute top-[50%] lg:right-[-60px] z-[1] grid bg-[#fff] rounded-[5px]">
+                                <a href="#">
+                                    <i class="ri-facebook-box-line facebook duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ri-twitter-x-line twitter duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ri-linkedin-box-line linkedin duration-[0.3s] ease-in-out hover:text-[#ed5b31] cursor-pointer text-[20px] flex p-[5px] justify-center"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lh-team-contain pt-[15px] relative">
+                            <h5 class="mb-[2px] text-[#000] lg:text-[18px] text-[16px] font-bold">Denys Walker</h5>
+                            <p class="text-[14px]">Chef</p>
+                            <i class="ri-arrow-right-line duration-[0.3s] ease-in-out absolute right-0 bottom-0 text-[20px] text-[#000]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="section-blog bg-[#f7f5f1] xl:py-[100px] py-[70px]">
+        <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+            <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="2000">
+                <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">Stay Update With <span class="text-[#ed5b31]">Us</span></h2>
+            </div>
+            <div class="slick-slider blog-slider my-0 lg:flex flex-wrap w-full">
+                <div class="blog-card mx-[12px] my-0">
+                    <figure class="m-0 relative truncate"><img src="assets/img/blog/2.png" alt="blog-img" class="w-full rounded-[15px]"></figure>
+                    <div class="lh-blog flex flex-col justify-center">
+                        <div class="lh-blog-date py-[15px] leading-[15px]">
+                            <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#ed5b31]">Restaurant</code> - 09 Jan 2023 - 05 Comment</span>
+                        </div>
+                        <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]" href="blog-details.html">Offers Exclusive amenities & Facilities To Guests and free offers.</a>
+                    </div>
+                </div>
+                <div class="blog-card mx-[12px] my-0">
+                    <figure class="m-0 relative truncate"><img src="assets/img/blog/3.png" alt="blog-img" class="w-full rounded-[15px]"></figure>
+                    <div class="lh-blog flex flex-col justify-center">
+                        <div class="lh-blog-date py-[15px] leading-[15px]">
+                            <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#ed5b31]">Marketing</code> - 15 Feb 2023 - 22 Comment</span>
+                        </div>
+                        <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]" href="blog-details.html">Announces A Private Island Hotel In The Maldives for couple.</a>
+                    </div>
+                </div>
+                <div class="blog-card mx-[12px] my-0">
+                    <figure class="m-0 relative truncate"><img src="assets/img/blog/4.png" alt="blog-img" class="w-full rounded-[15px]"></figure>
+                    <div class="lh-blog flex flex-col justify-center">
+                        <div class="lh-blog-date py-[15px] leading-[15px]">
+                            <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#ed5b31]">Hotel</code> - 22 Dec 2023 - 00 Comment</span>
+                        </div>
+                        <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]" href="blog-details.html">Exclusive amenities Facilities to Guests Offers rooms free.</a>
+                    </div>
+                </div>
+                <div class="blog-card mx-[12px] my-0">
+                    <figure class="m-0 relative truncate"><img src="assets/img/blog/5.png" alt="blog-img" class="w-full rounded-[15px]"></figure>
+                    <div class="lh-blog flex flex-col justify-center">
+                        <div class="lh-blog-date py-[15px] leading-[15px]">
+                            <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#ed5b31]">Rooms</code> - 11 Nov 2023 - 01 Comment</span>
+                        </div>
+                        <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]" href="blog-details.html">Island Hotel In The Maldives Exclusive     amenities Facilities.</a>
+                    </div>
+                </div>
+                <div class="blog-card mx-[12px] my-0">
+                    <figure class="m-0 relative truncate"><img src="assets/img/blog/6.png" alt="blog-img" class="w-full rounded-[15px]"></figure>
+                    <div class="lh-blog flex flex-col justify-center">
+                        <div class="lh-blog-date py-[15px] leading-[15px]">
+                            <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#ed5b31]">Spa</code> - 02 Mar 2023 - 25 Comment</span>
+                        </div>
+                        <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]" href="blog-details.html">Amenities Facilities to Guests Offers rooms free Exclusive.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-[70px] bg-[#2b2b2d]">
+        <div class="mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+            <div class="footer-top-section pb-[70px]">
+                <div class="flex flex-wrap mb-[-24px] w-full">
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[1] order-[2]">
+                        <div class="lh-footer-cols-contain">
+                            <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                <h4 class="text-[18px] leading-[1.25] font-medium">Explore</h4>
+                            </div>
+                            <ul>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="index.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">Home</a>
+                                </li>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="about.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">About</a>
+                                </li>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="room-details.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">Rooms & suites</a>
+                                </li>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="spa.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">spa & Wellness</a>
+                                </li>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="oliveafarmtotable.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">Restaurant</a>
+                                </li>
+                                <li class="py-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="gallery.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">Gallery</a>
+                                </li>
+                                <li class="pt-[5px]">
+                                    <code class="text-[16px] text-[#ed5b31]">*</code>
+                                    <a href="contact.html" class="text-[14px] text-[#bfbfc0] hover:text-[#bfbfc0]">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 w-full px-[12px] mb-[24px] lg:order-[2] order-[1]">
+                        <div class="lh-social-media h-full lg:border-x-[1px] lg:border-b-[0] md:border-b-[1px] border-b-[0] lg:pb-[0] md:pb-[30px] pb-[0] border-solid border-[#808384]">
+                            <div class="footer-logos flex md:justify-center justify-start">
+                                <img src="assets/img/logo/logo.png" alt="logo" class="w-[180px]">
+                            </div>
+                            <div class="lh-footer-social lg:p-[24px] py-[24px] lg:border-b border-solid border-[#808384]">
+                                <p class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#bfbfc0] leading-[22px]">
+                                    This is the dolor sit amet consectetur adipisicing elit. Libero voluptatem soluta
+                                    eaque ullam accusantium animi!</p>
+                                <form class="lh-control-footer mt-[24px] relative flex items-center lg:max-w-full ml-[auto] mr-[auto] md:max-w-[500px] max-w-full" role="search">
+                                    <div class="lh-control-inner-icons w-[40px] h-[40px] bg-[#ed5b31] flex items-center justify-center cursor-pointer absolute right-[5px] top-[5px] z-2 rounded-[10px]">
+                                        <i class="ri-send-plane-line text-[20px] text-[#fff]"></i>
+                                    </div>
+                                    <input class="form-control shadow-none border-0 focus:bg-hidden text-[14px] font-light text-[#fff] z-1 relative bg-[#4b4b4c] w-full h-[50px] m-0 pl-[15px] pr-0 py-0" type="search" placeholder="Subscribe..." aria-label="Search">
+                                </form>
+                            </div>
+                            <div class="lh-follow-social md:block flex-col justify-self-center items-center xl:pt-[24px] xl:pb-0 lg:pt-[22px] lg:pb-0 pt-[0] lg:pb-[30px] pb-0">
+                                <h4 class="heading text-[18px] font-medium md:text-center text-left">Follow On Social</h4>
+                                <div class="footer-logo-image flex md:justify-center pt-[15px] md:text-center text-left">
+                                    <a href="#">
+                                        <img src="assets/img/logo/facebook.png" alt="facebook" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                    <a href="#">
+                                        <img src="assets/img/logo/twitter.png" alt="twitter" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                    <a href="https://www.instagram.com/myahotelboutique">
+                                        <img src="assets/img/logo/instagram.png" alt="instagram" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                    <a href="#">
+                                        <img src="assets/img/logo/linkedin.png" alt="linkedin" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                    <a href="#">
+                                        <img src="assets/img/logo/dribbble.png" alt="dribbble" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                    <a href="#">
+                                        <img src="assets/img/logo/pinterest.png" alt="pinterest" class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[3] order-[3]">
+                        <div class="lh-footer-cols-contain ">
+                            <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                <h4 class="text-[18px] leading-[1.25] font-medium">Contact Information</h4>
+                            </div>
+                            <div class="lh-footer-contact-infoemation">
+                                <ul>
+                                    <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
+                                        <h5 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">Location</h5>
+                                        <span class="text-[14px] text-[#bfbfc0]">5 Green st.Huntington stati on, Ny 11746, Libero voluptatem soluta Bharat.</span>
+                                    </li>
+                                    <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
+                                        <h5 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">Email</h5>
+                                        <span class="text-[14px] text-[#bfbfc0]">example@ec-email.com</span>
+                                    </li>
+                                    <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px] pb-0">
+                                        <h5 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">Phone No</h5>
+                                        <span class="text-[14px] text-[#bfbfc0]">+91(1234)(567)(890)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-copy px-[12px]">
+                <div class="flex justify-center border-t-[1px] border-solid border-[#808384]">
+                    <span class="text-[#fff] py-[10px] text-center">Copyright @ <span id="copyright_year"></span>
+                    <a href="index.html" class="text-[#ed5b31] hover:text-[#ed5b31]">Luxurious</a> All Rights Reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tap to top -->
+    <a href="#" class="back-to-top hidden fixed right-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#ed5b31] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
+        <i class="ri-arrow-up-double-line text-[20px]"></i>
+    </a>
+
+    <!-- Side-tool -->
+    <div class="tool-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[16]"></div>
+    <div class="lh-tool w-[280px] fixed top-0 right-[-280px] z-[16] duration-[0.4s] ease text-[#000]">
+        <div class="flex text-[#000] select-none">
+            <button type="button" class="btn-lh-tool result-placeholder close-tool duration-[0.3s] ease-in h-[40px] w-[40px] px-[10px] mt-[200px] ml-[-40px] border-0 rounded-l-[10px] bg-[#000] text-[#fff]">
+                <i class="ri-settings-line text-[20px]"></i>
+                <span class="hidden">tool</span>
+            </button>
+            <div class="h-screen p-0 m-0 bg-[#fff]">
+                <div class="p-[24px] flex items-center justify-between border-b-[1px] border-solid border-[#e3e1e1]">
+                    <h5 class="text-[#000] font-bold text-[18px]">Tools</h5>
+                </div>
+                <div class="pt-[24px] pr-[24px] pl-[24px]">
+                    <h2 class="mb-0 text-left text-[15px] font-bold text-[#000]">Select Color</h2>
+                </div>
+                <ul class="lh-color p-[24px] m-0 border-b-[1px] border-solid border-[#e3e1e1]">
+                    <li class="c1 bg-[#ed5b31] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px] active-colors"></li>
+                    <li class="c2 bg-[#3e9172] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c3 bg-[#677993] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c4 bg-[#d31111] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c5 bg-[#d3b41c] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c6 bg-[#db98b1] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c7 bg-[#799ffe] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c8 bg-[#F2709C] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                    <li class="c9 bg-[#ff8763] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px]"></li>
+                </ul>
+                <div class="pt-[24px] pr-[24px] pl-[24px]">
+                    <h2 class="mb-0 text-left text-[15px] font-bold text-[#000]">Dark mode</h2>
+                </div>
+                <ul class="dark-mode p-[24px] m-0 border-b-[1px] border-solid flex border-[#e3e1e1]">
+                    <li class="dark text-[#fff] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px] border-[1px] border-solid border-[#e3e1e1]"></li>
+                    <li class="white text-[#000] relative inline-block align-middle h-[30px] w-[30px] rounded-[50%] cursor-pointer m-[5px] border-[1px] border-solid border-[#e3e1e1] active-dark-mode"></li>
+                </ul>
+                <div class="pt-[24px] pr-[24px] pl-[24px]">
+                    <h2 class="mb-0 text-left text-[15px] font-bold text-[#000]">Skin mode</h2>
+                </div>
+                <ul class="skin-mode p-[24px] m-0 border-b-[1px] border-solid flex border-[#e3e1e1]">
+                    <li class="skin-1 relative inline-block m-[5px]">
+                        <span class="cursor-pointer">
+                            <img src="assets/img/skin/1.png" alt="skin-1" class="h-[60px] w-[60px] rounded-[5px] border-[1px] border-solid border-[#e3e1e1]">
+                        </span>
+                    </li>
+                    <li class="skin-2 relative inline-block m-[5px]">
+                        <span class="cursor-pointer">
+                            <img src="assets/img/skin/2.png" alt="skin-2" class="h-[60px] w-[60px] rounded-[5px] border-[1px] border-solid border-[#e3e1e1]">
+                        </span>
+                    </li>
+                    <li class="skin-3 relative inline-block m-[5px] active">
+                        <span class="cursor-pointer">
+                            <img src="assets/img/skin/3.png" alt="skin-3" class="h-[60px] w-[60px] rounded-[5px] border-[1px] border-solid border-[#e3e1e1]">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/aos.js"></script>
+    <script src="assets/js/vendor/semantic.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+
+    <!-- main style -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
