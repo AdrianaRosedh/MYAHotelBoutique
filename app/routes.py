@@ -1,13 +1,59 @@
-from flask import request, jsonify, render_template, current_app as app
+from flask import Blueprint, render_template, request, redirect, url_for, session
 import openai
+import os
 
-openai.api_key = 'your_openai_api_key'
+bp = Blueprint('main', __name__)
 
-@app.route('/')
+# Securely load the OpenAI API key from environment variables
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+@bp.route('/')
 def index():
-    return render_template('index.html')
+    current_language = session.get('language', 'en')
+    if current_language == 'es':
+        return redirect(url_for('main.index_es'))
+    return redirect(url_for('main.index_en'))
 
-@app.route('/chat', methods=['POST'])
+@bp.route('/en')
+def index_en():
+    session['language'] = 'en'
+    email = "info@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    return render_template('index_en.html', email=email, phone=phone)
+
+@bp.route('/es')
+def index_es():
+    session['language'] = 'es'
+    email = "info@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    return render_template('index_es.html', email=email, phone=phone)
+
+@bp.route('/restaurant')
+def restaurant():
+    current_language = session.get('language', 'en')
+    email = "olivea@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    if current_language == 'es':
+        return render_template('restaurant_es.html', email=email, phone=phone)  
+    return render_template('restaurant_en.html', email=email, phone=phone)  
+
+
+@bp.route('/divino')
+def divino():
+    current_language = session.get('language', 'en')
+    email = "padel@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    if current_language == 'es':
+        return render_template('divino_es.html', email=email, phone=phone)
+    return render_template('divino_en.html', email=email, phone=phone)
+
+@bp.route('/set_language', methods=['POST'])
+def set_language():
+    selected_language = request.form.get('language')
+    session['language'] = selected_language
+    return redirect(url_for('main.index'))
+
+@bp.route('/chat', methods=['POST'])
 def chat():
     user_message = request.json.get('message')
     response = openai.Completion.create(
