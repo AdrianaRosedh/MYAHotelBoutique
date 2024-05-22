@@ -1484,6 +1484,20 @@
             </div>
         </section>
 
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-toggle" class="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none" onclick="toggleChatbot()">Chat</button>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container" class="fixed bottom-4 right-4 w-80 max-h-96 border border-gray-300 bg-white rounded-lg shadow-lg flex flex-col hidden z-50">
+        <div id="chatbot-header" class="bg-blue-500 text-white p-2 cursor-move rounded-t-lg flex justify-between items-center">
+            <span>Chat with us</span>
+            <button onclick="closeChatbot()" class="text-white focus:outline-none">&times;</button>
+        </div>
+        <div id="chatbox" class="flex-1 p-4"></div>
+        <input type="text" id="user-input" placeholder="Type a message..." class="p-2 border-t border-gray-300 focus:outline-none">
+    </div>
+
+        
         <!-- Footer -->
         <footer class="pt-[70px] bg-[#a8a29e]">
             <div
@@ -1693,7 +1707,7 @@
 
         <!-- Tap to top -->
         <a href="#"
-            class="back-to-top hidden fixed right-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
+            class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
             <i class="ri-arrow-up-double-line text-[20px]"></i>
         </a>
 
@@ -1720,6 +1734,7 @@
                 </a>
             </nav>
         </div>
+        
 
         <!-- booking engine modal-->
         <div id="bookingModal"
