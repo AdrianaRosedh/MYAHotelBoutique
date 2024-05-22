@@ -1670,3 +1670,12 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+/*# openai */
+#chatbox {
+  overflow-y: auto;
+}
+#chatbot-container {
+  resize: both;
+  overflow: hidden;
+}
