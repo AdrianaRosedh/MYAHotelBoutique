@@ -1,15 +1,32 @@
-from flask import Flask
-from dotenv import load_dotenv
-import os
+# /app/__init__.py
 
-load_dotenv()
+from flask import Flask, request, session
+from flask_babel import Babel
+
+def get_locale():
+    return session.get('language', request.accept_languages.best_match(['en', 'es']))
+
+def get_timezone():
+    return 'UTC'
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = os.getenv('SECRET_KEY', 'your_default_secret_key')  # Ensure the secret key is set for sessions
 
-    with app.app_context():
-        from . import routes
-        app.register_blueprint(routes.bp)
+    # Configuration
+    app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+    app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+    app.secret_key = 'your_secret_key'
+
+    # Initialize Babel with the locale and timezone selector functions
+    babel = Babel(app, locale_selector=get_locale, timezone_selector=get_timezone)
+
+    # Register Blueprints
+    from .routes import bp as main_bp
+    app.register_blueprint(main_bp)
+
+    # Define context processor to inject `locale` into templates
+    @app.context_processor
+    def inject_locale():
+        return {'locale': get_locale()}
 
     return app

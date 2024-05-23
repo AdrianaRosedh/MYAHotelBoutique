@@ -155,50 +155,52 @@
     });
   
     /* Custom select */
-    $('select').each(function () {
-      var $this = $(this), selectOptions = $(this).children('option').length;
-  
-      $this.addClass('hide-select');
-      $this.wrap('<div class="select"></div>');
-      $this.after('<div class="custom-select active"></div>');
-  
-      var $customSelect = $this.next('div.custom-select.active');
-      $customSelect.text($this.children('option').eq(0).text());
-  
-      var $optionlist = $('<ul />', {
-        'class': 'select-options'
-      }).insertAfter($customSelect);
-  
-      for (var i = 0; i < selectOptions; i++) {
-        $('<li />', {
-          text: $this.children('option').eq(i).text(),
-          rel: $this.children('option').eq(i).val()
-        }).appendTo($optionlist);
-      }
-  
-      var $optionlistItems = $optionlist.children('li');
-  
-      $customSelect.click(function (e) {
-        e.stopPropagation();
-        $('div.custom-select.active').not(this).each(function () {
-          $(this).removeClass('active').next('ul.select-options').hide();
+    $(document).ready(function() {
+      $('select.language-form').each(function () {
+        var $this = $(this), selectOptions = $(this).children('option').length;
+    
+        $this.addClass('hide-select');
+        $this.wrap('<div class="select"></div>');
+        $this.after('<div class="custom-select active"></div>');
+    
+        var $customSelect = $this.next('div.custom-select.active');
+        $customSelect.text($this.children('option:selected').text()); // Set initial text to the selected option
+    
+        var $optionlist = $('<ul />', {
+          'class': 'select-options'
+        }).insertAfter($customSelect);
+    
+        for (var i = 0; i < selectOptions; i++) {
+          $('<li />', {
+            text: $this.children('option').eq(i).text(),
+            rel: $this.children('option').eq(i).val()
+          }).appendTo($optionlist);
+        }
+    
+        var $optionlistItems = $optionlist.children('li');
+    
+        $customSelect.click(function (e) {
+          e.stopPropagation();
+          $('div.custom-select.active').not(this).each(function () {
+            $(this).removeClass('active').next('ul.select-options').hide();
+          });
+          $(this).toggleClass('active').next('ul.select-options').slideToggle();
         });
-        $(this).toggleClass('active').next('ul.select-options').slideToggle();
+    
+        $optionlistItems.click(function (e) {
+          e.stopPropagation();
+          $customSelect.text($(this).text()).removeClass('active');
+          $this.val($(this).attr('rel')).trigger('change'); // Update the original select value and trigger change
+          $optionlist.hide();
+        });
+    
+        $(document).click(function () {
+          $customSelect.removeClass('active');
+          $optionlist.hide();
+        });
       });
-  
-      $optionlistItems.click(function (e) {
-        e.stopPropagation();
-        $customSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $optionlist.hide();
-      });
-  
-      $(document).click(function () {
-        $customSelect.removeClass('active');
-        $optionlist.hide();
-      });
-  
     });
+    
   
     /* Tap to top */
     $(window).scroll(function () {
@@ -574,12 +576,7 @@
           bookingForm.reset();
       }
   });
-
-  // Top Progress bar
-
-// main.js
-
-// main.js
+// Top Progress bar
 
 window.addEventListener('scroll', function() {
   var scrollTop = window.scrollY;
@@ -595,6 +592,11 @@ window.addEventListener('scroll', function() {
   } else {
       backToTop.style.display = 'none';
   }
+});
+
+// ensure the language form submits correctly via JavaScript:
+document.querySelector('.language-form select').addEventListener('change', function() {
+  this.form.submit();
 });
 
 

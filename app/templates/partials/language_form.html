@@ -1,0 +1,8 @@
+<!-- /app/templates/partials/language_form.html -->
+
+<form method="POST" action="{{ url_for('main.set_language') }}" class="language-form">
+    <select name="language" class="language-form " onchange="this.form.submit()">
+        <option value="en" {% if locale == 'en' %}selected{% endif %}>English</option>
+        <option value="es" {% if locale == 'es' %}selected{% endif %}>Español</option>
+    </select>
+</form>
