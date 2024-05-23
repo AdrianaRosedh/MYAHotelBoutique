@@ -28,21 +28,21 @@ MYA Hotel Boutique is a website designed to offer an exceptional online experien
 
 ## Screenshots
 
-![Home Page](screenshots/home.png)
-*Description: The elegant home page of MYA Hotel Boutique.*
-
-![Booking Page](screenshots/booking.png)
-*Description: The user-friendly booking page.*
+- **Home Page**
+  ![Home Page](screenshots/home_page.png)
+- **Booking Page**
+  ![Booking Page](screenshots/booking_page.png)
 
 ## Technologies Used
 
 - **HTML**: For structuring the content.
 - **CSS**: For styling the website.
 - **JavaScript**: For interactive elements and functionalities.
+- **Python**: Backend logic using Flask framework.
 
 ## Installation
 
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
    git clone https://github.com/AdrianaRosedh/MYAHotelBoutique.git
 
