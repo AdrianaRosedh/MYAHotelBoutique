@@ -29,14 +29,13 @@ def index_es():
     return render_template('index_es.html', email=email, phone=phone)
 
 @bp.route('/oliveafarmtotable')
-def restaurant():
+def oliveafarmtotable():
     current_language = session.get('language', 'en')
     email = "olivea@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
     if current_language == 'es':
-        return render_template('restaurant_es.html', email=email, phone=phone)  
-    return render_template('restaurant_en.html', email=email, phone=phone)  
-
+        return render_template('oliveafarmtotable_es.html', email=email, phone=phone)
+    return render_template('oliveafarmtotable_en.html', email=email, phone=phone)
 
 @bp.route('/divino')
 def divino():
