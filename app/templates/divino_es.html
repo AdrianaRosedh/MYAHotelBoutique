@@ -7,6 +7,10 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 
 {% block keywords %}hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing{% endblock %}
 
+{% block favicon %}
+    <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-3.png') }}" type="image/x-icon">
+{% endblock %}
+
 {% block hreflang %}
 <link rel="alternate" href="{{ url_for('main.index_en', _external=True) }}" hreflang="en">
 <link rel="alternate" href="{{ url_for('main.index_es', _external=True) }}" hreflang="es">
