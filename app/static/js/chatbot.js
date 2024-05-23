@@ -3,6 +3,7 @@ export function initChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         if (chatbotContainer.classList.contains('hidden')) {
             chatbotContainer.classList.remove('hidden');
+            document.getElementById('user-input').focus();
         } else {
             chatbotContainer.classList.add('hidden');
         }
@@ -10,6 +11,7 @@ export function initChatbot() {
 
     function closeChatbot() {
         document.getElementById('chatbot-container').classList.add('hidden');
+        document.getElementById('chatbot-toggle').focus();
     }
 
     function dragElement(element) {
@@ -72,6 +74,32 @@ export function initChatbot() {
             chatbox.scrollTop = chatbox.scrollHeight;
         }
     }
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(event) {
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const userInput = document.getElementById('user-input');
+        const closeButton = chatbotContainer.querySelector('button[aria-label="Close Chatbot"]');
+
+        // Toggle chatbot with Enter key on the toggle button
+        if (event.key === 'Enter' && document.activeElement === chatbotToggle) {
+            toggleChatbot();
+        }
+
+        // Close chatbot with Enter key on the close button
+        if (event.key === 'Enter' && document.activeElement === closeButton) {
+            closeChatbot();
+        }
+
+        // Focus on user input when chatbot is opened
+        if (!chatbotContainer.classList.contains('hidden')) {
+            if (event.key === 'Tab' && document.activeElement === chatbotToggle) {
+                userInput.focus();
+                event.preventDefault();
+            }
+        }
+    });
 
     // Attach event listeners
     document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
