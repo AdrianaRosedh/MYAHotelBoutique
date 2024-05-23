@@ -28,7 +28,7 @@ def index_es():
     phone = "+52 (646) 388-2369"
     return render_template('index_es.html', email=email, phone=phone)
 
-@bp.route('/restaurant')
+@bp.route('/oliveafarmtotable')
 def restaurant():
     current_language = session.get('language', 'en')
     email = "olivea@myahotelboutique.com"

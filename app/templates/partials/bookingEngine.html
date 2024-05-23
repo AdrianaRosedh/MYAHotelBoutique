@@ -1,81 +1,66 @@
-        <!-- booking engine modal-->
-        <div id="bookingModal"
-            class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50"
-            role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div
-                class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg relative transform transition-all modal-enter">
-                <button id="closeModalButton"
-                    class="absolute top-0 right-0 mt-4 mr-4 text-gray-600 hover:text-gray-800"
-                    aria-label="Close modal">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <h2 id="modalTitle"
-                    class="text-2xl font-bold mb-6 text-center text-gray-800">Book
-                    Your Stay</h2>
-                <form id="bookingForm">
-                    <div class="mb-4">
-                        <label for="name"
-                            class="block text-gray-700 font-semibold">Name</label>
-                        <input type="text" id="name"
-                            class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required>
-                        <p id="nameError"
-                            class="text-red-500 text-sm hidden">Name is
-                            required</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email"
-                            class="block text-gray-700 font-semibold">Email</label>
-                        <input type="email" id="email"
-                            class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required>
-                        <p id="emailError"
-                            class="text-red-500 text-sm hidden">Valid email is
-                            required</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="checkin"
-                            class="block text-gray-700 font-semibold">Check-in
-                            Date</label>
-                        <input type="date" id="checkin"
-                            class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required>
-                        <p id="checkinError"
-                            class="text-red-500 text-sm hidden">Check-in date is
-                            required</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="checkout"
-                            class="block text-gray-700 font-semibold">Check-out
-                            Date</label>
-                        <input type="date" id="checkout"
-                            class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required>
-                        <p id="checkoutError"
-                            class="text-red-500 text-sm hidden">Check-out date
-                            is required</p>
-                    </div>
-                    <div class="mb-6">
-                        <label for="guests"
-                            class="block text-gray-700 font-semibold">Number of
-                            Guests</label>
-                        <input type="number" id="guests"
-                            class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required min="1">
-                        <p id="guestsError"
-                            class="text-red-500 text-sm hidden">At least one
-                            guest is required</p>
-                    </div>
-                    <div class="flex justify-center">
-                        <button type="submit"
-                            class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
-                            Reserve Now!
-                        </button>
-                    </div>
-                </form>
+<!-- booking engine modal-->
+<div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50"
+    role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg relative transform transition-all modal-enter">
+        <button id="closeModalButton" class="absolute top-0 right-0 mt-4 mr-4 text-gray-600 hover:text-gray-800"
+            aria-label="Close modal">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h2 id="modalTitle" class="text-2xl font-bold mb-6 text-center text-gray-800">Book
+            Your Stay</h2>
+        <form id="bookingForm">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold">Name</label>
+                <input type="text" id="name"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <p id="nameError" class="text-red-500 text-sm hidden">Name is
+                    required</p>
             </div>
-        </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-semibold">Email</label>
+                <input type="email" id="email"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <p id="emailError" class="text-red-500 text-sm hidden">Valid email is
+                    required</p>
+            </div>
+            <div class="mb-4">
+                <label for="checkin" class="block text-gray-700 font-semibold">Check-in
+                    Date</label>
+                <input type="date" id="checkin"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <p id="checkinError" class="text-red-500 text-sm hidden">Check-in date is
+                    required</p>
+            </div>
+            <div class="mb-4">
+                <label for="checkout" class="block text-gray-700 font-semibold">Check-out
+                    Date</label>
+                <input type="date" id="checkout"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <p id="checkoutError" class="text-red-500 text-sm hidden">Check-out date
+                    is required</p>
+            </div>
+            <div class="mb-6">
+                <label for="guests" class="block text-gray-700 font-semibold">Number of
+                    Guests</label>
+                <input type="number" id="guests"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required min="1">
+                <p id="guestsError" class="text-red-500 text-sm hidden">At least one
+                    guest is required</p>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit"
+                    class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
+                    Reserve Now!
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
