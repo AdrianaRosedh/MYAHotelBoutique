@@ -152,6 +152,12 @@ body {
   background: rgba(237, 90, 49, 0.15);
 }
 
+.language-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
 .font-Montserrat {
   font-family: "Montserrat";
 }
