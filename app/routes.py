@@ -1,11 +1,8 @@
+# /app/routes.py
+
 from flask import Blueprint, render_template, request, redirect, url_for, session
-import openai
-import os
 
 bp = Blueprint('main', __name__)
-
-# Securely load the OpenAI API key from environment variables
-openai.api_key = os.getenv('OPENAI_API_KEY')
 
 @bp.route('/')
 def index():
@@ -28,6 +25,12 @@ def index_es():
     phone = "+52 (646) 388-2369"
     return render_template('index_es.html', email=email, phone=phone)
 
+@bp.route('/set_language', methods=['POST'])
+def set_language():
+    selected_language = request.form.get('language')
+    session['language'] = selected_language
+    return redirect(url_for('main.index'))
+
 @bp.route('/oliveafarmtotable')
 def oliveafarmtotable():
     current_language = session.get('language', 'en')
@@ -45,12 +48,6 @@ def divino():
     if current_language == 'es':
         return render_template('divino_es.html', email=email, phone=phone)
     return render_template('divino_en.html', email=email, phone=phone)
-
-@bp.route('/set_language', methods=['POST'])
-def set_language():
-    selected_language = request.form.get('language')
-    session['language'] = selected_language
-    return redirect(url_for('main.index'))
 
 @bp.route('/chat', methods=['POST'])
 def chat():

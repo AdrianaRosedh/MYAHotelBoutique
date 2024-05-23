@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="{{ locale }}">
 
 <head>
     <meta charset="UTF-8">
@@ -61,14 +61,7 @@
                     <div class="flex items-center pl-[15px] lh-location">
                         <div class="flex items-center custom-select text-[14px] text-[#777]">
                             <i class="ri-earth-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
-                            <form method="POST" action="{{ url_for('main.set_language') }}" class="language-form">
-                                <select class="hidden" name="language" onchange="this.form.submit()">
-                                    <option value="en" {% if current_language=='en' %}selected{% endif %}>English
-                                    </option>
-                                    <option value="es" {% if current_language=='es' %}selected{% endif %}>Español
-                                    </option>
-                                </select>
-                            </form>
+                            {% include 'partials/language_form.html' %}
                         </div>
                     </div>
                 </div>

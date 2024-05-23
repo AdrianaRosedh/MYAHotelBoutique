@@ -242,6 +242,11 @@ h4, h5, h6 {
   background-size: 100%;
 }
 
+/* Ensure this CSS does not hide the functional select element */
+.hide-select {
+  display: none; /* Ensure this is applied correctly if needed */
+}
+
 /* Custom select */
 .select {
   width: 100%;
@@ -1534,7 +1539,6 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   border-radius: 15px;
   margin: 20px;
 }
-
 .slick-prev,
 .slick-next {
   z-index: 100;
