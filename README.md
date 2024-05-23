@@ -47,11 +47,3 @@ MYA Hotel Boutique is a website designed to offer an exceptional online experien
    git clone https://github.com/AdrianaRosedh/MYAHotelBoutique.git
 
 
-### Instructions to Customize
-1. **Screenshots**: Add your actual screenshots in the `screenshots/` directory and update the paths in the `README.md` file.
-2. **Technologies Used**: Adjust the list if you used any additional technologies.
-3. **Email Contact**: Replace `[info@myaHotelBoutique.com](mailto:info@myaHotelBoutique.com)` with your actual contact email.
-4. **License**: Ensure you have a `LICENSE` file in your repository with the actual license text.
-
-Feel free to copy and paste this template into your `README.md` file, making the necessary adjustments as noted above. This should provide a comprehensive and clear overview of your project.
-
