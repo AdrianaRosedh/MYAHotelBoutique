@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Home - MYA Boutique Hotel{% endblock %}
+{% block title %}
+Home - MYA Boutique Hotel
+{% endblock %}
 
-{% block description %}Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
-heart of the city with our premium amenities and top-notch service.{% endblock %}
+{% block description %}
+Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
+heart of the city with our premium amenities and top-notch service.
+{% endblock %}
 
-{% block keywords %}hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing{% endblock %}
+{% block keywords %}
+hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing
+{% endblock %}
 
 {% block hreflang %}
 <link rel="alternate" href="{{ url_for('main.index_en', _external=True) }}" hreflang="en">
@@ -13,8 +19,6 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 {% endblock %}
 
 {% block content %}
-
-
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
     <div
@@ -1049,144 +1053,8 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 </section>
 {% endblock %}
 
-
-<!-- Models -->
-<!-- Top Progress bar -->
-<div x-data="scrollProgress" class="fixed inset-x-0 top-0 z-50">
-    <div class="h-1 bg-sky-300" :style="`width: ${percent}%`">
-    </div>
-</div>
-<!-- Chatbot Toggle Button -->
-<button id="chatbot-toggle"
-    class="fixed bottom-4 right-4 bg-sky-300 text-white p-3 rounded-full shadow-lg hover:bg-sky-400 focus:outline-none"
-    onclick="toggleChatbot()">Chat</button>
-
-<!-- Chatbot Container -->
-<div id="chatbot-container"
-    class="fixed bottom-4 right-4 w-80 max-h-96 border border-gray-300 shadow-lg  bg-white rounded-lg shadow-lg flex flex-col hidden z-50">
-    <div id="chatbot-header"
-        class="bg-sky-300 text-white p-2 cursor-move rounded-t-lg flex justify-between items-center">
-        <span>Chat with our AI</span>
-        <button onclick="closeChatbot()" class="text-white focus:outline-none">&times;</button>
-    </div>
-    <div id="chatbox" class="flex-1 p-4"></div>
-    <input type="text" id="user-input" placeholder="Type a message..."
-        class="p-2 border-t border-gray-300 focus:outline-none">
-</div>
-
-<!-- Tap to top -->
-<a href="#"
-    class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
-    <i class="ri-arrow-up-double-line text-[20px]"></i>
-</a>
-
-<!-- side bar -->
-<div class="relative ">
-    <nav class="floating-sidebar">
-        <a href="#">
-            <!-- HeroIcon - User -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo">
-            </svg>
-        </a>
-        <a href="oliveafarmtotable.html">
-            <!-- HeroIcon - Chart Bar -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo">
-            </svg>
-        </a>
-        <a href="divino.html">
-            <!-- HeroIcon - Cog-6-tooth -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo">
-            </svg>
-        </a>
-    </nav>
-</div>
-
-<!-- booking engine modal-->
-<div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50"
-    role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg relative transform transition-all modal-enter">
-        <button id="closeModalButton" class="absolute top-0 right-0 mt-4 mr-4 text-gray-600 hover:text-gray-800"
-            aria-label="Close modal">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <h2 id="modalTitle" class="text-2xl font-bold mb-6 text-center text-gray-800">Book
-            Your Stay</h2>
-        <form id="bookingForm">
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-semibold">Name</label>
-                <input type="text" id="name"
-                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required>
-                <p id="nameError" class="text-red-500 text-sm hidden">Name is
-                    required</p>
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-semibold">Email</label>
-                <input type="email" id="email"
-                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required>
-                <p id="emailError" class="text-red-500 text-sm hidden">Valid email is
-                    required</p>
-            </div>
-            <div class="mb-4">
-                <label for="checkin" class="block text-gray-700 font-semibold">Check-in
-                    Date</label>
-                <input type="date" id="checkin"
-                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required>
-                <p id="checkinError" class="text-red-500 text-sm hidden">Check-in date is
-                    required</p>
-            </div>
-            <div class="mb-4">
-                <label for="checkout" class="block text-gray-700 font-semibold">Check-out
-                    Date</label>
-                <input type="date" id="checkout"
-                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required>
-                <p id="checkoutError" class="text-red-500 text-sm hidden">Check-out date
-                    is required</p>
-            </div>
-            <div class="mb-6">
-                <label for="guests" class="block text-gray-700 font-semibold">Number of
-                    Guests</label>
-                <input type="number" id="guests"
-                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required min="1">
-                <p id="guestsError" class="text-red-500 text-sm hidden">At least one
-                    guest is required</p>
-            </div>
-            <div class="flex justify-center">
-                <button type="submit"
-                    class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
-                    Reserve Now!
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
+<!-- Hotel booking engine model-->
+{% include 'partials/bookingEngine.html' %}
 
 </body>
-
-<!-- Plugins JS -->
-<script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/swiper-bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/magnific-popup.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/aos.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/semantic.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/slick.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/particles.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
-<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-
-<!-- main style -->
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
 </html>
