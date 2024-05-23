@@ -388,19 +388,19 @@
     <!-- side bar -->
     <div class="relative ">
         <nav class="floating-sidebar">
-            <a href="#">
+            <a href="{{ url_for('main.index') }}">
                 <!-- HeroIcon - User -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
                     <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo">
                 </svg>
             </a>
-            <a href="oliveafarmtotable.html">
+            <a href="{{ url_for('main.oliveafarmtotable') }}">
                 <!-- HeroIcon - Chart Bar -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-0">
                     <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo">
                 </svg>
             </a>
-            <a href="divino.html">
+            <a href="{{ url_for('main.divino') }}">
                 <!-- HeroIcon - Cog-6-tooth -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
                     <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo">
