@@ -49,33 +49,34 @@
 
     <!-- Header -->
     <header>
-         <!-- Basic Header -->
+        <!-- Basic Header -->
         <div class="relative">
-            <div
-                class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px] lg:flex hidden">
-                <div class="w-1/2 py-[10px] flex">
-                    <div class="pr-[15px] border-r border-solid border-[#ddd]">
+            <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px] lg:flex hidden">
+                <div class="w-1/2 py-[10px] flex items-center">
+                    <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-cente">
                         <i class="ri-mail-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
                         <a href="mailto:{{ email }}">{{ email }}</a>
                     </div>
                     <div class="flex items-center pl-[15px] lh-location">
                         <div class="flex items-center custom-select text-[14px] text-[#777]">
                             <i class="ri-earth-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
-                            <form method="POST" action="{{ url_for('main.set_language') }}">
+                            <form method="POST" action="{{ url_for('main.set_language') }}" class="language-form">
                                 <select class="hidden" name="language" onchange="this.form.submit()">
-                                    <option value="en" {% if current_language == 'en' %}selected{% endif %}>English</option>
-                                    <option value="es" {% if current_language == 'es' %}selected{% endif %}>Español</option>  
+                                    <option value="en" {% if current_language=='en' %}selected{% endif %}>English
+                                    </option>
+                                    <option value="es" {% if current_language=='es' %}selected{% endif %}>Español
+                                    </option>
                                 </select>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="w-1/2 py-[10px] flex justify-end">
-                    <div class="pr-[15px] border-r border-solid border-[#ddd]">
+                    <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-center">
                         <i class="ri-phone-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
                         {{ phone }}
                     </div>
-                    <div class="mx-[-5px] pl-[15px]">
+                    <div class="mx-[-5px] pl-[15px] flex items-center">
                         <a href="https://www.facebook.com/myahotelboutique" target="_blank"><i
                                 class="ri-facebook-box-line facebook mx-[5px] text-[18px] text-[#1877F2]"></i></a>
                         <a href="https://www.x.com/myahotelboutique" target="_blank"><i
@@ -156,7 +157,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>  
+    <main>
         <!-- Hero Section -->
         {% block hero %}
         <section id="hero" class="section-hero lg:pb-[50px] pb-[70px]">
@@ -177,7 +178,8 @@
                                     class="py-side-border border-[1px] border-solid border-[#7b6c55] w-[50px] absolute top-[9px] right-[-60px] z-[0]"></span>
                             </h4>
                             <h1 class="my-[30px] font-Cardo wordspac_15 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[35px] sm:text-[30px] text-[24px] md:leading-[1.2857em] sm:leading-[42px] leading-[36px] font-bold sm:tracking-[2px] tracking-[1px] uppercase text-[#fff]"
-                                data-aos="fade-up" data-aos-duration="1500">Intimate Elegance, Culinary Excellence,
+                                data-aos="fade-up" data-aos-duration="1500">Intimate Elegance,
+                                Culinary Excellence,
                                 Active Leisure</h1>
                             <a class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]"
                                 href="#rooms">
@@ -187,191 +189,213 @@
                     </div>
                 </div>
             </div>
-        </section>  
+        </section>
         {% endblock %}
-        {% block content %}{% endblock %}   
+        {% block content %}{% endblock %}
     </main>
-    
-    <!-- Footer -->
-    <footer>
-        {% block footer %}
-        <footer class="pt-[70px] bg-[#a8a29e]">
-            <div
-                class="mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-                <div class="footer-top-section pb-[70px]">
-                    <div class="flex flex-wrap mb-[-24px] w-full">
-                        <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[1] order-[2]">
-                            <div class="lh-footer-cols-contain">
-                                <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
-                                    <h4 class="text-[18px] leading-[1.25] font-medium">Explore</h4>
-                                </div>
-                                <ul>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="index.html"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Home</a>
-                                    </li>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="about.html"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
-                                    </li>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="room-details.html"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms & suites</a>
-                                    </li>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="spa.html" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">spa &
-                                            Wellness</a>
-                                    </li>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="oliveafarmtotable.html"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Olivea Farm To
-                                            Table</a>
-                                    </li>
-                                    <li class="py-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="faq.html" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Faq</a>
-                                    </li>
-                                    <li class="pt-[5px]">
-                                        <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="contact.html"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full px-[12px] mb-[24px] lg:order-[2] order-[1]">
-                            <div
-                                class="lh-social-media h-full lg:border-x-[1px] lg:border-b-[0] md:border-b-[1px] border-b-[0] lg:pb-[0] md:pb-[30px] pb-[0] border-solid border-[#808384]">
-                                <div class="footer-logos flex md:justify-center justify-start">
-                                    <img src="{{ url_for('static', filename='img/logo/logo-2.png') }}" alt="logo"
-                                        class="w-[180px]">
-                                </div>
-                                <div
-                                    class="lh-footer-social lg:p-[24px] py-[24px] lg:border-b border-solid border-[#808384]">
-                                    <p
-                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
-                                        <span style="font-weight:400;">We are more than just a hotel</span>
-                                    </p>
-                                    <p
-                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
-                                        MYA • Olivea • DiVino
-                                    </p>
-                                </div>
-                                <div
-                                    class="lh-follow-social md:block flex-col justify-self-center items-center xl:pt-[24px] xl:pb-0 lg:pt-[22px] lg:pb-0 pt-[0] lg:pb-[30px] pb-0">
-                                    <h4 class="heading text-[18px] font-medium md:text-center text-left">Follow On
-                                        Social</h4>
-                                    <div
-                                        class="footer-logo-image flex md:justify-center pt-[15px] md:text-center text-left">
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/facebook.png') }}"
-                                                alt="facebook"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/twitter.png') }}"
-                                                alt="twitter"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="https://www.instagram.com/myahotelboutique" target="_blank">
-                                            <img src="{{ url_for('static', filename='img/logo/instagram.png') }}"
-                                                alt="instagram"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/linkedin.png') }}"
-                                                alt="linkedin"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/pinterest.png') }}"
-                                                alt="pinterest"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/youtube.png') }}"
-                                                alt="youtube"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{ url_for('static', filename='img/logo/spotify.png') }}"
-                                                alt="spotify"
-                                                class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
-                                        </a>
+
+    <!-- Models -->
+    <section id="models">
+
+        <!-- Footer -->
+        <footer>
+            {% block footer %}
+            <footer class="pt-[70px] bg-[#a8a29e]">
+                <div
+                    class="mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                    <div class="footer-top-section pb-[70px]">
+                        <div class="flex flex-wrap mb-[-24px] w-full">
+                            <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[1] order-[2]">
+                                <div class="lh-footer-cols-contain">
+                                    <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                        <h4 class="text-[18px] leading-[1.25] font-medium">Explore</h4>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[3] order-[3]">
-                            <div class="lh-footer-cols-contain">
-                                <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
-                                    <h4 class="text-[18px] leading-[1.25] font-medium">Contact Information</h4>
-                                </div>
-                                <div class="lh-footer-contact-infoemation">
                                     <ul>
-                                        <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
-                                            <h5
-                                                class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
-                                                Location</h5>
-                                            <span class="text-[14px] text-[#fff]">5 Green st.Huntington stati on, Ny
-                                                11746, Libero voluptatem soluta Bharat.</span>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="index.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Home</a>
                                         </li>
-                                        <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
-                                            <h5
-                                                class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
-                                                Email Address</h5>
-                                            <i class="ri-mail-line mr-[5px] text-[#fff] text-[16px]"></i>
-                                            <span class="text-[14px] text-[#fff]">
-                                                <a href="mailto:{{ email }}">{{ email }}</a>
-                                            </span>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="about.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
                                         </li>
-                                        <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px] pb-0">
-                                            <h5
-                                                class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
-                                                Phone Number</h5>
-                                            <i class="ri-phone-line mr-[5px] text-[#fff] text-[16px]"></i>
-                                            <span class="text-[14px] text-[#fff]">{{ phone }}</span>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="room-details.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms
+                                                & suites</a>
+                                        </li>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="spa.html" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">spa
+                                                &
+                                                Wellness</a>
+                                        </li>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="oliveafarmtotable.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Olivea
+                                                Farm To
+                                                Table</a>
+                                        </li>
+                                        <li class="py-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="faq.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Faq</a>
+                                        </li>
+                                        <li class="pt-[5px]">
+                                            <code class="text-[16px] text-[#7b6c55]">*</code>
+                                            <a href="contact.html"
+                                                class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+                            <div class="lg:w-1/2 w-full px-[12px] mb-[24px] lg:order-[2] order-[1]">
+                                <div
+                                    class="lh-social-media h-full lg:border-x-[1px] lg:border-b-[0] md:border-b-[1px] border-b-[0] lg:pb-[0] md:pb-[30px] pb-[0] border-solid border-[#808384]">
+                                    <div class="footer-logos flex md:justify-center justify-start">
+                                        <img src="{{ url_for('static', filename='img/logo/logo-2.png') }}" alt="logo"
+                                            class="w-[180px]">
+                                    </div>
+                                    <div
+                                        class="lh-footer-social lg:p-[24px] py-[24px] lg:border-b border-solid border-[#808384]">
+                                        <p
+                                            class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
+                                            <span style="font-weight:400;">We
+                                                are more than just a
+                                                hotel</span>
+                                        </p>
+                                        <p
+                                            class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
+                                            MYA • Olivea • DiVino
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="lh-follow-social md:block flex-col justify-self-center items-center xl:pt-[24px] xl:pb-0 lg:pt-[22px] lg:pb-0 pt-[0] lg:pb-[30px] pb-0">
+                                        <h4 class="heading text-[18px] font-medium md:text-center text-left">Follow
+                                            On
+                                            Social</h4>
+                                        <div
+                                            class="footer-logo-image flex md:justify-center pt-[15px] md:text-center text-left">
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/facebook.png') }}"
+                                                    alt="facebook"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/twitter.png') }}"
+                                                    alt="twitter"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="https://www.instagram.com/myahotelboutique" target="_blank">
+                                                <img src="{{ url_for('static', filename='img/logo/instagram.png') }}"
+                                                    alt="instagram"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/linkedin.png') }}"
+                                                    alt="linkedin"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/pinterest.png') }}"
+                                                    alt="pinterest"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/youtube.png') }}"
+                                                    alt="youtube"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{{ url_for('static', filename='img/logo/spotify.png') }}"
+                                                    alt="spotify"
+                                                    class="w-[30px] mx-[4px] duration-[0.3s] ease-in-out hover:scale-[1.3]">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[3] order-[3]">
+                                <div class="lh-footer-cols-contain">
+                                    <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                        <h4 class="text-[18px] leading-[1.25] font-medium">Contact
+                                            Information</h4>
+                                    </div>
+                                    <div class="lh-footer-contact-infoemation">
+                                        <ul>
+                                            <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
+                                                <h5
+                                                    class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
+                                                    Location</h5>
+                                                <span class="text-[14px] text-[#fff]">5
+                                                    Green st.Huntington
+                                                    stati
+                                                    on, Ny
+                                                    11746, Libero voluptatem
+                                                    soluta Bharat.</span>
+                                            </li>
+                                            <li class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px]">
+                                                <h5
+                                                    class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
+                                                    Email Address</h5>
+                                                <i class="ri-mail-line mr-[5px] text-[#fff] text-[16px]"></i>
+                                                <span class="text-[14px] text-[#fff]">
+                                                    <a href="mailto:{{ email }}">{{
+                                                        email }}</a>
+                                                </span>
+                                            </li>
+                                            <li
+                                                class="lh-information xl:py-[14px] lg:py-[8px] md:py-[13px] py-[8px] pb-0">
+                                                <h5
+                                                    class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
+                                                    Phone Number</h5>
+                                                <i class="ri-phone-line mr-[5px] text-[#fff] text-[16px]"></i>
+                                                <span class="text-[14px] text-[#fff]">{{
+                                                    phone }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-copy px-[12px]">
+                        <div class="flex justify-center border-t-[1px] border-solid border-[#808384]">
+                            <span class="text-[#fff] py-[10px] text-center">Copyright
+                                @ <span id="copyright_year"></span>
+                                <a href="index.html" class="text-[#fff] hover:text-[#7b6c55]">MYA
+                                    Hotel Boutique & Co</a>
+                                All Rights Reserved
+                            </span>
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom-copy px-[12px]">
-                    <div class="flex justify-center border-t-[1px] border-solid border-[#808384]">
-                        <span class="text-[#fff] py-[10px] text-center">Copyright @ <span id="copyright_year"></span>
-                            <a href="index.html" class="text-[#fff] hover:text-[#7b6c55]">MYA Hotel Boutique & Co</a>
-                            All Rights Reserved
-                        </span>
-                    </div>
-                </div>
-            </div>
+            </footer>
+            {% endblock %}
         </footer>
+        
+        <!-- Templates / Partials -->
+        <!-- Chatbot-->
+        {% include 'partials/chatbot.html' %}
+
+        {% block scripts %}
+        <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/swiper-bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/magnific-popup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/aos.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/semantic.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/slick.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/particles.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         {% endblock %}
-    </footer>
-
-    {% include 'chatbot.html' %}
-
-
-    {% block scripts %}
-    <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/swiper-bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/magnific-popup.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/aos.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/semantic.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/slick.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/particles.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    {% endblock %}
 </body>
+
 </html>
