@@ -373,12 +373,12 @@
         </footer>
         {% endblock %}
     </footer>
-
+    
     <!-- Top Progress bar -->
-    <div x-data="scrollProgress" class="fixed inset-x-0 top-0 z-50">
-        <div class="h-1 bg-sky-300" :style="`width: ${percent}%`">
-        </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
+
     <!-- Tap to top -->
     <a href="#"
         class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
@@ -388,7 +388,7 @@
     <!-- side bar -->
     <div class="relative ">
         <nav class="floating-sidebar">
-            <a href="{{ url_for('main.index') }}">
+            <a href="{{ url_for('main.index') }}"
                 <!-- HeroIcon - User -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
                     <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo">
@@ -422,10 +422,10 @@
     <script src="{{ url_for('static', filename='js/vendor/slick.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/particles.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% endblock %}
+
 </body>
 
 </html>

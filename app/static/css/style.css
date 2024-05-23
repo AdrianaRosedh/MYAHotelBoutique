@@ -1676,4 +1676,18 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   }
 }
 /*# sourceMappingURL=style.css.map */
-
+/* Top Progress bar */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(0,0,0,0);
+  z-index: 1000;
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: rgb(125 211 252);
+}
