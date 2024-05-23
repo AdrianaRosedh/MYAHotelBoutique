@@ -1053,47 +1053,7 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 </section>
 {% endblock %}
 
-
-<!-- Top Progress bar -->
-{% include 'partials/TopProgressBar.html' %}
-
-<div x-data="scrollProgress" class="fixed inset-x-0 top-0 z-50">
-    <div class="h-1 bg-sky-300" :style="`width: ${percent}%`">
-    </div>
-</div>
-
-
-<!-- Tap to top -->
-<a href="#"
-    class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
-    <i class="ri-arrow-up-double-line text-[20px]"></i>
-</a>
-
-<!-- side bar -->
-<div class="relative ">
-    <nav class="floating-sidebar">
-        <a href="#">
-            <!-- HeroIcon - User -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo">
-            </svg>
-        </a>
-        <a href="oliveafarmtotable.html">
-            <!-- HeroIcon - Chart Bar -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo">
-            </svg>
-        </a>
-        <a href="divino.html">
-            <!-- HeroIcon - Cog-6-tooth -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo">
-            </svg>
-        </a>
-    </nav>
-</div>
-
-<!-- booking engine modal-->
+<!-- Hotel booking engine modal-->
 <div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50"
     role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg relative transform transition-all modal-enter">
