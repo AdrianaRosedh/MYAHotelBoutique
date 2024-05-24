@@ -379,25 +379,16 @@
     </a>
 
     <!-- side bar -->
-    <div class="relative ">
+    <div class="relative">
         <nav class="floating-sidebar">
-            <a href="{{ url_for('main.index') }}"
-                <!-- HeroIcon - User -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                    <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo">
-                </svg>
+            <a href="{{ url_for('main.index') }}" class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo" class="sidebar-icon">
             </a>
-            <a href="{{ url_for('main.oliveafarmtotable') }}">
-                <!-- HeroIcon - Chart Bar -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-0">
-                    <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo">
-                </svg>
+            <a href="{{ url_for('main.oliveafarmtotable') }}" class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo" class="sidebar-icon">
             </a>
-            <a href="{{ url_for('main.divino') }}">
-                <!-- HeroIcon - Cog-6-tooth -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-11 h-0">
-                    <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo">
-                </svg>
+            <a href="{{ url_for('main.divino') }}" class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo" class="sidebar-icon">
             </a>
         </nav>
     </div>
