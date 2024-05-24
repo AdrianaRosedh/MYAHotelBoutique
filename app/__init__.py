@@ -1,7 +1,9 @@
-# /app/__init__.py
-
+import os
 from flask import Flask, request, session
 from flask_babel import Babel
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 def get_locale():
     return session.get('language', request.accept_languages.best_match(['en', 'es']))
@@ -23,6 +25,9 @@ def create_app():
     # Register Blueprints
     from .routes import bp as main_bp
     app.register_blueprint(main_bp)
+
+    from .chatbot_routes import bp as chatbot_bp
+    app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
 
     # Define context processor to inject `locale` into templates
     @app.context_processor

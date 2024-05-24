@@ -55,6 +55,7 @@ export function initChatbot() {
 
     async function sendMessage(event) {
         if (event.key === 'Enter') {
+            event.preventDefault();  // Prevent form submission
             const userInput = document.getElementById('user-input').value;
             if (userInput.trim() === "") return;
 
@@ -62,7 +63,7 @@ export function initChatbot() {
             chatbox.innerHTML += `<div class="text-left"><strong>You:</strong> ${userInput}</div>`;
             document.getElementById('user-input').value = '';
 
-            const response = await fetch('/chat', {
+            const response = await fetch('/chatbot/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -105,3 +106,7 @@ export function initChatbot() {
     document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
     document.getElementById('user-input').addEventListener('keypress', sendMessage);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    initChatbot();
+});
