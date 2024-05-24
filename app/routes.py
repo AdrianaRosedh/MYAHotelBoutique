@@ -1,5 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, jsonify
-import openai
+from flask import Blueprint, render_template, request, redirect, url_for, session
 
 bp = Blueprint('main', __name__)
 
@@ -73,13 +72,3 @@ def divino_es():
     email = "padel@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
     return render_template('divino_es.html', email=email, phone=phone)
-
-@bp.route('/chat', methods=['POST'])
-def chat():
-    user_message = request.json.get('message')
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=user_message,
-        max_tokens=150
-    )
-    return jsonify({'response': response.choices[0].text.strip()})
