@@ -1,6 +1,5 @@
-# /app/routes.py
-
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for, session, jsonify
+import openai
 
 bp = Blueprint('main', __name__)
 
@@ -28,8 +27,22 @@ def index_es():
 @bp.route('/set_language', methods=['POST'])
 def set_language():
     selected_language = request.form.get('language')
+    current_url = request.form.get('current_url')
+    
     session['language'] = selected_language
-    return redirect(url_for('main.index'))
+    
+    if selected_language == 'es':
+        if not current_url.startswith('/es'):
+            new_url = '/es' + current_url
+        else:
+            new_url = current_url
+    else:
+        if current_url.startswith('/es'):
+            new_url = current_url.replace('/es', '', 1)
+        else:
+            new_url = current_url
+
+    return redirect(new_url)
 
 @bp.route('/oliveafarmtotable')
 def oliveafarmtotable():
@@ -40,6 +53,12 @@ def oliveafarmtotable():
         return render_template('oliveafarmtotable_es.html', email=email, phone=phone)
     return render_template('oliveafarmtotable_en.html', email=email, phone=phone)
 
+@bp.route('/es/oliveafarmtotable')
+def oliveafarmtotable_es():
+    email = "olivea@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    return render_template('oliveafarmtotable_es.html', email=email, phone=phone)
+
 @bp.route('/divino')
 def divino():
     current_language = session.get('language', 'en')
@@ -48,6 +67,12 @@ def divino():
     if current_language == 'es':
         return render_template('divino_es.html', email=email, phone=phone)
     return render_template('divino_en.html', email=email, phone=phone)
+
+@bp.route('/es/divino')
+def divino_es():
+    email = "padel@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    return render_template('divino_es.html', email=email, phone=phone)
 
 @bp.route('/chat', methods=['POST'])
 def chat():
