@@ -30,16 +30,17 @@ def set_language():
     
     session['language'] = selected_language
     
+    # Remove the leading language part from the URL
+    if current_url.startswith('/es'):
+        current_url = current_url[3:]
+    elif current_url.startswith('/en'):
+        current_url = current_url[3:]
+    
+    # Prepend the new language to the URL
     if selected_language == 'es':
-        if not current_url.startswith('/es'):
-            new_url = '/es' + current_url
-        else:
-            new_url = current_url
+        new_url = f'/es{current_url}'
     else:
-        if current_url.startswith('/es'):
-            new_url = current_url.replace('/es', '', 1)
-        else:
-            new_url = current_url
+        new_url = f'/en{current_url}'
 
     return redirect(new_url)
 
