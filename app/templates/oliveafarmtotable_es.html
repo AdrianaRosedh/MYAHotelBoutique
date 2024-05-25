@@ -12,8 +12,8 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 {% endblock %}
 
 {% block hreflang %}
-<link rel="alternate" href="{{ url_for('main.index_en', _external=True) }}" hreflang="en">
-<link rel="alternate" href="{{ url_for('main.index_es', _external=True) }}" hreflang="es">
+<link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='en', _external=True) }}" hreflang="en">
+<link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='es', _external=True) }}" hreflang="es">
 {% endblock %}
 
 {% block content %}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ locale }}">
-
+<html lang="{{ session.get('language', 'en') }}">
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +11,11 @@
         content="{% block keywords %}hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing{% endblock %}">
     <title>{% block title %}MYA Boutique Hotel{% endblock %}</title>
     {% block favicon %}
-    <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('main.favicon') }}" type="image/x-icon">
     {% endblock %}
     {% block hreflang %}
-    <link rel="alternate" href="{{ url_for('main.index_en', _external=True) }}" hreflang="en">
-    <link rel="alternate" href="{{ url_for('main.index_es', _external=True) }}" hreflang="es">
+    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en">
+    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es">
     {% endblock %}
     <!-- CSS All Plugins Files -->
     <link href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" rel="stylesheet">
@@ -131,7 +131,7 @@
                                 </a>
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="oliveafarmtotable.html">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
                                     Dining
                                 </a>
                             </li>
@@ -204,40 +204,40 @@
                                 <ul>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="index.html"
+                                        <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
                                             class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Home</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="about.html"
+                                        <a href="#"
                                             class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="room-details.html"
+                                        <a href="#"
                                             class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms
                                             & suites</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="spa.html" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">spa
+                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">spa
                                             &
                                             Wellness</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="oliveafarmtotable.html"
+                                        <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                             class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Olivea
                                             Farm To
                                             Table</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="faq.html" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Faq</a>
+                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Faq</a>
                                     </li>
                                     <li class="pt-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="contact.html"
+                                        <a href="#"
                                             class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
                                     </li>
                                 </ul>
@@ -356,7 +356,7 @@
                     <div class="flex justify-center border-t-[1px] border-solid border-[#808384]">
                         <span class="text-[#fff] py-[10px] text-center">Copyright
                             @ <span id="copyright_year"></span>
-                            <a href="index.html" class="text-[#fff] hover:text-[#7b6c55]">MYA
+                            <a href="#" class="text-[#fff] hover:text-[#7b6c55]">MYA
                                 Hotel Boutique & Co</a>
                             All Rights Reserved
                         </span>
@@ -381,13 +381,13 @@
     <!-- side bar -->
     <div class="relative">
         <nav class="floating-sidebar">
-            <a href="{{ url_for('main.index') }}" class="sidebar-link">
+            <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
                 <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo" class="sidebar-icon">
             </a>
-            <a href="{{ url_for('main.oliveafarmtotable') }}" class="sidebar-link">
+            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
                 <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo" class="sidebar-icon">
             </a>
-            <a href="{{ url_for('main.divino') }}" class="sidebar-link">
+            <a href="{{ url_for('main.divino', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
                 <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo" class="sidebar-icon">
             </a>
         </nav>
