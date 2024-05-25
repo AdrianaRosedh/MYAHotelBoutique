@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
 
 def get_locale():
+    # Detect language from session or Accept-Language header
     return session.get('language', request.accept_languages.best_match(['en', 'es']))
 
 def get_timezone():
@@ -28,6 +29,12 @@ def create_app():
 
     from .chatbot_routes import bp as chatbot_bp
     app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
+
+    # Set default language in session if not set
+    @app.before_request
+    def set_default_language():
+        if 'language' not in session:
+            session['language'] = request.accept_languages.best_match(['en', 'es'], default='en')
 
     # Define context processor to inject `locale` into templates
     @app.context_processor

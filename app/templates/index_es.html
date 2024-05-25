@@ -14,8 +14,8 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 {% endblock %}
 
 {% block hreflang %}
-<link rel="alternate" href="{{ url_for('main.index_en', _external=True) }}" hreflang="en">
-<link rel="alternate" href="{{ url_for('main.index_es', _external=True) }}" hreflang="es">
+<link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en">
+<link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es">
 {% endblock %}
 
 {% block content %}
@@ -1055,5 +1055,4 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 <!-- Hotel booking engine model-->
 {% include 'partials/bookingEngine.html' %}
 
-</body>
-</html>
+{% endblock %}
