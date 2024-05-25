@@ -1,5 +1,3 @@
-<!-- /app/templates/partials/language_form.html -->
-
 <form method="POST" action="{{ url_for('main.set_language') }}" class="language-form">
     <input type="hidden" name="current_url" value="{{ request.path }}">
     <select name="language" class="language-form" onchange="this.form.submit()">

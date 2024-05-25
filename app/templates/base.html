@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ session.get('language', 'en') }}">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,7 +131,8 @@
                                 </a>
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link"
+                                    href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
                                     Dining
                                 </a>
                             </li>
@@ -209,13 +210,11 @@
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
+                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms
+                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms
                                             & suites</a>
                                     </li>
                                     <li class="py-[5px]">
@@ -237,8 +236,7 @@
                                     </li>
                                     <li class="pt-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
+                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -366,7 +364,7 @@
         </footer>
         {% endblock %}
     </footer>
-    
+
     <!-- Top Progress bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -381,14 +379,18 @@
     <!-- side bar -->
     <div class="relative">
         <nav class="floating-sidebar">
-            <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+            <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
+                class="sidebar-link">
                 <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo" class="sidebar-icon">
             </a>
-            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
-                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo" class="sidebar-icon">
+            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
+                class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo"
+                    class="sidebar-icon">
             </a>
             <a href="{{ url_for('main.divino', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
-                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo" class="sidebar-icon">
+                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo"
+                    class="sidebar-icon">
             </a>
         </nav>
     </div>

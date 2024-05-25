@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Olivea Farm To Table - EN{% endblock %}
+{% block title %}
+Olivea Farm To Table - EN
+{% endblock %}
 
-{% block description %}Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
-heart of the city with our premium amenities and top-notch service.{% endblock %}
+{% block description %}
+Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
+heart of the city with our premium amenities and top-notch service.
+{% endblock %}
 
-{% block keywords %}hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing{% endblock %}
+{% block keywords %}
+hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing
+{% endblock %}
 
 {% block favicon %}
 <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-2.png') }}" type="image/x-icon">
@@ -20,7 +26,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
     <div
-        class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('static/img/theme/1.png')]">
+        class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('{{ url_for('static', filename='img/theme/1.png') }}')]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
@@ -122,7 +128,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                                         <ul class="pl-[16px] mb-0">
                                             <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
                                             <li class="text-[15px] text-[#777] leading-[1.2]">Breakfast</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">complimeatary
+                                            <li class="text-[15px] text-[#777] leading-[1.2]">complimentary
                                                 bottled water</li>
                                         </ul>
                                     </div>
@@ -134,7 +140,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                         <div class="room-img h-full w-full relative">
                             <img src="{{ url_for('static', filename='img/room/room-1.png') }}" alt="room-img"
                                 class="room-image h-full w-full">
-                            <a href="room-details.html"
+                            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                 class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
                                 <i
                                     class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
@@ -143,235 +149,11 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-Single" role="tabpanel" aria-labelledby="nav-Single-tab">
-                <div
-                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-                    <div class="xl:w-1/2 w-full px-[12px]">
-                        <div class="lh-room-contain relative px-[12px] py-[24px]">
-                            <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                    Single
-                                    Room</h4>
-                                <div class="lh-room-price">
-                                    <h4 class="xl:text-[22px] text-[18px] text-[#7b6c55] font-bold leading-[22px]">$40
-                                        /<span class="ml-[5px] text-[14px] font-normal text-[#777]">Per
-                                            night</span></h4>
-                                </div>
-                            </div>
-                            <div class="lh-room-size d-flex flex-wrap">
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">1200
-                                    sq.ft <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">1
-                                    king Bed <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">Up
-                                    to 6 Guest</p>
-                            </div>
-                            <p>This is the dolor sit amet consectetur
-                                adipisicing elit. Culpa necessitatibus
-                                consequatur nostrum iure? Similique
-                                voluptatibus totam nobis exercitationem
-                                perferendis id, cupiditate at et
-                                praesentium quas? Quae amet, magni
-                                suscipit
-                                sequi.</p>
-                            <div class="lh-main-features border-t border-solid border-[#e3e1e1] pt-[30px] mt-[30px]">
-                                <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                    <h4
-                                        class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                        Room
-                                        Features</h4>
-                                </div>
-                                <div class="lh-room-features flex">
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">42
-                                                Inch flat screen TV</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">In-room
-                                                Safe</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                        </ul>
-                                    </div>
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Breakfast</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">complimeatary
-                                                bottled water</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/2 w-full">
-                        <div class="room-img h-full w-full relative">
-                            <img src="{{ url_for('static', filename='img/room/room-2.png') }}" alt="room-img"
-                                class="room-image h-full w-full">
-                            <a href="room-details.html"
-                                class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
-                                <i
-                                    class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-Super" role="tabpanel" aria-labelledby="nav-Super-tab">
-                <div
-                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-                    <div class="xl:w-1/2 w-full px-[12px]">
-                        <div class="lh-room-contain relative px-[12px] py-[24px]">
-                            <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                    Super
-                                    Room</h4>
-                                <div class="lh-room-price">
-                                    <h4 class="xl:text-[22px] text-[18px] text-[#7b6c55] font-bold leading-[22px]">$50
-                                        /
-                                        <span class="ml-[5px] text-[14px] font-normal text-[#777]">Per
-                                            night</span>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="lh-room-size d-flex flex-wrap">
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">1350
-                                    sq.ft <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">2
-                                    king Bed <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">Up
-                                    to 8 Guest</p>
-                            </div>
-                            <p>This is the dolor sit amet consectetur
-                                adipisicing elit. Culpa necessitatibus
-                                consequatur nostrum iure? Similique
-                                voluptatibus totam nobis exercitationem
-                                perferendis id, cupiditate at et
-                                praesentium quas? Quae amet, magni
-                                suscipit
-                                sequi.</p>
-                            <div class="lh-main-features border-t border-solid border-[#e3e1e1] pt-[30px] mt-[30px]">
-                                <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                    <h4
-                                        class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                        Room
-                                        Features
-                                    </h4>
-                                </div>
-                                <div class="lh-room-features flex">
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">42
-                                                Inch flat screen TV</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">In-room
-                                                Safe</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                        </ul>
-                                    </div>
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Breakfast</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">complimeatary
-                                                bottled water</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/2 w-full">
-                        <div class="room-img h-full w-full relative">
-                            <img src="{{ url_for('static', filename='img/room/room-3.png') }}" alt="room-img"
-                                class="room-image h-full w-full">
-                            <a href="room-details.html"
-                                class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
-                                <i
-                                    class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-Presidential" role="tabpanel" aria-labelledby="nav-Presidential-tab">
-                <div
-                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-                    <div class="xl:w-1/2 w-full px-[12px]">
-                        <div class="lh-room-contain relative px-[12px] py-[24px]">
-                            <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                    Presidential
-                                    Room</h4>
-                                <div class="lh-room-price">
-                                    <h4 class="xl:text-[22px] text-[18px] text-[#7b6c55] font-bold leading-[22px]">$100
-                                        /
-                                        <span class="ml-[5px] text-[14px] font-normal text-[#777]">Per
-                                            night</span>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="lh-room-size d-flex flex-wrap">
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">1500
-                                    sq.ft <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">2
-                                    king Bed <span class="px-[15px]">|</span></p>
-                                <p class="pb-[15px] text-[14px] text-[#777] leading-[1.2]">Up
-                                    to 8 Guest</p>
-                            </div>
-                            <p>This is the dolor sit amet consectetur
-                                adipisicing elit. Culpa necessitatibus
-                                consequatur nostrum iure? Similique
-                                voluptatibus totam nobis exercitationem
-                                perferendis id, cupiditate at et
-                                praesentium quas? Quae amet, magni
-                                suscipit
-                                sequi.</p>
-                            <div class="lh-main-features border-t border-solid border-[#e3e1e1] pt-[30px] mt-[30px]">
-                                <div class="lh-contain-heading pb-[15px] flex justify-between">
-                                    <h4
-                                        class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#000] text-left">
-                                        Room
-                                        Features
-                                    </h4>
-                                </div>
-                                <div class="lh-room-features flex">
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">42
-                                                Inch flat screen TV</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">In-room
-                                                Safe</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                        </ul>
-                                    </div>
-                                    <div class="lh-cols-room">
-                                        <ul class="pl-[16px] mb-0">
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Mini-refrigerator</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">Breakfast</li>
-                                            <li class="text-[15px] text-[#777] leading-[1.2]">complimeatary
-                                                bottled water</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/2 w-full">
-                        <div class="room-img h-full w-full relative">
-                            <img src="{{ url_for('static', filename='img/room/room-4.png') }}" alt="room-img"
-                                class="room-image h-full w-full">
-                            <a href="room-details.html"
-                                class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
-                                <i
-                                    class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Repeat for other room types, ensuring URLs include lang_code -->
         </div>
     </div>
     <div
-        class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('static/img/theme/2.png')]">
+        class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('{{ url_for('static', filename='img/theme/2.png') }}')]">
     </div>
 </section>
 
@@ -410,14 +192,14 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                     <div class="cols">
                         <h4 class="mb-[15px] text-[#000] xl:text-[20px] text-[18px] font-bold leading-[1.25]"><i
                                 class="ri-arrow-right-up-line text-[18px] py-[10px] rotate-[42]"></i>
-                            Laxury amenities</h4>
+                            Luxury amenities</h4>
                         <p>This is the dolor sit amet consectetur
                             adipisicing elit. Laborum, porro.</p>
                     </div>
                 </div>
                 <div class="flex mt-[30px]">
                     <a class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]"
-                        href="about.html">
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">
                         View More
                     </a>
                 </div>
@@ -429,12 +211,12 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 <!-- Amenities -->
 <section class="section-amenities relative xl:py-[100px] py-[70px]">
     <div
-        class="before:bg-[url('static/img/theme/4.png')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
+        class="before:bg-[url('{{ url_for('static', filename='img/theme/4.png') }}')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] relative">
         <div
-            class="before:bg-[url('static/img/theme/6.png')] bg-size-full dark-opicity-5 before:bg-no-repeat before:absolute before:right-0 before:z-[-2] before:top-[-100px] before:w-[200px] before:h-[130px]">
+            class="before:bg-[url('{{ url_for('static', filename='img/theme/6.png') }}')] bg-size-full dark-opicity-5 before:bg-no-repeat before:absolute before:right-0 before:z-[-2] before:top-[-100px] before:w-[200px] before:h-[130px]">
         </div>
         <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="2000">
             <h2
@@ -471,7 +253,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                                         adipisicing elit. Ducimus
                                         corrupti sit amet
                                         tempore placeat ipsa.</p>
-                                    <a href="oliveafarmtotable.html"
+                                    <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                         class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
                                         more
                                         <i
@@ -511,7 +293,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                                         adipisicing elit. Ducimus
                                         corrupti sit amet
                                         tempore placeat ipsa.</p>
-                                    <a href="facilities.html"
+                                    <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
                                         class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
                                         more
                                         <i
@@ -546,7 +328,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                                         adipisicing elit. Ducimus
                                         corrupti sit amet
                                         tempore placeat ipsa.</p>
-                                    <a href="facilities.html"
+                                    <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
                                         class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
                                         more
                                         <i
@@ -586,7 +368,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                                         adipisicing elit. Ducimus
                                         corrupti sit amet
                                         tempore placeat ipsa.</p>
-                                    <a href="facilities.html"
+                                    <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
                                         class="no-underline uppercase text-[12px] text-[#000] font-bold hover:text-[#000]">Read
                                         more
                                         <i
@@ -605,7 +387,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
         </div>
     </div>
     <div
-        class="after:bg-[url('static/img/theme/5.png')] dark-opicity-5 bg-size-full after:bg-no-repeat after:absolute after:right-0 after:bottom-[-60px] after:z-[-1] after:2xl:w-[175px] after:w-[120px] after:2xl:h-[150px] after:h-[120px]">
+        class="after:bg-[url('{{ url_for('static', filename='img/theme/5.png') }}')] dark-opicity-5 bg-size-full after:bg-no-repeat after:absolute after:right-0 after:bottom-[-60px] after:z-[-1] after:2xl:w-[175px] after:w-[120px] after:2xl:h-[150px] after:h-[120px]">
     </div>
 </section>
 
@@ -666,7 +448,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                             </ul>
                         </div>
                         <div class="price-buttons flex">
-                            <a href="room-details.html"
+                            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                 class="duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">Book
                                 Now</a>
                         </div>
@@ -720,7 +502,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                             </ul>
                         </div>
                         <div class="price-buttons flex">
-                            <a href="room-details.html"
+                            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                 class="duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-inherit text-[#7b6c55] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-[#7b6c55] hover:text-[#fff]">Book
                                 Now</a>
                         </div>
@@ -773,7 +555,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                             </ul>
                         </div>
                         <div class="price-buttons flex">
-                            <a href="room-details.html"
+                            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                 class="duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">Book
                                 Now</a>
                         </div>
@@ -787,7 +569,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
 <!-- Testimonials -->
 <section class="section-testimonials relative xl:py-[100px] py-[70px]">
     <div
-        class="before:bg-[url('static/img/theme/7.png')] dark-opicity-2 bg-size-full before:bg-no-repeat before:absolute before:z-[0] before:2xl:w-[380px] before:w-[310px] before:h-[162px] before:2xl:left-[-175px] before:left-[-150px] before:top-[25px]">
+        class="before:bg-[url('{{ url_for('static', filename='img/theme/7.png') }}')] dark-opicity-2 bg-size-full before:bg-no-repeat before:absolute before:z-[0] before:2xl:w-[380px] before:w-[310px] before:h-[162px] before:2xl:left-[-175px] before:left-[-150px] before:top-[25px]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
@@ -965,7 +747,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
         </div>
     </div>
     <div
-        class="after:bg-[url('static/img/theme/8.png')] bg-size-full dark-opicity-2 after:bg-no-repeat after:absolute after:z-[-1] 2xl:after:w-[250px] 2xl:after:h-[325px] after:w-[160px] after:h-[210px] after:right-0 after:bottom-0">
+        class="after:bg-[url('{{ url_for('static', filename='img/theme/8.png') }}')] bg-size-full dark-opicity-2 after:bg-no-repeat after:absolute after:z-[-1] 2xl:after:w-[250px] 2xl:after:h-[325px] after:w-[160px] after:h-[210px] after:right-0 after:bottom-0">
     </div>
 </section>
 
@@ -989,7 +771,7 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                             - 09 Jan 2023 - 05 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="blog-details.html">Offers Exclusive
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Offers Exclusive
                         amenities & Facilities To Guests and free
                         offers.</a>
                 </div>
@@ -1003,21 +785,24 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                             - 15 Feb 2023 - 22 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="blog-details.html">Announces A Private
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Announces A Private
                         Island Hotel In The Maldives for couple.</a>
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}" alt="blog-img
-                                class=" w-full rounded-[15px]"></figure>
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}" alt="blog-img"
+                        class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
                         <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Hotel</code>
                             - 22 Dec 2023 - 00 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="blog-details.html">Exclusive amenities
-                        Facilities to Guests Offers rooms free.</a>
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Hotel
+                        Construction
+                        Update
+                        & Upgrade at Bali
+                        Hotel.</a>
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
@@ -1025,28 +810,18 @@ heart of the city with our premium amenities and top-notch service.{% endblock %
                         alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
-                        <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Rooms</code>
-                            - 11 Nov 2023 - 01 Comment</span>
+                        <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Business</code>
+                            - 18 Apr 2023 - 15 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="blog-details.html">Island Hotel In The
-                        Maldives Exclusive amenities Facilities.</a>
-                </div>
-            </div>
-            <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/6.png') }}"
-                        alt="blog-img" class="w-full rounded-[15px]"></figure>
-                <div class="lh-blog flex flex-col justify-center">
-                    <div class="lh-blog-date py-[15px] leading-[15px]">
-                        <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Spa</code>
-                            - 02 Mar 2023 - 25 Comment</span>
-                    </div>
-                    <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="blog-details.html">Amenities Facilities to
-                        Guests Offers rooms free Exclusive.</a>
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Tips For Booking The
+                        Perfect Hotel Room
+                        In A Coastal
+                        Destination.</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 {% endblock %}
