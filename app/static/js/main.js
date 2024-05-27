@@ -598,9 +598,3 @@ window.addEventListener('scroll', function() {
 document.querySelector('.language-form select').addEventListener('change', function() {
   this.form.submit();
 });
-
-
-
-
-  
-  
