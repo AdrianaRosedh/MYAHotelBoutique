@@ -5,7 +5,7 @@
       animation: bgMove 10s linear infinite;
     }
     .text {
-      fill: #7DD3FC; /* bg-sky-300 color */
+      fill: #ffffff; /* bg-sky-300 color */
       font-family: 'Verdana', sans-serif;
       font-size: 50px;
       text-anchor: middle;

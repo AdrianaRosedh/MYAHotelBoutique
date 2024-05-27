@@ -12,14 +12,26 @@
     class="fixed bottom-4 right-4 w-80 max-h-96 border border-gray-300 shadow-lg bg-white rounded-lg flex flex-col hidden z-50"
     role="dialog" aria-labelledby="chatbot-header" tabindex="-1">
     <div id="chatbot-header"
-        class="bg-sky-300 text-white p-2 cursor-move rounded-t-lg flex justify-between items-center">
-        <span id="chatbot-header-title">Chat with our AI</span>
-        <button onclick="closeChatbot()" class="text-white focus:outline-none" aria-label="Close Chatbot" tabindex="0">&times;</button>
+        class="relative z-20 bg-transparent text-white p-4 cursor-move rounded-t-lg flex justify-between items-center"             
+        style="background-image: url('{{ url_for('static', filename='img/svg/curve-background.svg') }}');">
+        <img src="{{ url_for('static', filename='img/svg/mya-ai-bounce.svg') }}" alt="Avatar"
+            class="w-52 -mt-3">
+        <button onclick="closeChatbot()" class="text-white focus:outline-none -mt-14" aria-label="Close Chatbot"
+            tabindex="0">&times;</button>
     </div>
-    <div id="chatbox" class="flex-1 p-4 overflow-auto">
-    <input type="text" id="user-input" placeholder="Type a message..."
-        class="p-2 border-t border-gray-300 focus:outline-none" aria-label="User Input" tabindex="0">
+    <div id="chatbox" class="relative z-10 flex-1 p-4 overflow-auto space-y-2">
     </div>
+    <div class="input-area p-2 border-t border-gray-300 flex items-center">
+        <input type="text" id="user-input" placeholder="Enter your message..." class="p-2 flex-grow focus:outline-none"
+            aria-label="User Input" tabindex="0">
+        <button class="send-button bg-blue-500 text-white p-2 rounded-full ml-2" aria-label="Send message">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7M5 7h.01" />
+            </svg>
+        </button>
+    </div>
+</div>
 </div>
 
 <!-- Include JS for the chatbot -->
