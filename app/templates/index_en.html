@@ -18,6 +18,12 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es">
 {% endblock %}
 
+{% block nav1 %}
+<a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#about">
+    test
+</a>
+{% endblock %}
+
 {% block content %}
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
@@ -819,6 +825,19 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
         </div>
     </div>
 </section>
+
+<!-- Side Bar -->
+<div class="relative">
+    <nav class="floating-sidebar">
+        {% block sidebar1 %}
+        <a href="#hero"
+            class="sidebar-link border border-gray-500 p-2 rounded-md"> 
+            <img src="{{  url_for('static', filename='img/logo/svg/mya.svg') }}" alt="PadelLogo"
+                            class="sidebar-icon">
+            </a>
+        {% endblock %}
+    </nav>
+</div>
 
 <!-- Hotel booking engine model-->
 {% include 'partials/bookingEngine.html' %}
