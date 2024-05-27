@@ -1,20 +1,20 @@
 /*# openai */
 #chatbox {
   overflow-y: auto;
-  /*z-index: 1000; /* ensure this is higher than other elements */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  }
 #chatbot-chat {
   resize: both;
   overflow: hidden;
 }
+
 #chatbot-container {
-  /*z-index: 1000; /* ensure this is higher than other elements */
+  transition: opacity 0.3s ease-in-out;
 }
 
 #chatbot-toggle {
-  /*z-index: 1000; /* ensure this is higher than other elements */
+  transition: transform 0.3s ease-in-out;
 }
 
 .chatbot-icon {
@@ -27,4 +27,64 @@
 #chatbot-toggle:hover .chatbot-icon {
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
+}
+
+#chatbot-header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 75%;
+}
+
+.message.bot {
+  background-color: #E0F7FA; /* Light blue background for bot messages */
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #F1F0F0; /* Light gray background for user messages */
+  align-self: flex-end;
+}
+
+.input-area {
+  border-top: 1px solid #E0E0E0; /* Light gray border */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+#user-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #F9F9F9;
+}
+
+.send-button {
+  background-color: #3490dc; /* Blue color */
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.send-button:hover {
+  background-color: #2779bd; /* Darker blue */
+}
+
+.send-button svg {
+  width: 24px;
+  height: 24px;
 }
