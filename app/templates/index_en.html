@@ -839,18 +839,14 @@ Ensenada, Mexico, boutique hotel, experience, landing
     </div>
 </section>
 
-<!-- Side Bar -->
-<div class="relative">
-    <nav class="floating-sidebar">
-        {% block sidebar1 %}
-        <a href="#hero" class="sidebar-link border border-gray-500 p-2 rounded-md">
-            <img src="{{  url_for('static', filename='img/logo/svg/mya.svg') }}" alt="PadelLogo" class="sidebar-icon">
-        </a>
-        {% endblock %}
-    </nav>
-</div>
-
 <!-- Hotel booking engine model-->
 {% include 'partials/bookingEngine.html' %}
 
+{% endblock %}
+
+<!-- Sidebar -->
+{% block sidebar1 %}
+<a href="#hero" class="sidebar-link border !border-pink-950/[.55] p-2 rounded-md"> 
+    <img src="{{ url_for('static', filename='img/logo/svg/mya-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
+</a>
 {% endblock %}

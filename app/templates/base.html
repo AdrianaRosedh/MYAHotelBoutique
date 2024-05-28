@@ -47,11 +47,6 @@
         <span class="loader w-[100px] h-[100px] flex relative items-center justify-center"></span>
     </div>
 
-    <!-- Top Progress bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-
     <!-- Header -->
     <header>
         <!-- Basic Header -->
@@ -102,8 +97,10 @@
                 class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
                 <nav class="flex flex-nowrap w-full py-[3px]">
                     <a class="navbar-brand py-[5px]" href="#">
-                        <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="logo"
+                        {% block logo %}
+                        <img src="{{ url_for('static', filename='img/logo/mya-gold.svg') }}" alt="MYAlogo"
                             class="xl:w-[65px] w-[35px] relative z-[2]">
+                        {% endblock %}
                     </a>
                     <button
                         class="navbar-toggler shadow-none flex basis-[auto] grow items-center text-[24px] text-[#111827] lg:hidden flex justify-end"
@@ -327,6 +324,7 @@
         {% block content %}{% endblock %}
     </main>
 
+    {% block Footer %}
     <!-- Footer -->
     <footer>
         <footer class="pt-[70px] bg-[#a8a29e]">
@@ -382,8 +380,10 @@
                             <div
                                 class="lh-social-media h-full lg:border-x-[1px] lg:border-b-[0] md:border-b-[1px] border-b-[0] lg:pb-[0] md:pb-[30px] pb-[0] border-solid border-[#808384]">
                                 <div class="footer-logos flex md:justify-center justify-start">
-                                    <img src="{{ url_for('static', filename='img/logo/logo-2.png') }}" alt="logo"
+                                    {% block navlogo %}
+                                    <img src="{{ url_for('static', filename='img/logo/mya-white.svg') }}" alt="logo"
                                         class="w-[180px]">
+                                    {% endblock %}
                                 </div>
                                 <div
                                     class="lh-footer-social lg:p-[24px] py-[24px] lg:border-b border-solid border-[#808384]">
@@ -505,38 +505,48 @@
             </div>
         </footer>
     </footer>
+    {% endblock %}
 
+    {% block TopProgress %}
+    <!-- Top Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    {% endblock %}
+
+    {% block TapToTop %}
     <!-- Tap to top -->
     <a href="#"
         class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
         <i class="ri-arrow-up-double-line text-[20px]"></i>
     </a>
+    {% endblock %}
 
+    {% block SideBar %}
     <!-- side bar -->
     <div class="relative">
         <nav class="floating-sidebar">
             {% block sidebar1 %}
             <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
                 class="sidebar-link"> 
-                <img src="{{ url_for('static', filename='img/logo/svg/mya.svg') }}" alt="MYALogo" class="sidebar-icon">
+                <img src="{{ url_for('static', filename='img/logo/svg/mya-wine.svg') }}" alt="MYALogo" class="sidebar-icon">
             </a>
             {% endblock %}
             {% block sidebar2 %}
             <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                 class="sidebar-link"> 
-                <img src="{{ url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="OliveaLogo"
-                    class="sidebar-icon">
+                <img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo" class="sidebar-icon">
             </a>
             {% endblock %}
             {% block sidebar3 %}
             <a href="{{ url_for('main.divino', lang_code=session.get('language', 'en')) }}" 
                 class="sidebar-link"> 
-                <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo"
-                    class="sidebar-icon">
+                <img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
             </a>
             {% endblock %}
         </nav>
     </div>
+    {% endblock %}
 
     <!-- Chatbot-->
     {% include 'partials/chatbot.html' %}
@@ -556,5 +566,4 @@
     {% endblock %}
 
 </body>
-
 </html>

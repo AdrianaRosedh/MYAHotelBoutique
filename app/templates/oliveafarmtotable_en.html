@@ -22,6 +22,19 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 <link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='es', _external=True) }}" hreflang="es">
 {% endblock %}
 
+{% block logo %}
+<img src="{{ url_for('static', filename='img/logo/olivea-gold.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[35px] relative z-[2]">
+{% endblock %}
+
+{% block nav7 %}
+<div class="search-control-button flex items-center min-w-[117px]">
+    <button id="bookNowButton"
+        class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
+        Test
+    </button>
+</div>
+{% endblock %}
+
 {% block content %}
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
@@ -824,17 +837,18 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
     </div>
 </section>
 
-<!-- Side Bar -->
-<div class="relative">
-    <nav class="floating-sidebar">
-        {% block sidebar2 %}
-        <a href="#hero"
-            class="sidebar-link border border-gray-500 p-2 rounded-md"> 
-            <img src="{{  url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="PadelLogo"
-                            class="sidebar-icon">
-            </a>
-        {% endblock %}
-    </nav>
-</div>
+<!-- Hotel booking engine model-->
+{% include 'partials/bookingEngine.html' %}
+{% endblock %}
 
+<!-- Sidebar -->
+{% block sidebar2 %}
+<a href="#hero" class="sidebar-link border !border-pink-950/[.55] p-2 rounded-md"> 
+    <img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="PadelLogo" class="sidebar-icon w-15">
+</a>
+{% endblock %}
+
+<!-- Nav Logo -->
+{% block navlogo %}
+<img src="{{ url_for('static', filename='img/logo/olivea-white.svg') }}" alt="logo" class="w-[180px]">
 {% endblock %}
