@@ -428,25 +428,6 @@
       ]
     });
   
-    /* scrollProgress */
-    const scrollProgress = () => {
-      return {
-          init() {
-              window.addEventListener('scroll', () => {
-                  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                  this.percent = Math.round((winScroll / height) * 100);
-              });
-          },
-          circumference: 30 * 2 * Math.PI,
-          percent: 0,
-      };
-    };
-  
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('scrollProgress', scrollProgress);
-    });
-  
   
     /* Copyright year */
     var date = new Date().getFullYear();
@@ -576,8 +557,8 @@
           bookingForm.reset();
       }
   });
-// Top Progress bar
 
+// Top Progress bar
 window.addEventListener('scroll', function() {
   var scrollTop = window.scrollY;
   var docHeight = document.documentElement.scrollHeight;

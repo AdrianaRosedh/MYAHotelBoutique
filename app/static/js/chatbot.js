@@ -2,15 +2,23 @@ export function initChatbot() {
     function toggleChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         if (chatbotContainer.classList.contains('hidden')) {
-            chatbotContainer.classList.remove('hidden');
-            document.getElementById('user-input').focus();
+            openChatbot();
         } else {
-            chatbotContainer.classList.add('hidden');
+            closeChatbot();
         }
     }
 
+    function openChatbot() {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        chatbotContainer.classList.remove('hidden');
+        document.body.classList.add('chatbot-open'); // Apply darkening effect
+        document.getElementById('user-input').focus();
+    }
+
     function closeChatbot() {
-        document.getElementById('chatbot-container').classList.add('hidden');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        chatbotContainer.classList.add('hidden');
+        document.body.classList.remove('chatbot-open'); // Remove darkening effect
         document.getElementById('chatbot-toggle').focus();
     }
 
@@ -48,10 +56,6 @@ export function initChatbot() {
             document.onmousemove = null;
         }
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        dragElement(document.getElementById('chatbot-container'));
-    });
 
     async function sendMessage(event) {
         if (event.key === 'Enter') {
@@ -102,11 +106,69 @@ export function initChatbot() {
         }
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        dragElement(document.getElementById('chatbot-container'));
+    });
+
     // Attach event listeners
     document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
     document.getElementById('user-input').addEventListener('keypress', sendMessage);
+
+    // Ensure the bounce animation only runs once on load
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    chatbotToggle.addEventListener('animationend', () => {
+        chatbotToggle.style.animation = 'none';
+    });
+
+    // Make the chatbot container responsive
+    window.addEventListener('resize', () => {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        if (window.innerWidth <= 640) {
+            chatbotContainer.style.width = '100%';
+            chatbotContainer.style.height = '50%';
+            chatbotContainer.style.bottom = '0';
+            chatbotContainer.style.right = '0';
+            chatbotContainer.style.left = '0';
+            chatbotContainer.style.maxHeight = '50%';
+            chatbotContainer.style.borderRadius = '0';
+            chatbotToggle.style.display = 'block'; // Ensure toggle button is visible on mobile
+        } else {
+            chatbotContainer.style.width = '20rem';
+            chatbotContainer.style.height = 'auto';
+            chatbotContainer.style.bottom = '1rem';
+            chatbotContainer.style.right = '1rem';
+            chatbotContainer.style.left = 'auto';
+            chatbotContainer.style.maxHeight = '24rem';
+            chatbotContainer.style.borderRadius = '0.5rem';
+            chatbotToggle.style.display = 'block'; // Ensure toggle button is visible on desktop
+        }
+    });
+
+    // Initial trigger to set correct sizes
+    window.dispatchEvent(new Event('resize'));
+
+    // Ensure the chatbot-toggle is visible on mobile
+    window.addEventListener('load', function () {
+        const toggle = document.getElementById('chatbot-toggle');
+        if (window.innerWidth <= 640) {
+            toggle.style.display = 'block';
+        }
+    });
 }
 
+// Call the initialization function when the document is ready
 document.addEventListener('DOMContentLoaded', function() {
     initChatbot();
+});
+
+// JavaScript to dynamically set the placeholder based on language
+document.addEventListener('DOMContentLoaded', function() {
+    const lang = document.body.getAttribute('data-lang') || 'en';
+    const userInput = document.getElementById('user-input');
+    if (lang === 'es') {
+        userInput.placeholder = 'Ingresa tu mensaje...';
+    } else {
+        userInput.placeholder = 'Enter your message...';
+    }
 });

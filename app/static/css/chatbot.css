@@ -1,4 +1,6 @@
-/*# openai */
+/* chatbot.css */
+
+/* General styles */
 #chatbox {
   overflow-y: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -11,10 +13,12 @@
 
 #chatbot-container {
   transition: opacity 0.3s ease-in-out;
+  padding-top: 4rem; /* Ensure there is enough space for the header */
 }
 
 #chatbot-toggle {
   transition: transform 0.3s ease-in-out;
+  animation: bounceIn 2s ease-in-out; /* Apply bounce animation */
 }
 
 .chatbot-icon {
@@ -22,6 +26,21 @@
   height: 60px; /* Adjust size as needed */
   display: inline-block;
   vertical-align: middle;
+}
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  90% {
+    transform: translateY(-5px);
+  }
 }
 
 #chatbot-toggle:hover .chatbot-icon {
@@ -33,6 +52,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: absolute; /* Make sure the header is positioned absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20; /* Ensure it is on top of other elements */
 }
 
 .message {
@@ -87,4 +111,44 @@
 .send-button svg {
   width: 24px;
   height: 24px;
+}
+
+@media screen and (max-width: 640px) {
+  #chatbot-container {
+    width: 100%;
+    bottom: 5rem;
+    right: 0;
+    left: 0;
+    height: 65%;
+    max-height: 65%;
+    border-radius: 0;
+  }
+
+  #chatbot-toggle {
+    bottom: 5rem;
+    right: 2rem;
+    display: block !important; /* Ensure the toggle button is visible on mobile */
+  }
+
+  .chatbot-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  #chatbox {
+    padding: 1rem;
+  }
+
+  .input-area {
+    padding: 0.5rem;
+  }
+
+  .send-button {
+    padding: 0.5rem;
+  }
+
+  .send-button svg {
+    width: 20px;
+    height: 20px;
+  }
 }

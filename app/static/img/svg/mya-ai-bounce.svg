@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="150" viewBox="0 0 500 150">
   <style>
     .letter {
-      font-family: 'Arial Rounded MT Bold', sans-serif;
+      font-family: 'Verdana', sans-serif;
       font-size: 60px;
       fill: white;
     }
@@ -9,19 +9,19 @@
   <text id="M" x="20" y="100" class="letter">M
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" />
   </text>
-  <text id="Y" x="80" y="100" class="letter">Y
+  <text id="Y" x="70" y="100" class="letter">Y
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" begin="0.2s" />
   </text>
-  <text id="A" x="140" y="100" class="letter">A
+  <text id="A" x="120" y="100" class="letter">A
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" begin="0.4s" />
   </text>
-  <text id="dot" x="200" y="100" class="letter">.
+  <text id="dot" x="170" y="100" class="letter">.
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" begin="0.6s" />
   </text>
-  <text id="a" x="240" y="100" class="letter">a
+  <text id="a" x="210" y="100" class="letter">a
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" begin="0.8s" />
   </text>
-  <text id="i" x="300" y="100" class="letter">i
+  <text id="i" x="260" y="100" class="letter">i
     <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" keyTimes="0; 0.5; 1" keySplines=".42,0,.58,1; .42,0,.58,1" dur="2s" repeatCount="indefinite" begin="1s" />
   </text>
 </svg>
