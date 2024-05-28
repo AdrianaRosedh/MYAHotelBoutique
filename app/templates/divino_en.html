@@ -10,7 +10,8 @@ heart of the city with our premium amenities and top-notch service.
 {% endblock %}
 
 {% block keywords %}
-hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing
+hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table,
+Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block favicon %}
@@ -20,6 +21,11 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 {% block hreflang %}
 <link rel="alternate" href="{{ url_for('main.divino', lang_code='en', _external=True) }}" hreflang="en">
 <link rel="alternate" href="{{ url_for('main.divino', lang_code='es', _external=True) }}" hreflang="es">
+{% endblock %}
+
+{% block logo %}
+<img src="{{ url_for('static', filename='img/logo/padel-gold.svg') }}" alt="PadelLogo"
+    class="xl:w-[65px] w-[35px] relative z-[2]">
 {% endblock %}
 
 {% block content %}
@@ -771,7 +777,8 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 09 Jan 2023 - 05 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Offers Exclusive
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Offers
+                        Exclusive
                         amenities & Facilities To Guests and free
                         offers.</a>
                 </div>
@@ -785,13 +792,14 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 15 Feb 2023 - 22 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Announces A Private
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Announces
+                        A Private
                         Island Hotel In The Maldives for couple.</a>
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}" alt="blog-img"
-                        class="w-full rounded-[15px]"></figure>
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}"
+                        alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
                         <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Hotel</code>
@@ -814,7 +822,8 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 18 Apr 2023 - 15 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Tips For Booking The
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Tips For
+                        Booking The
                         Perfect Hotel Room
                         In A Coastal
                         Destination.</a>
@@ -823,18 +832,16 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
         </div>
     </div>
 </section>
+{% endblock %}
 
-<!-- Side Bar -->
-<div class="relative">
-    <nav class="floating-sidebar">
-        {% block sidebar3 %}
-        <a href="#hero"
-            class="sidebar-link border border-gray-500 p-2 rounded-md"> 
-            <img src="{{ url_for('static', filename='img/logo/svg/Asset3.svg') }}" alt="PadelLogo"
-                            class="sidebar-icon">
-            </a>
-        {% endblock %}
-    </nav>
-</div>
+<!-- Sidebar -->
+{% block sidebar3 %}
+<a href="#hero" class="sidebar-link border !border-pink-950/[.55] p-2 rounded-md"> 
+    <img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
+</a>
+{% endblock %}
 
+<!-- Nav Logo -->
+{% block navlogo %}
+<img src="{{ url_for('static', filename='img/logo/mya-white.svg') }}" alt="logo" class="w-[180px]">
 {% endblock %}

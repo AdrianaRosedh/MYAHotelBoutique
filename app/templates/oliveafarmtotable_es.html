@@ -23,6 +23,9 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='es', _external=True) }}" hreflang="es">
 {% endblock %}
 
+{% block logo %}
+<img src="{{ url_for('static', filename='img/logo/olivea-gold.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[35px] relative z-[2]">
+{% endblock %}
 
 {% block content %}
 <!-- Room -->
@@ -828,17 +831,20 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
 </section>
-
-<!-- Side Bar -->
-<div class="relative">
-    <nav class="floating-sidebar">
-        {% block sidebar2 %}
-        <a href="#hero" class="sidebar-link border border-gray-500 p-2 rounded-md">
-            <img src="{{  url_for('static', filename='img/logo/svg/olivea.svg') }}" alt="PadelLogo"
-                class="sidebar-icon">
-        </a>
-        {% endblock %}
-    </nav>
-</div>
-
 {% endblock %}
+
+<!-- Sidebar -->
+{% block sidebar2 %}
+<a href="#hero" class="sidebar-link border !border-pink-950/[.55] p-2 rounded-md"> 
+    <img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="PadelLogo" class="sidebar-icon w-15">
+</a>
+{% endblock %}
+
+<!-- Nav Logo -->
+{% block navlogo %}
+<img src="{{ url_for('static', filename='img/logo/olivea-white.svg') }}" alt="logo" class="w-[180px]">
+{% endblock %}
+
+
+
+
