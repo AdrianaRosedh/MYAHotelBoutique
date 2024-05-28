@@ -39,12 +39,17 @@
     {% block styles %}{% endblock %}
 </head>
 
-<body class="overflow-x-hidden bg-gray-10">
+<body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}">
 
     <!-- Loader -->
     <div
         class="lh-loader min-w-full w-full h-screen fixed top-0 left-0 flex items-center justify-center bg-[#fff] z-[25]">
         <span class="loader w-[100px] h-[100px] flex relative items-center justify-center"></span>
+    </div>
+
+    <!-- Top Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
     <!-- Header -->
@@ -116,38 +121,47 @@
                             </li>
                             
                             <li class="ml-[30px] nav-item dropdown">
+                                {% block nav2 %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#rooms">
                                     Rooms
                                 </a>
+                                {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
+                                {% block nav3 %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Find Us
                                 </a>
+                                {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
+                                {% block nav4 %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Coffee
                                 </a>
+                                {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
+                                {% block nav5 %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Padel
                                 </a>
+                                {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
+                                {% block nav6 %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link"
                                     href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
                                     Dining
                                 </a>
+                                {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
-                                <div class="search-control-button flex items-center min-w-[117px]">
-                                    <button id="bookNowButton"
-                                        class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
-                                        Book Now
-                                    </button>
-                                </div>
+                                {% block nav7 %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                    placeholder
+                                </a>
+                                {% endblock %}
                             </li>
                         </ul>
                     </div>
@@ -491,11 +505,6 @@
             </div>
         </footer>
     </footer>
-
-    <!-- Top Progress bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
 
     <!-- Tap to top -->
     <a href="#"

@@ -10,7 +10,8 @@ heart of the city with our premium amenities and top-notch service.
 {% endblock %}
 
 {% block keywords %}
-hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing
+hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table,
+Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block hreflang %}
@@ -20,8 +21,17 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 
 {% block nav1 %}
 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#about">
-    test
+    About Us
 </a>
+{% endblock %}
+
+{% block nav7 %}
+<div class="search-control-button flex items-center min-w-[117px]">
+    <button id="bookNowButton"
+        class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
+        Book Now
+    </button>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -773,7 +783,8 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 09 Jan 2023 - 05 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Offers Exclusive
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Offers
+                        Exclusive
                         amenities & Facilities To Guests and free
                         offers.</a>
                 </div>
@@ -787,13 +798,14 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 15 Feb 2023 - 22 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Announces A Private
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Announces
+                        A Private
                         Island Hotel In The Maldives for couple.</a>
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}" alt="blog-img"
-                        class="w-full rounded-[15px]"></figure>
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}"
+                        alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
                         <span class="text-[13px] font-Roboto"><code class="text-[16px] text-[#7b6c55]">Hotel</code>
@@ -816,7 +828,8 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
                             - 18 Apr 2023 - 15 Comment</span>
                     </div>
                     <a class="font-Cardo xl:text-[18px] text-[16px] xl:leading-[26px] lending-[24px] text-[#000] mt-0 font-bold cursor-pointer hover:text-[#000]"
-                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Tips For Booking The
+                        href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}">Tips For
+                        Booking The
                         Perfect Hotel Room
                         In A Coastal
                         Destination.</a>
@@ -830,11 +843,9 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 <div class="relative">
     <nav class="floating-sidebar">
         {% block sidebar1 %}
-        <a href="#hero"
-            class="sidebar-link border border-gray-500 p-2 rounded-md"> 
-            <img src="{{  url_for('static', filename='img/logo/svg/mya.svg') }}" alt="PadelLogo"
-                            class="sidebar-icon">
-            </a>
+        <a href="#hero" class="sidebar-link border border-gray-500 p-2 rounded-md">
+            <img src="{{  url_for('static', filename='img/logo/svg/mya.svg') }}" alt="PadelLogo" class="sidebar-icon">
+        </a>
         {% endblock %}
     </nav>
 </div>

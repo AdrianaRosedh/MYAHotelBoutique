@@ -7,31 +7,27 @@
     aria-label="Toggle Chatbot" tabindex="0">
     <img src="{{ url_for('static', filename='img/svg/mya-ai.svg') }}" alt="Chatbot Icon" class="chatbot-icon">
 </button>
+
 <!-- Chatbot Container -->
 <div id="chatbot-container"
-    class="fixed bottom-4 right-4 w-80 max-h-96 border border-gray-300 shadow-lg bg-white rounded-lg flex flex-col hidden z-50"
+    class="fixed bottom-4 right-4 w-80 max-h-96 shadow-lg bg-white rounded-lg flex flex-col hidden z-50"
     role="dialog" aria-labelledby="chatbot-header" tabindex="-1">
     <div id="chatbot-header"
-        class="relative z-20 bg-transparent text-white p-4 cursor-move rounded-t-lg flex justify-between items-center"             
-        style="background-image: url('{{ url_for('static', filename='img/svg/curve-background.svg') }}');">
+        class="absolute top-0 left-0 right-0 bg-transparent text-white p-4 cursor-move rounded-t-lg flex justify-between items-center z-20"
+        style="background-image: url('{{ url_for('static', filename='img/svg/curve-background.svg') }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
         <img src="{{ url_for('static', filename='img/svg/mya-ai-bounce.svg') }}" alt="Avatar"
             class="w-52 -mt-3">
-        <button onclick="closeChatbot()" class="text-white focus:outline-none -mt-14" aria-label="Close Chatbot"
+        <button onclick="closeChatbot()" class="text-white focus:outline-none -mt-8" aria-label="Close Chatbot"
             tabindex="0">&times;</button>
     </div>
-    <div id="chatbox" class="relative z-10 flex-1 p-4 overflow-auto space-y-2">
+    <div id="chatbox" class="relative z-10 flex-1 p-4 overflow-auto space-y-2 mt-8">
     </div>
     <div class="input-area p-2 border-t border-gray-300 flex items-center">
-        <input type="text" id="user-input" placeholder="Enter your message..." class="p-2 flex-grow focus:outline-none"
-            aria-label="User Input" tabindex="0">
+        <input type="text" id="user-input" class="p-2 flex-grow focus:outline-none" aria-label="User Input" tabindex="0">
         <button class="send-button bg-blue-500 text-white p-2 rounded-full ml-2" aria-label="Send message">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7M5 7h.01" />
-            </svg>
+            <img src="{{ url_for('static', filename='img/svg/sending.svg') }}" alt="Sending" class="w-10">
         </button>
     </div>
-</div>
 </div>
 
 <!-- Include JS for the chatbot -->
