@@ -558,24 +558,28 @@
       }
   });
 
-// Top Progress bar
-window.addEventListener('scroll', function() {
-  var scrollTop = window.scrollY;
-  var docHeight = document.documentElement.scrollHeight;
-  var winHeight = window.innerHeight;
-  var scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-  document.getElementById('progressBar').style.width = scrollPercent + '%';
-
-  // Show/hide back to top button
-  var backToTop = document.getElementById('backToTop');
-  if (scrollTop > 300) { // Show after scrolling down 300px
-      backToTop.style.display = 'block';
-  } else {
-      backToTop.style.display = 'none';
-  }
-});
-
 // ensure the language form submits correctly via JavaScript:
 document.querySelector('.language-form select').addEventListener('change', function() {
   this.form.submit();
 });
+
+// Tap To Top :
+document.addEventListener('DOMContentLoaded', function() {
+  var tapToTopButton = document.getElementById('tapToTop');
+
+  // Show or hide the button based on scroll position
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+          tapToTopButton.style.opacity = '1';
+      } else {
+          tapToTopButton.style.opacity = '0';
+      }
+  });
+
+  // Scroll to top when the button is clicked
+  tapToTopButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+

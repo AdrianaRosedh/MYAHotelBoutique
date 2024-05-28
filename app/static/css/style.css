@@ -352,6 +352,34 @@ h4, h5, h6 {
   background-color: #9e9e9e;
 }
 
+/* Tap To Top */
+.tap-to-top {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  position: fixed;
+  bottom: 2rem;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.tap-to-top i {
+  font-size: 20px; /* Ensure the icon size */
+}
+
+@media (max-width: 600px) {
+  .tap-to-top {
+      display: flex; /* Ensure it is displayed and centered on mobile */
+      bottom: 6rem;
+  }
+}
+
+
 /* Side-tool */
 .lh-tool-active {
   right: 0 !important;

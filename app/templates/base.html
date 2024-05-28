@@ -324,8 +324,8 @@
         {% block content %}{% endblock %}
     </main>
 
-    {% block Footer %}
     <!-- Footer -->
+    {% block Footer %}
     <footer>
         <footer class="pt-[70px] bg-[#a8a29e]">
             <div
@@ -507,17 +507,17 @@
     </footer>
     {% endblock %}
 
-    {% block TopProgress %}
     <!-- Top Progress bar -->
+    {% block TopProgress %}
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
     {% endblock %}
 
-    {% block TapToTop %}
     <!-- Tap to top -->
-    <a href="#"
-        class="back-to-top hidden fixed left-[15px] bottom-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
+    {% block TapToTop %}
+    <a href="#" id="tapToTop"
+        class="tap-to-top back-to-top hidden fixed left-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed result-placeholder">
         <i class="ri-arrow-up-double-line text-[20px]"></i>
     </a>
     {% endblock %}
@@ -563,6 +563,7 @@
     <script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/progress-bar-script.js') }}"></script>
     {% endblock %}
 
 </body>
