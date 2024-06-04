@@ -153,4 +153,8 @@
     width: 20px;
     height: 20px;
   }
+  .rounded-t-lg {
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0; 
+  }
 }
