@@ -495,3 +495,73 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
       return false;
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const checkinInput = document.querySelector('#checkin');
+  const checkoutInput = document.querySelector('#checkout');
+  const checkinIcon = document.querySelector('#checkin-icon');
+  const checkoutIcon = document.querySelector('#checkout-icon');
+
+  // State tracking variables
+  let checkinOpen = false;
+  let checkoutOpen = false;
+
+  // Initialize Flatpickr for check-in input
+  const checkinCalendar = flatpickr(checkinInput, {
+      dateFormat: "Y-m-d",
+      defaultDate: "{{ today }}",
+      onClose: function() {
+          checkinOpen = false;
+      },
+      onOpen: function() {
+          checkinOpen = true;
+      }
+  });
+
+  // Initialize Flatpickr for check-out input
+  const checkoutCalendar = flatpickr(checkoutInput, {
+      dateFormat: "Y-m-d",
+      defaultDate: "{{ tomorrow }}",
+      onClose: function() {
+          checkoutOpen = false;
+      },
+      onOpen: function() {
+          checkoutOpen = true;
+      }
+  });
+
+  // Toggle check-in calendar visibility
+  checkinIcon.addEventListener('click', function() {
+      if (checkinOpen) {
+          checkinCalendar.close();
+      } else {
+          checkinCalendar.open();
+      }
+  });
+
+  // Toggle check-out calendar visibility
+  checkoutIcon.addEventListener('click', function() {
+      if (checkoutOpen) {
+          checkoutCalendar.close();
+      } else {
+          checkoutCalendar.open();
+      }
+  });
+
+  // Additional input click handlers to close the calendar if it is open
+  checkinInput.addEventListener('click', function() {
+      if (checkinOpen) {
+          checkinCalendar.close();
+      } else {
+          checkinCalendar.open();
+      }
+  });
+
+  checkoutInput.addEventListener('click', function() {
+      if (checkoutOpen) {
+          checkoutCalendar.close();
+      } else {
+          checkoutCalendar.open();
+      }
+  });
+});
