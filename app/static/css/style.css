@@ -1091,6 +1091,7 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
     position: relative !important;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    z-index: 1000; /* Ensure the section is above other elements */
   }
   .section-search-control .search-control-boxing {
     -ms-flex-wrap: wrap;
@@ -1113,8 +1114,9 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
     margin-top: 12px;
   }
 }
+
 .widgetHotelsInputText {
-    padding: 5px;
+    padding: 5px 35px 5px 10px; /* Adjust padding to accommodate the icon */
     font-size: 14px;
     border: 1px solid #e3e1e1;
     border-radius: 5px;
@@ -1128,6 +1130,30 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
 
 .acessa_widget_block p {
     margin-bottom: 5px;
+}
+
+.border-t-0 { border-top: 0; }
+.border-l-0 { border-left: 0; }
+.border-r-0 { border-right: 0; }
+.text-left { text-align: left; }
+.bg-white { background-color: #fff; }
+.w-full { width: 100%; }
+.border-b { border-bottom: 1px solid; }
+.border-solid { border-style: solid; }
+.outline-0 { outline: 0; }
+.relative { position: relative; }
+.calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    color: #7b6c55; /* Match the color to the theme */
+}
+
+.flatpickr-calendar {
+    z-index: 9999; /* Ensure the Flatpickr calendar is above other elements */
 }
 
 /* Prices */
