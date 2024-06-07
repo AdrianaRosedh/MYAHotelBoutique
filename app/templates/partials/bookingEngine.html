@@ -1,3 +1,6 @@
+<!-- Include CSS for the chatbot -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/booking.css') }}">
+
 <!-- hotel booking engine model-->
 <div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50"
     role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -9,51 +12,49 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <h2 id="modalTitle" class="text-2xl font-bold mb-6 text-center text-gray-800">Book
-            Your Stay</h2>
-        <form id="bookingForm">
+        <h2 id="modalTitle" class="text-2xl font-bold mb-6 text-center text-gray-800">Book Your Stay</h2>
+        <form id="bookingForm" action="/booking/booking" method="POST">
             <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-semibold">Name</label>
-                <input type="text" id="name"
+                <label for="first_name" class="block text-gray-700 font-semibold">First Name</label>
+                <input type="text" id="first_name" name="first_name"
                     class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
-                <p id="nameError" class="text-red-500 text-sm hidden">Name is
-                    required</p>
+                <p id="firstNameError" class="text-red-500 text-sm hidden">First name is required</p>
+            </div>
+            <div class="mb-4">
+                <label for="last_name" class="block text-gray-700 font-semibold">Last Name</label>
+                <input type="text" id="last_name" name="last_name"
+                    class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <p id="lastNameError" class="text-red-500 text-sm hidden">Last name is required</p>
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-semibold">Email</label>
-                <input type="email" id="email"
+                <input type="email" id="email" name="email"
                     class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
-                <p id="emailError" class="text-red-500 text-sm hidden">Valid email is
-                    required</p>
+                <p id="emailError" class="text-red-500 text-sm hidden">Valid email is required</p>
             </div>
             <div class="mb-4">
-                <label for="checkin" class="block text-gray-700 font-semibold">Check-in
-                    Date</label>
-                <input type="date" id="checkin"
+                <label for="checkin" class="block text-gray-700 font-semibold">Check-in Date</label>
+                <input type="date" id="checkin" name="checkin"
                     class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
-                <p id="checkinError" class="text-red-500 text-sm hidden">Check-in date is
-                    required</p>
+                <p id="checkinError" class="text-red-500 text-sm hidden">Check-in date is required</p>
             </div>
             <div class="mb-4">
-                <label for="checkout" class="block text-gray-700 font-semibold">Check-out
-                    Date</label>
-                <input type="date" id="checkout"
+                <label for="checkout" class="block text-gray-700 font-semibold">Check-out Date</label>
+                <input type="date" id="checkout" name="checkout"
                     class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
-                <p id="checkoutError" class="text-red-500 text-sm hidden">Check-out date
-                    is required</p>
+                <p id="checkoutError" class="text-red-500 text-sm hidden">Check-out date is required</p>
             </div>
             <div class="mb-6">
-                <label for="guests" class="block text-gray-700 font-semibold">Number of
-                    Guests</label>
-                <input type="number" id="guests"
+                <label for="guests" class="block text-gray-700 font-semibold">Number of Guests</label>
+                <input type="number" id="guests" name="guests"
                     class="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required min="1">
-                <p id="guestsError" class="text-red-500 text-sm hidden">At least one
-                    guest is required</p>
+                <p id="guestsError" class="text-red-500 text-sm hidden">At least one guest is required</p>
             </div>
             <div class="flex justify-center">
                 <button type="submit"
@@ -64,3 +65,5 @@
         </form>
     </div>
 </div>
+<!-- Include JS for the booking -->
+<script type="module" src="{{ url_for('static', filename='js/booking.js') }}"></script>

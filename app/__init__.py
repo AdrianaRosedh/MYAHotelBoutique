@@ -42,3 +42,5 @@ def create_app():
         return {'locale': get_locale()}
 
     return app
+
+

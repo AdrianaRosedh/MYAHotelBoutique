@@ -26,10 +26,11 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
 
 {% block nav7 %}
 <div class="search-control-button flex items-center min-w-[117px]">
-    <button id="bookNowButton"
-        class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]">
-        Test
-    </button>
+    <a id="bookNowButton"
+    class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]"
+    href="https://hotels.cloudbeds.com/es/reservation/pkwNrX" target="_blank">
+    Book Now
+    </a>
 </div>
 {% endblock %}
 
@@ -834,9 +835,6 @@ hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, pad
         </div>
     </div>
 </section>
-
-<!-- Hotel booking engine model-->
-{% include 'partials/bookingEngine.html' %}
 
 {% endblock %}
 
