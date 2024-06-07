@@ -1,0 +1,103 @@
+/* Booking Engine Modal */
+#bookingModal {
+    z-index: 1100;
+    position: fixed;
+  }
+  
+  .modal-enter {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  .modal-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.3s, transform 0.3s;
+  }
+  .modal-leave {
+      opacity: 1;
+      transform: scale(1);
+  }
+  .modal-leave-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 1399px) {
+    .prev-slick-img {
+      width: 257px;
+    }
+    .prev-slick-img img {
+      width: 257px;
+    }
+    .prev-slick-img::after {
+      width: 217px;
+    }
+    .next-slick-img {
+      width: 257px;
+    }
+    .next-slick-img img {
+      width: 257px;
+    }
+    .next-slick-img::after {
+      width: 217px;
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    .testimonials_image_1::after {
+      width: 82%;
+      height: 89%;
+    }
+    .prev-slick-img {
+      width: 212px;
+    }
+    .prev-slick-img img {
+      width: 212px;
+    }
+    .prev-slick-img::after {
+      width: 172px;
+    }
+    .next-slick-img {
+      width: 212px;
+    }
+    .next-slick-img img {
+      width: 212px;
+    }
+    .next-slick-img::after {
+      width: 172px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .next-slick-img {
+      display: none;
+    }
+    .prev-slick-img {
+      display: none;
+    }
+    .pagipagination-testimonials .swiper-pagination {
+      width: 10%;
+      right: 0;
+      left: auto;
+    }
+    .testimonials_image_1::after {
+      width: 88%;
+      height: 93%;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .testimonials_image_1::after {
+      width: 84%;
+      height: 90%;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .swiper {
+      padding: 0 10px;
+    }
+    .lh-testimonials {
+      padding: 0 10px;
+    }
+  }
+  
+  

@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, send_from_directory
+from flask import Blueprint, render_template, request, redirect, session, url_for, send_from_directory, flash
+from datetime import datetime, timedelta
 import os
+
 
 bp = Blueprint('main', __name__)
 
 def detect_language():
-    # Detect language from Accept-Language header
     languages = request.headers.get('Accept-Language', '').split(',')
     for lang in languages:
         if lang.startswith('es'):
@@ -61,6 +62,30 @@ def divino(lang_code):
     if lang_code == 'es':
         return render_template('divino_es.html', email=email, phone=phone)
     return render_template('divino_en.html', email=email, phone=phone)
+
+@bp.route('/<lang_code>/reservation', methods=['GET', 'POST'])
+def reservation(lang_code):
+    session['language'] = lang_code
+    today = datetime.today().strftime('%Y-%m-%d')
+    tomorrow = (datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d')
+
+    if request.method == 'POST':
+        checkin_date = request.form.get('checkin', today)
+        checkout_date = request.form.get('checkout', tomorrow)
+
+        print(f"Received POST request with check-in date: {checkin_date} and check-out date: {checkout_date}")
+
+        try:
+            url = f"https://hotels.cloudbeds.com/{lang_code}/reservation/pkwNrX?checkin={checkin_date}&checkout={checkout_date}"
+            print(f"Constructed redirect URL: {url}")
+            return redirect(url)
+        except Exception as e:
+            print(f"Error during redirection: {e}")
+            flash('An error occurred while processing your reservation. Please try again.')
+            return render_template(f'reservation_{lang_code}.html', today=today, tomorrow=tomorrow, lang_code=lang_code)
+
+    print("Handling GET request")
+    return render_template(f'reservation_{lang_code}.html', today=today, tomorrow=tomorrow, lang_code=lang_code)
 
 @bp.route('/favicon.ico')
 def favicon():

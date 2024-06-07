@@ -475,3 +475,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// For Search Engine
+document.getElementById('reservationForm').addEventListener('submit', function(event) {
+  var checkin = new Date(document.getElementById('checkin').value);
+  var checkout = new Date(document.getElementById('checkout').value);
+  var today = new Date();
+
+  // Ensure check-in date is not in the past
+  if (checkin < today) {
+      alert('Check-in date cannot be in the past.');
+      event.preventDefault();
+      return false;
+  }
+
+  // Ensure check-out date is after check-in date
+  if (checkout <= checkin) {
+      alert('Check-out date must be after check-in date.');
+      event.preventDefault();
+      return false;
+  }
+});
