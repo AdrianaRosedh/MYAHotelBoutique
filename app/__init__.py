@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, session
 from flask_babel import Babel
 from dotenv import load_dotenv
+from datetime import datetime, timedelta
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -41,6 +42,11 @@ def create_app():
     def inject_locale():
         return {'locale': get_locale()}
 
+    # Define context processor to inject `today` and `tomorrow` into templates
+    @app.context_processor
+    def inject_dates():
+        today = datetime.today().strftime('%Y-%m-%d')
+        tomorrow = (datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d')
+        return {'today': today, 'tomorrow': tomorrow}
+
     return app
-
-

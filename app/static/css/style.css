@@ -1085,22 +1085,52 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   right: 15px;
   font-size: 18px;
 }
-
+/* Search Control Section */
 @media screen and (max-width: 1023px) {
   .section-search-control {
     position: relative !important;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   .section-search-control .search-control-boxing {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .section-search-control .w-full {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .section-search-control .p-[12px] {
+    padding: 12px;
+  }
+  .section-search-control .search-box {
+    margin-bottom: 12px;
+  }
+  .section-search-control .search-control-button {
+    margin-top: 12px;
   }
 }
-/*  Prices */
+.widgetHotelsInputText {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #e3e1e1;
+    border-radius: 5px;
+}
+
+.submit_link {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.acessa_widget_block p {
+    margin-bottom: 5px;
+}
+
+/* Prices */
 .lh-prices {
   -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
@@ -1122,6 +1152,7 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   -webkit-filter: grayscale(0) contrast(100%);
           filter: grayscale(0) contrast(100%);
 }
+
 
 /* Responsive */
 @media screen and (max-width: 1023px) {
@@ -1647,31 +1678,6 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   border: 1px solid #7b6c55;
   border-radius: 15px;
   margin: 20px;
-}
-
-/* Booking Engine Modal */
-#bookingModal {
-  z-index: 1100;
-  position: fixed;
-}
-
-.modal-enter {
-    opacity: 0;
-    transform: scale(0.9);
-}
-.modal-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.3s, transform 0.3s;
-}
-.modal-leave {
-    opacity: 1;
-    transform: scale(1);
-}
-.modal-leave-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.3s, transform 0.3s;
 }
 
 /* Responsive */
