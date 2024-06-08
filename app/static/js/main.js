@@ -203,13 +203,14 @@
     
   
     /* Tap to top */
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 50) {
-        $(".back-to-top").fadeIn();
-      } else {
-        $(".back-to-top").fadeOut();
-      }
-    });
+  window.addEventListener('scroll', function() {
+    const tapToTop = document.getElementById('tapToTop');
+    if (window.scrollY > 50) {
+        tapToTop.classList.remove('hidden');
+    } else {
+        tapToTop.classList.add('hidden');
+    }
+});
   
     /* Side tool */
     $(".btn-lh-tool").on("click", function (e) {
@@ -502,10 +503,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const checkinIcon = document.querySelector('#checkin-icon');
   const checkoutIcon = document.querySelector('#checkout-icon');
 
-  // State tracking variables
-  let checkinOpen = false;
-  let checkoutOpen = false;
-
   // Initialize Flatpickr for check-in input
   const checkinCalendar = flatpickr(checkinInput, {
       dateFormat: "Y-m-d",
@@ -530,38 +527,41 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  // Toggle check-in calendar visibility
-  checkinIcon.addEventListener('click', function() {
-      if (checkinOpen) {
-          checkinCalendar.close();
+  // State tracking variables
+  let checkinOpen = false;
+  let checkoutOpen = false;
+
+  // Function to toggle calendar visibility
+  function toggleCalendar(calendar, isOpen) {
+      if (isOpen) {
+          calendar.close();
       } else {
-          checkinCalendar.open();
+          calendar.open();
       }
+  }
+
+  // Toggle check-in calendar visibility
+  checkinInput.addEventListener('click', function() {
+      toggleCalendar(checkinCalendar, checkinOpen);
+  });
+  checkinIcon.addEventListener('click', function() {
+      toggleCalendar(checkinCalendar, checkinOpen);
   });
 
   // Toggle check-out calendar visibility
-  checkoutIcon.addEventListener('click', function() {
-      if (checkoutOpen) {
-          checkoutCalendar.close();
-      } else {
-          checkoutCalendar.open();
-      }
-  });
-
-  // Additional input click handlers to close the calendar if it is open
-  checkinInput.addEventListener('click', function() {
-      if (checkinOpen) {
-          checkinCalendar.close();
-      } else {
-          checkinCalendar.open();
-      }
-  });
-
   checkoutInput.addEventListener('click', function() {
-      if (checkoutOpen) {
-          checkoutCalendar.close();
-      } else {
-          checkoutCalendar.open();
-      }
+      toggleCalendar(checkoutCalendar, checkoutOpen);
+  });
+  checkoutIcon.addEventListener('click', function() {
+      toggleCalendar(checkoutCalendar, checkoutOpen);
   });
 });
+
+  // Removing fade from arrow
+document.addEventListener('DOMContentLoaded', () => {
+  const fadeInElement = document.querySelector('.opacity-0');
+  fadeInElement.classList.remove('opacity-0');
+  fadeInElement.classList.add('opacity-100');
+});
+
+

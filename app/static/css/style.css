@@ -379,6 +379,11 @@ h4, h5, h6 {
   }
 }
 
+/* Ensure the bounce effect is smooth */
+.hover\\:animate-bounce {
+  animation: bounce 1s infinite;
+}
+
 
 /* Side-tool */
 .lh-tool-active {
@@ -1088,48 +1093,48 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
 /* Search Control Section */
 @media screen and (max-width: 1023px) {
   .section-search-control {
-    position: relative !important;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    z-index: 1000; /* Ensure the section is above other elements */
+      position: relative !important;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      z-index: 1000; /* Ensure the section is above other elements */
   }
   .section-search-control .search-control-boxing {
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
   }
   .section-search-control .w-full {
-    flex: 0 0 100%;
-    max-width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
   }
   .section-search-control .p-[12px] {
-    padding: 12px;
+      padding: 12px;
   }
   .section-search-control .search-box {
-    margin-bottom: 12px;
+      margin-bottom: 12px;
   }
   .section-search-control .search-control-button {
-    margin-top: 12px;
+      margin-top: 12px;
   }
 }
 
 .widgetHotelsInputText {
-    padding: 5px 35px 5px 10px; /* Adjust padding to accommodate the icon */
-    font-size: 14px;
-    border: 1px solid #e3e1e1;
-    border-radius: 5px;
+  padding: 5px 35px 5px 10px; /* Adjust padding to accommodate the icon */
+  font-size: 14px;
+  border: 1px solid #e3e1e1;
+  border-radius: 5px;
 }
 
 .submit_link {
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
 }
 
 .acessa_widget_block p {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .border-t-0 { border-top: 0; }
@@ -1143,42 +1148,65 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
 .outline-0 { outline: 0; }
 .relative { position: relative; }
 .calendar-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10;
-    color: #7b6c55; /* Match the color to the theme */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  color: #7b6c55; /* Match the color to the theme */
 }
 
 .flatpickr-calendar {
-    z-index: 9999; /* Ensure the Flatpickr calendar is above other elements */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Ensure the Flatpickr calendar is above other elements */
 }
 
-/* Prices */
-.lh-prices {
-  -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-}
-.lh-prices:hover .prices-image {
-  -webkit-filter: grayscale(0) contrast(100%);
-          filter: grayscale(0) contrast(100%);
-}
-.lh-prices .prices-image {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  -webkit-filter: grayscale(1) contrast(90%);
-          filter: grayscale(1) contrast(90%);
-}
-.lh-prices .prices-image.active {
-  -webkit-filter: grayscale(0) contrast(100%);
-          filter: grayscale(0) contrast(100%);
+.flatpickr-months {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #eee;
 }
 
+.flatpickr-month {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.flatpickr-weekdays {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.flatpickr-weekday {
+  color: #333;
+  padding: 8px 0;
+}
+
+.flatpickr-day {
+  border-radius: 4px;
+  color: #333;
+}
+
+.flatpickr-day:hover {
+  background-color: #e6f7ff;
+  color: #333;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background-color: #7b6c55;
+  border-color: #7b6c55;
+  color: #fff;
+}
+
+.flatpickr-day.today {
+  border-color: #7b6c55;
+  color: #7b6c55;
+}
 
 /* Responsive */
 @media screen and (max-width: 1023px) {
@@ -1783,3 +1811,15 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   }
 }
 
+/* Tap to top */
+.tap-to-top i:hover {
+  animation: moveUp 1s ease-in-out infinite;
+}
+@keyframes moveUp {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
