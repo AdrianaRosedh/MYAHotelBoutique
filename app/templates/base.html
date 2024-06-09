@@ -45,31 +45,31 @@
 
     <!-- Loader -->
     <div
-        class="lh-loader min-w-full w-full h-screen fixed top-0 left-0 flex items-center justify-center bg-[#fff] z-[25]">
+        class="lh-loader min-w-full w-full h-screen fixed top-0 left-0 flex items-center justify-center bg-[#fafafa] z-[25]">
         <span class="loader w-[100px] h-[100px] flex relative items-center justify-center"></span>
     </div>
 
     <!-- Header -->
     <header>
         <!-- Basic Header -->
-        <div class="relative">
+        <div class="relative basic-nav">
             <div
                 class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px] lg:flex hidden">
                 <div class="w-1/2 py-[10px] flex items-center">
                     <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-cente">
-                        <i class="ri-mail-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
-                        <a href="mailto:{{ email }}">{{ email }}</a>
+                        <i class="ri-mail-line mr-[5px] text-[#fafafa] text-[16px]"></i>
+                        <a class="text-[#fafafa]"  href="mailto:{{ email }}">{{ email }}</a>
                     </div>
                     <div class="flex items-center pl-[15px] lh-location">
-                        <div class="flex items-center custom-select text-[14px] text-[#777]">
-                            <i class="ri-earth-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
+                        <div class="flex items-center custom-select text-[14px]">
+                            <i class="ri-earth-line mr-[5px] text-[#fafafa] text-[16px]"></i>
                             {% include 'partials/language_form.html' %}
                         </div>
                     </div>
                 </div>
                 <div class="w-1/2 py-[10px] flex justify-end">
-                    <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-center">
-                        <i class="ri-phone-line mr-[5px] text-[#7b6c55] text-[16px]"></i>
+                    <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-center text-[#fafafa]">
+                        <i class="ri-phone-line mr-[5px] text-[#fafafa] text-[16px]"></i>
                         {{ phone }}
                     </div>
                     <div class="mx-[-5px] pl-[15px] flex items-center">
@@ -94,13 +94,13 @@
             </div>
         </div>
         <!-- Main Header -->
-        <div class="lh-header bg-stone-200 absolute w-full z-[16] py-[6px]">
+        <div class="lh-header bg-stone-400 absolute w-full z-[16] py-[6px]">
             <div
                 class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
                 <nav class="flex flex-nowrap w-full py-[3px]">
                     <a class="navbar-brand py-[5px]" href="#">
                         {% block logo %}
-                        <img src="{{ url_for('static', filename='img/logo/mya-gold.svg') }}" alt="MYAlogo"
+                        <img src="{{ url_for('static', filename='img/logo/mya-464644.svg') }}" alt="MYAlogo"
                             class="xl:w-[65px] w-[35px] relative z-[2]">
                         {% endblock %}
                     </a>
@@ -172,11 +172,11 @@
     <!-- Mobile-menu -->
     <div class="lh-sidebar-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[17]"></div>
     <div id="lh_mobile_menu"
-        class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fff] overflow-y-auto z-[20] p-[15px]">
+        class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fafafa] overflow-y-auto z-[20] p-[15px]">
         <div class="w-full flex flex-wrap justify-between border-b-2 border-solid border-[#e3e1e1] pb-[10px] mb-[10px]">
-            <span class="text-[18px] text-[#7b6c55] font-semibold">Menu</span>
+            <span class="text-[18px] text-[#676663] font-semibold">Menu</span>
             <button type="button"
-                class="lh-close relative border-0 text-[30px] leading-[1px] text-[#999] bg-[#fff]">×</button>
+                class="lh-close relative border-0 text-[30px] leading-[1px] text-[#999] bg-[#fafafa]">×</button>
         </div>
         <div class="lh-menu-inner flex flex-col justify-between">
             <input type="text" placeholder="Search"
@@ -301,19 +301,19 @@
                         </div>
                         <div
                             class="max-w-[830px] w-full lg:top-[50%] top-[53%] absolute left-[50%] z-1 text-center flex flex-wrap flex-col justify-center translate-x-[-50%] translate-y-[-50%]">
-                            <h4 class="max-w-[250px] m-[auto] font-Roboto relative text-[#fff] text-[16px] font-light"
+                            <h4 class="max-w-[250px] m-[auto] font-Roboto relative text-[#fafafa] text-[16px] font-light"
                                 data-aos="fade-up" data-aos-duration="1000">
                                 <span
-                                    class="py-side-border border-[1px] border-solid border-[#7b6c55] w-[50px] absolute top-[9px] left-[-60px] z-[0]"></span>
+                                    class="py-side-border border-[1px] border-solid border-[#676663] w-[50px] absolute top-[9px] left-[-60px] z-[0]"></span>
                                 MYA Hotel Boutique
                                 <span
-                                    class="py-side-border border-[1px] border-solid border-[#7b6c55] w-[50px] absolute top-[9px] right-[-60px] z-[0]"></span>
+                                    class="py-side-border border-[1px] border-solid border-[#676663] w-[50px] absolute top-[9px] right-[-60px] z-[0]"></span>
                             </h4>
-                            <h1 class="my-[30px] font-Cardo wordspac_15 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[35px] sm:text-[30px] text-[24px] md:leading-[1.2857em] sm:leading-[42px] leading-[36px] font-bold sm:tracking-[2px] tracking-[1px] uppercase text-[#fff]"
+                            <h1 class="my-[30px] font-Cardo wordspac_15 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[35px] sm:text-[30px] text-[24px] md:leading-[1.2857em] sm:leading-[42px] leading-[36px] font-bold sm:tracking-[2px] tracking-[1px] uppercase text-[#fafafa]"
                                 data-aos="fade-up" data-aos-duration="1500">Intimate Elegance,
                                 Culinary Excellence,
                                 Active Leisure</h1>
-                            <a class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#7b6c55] px-[15px] py-[5px] leading-[28px] bg-[#7b6c55] text-[#fff] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#7b6c55]"
+                            <a class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]"
                                 href="#rooms">
                                 Get to know us
                             </a>
@@ -322,7 +322,7 @@
                 </div>
             </div>
             <a href="#"
-                class="animate-bounce absolute bottom-[15px] left-[15px] hover:bg-opacity-85 cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#fff] bg-opacity-45 backdrop-filter backdrop-blur-lg text-[#7b6c55] text-center text-[22px] leading-relaxed hidden sm:block opacity-0 transition-opacity duration-1000 delay-1000">
+                class="animate-bounce absolute bottom-[15px] left-[15px] hover:bg-opacity-85 cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg text-[#676663] text-center text-[22px] leading-relaxed hidden sm:block opacity-0 transition-opacity duration-1000 delay-1000">
                 <i class="ri-arrow-down-double-line text-[20px]"></i>
             </a>
         </section>
@@ -334,51 +334,51 @@
     <!-- Footer -->
     {% block Footer %}
     <footer>
-        <footer class="pt-[70px] bg-[#a8a29e]">
+        <footer class="pt-[70px] bg-[#464644]">
             <div
                 class="mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
                 <div class="footer-top-section pb-[70px]">
                     <div class="flex flex-wrap mb-[-24px] w-full">
                         <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[1] order-[2]">
                             <div class="lh-footer-cols-contain">
-                                <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                <div class="lg:pb-[20px] pb-[12px] text-[#fafafa]">
                                     <h4 class="text-[18px] leading-[1.25] font-medium">Explore</h4>
                                 </div>
                                 <ul>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
                                         <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Home</a>
+                                            class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">Home</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">About</a>
+                                        <a href="#" class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">About</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Rooms
+                                        <a href="#" class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">Rooms
                                             & suites</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">spa
+                                        <a href="#" class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">spa
                                             &
                                             Wellness</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
                                         <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
-                                            class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Olivea
+                                            class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">Olivea
                                             Farm To
                                             Table</a>
                                     </li>
                                     <li class="py-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Faq</a>
+                                        <a href="#" class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">Faq</a>
                                     </li>
                                     <li class="pt-[5px]">
                                         <code class="text-[16px] text-[#7b6c55]">*</code>
-                                        <a href="#" class="text-[14px] text-[#fff] hover:text-[#bfbfc0]">Contact</a>
+                                        <a href="#" class="text-[14px] text-[#fafafa] hover:text-[#bfbfc0]">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -395,13 +395,13 @@
                                 <div
                                     class="lh-footer-social lg:p-[24px] py-[24px] lg:border-b border-solid border-[#808384]">
                                     <p
-                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
+                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fafafa] leading-[22px]">
                                         <span style="font-weight:400;">We
                                             are more than just a
                                             hotel</span>
                                     </p>
                                     <p
-                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fff] leading-[22px]">
+                                        class="md:m-auto md:text-center text-left text-[14px] max-w-[400px] text-[#fafafa] leading-[22px]">
                                         MYA • Olivea • DiVino
                                     </p>
                                 </div>
@@ -458,7 +458,7 @@
                         </div>
                         <div class="lg:w-1/4 md:w-1/2 w-full px-[12px] mb-[24px] lg:order-[3] order-[3]">
                             <div class="lh-footer-cols-contain">
-                                <div class="lg:pb-[20px] pb-[12px] text-[#fff]">
+                                <div class="lg:pb-[20px] pb-[12px] text-[#fafafa]">
                                     <h4 class="text-[18px] leading-[1.25] font-medium">Contact
                                         Information</h4>
                                 </div>
@@ -468,7 +468,7 @@
                                             <h5
                                                 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
                                                 Location</h5>
-                                            <span class="text-[14px] text-[#fff]">5
+                                            <span class="text-[14px] text-[#fafafa]">5
                                                 Green st.Huntington
                                                 stati
                                                 on, Ny
@@ -479,8 +479,8 @@
                                             <h5
                                                 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
                                                 Email Address</h5>
-                                            <i class="ri-mail-line mr-[5px] text-[#fff] text-[16px]"></i>
-                                            <span class="text-[14px] text-[#fff]">
+                                            <i class="ri-mail-line mr-[5px] text-[#fafafa] text-[16px]"></i>
+                                            <span class="text-[14px] text-[#fafafa]">
                                                 <a href="mailto:{{ email }}">{{
                                                     email }}</a>
                                             </span>
@@ -489,8 +489,8 @@
                                             <h5
                                                 class="heading mb-[5px] md:text-[16px] text-[15px] font-medium tracking-wider">
                                                 Phone Number</h5>
-                                            <i class="ri-phone-line mr-[5px] text-[#fff] text-[16px]"></i>
-                                            <span class="text-[14px] text-[#fff]">{{
+                                            <i class="ri-phone-line mr-[5px] text-[#fafafa] text-[16px]"></i>
+                                            <span class="text-[14px] text-[#fafafa]">{{
                                                 phone }}</span>
                                         </li>
                                     </ul>
@@ -501,9 +501,9 @@
                 </div>
                 <div class="footer-bottom-copy px-[12px]">
                     <div class="flex justify-center border-t-[1px] border-solid border-[#808384]">
-                        <span class="text-[#fff] py-[10px] text-center">Copyright
+                        <span class="text-[#fafafa] py-[10px] text-center">Copyright
                             @ <span id="copyright_year"></span>
-                            <a href="#" class="text-[#fff] hover:text-[#7b6c55]">MYA
+                            <a href="#" class="text-[#fafafa] hover:text-[#7b6c55]">MYA
                                 Hotel Boutique & Co</a>
                             All Rights Reserved
                         </span>
@@ -524,7 +524,7 @@
     <!-- Tap to top -->
     {% block TapToTop %}
     <a href="#" id="tapToTop"
-        class="tap-to-top back-to-top hidden fixed left-[15px] z-10 hover:text-[#fff] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#7b6c55] text-[#fff] text-center text-[22px] leading-relaxed">
+        class="tap-to-top back-to-top hidden fixed left-[15px] z-10 hover:text-[#fafafa] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#676663] text-[#fafafa] text-center text-[22px] leading-relaxed">
         <i class="ri-arrow-up-double-line text-[20px]"></i>
     </a>
     {% endblock %}

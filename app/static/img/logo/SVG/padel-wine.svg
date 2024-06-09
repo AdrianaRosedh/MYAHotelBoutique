@@ -9,7 +9,7 @@
       }
 
       .cls-1, .cls-2, .cls-3 {
-        fill: #681540;
+        fill: #464644;
       }
 
       .cls-2 {
@@ -19,7 +19,7 @@
 
       .cls-4 {
         fill: none;
-        stroke: #681540;
+        stroke: #464644;
         stroke-miterlimit: 10;
         stroke-width: 2.16px;
       }
