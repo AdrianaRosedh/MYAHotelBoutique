@@ -14,11 +14,13 @@
 #chatbot-container {
   transition: opacity 0.3s ease-in-out;
   padding-top: 4rem; /* Ensure there is enough space for the header */
+  z-index: 100;
 }
 
 #chatbot-toggle {
   transition: transform 0.3s ease-in-out;
   animation: bounceIn 2s ease-in-out; /* Apply bounce animation */
+  z-index: 50;
 }
 
 .chatbot-icon {
