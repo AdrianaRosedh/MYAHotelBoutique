@@ -33,20 +33,20 @@
 /* base */
 /* Typography */
 @font-face {
-  font-family: Cardo;
-  src: url("../fonts/Cardo-Regular.ttf");
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: Cardo;
-  src: url("../fonts/Cardo-Bold.ttf");
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Bold.ttf");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: Cardo;
-  src: url("../fonts/Cardo-Italic.ttf");
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Italic.ttf");
   font-weight: 400;
   font-style: italic;
 }
@@ -142,6 +142,15 @@ body {
     transition: transform 0.5s ease;
 }
 
+@layer utilities {
+  .delay-500ms {
+      animation-delay: 0.5s;
+  }
+  .delay-1000ms {
+      animation-delay: 1s;
+  }
+}
+
 ::-moz-selection {
   color: #676663;
   background: rgba(237, 90, 49, 0.15);
@@ -166,8 +175,8 @@ body {
   font-family: "Roboto";
 }
 
-.font-Cardo {
-  font-family: "Cardo";
+.font-Poppins {
+  font-family: "Poppins";
 }
 
 .wordspac_15 {
@@ -186,7 +195,7 @@ p, li, a {
 
 h1, h2, h3,
 h4, h5, h6 {
-  font-family: "Cardo";
+  font-family: "Poppins";
   color: #fafafa;
   margin-bottom: 0;
   letter-spacing: 0.03rem;
@@ -1263,7 +1272,7 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
 /* Room */
 .lh-room button {
   padding: 0 12px;
-  font-family: "Cardo";
+  font-family: "Poppins";
 }
 .lh-room button:hover {
   color: #000;
@@ -1826,4 +1835,55 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   50% {
       transform: translateY(-5px);
   }
+}
+
+/* Hero text */
+@keyframes slideUpFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slideUpFadeIn {
+  animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  animation-fill-mode: both;
+}
+.delay-500ms {
+  animation-delay: 0.5s;
+}
+.delay-1000ms {
+  animation-delay: 2s;
+}
+.delay-1500ms {
+  animation-delay: 4s;
+}
+.delay-2000ms {
+  animation-delay: 5.5s;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid orange;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+  opacity: 1; /* Ensure text is visible during typing */
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
+.typing-container {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards, typing 2s steps(30, end) forwards;
+}
+.fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.top-40 {
+  top: 40% !important;
 }
