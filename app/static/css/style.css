@@ -1887,3 +1887,34 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
 .top-40 {
   top: 40% !important;
 }
+
+/* Arrow pointing down */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.delayed-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards, bounce 2s infinite;
+  animation-delay: 3s, 4s; /* Adjust the delay as needed */
+}
+
