@@ -48,5 +48,10 @@ def create_app():
         today = datetime.today().strftime('%Y-%m-%d')
         tomorrow = (datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d')
         return {'today': today, 'tomorrow': tomorrow}
+    
+    # Custom error handler for 404
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('custom_404.html'), 404
 
     return app

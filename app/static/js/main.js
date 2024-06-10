@@ -563,5 +563,3 @@ document.addEventListener('DOMContentLoaded', () => {
   fadeInElement.classList.remove('opacity-0');
   fadeInElement.classList.add('opacity-100');
 });
-
-

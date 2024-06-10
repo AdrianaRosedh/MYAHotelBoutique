@@ -90,3 +90,4 @@ def reservation(lang_code):
 @bp.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(bp.root_path, 'static', 'img', 'favicons'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+

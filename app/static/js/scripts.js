@@ -88,4 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbox.scrollTop = chatbox.scrollHeight;
         }
     }
+    
 
+
+      
