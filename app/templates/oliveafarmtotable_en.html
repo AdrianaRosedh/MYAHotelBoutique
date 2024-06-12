@@ -24,12 +24,17 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block logo %}
-<img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[65px] relative z-[2]">
+<img src="{{ url_for('static', filename='img/logo/olivea-logo.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[65px] relative z-[2]">
 {% endblock %}
 
+{% block nav1 %}
+<a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#gallery">
+    About Us
+</a>
+{% endblock %}
 <!-- Hero Section -->
 {% block hero %}
-<section id="hero" class="pb-[70px] lg:pb-[50px]">
+<section id="hero" class="bg-stone-400">
     <div
         class="relative flex flex-col justify-center px-[12px] hero-image md:h-[calc(115vh_-_100px)] sm:h-[80vh] min-[481px]:h-[580px] h-[375px] w-full bg-cover bg-center bg-[url('{{ url_for('static', filename='img/hero/olivea.jpg') }}')] bg-blend-overlay bg-[#000cc]">
         <div class="absolute inset-0 transform scale-x-[-1] bg-[url('{{ url_for('static', filename='img/hero/olivea.jpg') }}')] bg-cover bg-center"></div>
@@ -40,7 +45,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     class="max-w-[500px] w-full absolute top-40 left-[15%] z-10 text-left flex flex-col justify-center transform -translate-y-1/2">
                     <h1 class="my-[30px] font-Poppins wordspac_5 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[35px] sm:text-[30px] text-[24px] md:leading-[1.2857em] sm:leading-[42px] leading-[36px] font-normal sm:tracking-[2px] tracking-[1px] text-[#fafafa]">
                         <span class="animate-slideUpFadeIn delay-500ms block">
-                            <span class="typing-container" style="animation-delay: 1s;;">Hi! We are</span>
+                            <span class="typing-container" style="animation-delay: 1s;;">Helo! We are</span>
                         </span>
                         <span class="animate-slideUpFadeIn delay-1000ms block">
                             <span class="typing-container" style="animation-delay: 2s;">Olivea Farm To Table:</span>
@@ -63,454 +68,95 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block content %}
-<!-- Restaurant-menu -->
-<section class="section-restaurant xl:py-[100px] py-[70px]" id="menu">
-        <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
-            <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
-                    Olivea
-                    <span class="text-[#676663]">Menu</span>
-                </h2>
-            </div>
-            <nav class="p-0 w-full mt-[-5px]" data-aos="fade-up" data-aos-duration="1500">
-                <div class="nav nav-tabs pb-[20px] lh-menu-restaurant flex justify-center" id="nav-tab" role="tablist">
-                    <button class="nav-link active lh-menu-buttons lg:mx-[10px] m-[5px] text-[#000] hover:text-[#000]"
-                        id="nav-Breakfast-tab" data-bs-toggle="tab" data-bs-target="#nav-Breakfast" type="button"
-                        role="tab" aria-controls="nav-Breakfast" aria-selected="true">
-                        Breakfast
-                    </button>
-                    <button class="nav-link lh-menu-buttons lg:mx-[10px] m-[5px] text-[#000] hover:text-[#000]"
-                        id="nav-Lunch-tab" data-bs-toggle="tab" data-bs-target="#nav-Lunch" type="button" role="tab"
-                        aria-controls="nav-Lunch" aria-selected="false">
-                        Lunch
-                    </button>
-                    <button class="nav-link lh-menu-buttons lg:mx-[10px] m-[5px] text-[#000] hover:text-[#000]"
-                        id="nav-Dinner-tab" data-bs-toggle="tab" data-bs-target="#nav-Dinner" type="button" role="tab"
-                        aria-controls="nav-Dinner" aria-selected="false">
-                        Dinner
-                    </button>
-                    <button class="nav-link lh-menu-buttons lg:mx-[10px] m-[5px] text-[#000] hover:text-[#000]"
-                        id="nav-Starters-tab" data-bs-toggle="tab" data-bs-target="#nav-Starters" type="button"
-                        role="tab" aria-controls="nav-Starters" aria-selected="false">
-                        Starters
-                    </button>
-                    <button class="nav-link lh-menu-buttons lg:mx-[10px] m-[5px] text-[#000] hover:text-[#000]"
-                        id="nav-Beverages-tab" data-bs-toggle="tab" data-bs-target="#nav-Beverages" type="button"
-                        role="tab" aria-controls="nav-Beverages" aria-selected="false">
-                        Beverages
-                    </button>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="nav-Breakfast" role="tabpanel" aria-labelledby="nav-Breakfast-tab">
-                    <div class="flex flex-wrap p-0 lh-Breakfast-rs">
-                        <div class="lg:w-1/2 w-full lg:pr-[12px] pr-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]" data-aos="fade-up" data-aos-duration="1500">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/1.png', lang_code='en', _external=True) }}" alt="restaurant-1" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Mustrd
-                                        Chicken with <span class="text-[#676663]">$60</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]" data-aos="fade-up" data-aos-duration="1800">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/2.png', lang_code='en', _external=True) }}" alt="restaurant-2" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Pan Con Berenjina Frita <span class="text-[#676663]">$30</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]" data-aos="fade-up" data-aos-duration="2100">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/3.png', lang_code='en', _external=True) }}" alt="restaurant-3" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Salmon Tataki Capaccio <span class="text-[#676663]">$45</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full lg:pl-[12px] pl-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]" data-aos="fade-up" data-aos-duration="1500">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/4.png', lang_code='en', _external=True) }}" alt="restaurant-4" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Lubina
-                                        Marinada <span class="text-[#676663]">$15</span>
-                                    </h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]" data-aos="fade-up" data-aos-duration="1800">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/5.png', lang_code='en', _external=True) }}" alt="restaurant-5" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Nashville Hot Chicken <span class="text-[#676663]">$30</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]" data-aos="fade-up" data-aos-duration="2100">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/6.png', lang_code='en', _external=True) }}" alt="restaurant-6" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Biscuits and Gravy <span class="text-[#676663]">$55</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-Lunch" role="tabpanel" aria-labelledby="nav-Lunch-tab">
-                    <div class="flex flex-wrap p-0 lh-Breakfast-rs">
-                        <div class="lg:w-1/2 w-full lg:pr-[12px] pr-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/1.png', lang_code='en', _external=True) }}" alt="restaurant-1" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Mustrd
-                                        Chicken with <span class="text-[#676663]">$50</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/2.png', lang_code='en', _external=True) }}" alt="restaurant-2" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Pan Con
-                                        Berenjina Frita <span class="text-[#676663]">$80</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/3.png', lang_code='en', _external=True) }}" alt="restaurant-3" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Salmon
-                                        Tataki Capaccio <span class="text-[#676663]">$40</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full lg:pl-[12px] pl-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/4.png', lang_code='en', _external=True) }}" alt="restaurant-4" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Lubina
-                                        Marinada
-                                        <span class="text-[#676663]">$60</span>
-                                    </h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/5.png', lang_code='en', _external=True) }}" alt="restaurant-5" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Nashville Hot Chicken <span class="text-[#676663]">$70</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/6.png', lang_code='en', _external=True) }}" alt="restaurant-6" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Biscuits and Gravy <span class="text-[#676663]">$90</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-Dinner" role="tabpanel" aria-labelledby="nav-Dinner-tab">
-                    <div class="flex flex-wrap p-0 lh-Breakfast-rs">
-                        <div class="lg:w-1/2 w-full lg:pr-[12px] pr-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/1.png', lang_code='en', _external=True) }}" alt="restaurant-1" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Mustrd
-                                        Chicken with <span class="text-[#676663]">$10</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/2.png', lang_code='en', _external=True) }}" alt="restaurant-2" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Pan Con
-                                        Berenjina
-                                        Frita <span class="text-[#676663]">$50</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/3.png', lang_code='en', _external=True) }}" alt="restaurant-3" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Salmon
-                                        Tataki Capaccio <span class="text-[#676663]">$70</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full lg:pl-[12px] pl-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/4.png', lang_code='en', _external=True) }}" alt="restaurant-4" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Lubina
-                                        Marinada <span class="text-[#676663]">$40</span>
-                                    </h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/5.png', lang_code='en', _external=True) }}" alt="restaurant-5" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Nashville Hot Chicken <span class="text-[#676663]">$60</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/6.png', lang_code='en', _external=True) }}" alt="restaurant-6" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Biscuits and Gravy <span class="text-[#676663]">$70</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-Starters" role="tabpanel" aria-labelledby="nav-Starters-tab">
-                    <div class="flex flex-wrap p-0 lh-Breakfast-rs">
-                        <div class="lg:w-1/2 w-full lg:pr-[12px] pr-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/1.png', lang_code='en', _external=True) }}" alt="restaurant-1" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Mustrd
-                                        Chicken with <span class="text-[#676663]">$70</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/2.png', lang_code='en', _external=True) }}" alt="restaurant-2" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Pan Con
-                                        Berenjina
-                                        Frita <span class="text-[#676663]">$50</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/3.png', lang_code='en', _external=True) }}" alt="restaurant-3" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Salmon
-                                        Tataki
-                                        Capaccio <span class="text-[#676663]">$20</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full lg:pl-[12px] pl-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/4.png', lang_code='en', _external=True) }}" alt="restaurant-4" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Lubina
-                                        Marinada
-                                        <span class="text-[#676663]">$60</span>
-                                    </h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/5.png', lang_code='en', _external=True) }}" alt="restaurant-5" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Nashville Hot
-                                        Chicken <span class="text-[#676663]">$40</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/6.png', lang_code='en', _external=True) }}" alt="restaurant-6" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Biscuits and
-                                        Gravy <span class="text-[#676663]">$80</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="nav-Beverages" role="tabpanel" aria-labelledby="nav-Beverages-tab">
-                    <div class="flex flex-wrap p-0 lh-Breakfast-rs">
-                        <div class="lg:w-1/2 w-full lg:pr-[12px] pr-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/1.png', lang_code='en', _external=True) }}" alt="restaurant-1" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Mustrd
-                                        Chicken
-                                        with <span class="text-[#676663]">$70</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/2.png', lang_code='en', _external=True) }}" alt="restaurant-2" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Pan Con
-                                        Berenjina
-                                        Frita <span class="text-[#676663]">$65</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/3.png', lang_code='en', _external=True) }}" alt="restaurant-3" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Salmon
-                                        Tataki
-                                        Capaccio <span class="text-[#676663]">$55</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 w-full lg:pl-[12px] pl-[0]">
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/4.png', lang_code='en', _external=True) }}" alt="restaurant-4" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">Lubina
-                                        Marinada
-                                        <span class="text-[#676663]">$50</span>
-                                    </h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex lg:py-[30px] pt-[30px] pb-[0] lg:border-b-[1px] border-solid border-[#e3e1e1] border-[0]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/5.png', lang_code='en', _external=True) }}" alt="restaurant-5" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Nashville Hot
-                                        Chicken <span class="text-[#676663]">$10</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                            <div class="flex pt-[30px]">
-                                <div>
-                                    <img src="{{ url_for('static', filename='img/restaurant/6.png', lang_code='en', _external=True) }}" alt="restaurant-6" class="sm:w-[80px] w-[50px] rounded-[15px] max-w-none">
-                                </div>
-                                <div class="sm:pl-[24px] pl-[12px]">
-                                    <h4 class="mb-[12px] flex sm:justify-between sm:flex-row flex-col text-[18px] font-bold text-[#000]">
-                                        Biscuits and
-                                        Gravy <span class="text-[#676663]">$90</span></h4>
-                                    <p class="text-[14px] leading-[22px]">This is the dolor sit amet consectetur
-                                        adipisicing elit. Id non
-                                        namsequicum voluptatum soluta sed placeat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Restaurant-gallery -->
+<section class="section-restaurant bg-stone-400" id="gallery">
+    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+        <div class="gallery">
+            <ul class="cards">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+            </ul>
+            <div class="actions">
+                <button class="prev">Prev</button>
+                <button class="next">Next</button>
             </div>
         </div>
+    </div>
 </section>
+
+<!-- Restaurant-menu -->
+<!--<section class="section-restaurant xl:py-[100px] py-[70px] bg-stone-400" id="menu">
+    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+        <div class="gallery">
+            <ul class="cards">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+            </ul>
+            <div class="actions">
+                <button class="prev">Prev</button>
+                <button class="next">Next</button>
+            </div>
+        </div>
+    </div>
+</section>-->
 
 <!-- About -->
 <section class="section-about bg-[#f7f5f1] relative xl:py-[100px] py-[70px]">
