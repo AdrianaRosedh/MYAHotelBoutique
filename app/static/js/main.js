@@ -563,3 +563,86 @@ document.addEventListener('DOMContentLoaded', () => {
   fadeInElement.classList.remove('opacity-0');
   fadeInElement.classList.add('opacity-100');
 });
+
+// Particles
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 80, // Increase the number of particles
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    shape: {
+      type: "circle", // Keep the shape simple for a natural look
+      stroke: {
+        width: 0,
+        color: "#000000"
+      }
+    },
+    opacity: {
+      value: 0.5, // Adjust opacity for a more natural look
+      random: true,
+      anim: {
+        enable: false
+      }
+    },
+    size: {
+      value: 10, // Increase size for visibility
+      random: true, // Make sizes random for variety
+      anim: {
+        enable: false
+      }
+    },
+    line_linked: {
+      enable: false // Disable lines between particles for a cleaner look
+    },
+    move: {
+      enable: true,
+      speed: 2, // Adjust speed for smoother movement
+      direction: "none",
+      random: true, // Make movements more random
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: false
+      }
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: true,
+        mode: "bubble" // Create a bubble effect on hover
+      },
+      onclick: {
+        enable: true,
+        mode: "repulse" // Repulse particles on click
+      },
+      resize: true
+    },
+    modes: {
+      bubble: {
+        distance: 100,
+        size: 10,
+        duration: 2,
+        opacity: 0.8,
+        speed: 3
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4
+      },
+      push: {
+        particles_nb: 4
+      },
+      remove: {
+        particles_nb: 2
+      }
+    }
+  },
+  retina_detect: true
+});
