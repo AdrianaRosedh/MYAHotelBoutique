@@ -27,10 +27,14 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <img src="{{ url_for('static', filename='img/logo/olivea-logo.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[65px] relative z-[2]">
 {% endblock %}
 
-{% block nav1 %}
-<a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#gallery">
-    About Us
-</a>
+{% block nav7 %}
+<div class="search-control-button flex items-center min-w-[117px]">
+    <a id="bookNowButton"
+    class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]"
+    href="https://www.opentable.com.mx/r/olivea-farm-to-table-reservations-ensenada?restref=1313743&lang=en&ot_source=Restaurant%20website" target="_blank">
+    Reserve a Table
+    </a>
+</div>
 {% endblock %}
 
 <!-- Hero Section -->
@@ -56,7 +60,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                         </span>
                     </h1>
                     <a class="self-start px-[15px] py-[5px] leading-[28px] border border-solid border-[#676663] bg-[#676663] text-[#fafafa] text-[15px] font-medium tracking-[1px] rounded-[10px] duration-300 ease-in-out hover:bg-transparent hover:text-[#676663] animate-slideUpFadeIn delay-2000ms"
-                        href="#rooms">About Us</a>
+                        href="#gallery">About Us</a>
                 </div>
             </div>
         </div>
@@ -69,8 +73,52 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block content %}
+<!-- reserve-control -->
+<section class="section-search-control absolute bottom-0 z-[1] w-full">
+    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+        <form class="w-full" id="reservationForm" action="{{ url_for('main.opentable_reservation', lang_code=session.get('language', 'en')) }}" method="post">
+            <div class="search-control-boxing shadow-[0_0_50px_0_rgba(0,0,0,0.1)] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] flex justify-between">
+                <div class="w-full p-[12px]">
+                    <div class="search-box relative">
+                        <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Reservation Date</h4>
+                        <div class="relative">
+                            <input type="text" id="reservation_date" name="reservation_date" value="{{ today }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText">
+                            <i class="fas fa-calendar-alt calendar-icon" id="reservation_date-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full p-[12px]">
+                    <div class="search-box relative">
+                        <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Time</h4>
+                        <div class="relative">
+                            <input type="text" id="time" name="time" value="19:00" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText">
+                            <i class="fas fa-clock calendar-icon" id="time-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full p-[12px]">
+                    <div class="search-box relative">
+                        <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Party Size</h4>
+                        <div class="relative">
+                            <input type="number" id="party_size" name="party_size" value="2" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText">
+                            <i class="fas fa-users calendar-icon" id="party_size-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex p-[12px]">
+                    <div class="search-control-button flex items-center min-w-[117px]">
+                        <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">
+                            Check Availability
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
 <!-- Restaurant-gallery -->
-<section class="section-restaurant bg-stone-400" id="gallery">
+<section class="section-restaurant bg-[#d0cfcb]" id="gallery">
     <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
         <div class="flex flex-wrap mb-[-24px] relative z-10 fade-out-on-scroll">
             <div class="flex flex-wrap mb-[-24px]">
@@ -134,51 +182,6 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
 </section>
-
-<!-- Restaurant-menu -->
-<!--<section class="section-restaurant xl:py-[100px] py-[70px] bg-stone-400" id="menu">
-    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
-        <div class="gallery">
-            <ul class="cards">
-                <li>0</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-                <li>21</li>
-                <li>22</li>
-                <li>23</li>
-                <li>24</li>
-                <li>25</li>
-                <li>26</li>
-                <li>27</li>
-                <li>28</li>
-                <li>29</li>
-                <li>30</li>
-            </ul>
-            <div class="actions">
-                <button class="prev">Prev</button>
-                <button class="next">Next</button>
-            </div>
-        </div>
-    </div>
-</section>-->
 
 <!-- About -->
 <section class="section-about bg-[#f7f5f1] relative xl:py-[100px] py-[70px]">
