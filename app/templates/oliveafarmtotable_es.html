@@ -24,7 +24,13 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block logo %}
-<img src="{{ url_for('static', filename='img/logo/olivea-logo.svg') }}" alt="OliveaLogo" class="xl:w-[110px] w-[65px] relative z-[2]">
+<img src="{{ url_for('static', filename='img/logo/olivea-logo.svg') }}" alt="OliveaLogo" class="xl:w-[140px] w-[90px] relative z-[2] p-[12px]">
+{% endblock %}
+
+{% block nav6 %}
+<a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.index', lang_code=session.get('language', 'en')) }}">
+    Hotel
+</a>
 {% endblock %}
 
 {% block nav7 %}
