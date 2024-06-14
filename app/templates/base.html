@@ -118,46 +118,81 @@
                         <ul class="navbar-nav flex w-full relative z-[3] flex-row justify-end">
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav1 %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                {% if session['language'] == 'es' %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#gallery">
+                                    Sobre Nosotros
+                                </a>
+                                {% else %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#gallery">
                                     About Us
                                 </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
 
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav2 %}
+                                {% if session['language'] == 'es' %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#rooms">
+                                    Habitaciones
+                                </a>
+                                {% else %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#rooms">
                                     Rooms
                                 </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav3 %}
+                                {% if session['language'] == 'es' %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                    Encuéntranos
+                                </a>
+                                {% else %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Find Us
                                 </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav4 %}
+                                {% if session['language'] == 'es' %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                    Café
+                                </a>
+                                {% else %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Coffee
                                 </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav5 %}
+                                {% if session['language'] == 'es' %}
                                 <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Padel
                                 </a>
+                                {% else %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                    Padel
+                                </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav6 %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link"
-                                    href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
+                                {% if session['language'] == 'es' %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
+                                    Comedor
+                                </a>
+                                {% else %}
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
                                     Dining
                                 </a>
+                                {% endif %}
                                 {% endblock %}
                             </li>
                             <li class="ml-[30px] nav-item dropdown">
@@ -392,7 +427,7 @@
                             <div
                                 class="lh-social-media h-full lg:border-x-[1px] lg:border-b-[0] md:border-b-[1px] border-b-[0] lg:pb-[0] md:pb-[30px] pb-[0] border-solid border-[#808384]">
                                 <div class="footer-logos flex md:justify-center justify-start">
-                                    {% block navlogo %}
+                                    {% block Footerlogo %}
                                     <img src="{{ url_for('static', filename='img/logo/mya-white.svg') }}" alt="logo"
                                         class="w-[180px]">
                                     {% endblock %}
@@ -588,6 +623,7 @@
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/progress-bar-script.js') }}"></script>
+
 
     {% block extra_scripts %}{% endblock %}
 
