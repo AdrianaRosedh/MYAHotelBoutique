@@ -87,6 +87,31 @@ def reservation(lang_code):
     print("Handling GET request")
     return render_template(f'reservation_{lang_code}.html', today=today, tomorrow=tomorrow, lang_code=lang_code)
 
+@bp.route('/<lang_code>/opentable_reservation', methods=['GET', 'POST'])
+def opentable_reservation(lang_code):
+    session['language'] = lang_code
+    today = datetime.today().strftime('%Y-%m-%d')
+    default_time = '19:00'
+
+    if request.method == 'POST':
+        reservation_date = request.form.get('reservation_date', today)
+        time = request.form.get('time', default_time)
+        party_size = request.form.get('party_size', '2')
+
+        print(f"Received POST request with reservation date: {reservation_date}, time: {time}, and party size: {party_size}")
+
+        try:
+            url = f"https://www.opentable.com.mx/restref/client/?rid=1313743&restref=1313743&lang={lang_code}&color=8&r3uid=cfe&dark=false&partysize={party_size}&datetime={reservation_date}T{time}&ot_source=Restaurant%20website&logo_pid=0&background_pid=0&font=arialBlack&ot_logo=standard&primary_color=ffffff&primary_font_color=333333&button_color=da3743&button_font_color=ffffff&corrid=ea21e764-72c0-4b7c-bbd4-1f25a194b7b4"
+            print(f"Constructed redirect URL: {url}")
+            return redirect(url)
+        except Exception as e:
+            print(f"Error during redirection: {e}")
+            flash('An error occurred while processing your reservation. Please try again.')
+            return render_template(f'reservation_{lang_code}.html', today=today, default_time=default_time, lang_code=lang_code)
+
+    print("Handling GET request")
+    return render_template(f'reservation_{lang_code}.html', today=today, default_time=default_time, lang_code=lang_code)
+
 @bp.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(bp.root_path, 'static', 'img', 'favicons'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
