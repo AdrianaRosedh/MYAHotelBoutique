@@ -32,6 +32,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
     About Us
 </a>
 {% endblock %}
+
 <!-- Hero Section -->
 {% block hero %}
 <section id="hero" class="bg-stone-400">
@@ -71,6 +72,46 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <!-- Restaurant-gallery -->
 <section class="section-restaurant bg-stone-400" id="gallery">
     <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+        <div class="flex flex-wrap mb-[-24px] relative z-10 fade-out-on-scroll">
+            <div class="flex flex-wrap mb-[-24px]">
+                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <img src="{{ url_for('static', filename='img/about/about-page-1.png') }}" alt="placeholder" class="w-100">
+                </div>
+                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="h-full flex flex-col justify-center">
+                        <div class="text-left w-full lg:mb-[30px] mb-[12px]">
+                            <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
+                                The world's best <span class="text-[#ed5b31]">Luxury Hotel</span>
+                            </h2>
+                        </div>
+                        <div class="xl:pb-[24px] pb-[15px] border-b border-solid border-[#e3e1e1]">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem corrupti libero itaque,
+                                exercitationem nemo porro enim officiis consectetur fugit debitis repellendus sed
+                                ratione maxime adipisci eos vitae cupiditate neque expedita!</p>
+                        </div>
+                        <div class="flex flex-wrap mb-[-15px] ld-about-rows relative xl:py-[24px] py-[15px]">
+                            <div class="sm:w-1/2 w-full mb-[15px] sm:pr-[12px] pr-[0]">
+                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
+                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Mission
+                                </h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
+                                    Dicta modi incidunt cupiditate!</p>
+                            </div>
+                            <div class="sm:w-1/2 w-full mb-[15px] sm:pl-[12px] pl-[0]">
+                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
+                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Vision
+                                </h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
+                                    Dicta modi incidunt cupiditate!</p>
+                            </div>
+                        </div>
+                        <div class="text-[18px] font-medium">
+                            <i class="ri-phone-line text-[#ed5b31]"></i> +1 987 654 3210
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="gallery">
             <ul class="cards">
                 <li>0</li>
@@ -89,26 +130,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                 <li>13</li>
                 <li>14</li>
                 <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-                <li>21</li>
-                <li>22</li>
-                <li>23</li>
-                <li>24</li>
-                <li>25</li>
-                <li>26</li>
-                <li>27</li>
-                <li>28</li>
-                <li>29</li>
-                <li>30</li>
             </ul>
-            <div class="actions">
-                <button class="prev">Prev</button>
-                <button class="next">Next</button>
-            </div>
         </div>
     </div>
 </section>

@@ -17,7 +17,8 @@
     <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en">
     <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es">
     {% endblock %}
-    <!-- CSS All Plugins Files -->
+
+    <!-- Vendor CSS -->
     <link href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/vendor/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/vendor/aos.css') }}" rel="stylesheet">
@@ -29,18 +30,17 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/gsap.css') }}" rel="stylesheet">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Tailwind CSS -->
     <script src="{{ url_for('static', filename='js/vendor/tailwindcss3.4.0.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- GASP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
@@ -63,7 +63,7 @@
                 <div class="w-1/2 py-[10px] flex items-center">
                     <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-cente">
                         <i class="ri-mail-line mr-[5px] text-[#fafafa] text-[16px]"></i>
-                        <a class="text-[#fafafa]"  href="mailto:{{ email }}">{{ email }}</a>
+                        <a class="text-[#fafafa]" href="mailto:{{ email }}">{{ email }}</a>
                     </div>
                     <div class="flex items-center pl-[15px] lh-location">
                         <div class="flex items-center custom-select text-[14px]">
@@ -175,9 +175,9 @@
     </header>
 
     <!-- Mobile-menu -->
-    <div class="lh-sidebar-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[17]"></div>
-    <div id="lh_mobile_menu"
-        class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fafafa] overflow-y-auto z-[20] p-[15px]">
+    <div class="lh-sidebar-overlay hidden w-full h-screen fixed top-0 left-0 bg-[#000000b3] z-[17]">
+    </div>
+    <div id="lh_mobile_menu" class="lh-side-cart lh-mobile-menu transition-all duration-[0.5s] ease w-[300px] h-full fixed left-[-300px] bg-[#fafafa] overflow-y-auto z-[20] p-[15px]">
         <div class="w-full flex flex-wrap justify-between border-b-2 border-solid border-[#e3e1e1] pb-[10px] mb-[10px]">
             <span class="text-[18px] text-[#676663] font-semibold">Menu</span>
             <button type="button"
@@ -329,10 +329,10 @@
             <a href="#"
                 class="absolute bottom-[15px] left-[15px] hover:bg-opacity-85 cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg text-[#676663] text-center text-[22px] leading-relaxed sm:block transition-opacity duration-1000 z-20 delayed-fade-in">
                 <i class="ri-arrow-down-double-line text-[20px]"></i>
-            </a> 
+            </a>
         </section>
-        
         {% endblock %}
+        
         {% block content %}{% endblock %}
     </main>
 
@@ -565,8 +565,14 @@
     <!-- Chatbot-->
     {% include 'partials/chatbot.html' %}
 
-    {% block scripts %}
+    <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+    <!-- Other Vendor JS -->
     <script src="{{ url_for('static', filename='js/vendor/swiper-bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/magnific-popup.min.js') }}"></script>
@@ -575,13 +581,15 @@
     <script src="{{ url_for('static', filename='js/vendor/slick.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/particles.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vendor/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/gsap.js') }}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/progress-bar-script.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="{{ url_for('static', filename='js/gsap.js') }}"></script>
 
-    {% endblock %}
+    {% block extra_scripts %}{% endblock %}
 
 </body>
 
