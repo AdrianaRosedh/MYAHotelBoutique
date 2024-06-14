@@ -159,11 +159,11 @@
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav4 %}
                                 {% if session['language'] == 'es' %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.divino', lang_code=session.get('language', 'es')) }}">
                                     Café
                                 </a>
                                 {% else %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.divino', lang_code=session.get('language', 'es')) }}">
                                     Coffee
                                 </a>
                                 {% endif %}
@@ -172,11 +172,11 @@
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav5 %}
                                 {% if session['language'] == 'es' %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.divino', lang_code=session.get('language', 'es')) }}">
                                     Padel
                                 </a>
                                 {% else %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.divino', lang_code=session.get('language', 'es')) }}">
                                     Padel
                                 </a>
                                 {% endif %}
@@ -185,11 +185,11 @@
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav6 %}
                                 {% if session['language'] == 'es' %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'es')) }}">
                                     Comedor
                                 </a>
                                 {% else %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}">
                                     Dining
                                 </a>
                                 {% endif %}
