@@ -442,30 +442,3 @@ particlesJS("particles-js", {
   },
   retina_detect: true
 });
-
-/* SideBar Mobile */
-document.addEventListener('DOMContentLoaded', function() {
-  const toggleSidebarButton = document.getElementById('toggle-sidebar');
-  const sidebar = document.getElementById('floating-sidebar');
-
-  toggleSidebarButton.addEventListener('click', function() {
-      sidebar.classList.toggle('hidden');
-      if (sidebar.classList.contains('hidden')) {
-          toggleSidebarButton.innerHTML = '&gt;';
-      } else {
-          toggleSidebarButton.innerHTML = '&lt;';
-      }
-  });
-
-  // Ensure the sidebar is visible by default on mobile view
-  function checkWindowSize() {
-      if (window.innerWidth <= 768) {
-          sidebar.classList.remove('hidden');
-          toggleSidebarButton.innerHTML = '&lt;';
-      }
-  }
-
-  window.addEventListener('resize', checkWindowSize);
-  checkWindowSize();
-});
-
