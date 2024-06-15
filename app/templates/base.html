@@ -565,29 +565,25 @@
     {% block SideBar %}
     <!-- side bar -->
     <div class="relative">
-        <nav class="floating-sidebar backdrop-filter backdrop-blur-lg">
+        <nav id="floating-sidebar" class="floating-sidebar backdrop-filter backdrop-blur-lg">
             {% block sidebar1 %}
-            <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}"
-                class="sidebar-link">
-                <img src="{{ url_for('static', filename='img/logo/svg/mya-wine.svg') }}" alt="MYALogo"
-                    class="sidebar-icon">
+            <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/mya-wine.svg') }}" alt="MYALogo" class="sidebar-icon">
             </a>
             {% endblock %}
             {% block sidebar2 %}
-            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
-                class="sidebar-link">
-                <img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo"
-                    class="sidebar-icon">
+            <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+                <img src="{{ url_for('static', filename='img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo" class="sidebar-icon">
             </a>
             {% endblock %}
             {% block sidebar3 %}
             <a href="{{ url_for('main.divino', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
-                <img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
-                    class="sidebar-icon">
+                <img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
             </a>
             {% endblock %}
         </nav>
-    </div>
+        <button id="toggle-sidebar" class="toggle-sidebar">&gt;</button>
+    </div>    
     {% endblock %}
 
     <!-- Chatbot-->
