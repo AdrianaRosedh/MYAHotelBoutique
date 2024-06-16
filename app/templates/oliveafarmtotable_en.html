@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}
-Olivea Farm to Table - EN
-{% endblock %}
+{% block title %}Olivea Farm to Table - EN{% endblock %}
 
 {% block description %}
-Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
-heart of the city with our premium amenities and top-notch service.
+Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the heart of the city with our premium amenities and top-notch service.
 {% endblock %}
 
 {% block keywords %}
-hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table,
-Ensenada, Mexico, boutique hotel, experience, landing
+hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table, Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block favicon %}
@@ -35,9 +31,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 
 {% block nav7 %}
 <div class="search-control-button flex items-center min-w-[117px]">
-    <a id="bookNowButton"
-    class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]"
-    href="https://www.opentable.com.mx/r/olivea-farm-to-table-reservations-ensenada?restref=1313743&lang=en&ot_source=Restaurant%20website" target="_blank">
+    <a id="bookNowButton" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]" href="https://www.opentable.com.mx/r/olivea-farm-to-table-reservations-ensenada?restref=1313743&lang=en&ot_source=Restaurant%20website" target="_blank">
     Reserve a Table
     </a>
 </div>
@@ -47,7 +41,6 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% block hero %}
 <section id="hero" class="bg-stone-400">
     <div class="relative flex flex-col justify-center px-[12px] hero-image md:h-[calc(115vh_-_100px)] sm:h-[80vh] min-[481px]:h-[580px] h-[375px] w-full bg-cover bg-center bg-[url('{{ url_for('static', filename='img/hero/olivea.jpg') }}')] bg-blend-overlay bg-[#000cc]">
-        <div class="absolute bg-[url('{{ url_for('static', filename='img/hero/olivea.jpg') }}')] bg-cover bg-center"></div>
         <div class="flex w-full h-full">
             <div class="relative w-full h-full">
                 <div class="absolute top-0 left-0 w-full h-full opacity-30" id="particles-js"></div>
@@ -63,14 +56,20 @@ Ensenada, Mexico, boutique hotel, experience, landing
                             <span class="typing-container text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[32px]" style="animation-delay: 4s;">From Our Garden To Your Table</span>
                         </span>
                     </h1>
-                    <a class="self-start px-[15px] py-[5px] leading-[28px] border border-solid border-[#676663] bg-[#676663] text-[#fafafa] text-[15px] font-medium tracking-[1px] rounded-[10px] duration-300 ease-in-out hover:bg-transparent hover:text-[#676663] animate-slideUpFadeIn delay-2000ms" href="#gallery">About Us</a>
+                    <a class="self-start px-[15px] py-[5px] leading-[28px] border border-solid border-[#676663] bg-[#676663] text-[#fafafa] text-[15px] font-medium tracking-[1px] rounded-[10px] duration-300 ease-in-out hover:bg-transparent hover:text-[#676663] md:mt-[25px] sm:mt-[15px] mt-[10px] delay-2000ms animate-slideUpFadeIn" href="https://www.opentable.com.mx/r/olivea-farm-to-table-reservations-ensenada?restref=1313743&lang=en&ot_source=Restaurant%20website" target="_blank">
+                        Reserve a Table
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="flex justify-center w-full absolute top-[65%] lg:top-[70%] animate-bounce delay-2000ms delayed-fade-in">
+            <a href="#gallery">
+                <span class="text-[#fafafa] text-[32px] md:text-[38px] leading-[28px] font-light tracking-[1px] px-[12px] py-[8px]">
+                    <i class="ri-arrow-down-s-line"></i>
+                </span>
+            </a>
+        </div>
     </div>
-    <a href="#gallery" class="absolute bottom-[15px] left-[15px] hover:bg-opacity-85 cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg text-[#676663] text-center text-[22px] leading-relaxed sm:block transition-opacity duration-1000 z-20 delayed-fade-in">
-        <i class="ri-arrow-down-double-line text-[20px]"></i>
-    </a>
 </section>
 {% endblock %}
 
@@ -180,12 +179,16 @@ Ensenada, Mexico, boutique hotel, experience, landing
                 <li>14</li>
                 <li>15</li>
             </ul>
+            <div class="navigation">
+                <button id="prev">Back</button>
+                <button id="next">Next</button>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- About -->
-<section class="section-about bg-[#f7f5f1] relative xl:py-[100px] py-[70px]">
+<section class="section-about bg-[#f7f5f1] relative xl:py-[100px] py-[70px]" id="next-section">
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] mb-[-24px]">
         <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1500">
@@ -238,7 +241,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <!-- Amenities -->
 <section class="section-amenities relative xl:py-[100px] py-[70px]">
     <div
-        class="before:bg-[url('{{ url_for('static', filename='img/theme/4.png') }}')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
+        class=" bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] relative">
@@ -848,6 +851,50 @@ Ensenada, Mexico, boutique hotel, experience, landing
                         Perfect Hotel Room
                         In A Coastal
                         Destination.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Find Us -->
+<section class="section-contact relative xl:py-[100px] py-[70px]" id="contact">
+    <div class="before:bg-[url('assets/img/theme/4.png')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]"></div>
+    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+        <div class="p-[24px] bg-[#f7f5f1] rounded-[15px] mx-[12px]" data-aos="fade-up" data-aos-duration="2000">
+            <div class="flex flex-wrap mb-[-24px]">
+                <div class="lg:w-1/2 lg:pr-[12px] w-full pr-[0] pl-[0] mb-[24px] w-full">
+                    <div class="lh-contact-touch-inner">
+                        <div class="lh-contact-touch-contain">
+                            <h4 class="text-[#000] pb-[15px] 2xl:text-[28px] xl:text-[26px] lg:text-[24px] font-bold md:text-[22px] sm:text-[20px] text-[18px]">
+                                Get In Touch With Us Fell Free To Write Us</h4>
+                            <p>This is the dolor consectetur adpisicing elit. Deleniti quam exercitationem a
+                                expedita natus quisquam. Deleniti Facere exercitationem ratione nihil Deleniti
+                                delectus possimus!</p>
+                        </div>
+                        <div class="pt-[30px]">
+                            <form action="#">
+                                <div class="flex xl:mb-[30px] mb-[15px]">
+                                    <input type="text" name="firstname" placeholder="Your Name*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px] mr-[30px]" required="">
+                                    <input type="email" name="email" placeholder="Your Email*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]" required="">
+                                </div>
+                                <div class="flex xl:mb-[30px] mb-[15px]">
+                                    <input type="text" name="firstname" placeholder="Your Subject*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]" required="">
+                                </div>
+                                <div class="flex xl:mb-[30px] mb-[15px]">
+                                    <textarea class="border-0 bg-[#fff] outline-none px-[20px] py-[15px] h-[150px] w-full rounded-[15px]" placeholder="Message*"></textarea>
+                                </div>
+                                <button class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]" type="submit">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 lg:pl-[12px] w-full pr-[0] pl-[0] mb-[24px] w-full">
+                    <div class="h-full">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1sen!2smx!4v1718487866175!5m2!1sen!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full mb-[-10px] rounded-[15px]"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

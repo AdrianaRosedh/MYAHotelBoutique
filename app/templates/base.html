@@ -43,7 +43,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     {% block head %}{% endblock %}
-    {% block styles %}{% endblock %}
+
 </head>
 
 <body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}">
@@ -146,11 +146,11 @@
                             <li class="ml-[30px] nav-item dropdown">
                                 {% block nav3 %}
                                 {% if session['language'] == 'es' %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#contact">
                                     Encuéntranos
                                 </a>
                                 {% else %}
-                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="javascript:void(0)">
+                                <a class="py-[5px] text-[15px] text-[#111827] nav-link" href="#contact">
                                     Find Us
                                 </a>
                                 {% endif %}
@@ -333,8 +333,7 @@
         <!-- Hero Section -->
         {% block hero %}
         <section id="hero" class="bg-stone-400">
-            <div class="relative flex flex-col justify-center px-[12px] hero-image md:h-[calc(115vh_-_100px)] sm:h-[80vh] min-[481px]:h-[580px] h-[375px] w-full bg-cover bg-center bg-[url('{{ url_for('static', filename='img/hero/hero-section.jpg') }}')] bg-blend-overlay bg-[#000cc]">
-                <div class="absolute bg-[url('{{ url_for('static', filename='img/hero/hero-section.jpg') }}')] bg-cover bg-center"></div>
+            <div class="relative flex flex-col justify-center px-[12px] hero-image md:h-[calc(115vh_-_100px)] sm:h-[80vh] min-[481px]:h-[580px] h-[375px] w-full bg-cover bg-center bg-[url('{{ url_for('static', filename='img/hero/HERO-MYA-100.jpg') }}')] bg-blend-overlay bg-[#000cc]">
                 <div class="flex w-full h-full">
                     <div class="relative w-full h-full">
                         <div class="absolute top-0 left-0 w-full h-full opacity-30" id="particles-js"></div>
@@ -362,10 +361,10 @@
         {% endblock %}
         
         {% block content %}{% endblock %}
+        
     </main>
 
     <!-- Footer -->
-    {% block Footer %}
     <footer>
         <footer class="pt-[70px] bg-[#464644]">
             <div
@@ -545,24 +544,18 @@
             </div>
         </footer>
     </footer>
-    {% endblock %}
 
     <!-- Top Progress bar -->
-    {% block TopProgress %}
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
-    {% endblock %}
 
     <!-- Tap to top -->
-    {% block TapToTop %}
     <a href="#" id="tapToTop"
         class="tap-to-top back-to-top hidden fixed left-[15px] z-10 hover:text-[#fafafa] cursor-pointer w-[38px] h-[38px] rounded-[20px] bg-[#676663] text-[#fafafa] text-center text-[22px] leading-relaxed">
         <i class="ri-arrow-up-double-line text-[20px]"></i>
     </a>
-    {% endblock %}
 
-    {% block SideBar %}
     <!-- side bar -->
     <div class="relative">
         <nav id="floating-sidebar" class="floating-sidebar backdrop-filter backdrop-blur-lg">
@@ -583,7 +576,6 @@
             {% endblock %}
         </nav>
     </div>        
-    {% endblock %}
 
     <!-- Chatbot-->
     {% include 'partials/chatbot.html' %}
@@ -594,6 +586,9 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+
 
     <!-- Other Vendor JS -->
     <script src="{{ url_for('static', filename='js/vendor/swiper-bundle.min.js') }}"></script>
@@ -611,6 +606,9 @@
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/progress-bar-script.js') }}"></script>
+
+    <!-- Google Maps Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
 
 
     {% block extra_scripts %}{% endblock %}
