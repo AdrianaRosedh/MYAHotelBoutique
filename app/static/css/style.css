@@ -1,63 +1,30 @@
-/*---------------------------------------------------------------------------------
-    Included CSS INDEX
------------------------------------------------------------------------------------
 
-01. Typography
-
-02. Utilities
-    - mixing
-    - variables
-
-03. Components
-    - common
-    - header
-    - footer
-
-04. Pages
-    - amenities-page 
-    - blog-page
-    - checkout
-    - faq-page
-    - gallery-page
-    - gallery-page-2
-    - home-page
-    - prices-page
-    - restaurant-page
-    - room-details-page
-    - room-page
-    - spa-page
-    - team-page
-    - testimonials-page
-
------------------------------------------------------------------------------------*/
-/* base */
-/* Typography */
 @font-face {
-  font-family: Poppins;
+  font-family: 'Poppins';
   src: url("../fonts/Poppins-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: Poppins;
+  font-family: 'Poppins';
   src: url("../fonts/Poppins-Bold.ttf");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: Poppins;
+  font-family: 'Poppins';
   src: url("../fonts/Poppins-Italic.ttf");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Thin.ttf");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-ThinItalic.ttf");
   font-weight: 100;
   font-style: italic;
@@ -69,55 +36,55 @@
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-LightItalic.ttf");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-MediumItalic.ttf");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Bold.ttf");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-BoldItalic.ttf");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-Black.ttf");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url("../fonts/Roboto-BlackItalic.ttf");
   font-weight: 900;
   font-style: italic;
@@ -1123,8 +1090,8 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
       flex: 0 0 100%;
       max-width: 100%;
   }
-  .section-search-control .p-[12px] {
-      padding: 12px;
+  .section-search-control .p-12px {
+    padding: 12px;
   }
   .section-search-control .search-box {
       margin-bottom: 12px;
@@ -1336,10 +1303,15 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   -webkit-animation-name: wobble;
   animation-name: wobble;
   -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
   -webkit-animation-iteration-count: 0.8s;
+  animation-iteration-count: 0.8s;
   -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
   -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%; /* Standard property */
 }
+
 
 
 @-webkit-keyframes zoom-in-zoom-out {
@@ -1584,8 +1556,7 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   }
 }
 
-/*  side bar */
-//* Sidebar CSS */
+/* Sidebar CSS */
 @keyframes fadeInSidebar {
   0% {
     opacity: 0;
@@ -1933,10 +1904,19 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards, typing 2s steps(30, end) forwards;
 }
-.fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
 .top-40 {
   top: 40% !important;
 }
@@ -1969,3 +1949,9 @@ footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer
   animation: fadeIn 1s forwards, bounce 2s infinite;
   animation-delay: 3s, 4s; /* Adjust the delay as needed */
 }
+
+/* Adjust the delay as needed 
+html {
+  scroll-behavior: smooth;
+}
+*/
