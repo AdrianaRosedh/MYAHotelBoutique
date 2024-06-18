@@ -1,9 +1,10 @@
 module.exports = {
   content: [
     './app/templates/**/*.html',
+    './app/static/src/js/**/*.js',
   ],
   css: [
-    './app/static/css/**/*.css',
+    './app/static/src/css/**/*.css',
   ],
   safelist: [
     'navbar',
