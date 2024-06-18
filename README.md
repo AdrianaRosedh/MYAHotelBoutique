@@ -10,6 +10,7 @@ Welcome to the MYA Hotel Boutique project repository. This project is a comprehe
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Gulp Tasks](#gulp-tasks)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -61,7 +62,27 @@ MYA Hotel Boutique offers an exceptional online experience for potential guests,
     pip install -r requirements.txt
     ```
 
-4. Run the application:
+4. Install Node.js and npm (if not already installed):
+    ```bash
+    # For Debian/Ubuntu
+    sudo apt update
+    sudo apt install nodejs npm
+
+    # For macOS using Homebrew
+    brew install node
+    ```
+
+5. Install Gulp CLI globally:
+    ```bash
+    npm install -g gulp-cli@2.3.0
+    ```
+
+6. Install project-specific dependencies:
+    ```bash
+    npm install
+    ```
+
+7. Run the application:
     ```bash
     python run.py
     ```
@@ -70,6 +91,17 @@ MYA Hotel Boutique offers an exceptional online experience for potential guests,
 
 - Access the website at `http://localhost:5000`
 - Navigate through different sections: Home, Rooms, Restaurant, Cafe, Padel Courts, Contact.
+
+## Gulp Tasks
+
+### Installation
+
+1. **Install Node.js and npm**:
+   Ensure you have Node.js and npm installed. You can download them from [nodejs.org](https://nodejs.org/).
+
+2. **Install Gulp CLI**:
+   ```bash
+   npm install -g gulp-cli@2.3.0
 
 ## Contributing
 

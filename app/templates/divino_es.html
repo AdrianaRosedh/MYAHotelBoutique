@@ -15,7 +15,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block favicon %}
-<link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-3.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='dist/img/favicons/favicon-3.png') }}" type="image/x-icon">
 {% endblock %}
 
 {% block hreflang %}
@@ -24,7 +24,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 {% endblock %}
 
 {% block logo %}
-<img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
+<img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
     class="xl:w-[65px] w-[35px] relative z-[2]">
 {% endblock %}
 
@@ -32,7 +32,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
     <div
-        class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('{{ url_for('static', filename='img/theme/1.png') }}')]">
+        class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('{{ url_for('static', filename='dist/img/theme/1.png') }}')]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
@@ -50,7 +50,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link active"
                     id="nav-Deluxe-tab" data-bs-toggle="tab" data-bs-target="#nav-Deluxe" type="button" role="tab"
                     aria-controls="nav-Deluxe" aria-selected="true">
-                    <img src="{{ url_for('static', filename='img/room/1.png') }}" alt="1"
+                    <img src="{{ url_for('static', filename='dist/img/room/1.png') }}" alt="1"
                         class="w-full mb-[15px] rounded-[15px]">
                     Deluxe Room
                 </button>
@@ -58,7 +58,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link"
                     id="nav-Single-tab" data-bs-toggle="tab" data-bs-target="#nav-Single" type="button" role="tab"
                     aria-controls="nav-Single" aria-selected="false">
-                    <img src="{{ url_for('static', filename='img/room/2.png') }}" alt="2"
+                    <img src="{{ url_for('static', filename='dist/img/room/2.png') }}" alt="2"
                         class="w-full mb-[15px] rounded-[15px]">
                     Single Room
                 </button>
@@ -66,7 +66,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link"
                     id="nav-Super-tab" data-bs-toggle="tab" data-bs-target="#nav-Super" type="button" role="tab"
                     aria-controls="nav-Super" aria-selected="false">
-                    <img src="{{ url_for('static', filename='img/room/3.png') }}" alt="3"
+                    <img src="{{ url_for('static', filename='dist/img/room/3.png') }}" alt="3"
                         class="w-full mb-[15px] rounded-[15px]">
                     Super Room
                 </button>
@@ -74,7 +74,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link"
                     id="nav-Presidential-tab" data-bs-toggle="tab" data-bs-target="#nav-Presidential" type="button"
                     role="tab" aria-controls="nav-Presidential" aria-selected="false">
-                    <img src="{{ url_for('static', filename='img/room/4.png') }}" alt="4"
+                    <img src="{{ url_for('static', filename='dist/img/room/4.png') }}" alt="4"
                         class="w-full mb-[15px] rounded-[15px]">
                     Presidential Room
                 </button>
@@ -144,7 +144,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     </div>
                     <div class="xl:w-1/2 w-full">
                         <div class="room-img h-full w-full relative">
-                            <img src="{{ url_for('static', filename='img/room/room-1.png') }}" alt="room-img"
+                            <img src="{{ url_for('static', filename='dist/img/room/room-1.png') }}" alt="room-img"
                                 class="room-image h-full w-full">
                             <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}"
                                 class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
@@ -159,7 +159,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
     <div
-        class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('{{ url_for('static', filename='img/theme/2.png') }}')]">
+        class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('{{ url_for('static', filename='dist/img/theme/2.png') }}')]">
     </div>
 </section>
 
@@ -168,7 +168,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] mb-[-24px]">
         <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="1500">
-            <img src="{{ url_for('static', filename='img/about/about.png') }}" alt="about" class="w-100">
+            <img src="{{ url_for('static', filename='dist/img/about/about.png') }}" alt="about" class="w-100">
         </div>
         <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
             <div class="lh-about-detail h-full flex flex-col justify-center items-start">
@@ -217,12 +217,12 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <!-- Amenities -->
 <section class="section-amenities relative xl:py-[100px] py-[70px]">
     <div
-        class="before:bg-[url('{{ url_for('static', filename='img/theme/4.png') }}')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
+        class="before:bg-[url('{{ url_for('static', filename='dist/img/theme/4.png') }}')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] relative">
         <div
-            class="before:bg-[url('{{ url_for('static', filename='img/theme/6.png') }}')] bg-size-full dark-opicity-5 before:bg-no-repeat before:absolute before:right-0 before:z-[-2] before:top-[-100px] before:w-[200px] before:h-[130px]">
+            class="before:bg-[url('{{ url_for('static', filename='dist/img/theme/6.png') }}')] bg-size-full dark-opicity-5 before:bg-no-repeat before:absolute before:right-0 before:z-[-2] before:top-[-100px] before:w-[200px] before:h-[130px]">
         </div>
         <div class="text-center w-full mb-[30px]" data-aos="fade-up" data-aos-duration="2000">
             <h2
@@ -236,7 +236,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     data-aos="fade-up" data-aos-duration="1500">
                     <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
                         <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
-                            <img src="{{ url_for('static', filename='img/amenities/1.png') }}" alt="amenities_1"
+                            <img src="{{ url_for('static', filename='dist/img/amenities/1.png') }}" alt="amenities_1"
                                 class="w-full h-full xl:rounded-none rounded-[15px]">
                         </div>
                         <div
@@ -246,7 +246,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0px] right-[0px] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">
                                     01</h4>
                                 <div class="lh-top-dish pb-[15px]">
-                                    <img src="{{ url_for('static', filename='img/amenities/amenities-dish-1.svg') }}"
+                                    <img src="{{ url_for('static', filename='dist/img/amenities/amenities-dish-1.svg') }}"
                                         class="svg-img w-[50px] h-[50px]" alt="amenities-dish-1">
                                 </div>
                                 <div class="amenities-contain">
@@ -276,7 +276,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                     data-aos="fade-up" data-aos-duration="2000">
                     <div class="amenities-detail flex flex-wrap xl:flex-row flex-col">
                         <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
-                            <img src="{{ url_for('static', filename='img/amenities/2.png') }}" alt="amenities_2"
+                            <img src="{{ url_for('static', filename='dist/img/amenities/2.png') }}" alt="amenities_2"
                                 class="w-full h-full xl:rounded-none rounded-[15px]">
                         </div>
                         <div
@@ -286,7 +286,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0px] right-[0px] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">
                                     02</h4>
                                 <div class="lh-top-dish pb-[15px]">
-                                    <img src="{{ url_for('static', filename='img/amenities/amenities-dish-2.svg') }}"
+                                    <img src="{{ url_for('static', filename='dist/img/amenities/amenities-dish-2.svg') }}"
                                         class="svg-img w-[50px] h-[50px]" alt="amenities-dish-2">
                                 </div>
                                 <div class="amenities-contain">
@@ -322,7 +322,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0px] right-[0px] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">
                                     03</h4>
                                 <div class="lh-top-dish pb-[15px]">
-                                    <img src="{{ url_for('static', filename='img/amenities/amenities-dish-4.svg') }}"
+                                    <img src="{{ url_for('static', filename='dist/img/amenities/amenities-dish-4.svg') }}"
                                         class="svg-img w-[50px] h-[50px]" alt="amenities-dish-3">
                                 </div>
                                 <div class="amenities-contain">
@@ -344,7 +344,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                             </div>
                         </div>
                         <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
-                            <img src="{{ url_for('static', filename='img/amenities/3.png') }}" alt="amenities_3"
+                            <img src="{{ url_for('static', filename='dist/img/amenities/3.png') }}" alt="amenities_3"
                                 class="w-full h-full xl:rounded-none rounded-[15px]">
                         </div>
                     </div>
@@ -361,7 +361,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     class="side-number absolute xl:top-[24px] xl:right-[24px] top-[0px] right-[0px] text-[55px] font-extrabold leading-[55px] text-[#0000000d]">
                                     04</h4>
                                 <div class="lh-top-dish pb-[15px]">
-                                    <img src="{{ url_for('static', filename='img/amenities/amenities-dish-3.svg') }}"
+                                    <img src="{{ url_for('static', filename='dist/img/amenities/amenities-dish-3.svg') }}"
                                         class="svg-img w-[50px] h-[50px]" alt="amenities-dish-4">
                                 </div>
                                 <div class="amenities-contain">
@@ -384,7 +384,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                             </div>
                         </div>
                         <div class="amenities-box xl:w-[50%] xl:p-0 w-[100%] p-[24px] flex items-center justify-center">
-                            <img src="{{ url_for('static', filename='img/amenities/4.png') }}" alt="amenities_4"
+                            <img src="{{ url_for('static', filename='dist/img/amenities/4.png') }}" alt="amenities_4"
                                 class="w-full h-full xl:rounded-none rounded-[15px]">
                         </div>
                     </div>
@@ -393,7 +393,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
     <div
-        class="after:bg-[url('{{ url_for('static', filename='img/theme/5.png') }}')] dark-opicity-5 bg-size-full after:bg-no-repeat after:absolute after:right-0 after:bottom-[-60px] after:z-[-1] after:2xl:w-[175px] after:w-[120px] after:2xl:h-[150px] after:h-[120px]">
+        class="after:bg-[url('{{ url_for('static', filename='dist/img/theme/5.png') }}')] dark-opicity-5 bg-size-full after:bg-no-repeat after:absolute after:right-0 after:bottom-[-60px] after:z-[-1] after:2xl:w-[175px] after:w-[120px] after:2xl:h-[150px] after:h-[120px]">
     </div>
 </section>
 
@@ -410,7 +410,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
         <div class="lg:flex flex-wrap mb-[-24px] w-full">
             <div class="lg:w-1/3 px-[12px] mb-[24px]">
                 <div class="lh-prices bg-[#fafafa] rounded-[15px] pb-[24px]" data-aos="fade-up" data-aos-duration="1000">
-                    <img src="{{ url_for('static', filename='img/prices/1.png') }}" alt="prices_1" class="prices-image">
+                    <img src="{{ url_for('static', filename='dist/img/prices/1.png') }}" alt="prices_1" class="prices-image">
                     <div class="lh-prices-out px-[24px]">
                         <div class="lh-prices-in border-b border-solid border-[#e3e1e1]">
                             <h4
@@ -463,7 +463,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
             </div>
             <div class="lg:w-1/3 px-[12px] mb-[24px]">
                 <div class="lh-prices bg-[#fafafa] rounded-[15px] pb-[24px]" data-aos="fade-up" data-aos-duration="2000">
-                    <img src="{{ url_for('static', filename='img/prices/2.png') }}" alt="prices_2"
+                    <img src="{{ url_for('static', filename='dist/img/prices/2.png') }}" alt="prices_2"
                         class="prices-image active">
                     <div class="lh-prices-out px-[24px]">
                         <div class="lh-prices-in border-b border-solid border-[#e3e1e1]">
@@ -517,7 +517,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
             </div>
             <div class="lg:w-1/3 px-[12px] mb-[24px]">
                 <div class="lh-prices bg-[#fafafa] rounded-[15px] pb-[24px]" data-aos="fade-up" data-aos-duration="3000">
-                    <img src="{{ url_for('static', filename='img/prices/3.png') }}" alt="prices_3" class="prices-image">
+                    <img src="{{ url_for('static', filename='dist/img/prices/3.png') }}" alt="prices_3" class="prices-image">
                     <div class="lh-prices-out px-[24px]">
                         <div class="lh-prices-in border-b border-solid border-[#e3e1e1]">
                             <h
@@ -575,7 +575,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
 <!-- Testimonials -->
 <section class="section-testimonials relative xl:py-[100px] py-[70px]">
     <div
-        class="before:bg-[url('{{ url_for('static', filename='img/theme/7.png') }}')] dark-opicity-2 bg-size-full before:bg-no-repeat before:absolute before:z-[0] before:2xl:w-[380px] before:w-[310px] before:h-[162px] before:2xl:left-[-175px] before:left-[-150px] before:top-[25px]">
+        class="before:bg-[url('{{ url_for('static', filename='dist/img/theme/7.png') }}')] dark-opicity-2 bg-size-full before:bg-no-repeat before:absolute before:z-[0] before:2xl:w-[380px] before:w-[310px] before:h-[162px] before:2xl:left-[-175px] before:left-[-150px] before:top-[25px]">
     </div>
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
@@ -590,7 +590,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     <div class="lg:flex flex-wrap w-full 2xl:p-[0] xl:px-[12px] p-[0]">
                                         <div class="flex justify-between w-full">
                                             <div class="flex">
-                                                <img src="{{ url_for('static', filename='img/businessman/businessman-1.png') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/businessman/businessman-1.png') }}"
                                                     alt="businessman"
                                                     class="2xl:w-[75px] w-[50px] 2xl:h-[75px] h-[50px] rounded-[40px]">
                                                 <div class="px-[20px] flex justify-center flex-col">
@@ -603,7 +603,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                                 </div>
                                             </div>
                                             <div class="flex justify-end">
-                                                <img src="{{ url_for('static', filename='img/testimonials/quotes.svg') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/testimonials/quotes.svg') }}"
                                                     class="testimonials w-[70px] h-[70px] opacity-40 svg-img"
                                                     alt="quotes">
                                             </div>
@@ -646,7 +646,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     <div class="lg:flex flex-wrap w-full 2xl:p-[0] xl:px-[12px] p-[0]">
                                         <div class="flex justify-between w-full">
                                             <div class="flex">
-                                                <img src="{{ url_for('static', filename='img/businessman/businessman-2.png') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/businessman/businessman-2.png') }}"
                                                     alt="businessman"
                                                     class="2xl:w-[75px] w-[50px] 2xl:h-[75px] h-[50px] rounded-[40px]">
                                                 <div class="px-[20px] flex justify-center flex-col">
@@ -659,7 +659,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                                 </div>
                                             </div>
                                             <div class="flex justify-end">
-                                                <img src="{{ url_for('static', filename='img/testimonials/quotes.svg') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/testimonials/quotes.svg') }}"
                                                     class="testimonials w-[70px] h-[70px] opacity-40 svg-img"
                                                     alt="quotes">
                                             </div>
@@ -701,7 +701,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                     <div class="lg:flex flex-wrap w-full 2xl:p-[0] xl:px-[12px] p-[0]">
                                         <div class="flex justify-between w-full">
                                             <div class="flex">
-                                                <img src="{{ url_for('static', filename='img/businessman/businessman-3.png') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/businessman/businessman-3.png') }}"
                                                     alt="businessman"
                                                     class="2xl:w-[75px] w-[50px] 2xl:h-[75px] h-[50px] rounded-[40px]">
                                                 <div class="px-[20px] flex justify-center flex-col">
@@ -714,7 +714,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                                                 </div>
                                             </div>
                                             <div class="flex justify-end">
-                                                <img src="{{ url_for('static', filename='img/testimonials/quotes.svg') }}"
+                                                <img src="{{ url_for('static', filename='dist/img/testimonials/quotes.svg') }}"
                                                     class="testimonials w-[70px] h-[70px] opacity-40 svg-img"
                                                     alt="quotes">
                                             </div>
@@ -753,7 +753,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
     <div
-        class="after:bg-[url('{{ url_for('static', filename='img/theme/8.png') }}')] bg-size-full dark-opicity-2 after:bg-no-repeat after:absolute after:z-[-1] 2xl:after:w-[250px] 2xl:after:h-[325px] after:w-[160px] after:h-[210px] after:right-0 after:bottom-0">
+        class="after:bg-[url('{{ url_for('static', filename='dist/img/theme/8.png') }}')] bg-size-full dark-opicity-2 after:bg-no-repeat after:absolute after:z-[-1] 2xl:after:w-[250px] 2xl:after:h-[325px] after:w-[160px] after:h-[210px] after:right-0 after:bottom-0">
     </div>
 </section>
 
@@ -769,7 +769,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
         <div class="slick-slider blog-slider my-0 lg:flex flex-wrap w-full">
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/2.png') }}"
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='dist/img/blog/2.png') }}"
                         alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
@@ -784,7 +784,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/3.png') }}"
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='dist/img/blog/3.png') }}"
                         alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
@@ -798,7 +798,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/4.png') }}"
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='dist/img/blog/4.png') }}"
                         alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
@@ -814,7 +814,7 @@ Ensenada, Mexico, boutique hotel, experience, landing
                 </div>
             </div>
             <div class="blog-card mx-[12px] my-0">
-                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='img/blog/5.png') }}"
+                <figure class="m-0 relative truncate"><img src="{{ url_for('static', filename='dist/img/blog/5.png') }}"
                         alt="blog-img" class="w-full rounded-[15px]"></figure>
                 <div class="lh-blog flex flex-col justify-center">
                     <div class="lh-blog-date py-[15px] leading-[15px]">
@@ -835,7 +835,6 @@ Ensenada, Mexico, boutique hotel, experience, landing
 
 <!-- Find Us -->
 <section class="section-contact relative xl:py-[100px] py-[70px]" id="contact">
-    <div class="before:bg-[url('assets/img/theme/4.png')] bg-size-full before:bg-no-repeat before:absolute before:lg:left-[-50px] before:md:left-[-6px] before:left-[10px] before:bottom-0 before:z-[-1] before:2xl:w-[260px] before:xl:w-[185px] before:md:w-[138px] before:w-[60px] before:2xl:h-[500px] before:xl:h-[350px] before:md:h-[275px] before:h-[120px]"></div>
     <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
         <div class="p-[24px] bg-[#f7f5f1] rounded-[15px] mx-[12px]" data-aos="fade-up" data-aos-duration="2000">
             <div class="flex flex-wrap mb-[-24px]">
@@ -875,19 +874,18 @@ Ensenada, Mexico, boutique hotel, experience, landing
             </div>
         </div>
     </div>
-    <div class="2xl:after:w-[500px] lg:after:w-[400px] dark-opicity-1 after:w-[300px] 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[30px] after:top-[20px] after:right-[-180px] after:z-[0] after:bg-[url('assets/img/theme/9.png')]"></div>
 </section>
 {% endblock %}
 
 <!-- Sidebar -->
 {% block sidebar3 %}
 <a href="#hero" class="sidebar-link border !border-neutral-700/[.55] p-2 rounded-md"> 
-    <img src="{{ url_for('static', filename='img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
+    <img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
 </a>
 {% endblock %}
 
 
 <!-- Nav Logo -->
 {% block navlogo %}
-<img src="{{ url_for('static', filename='img/logo/mya-white.svg') }}" alt="logo" class="w-[180px]">
+<img src="{{ url_for('static', filename='dist/img/logo/mya-white.svg') }}" alt="logo" class="w-[180px]">
 {% endblock %}
