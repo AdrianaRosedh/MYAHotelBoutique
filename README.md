@@ -97,11 +97,41 @@ MYA Hotel Boutique offers an exceptional online experience for potential guests,
 ### Installation
 
 1. **Install Node.js and npm**:
+
    Ensure you have Node.js and npm installed. You can download them from [nodejs.org](https://nodejs.org/).
 
 2. **Install Gulp CLI**:
    ```bash
    npm install -g gulp-cli@2.3.0
+
+3. **Install Project Dependencies**:
+    Navigate to the project directory and run:
+    npm install
+
+## Usage
+
+    Build
+
+    To clean and build the project, run:
+    
+## Gulp Tasks Overview
+
+- clean: Deletes the dist directory.
+- customStyles: Processes custom CSS files, applies PostCSS plugins, and outputs minified files.
+- vendorStyles: Processes vendor CSS files similarly to custom styles.
+- scripts: Concatenates and minifies JavaScript files.
+- chatbotAndFeaturesScripts: Concatenates and minifies chatbot and feature-specific JavaScript files.
+- images: Optimizes and copies image files.
+-  fonts: Copies font files to the dist directory.
+
+## Adding New Tasks
+
+To add new tasks, edit the gulpfile.mjs and define your tasks similarly to the existing ones.
+
+## Troubleshooting
+
+    Gulp Errors: Ensure that you are using compatible versions of Gulp and its plugins.
+    Image Issues: Verify paths and permissions if images are not showing up correctly.
 
 ## Contributing
 
@@ -119,4 +149,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 - **Author:** Adriana Rosedh
-- **Email:** [your-email@example.com](mailto:your-email@example.com)
+- **Email:** [adriana@dhconstruccion.com](mailto:adriana@dhconstruccion.com)
