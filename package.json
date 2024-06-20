@@ -19,13 +19,12 @@
         "gulp-if": "^3.0.0",
         "gulp-postcss": "^10.0.0",
         "gulp-rename": "^2.0.0",
-        "gulp-sass": "^5.1.0",
         "gulp-uglify": "^3.0.2",
         "imagemin-gifsicle": "^7.0.0",
         "imagemin-mozjpeg": "^10.0.0",
         "imagemin-optipng": "^8.0.0",
+        "particles.js": "^2.0.0",
         "rimraf": "^5.0.7",
-        "sass": "^1.77.6",
         "tailwindcss": "^3.4.4",
         "vinyl-fs": "^4.0.0"
     },
@@ -33,7 +32,10 @@
         "browser-sync": "^3.0.2",
         "gulp": "^4.0.2",
         "gulp-imagemin": "^9.1.0",
-        "imagemin-svgo": "^11.0.1"
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass": "^5.1.0",
+        "imagemin-svgo": "^11.0.1",
+        "sass": "^1.77.6"
     },
     "type": "module",
     "author": "",

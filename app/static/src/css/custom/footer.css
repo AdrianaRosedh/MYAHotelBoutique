@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Footer */
+  
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control {
+  background: #4b4b4c;
+  color: #fafafa;
+}
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-webkit-input-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.702);
+}
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-moz-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.702);
+}
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control:-ms-input-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.702);
+}
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-ms-input-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.702);
+}
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.702);
+}

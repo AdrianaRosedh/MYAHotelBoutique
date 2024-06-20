@@ -1,0 +1,10 @@
+ 
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ 
+ /* Amenities */
+ .lh-amenities-in .amenities-contain a:hover i {
+  margin-left: 5px;
+}

@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Faq */
+.ld-faq {
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ld-faq .accordion .accordion-item:not(:nth-child(1)) {
+  margin-top: 10px;
+}
+.ld-faq .accordion .accordion-item .accordion-button {
+  background-color: #f7f5f1;
+  color: #000;
+}
+.ld-faq .accordion .accordion-item .accordion-button::after {
+  background: none;
+  font-family: "remixicon";
+  content: "\ea4e";
+  font-size: 20px;
+  line-height: 18px;
+}
+.ld-faq .accordion .accordion-item .accordion-button:not(.collapsed)::after {
+  background: none;
+  font-family: "remixicon";
+  content: "\ea4e";
+  font-size: 20px;
+  color: #676663;
+  line-height: 18px;
+}
+.ld-faq .accordion .accordion-item .accordion-collapse {
+  border-radius: 10px;
+  visibility: visible;
+}
+
