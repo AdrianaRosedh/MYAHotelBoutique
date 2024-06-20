@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Search Control Section */
+@media screen and (max-width: 1023px) {
+  .section-search-control {
+      position: relative !important;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      z-index: 1000; /* Ensure the section is above other elements */
+  }
+  .section-search-control .search-control-boxing {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+  }
+  .section-search-control .w-full {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  .section-search-control .p-12px {
+    padding: 12px;
+  }
+  .section-search-control .search-box {
+      margin-bottom: 12px;
+  }
+  .section-search-control .search-control-button {
+      margin-top: 12px;
+  }
+}
+
+.widgetHotelsInputText {
+  padding: 5px 35px 5px 10px; /* Adjust padding to accommodate the icon */
+  font-size: 14px;
+  border: 1px solid #e3e1e1;
+  border-radius: 5px;
+}
+
+.submit_link {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.acessa_widget_block p {
+  margin-bottom: 5px;
+}
+
+.border-t-0 { border-top: 0; }
+.border-l-0 { border-left: 0; }
+.border-r-0 { border-right: 0; }
+.text-left { text-align: left; }
+.bg-white { background-color: #fafafa; }
+.w-full { width: 100%; }
+.border-b { border-bottom: 1px solid; }
+.border-solid { border-style: solid; }
+.outline-0 { outline: 0; }
+.relative { position: relative; }
+.calendar-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  color: #676663; /* Match the color to the theme */
+}
+
+.flatpickr-calendar {
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Ensure the Flatpickr calendar is above other elements */
+}
+
+.flatpickr-months {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #eee;
+}
+
+.flatpickr-month {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.flatpickr-weekdays {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.flatpickr-weekday {
+  color: #333;
+  padding: 8px 0;
+}
+
+.flatpickr-day {
+  border-radius: 4px;
+  color: #333;
+}
+
+.flatpickr-day:hover {
+  background-color: #e6f7ff;
+  color: #333;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background-color: #676663;
+  border-color: #676663;
+  color: #fafafa;
+}
+
+.flatpickr-day.today {
+  border-color: #676663;
+  color: #676663;
+}
+
+/* Responsive */
+@media screen and (max-width: 1023px) {
+  .lh-prices {
+    max-width: 450px;
+    margin: auto;
+  }
+}

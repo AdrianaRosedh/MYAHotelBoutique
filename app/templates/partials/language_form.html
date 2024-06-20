@@ -1,6 +1,6 @@
-<form method="POST" action="{{ url_for('main.set_language') }}" class="language-form" style="color: #fafafa">
+<form method="POST" action="{{ url_for('main.set_language') }}"  >
     <input type="hidden" name="current_url" value="{{ request.path }}">
-    <select name="language" class="language-form" style="color: #fafafa;" onchange="this.form.submit()">
+    <select name="language" class="language-form hidden" style="color: #fafafa;" onchange="this.form.submit()">
         <option value="en" {% if 'en' in request.path %}selected{% endif %}>English</option>
         <option value="es" {% if 'es' in request.path or not 'en' in request.path %}selected{% endif %}>Español</option>
     </select>

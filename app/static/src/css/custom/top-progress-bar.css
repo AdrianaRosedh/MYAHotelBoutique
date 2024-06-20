@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Top Progress bar */
+.progress-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(0,0,0,0);
+  z-index: 1000;
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: rgb(125 211 252);
+}

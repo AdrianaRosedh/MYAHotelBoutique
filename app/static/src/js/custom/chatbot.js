@@ -11,6 +11,9 @@ export function initChatbot() {
     function openChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.remove('hidden');
+        if (window.innerWidth <= 640) {
+            chatbotContainer.classList.add('open'); // Add class to expand on mobile
+        }
         document.body.classList.add('chatbot-open'); // Apply darkening effect
         document.getElementById('user-input').focus();
     }
@@ -18,6 +21,7 @@ export function initChatbot() {
     function closeChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.add('hidden');
+        chatbotContainer.classList.remove('open'); // Remove class to revert on mobile
         document.body.classList.remove('chatbot-open'); // Remove darkening effect
         document.getElementById('chatbot-toggle').focus();
     }
@@ -126,11 +130,11 @@ export function initChatbot() {
         const chatbotToggle = document.getElementById('chatbot-toggle');
         if (window.innerWidth <= 640) {
             chatbotContainer.style.width = '100%';
-            chatbotContainer.style.height = '50%';
+            chatbotContainer.style.height = 'auto';
             chatbotContainer.style.bottom = '0';
             chatbotContainer.style.right = '0';
             chatbotContainer.style.left = '0';
-            chatbotContainer.style.maxHeight = '50%';
+            chatbotContainer.style.maxHeight = '100%';
             chatbotContainer.style.borderRadius = '0';
             chatbotToggle.style.display = 'block'; // Ensure toggle button is visible on mobile
         } else {
