@@ -1,33 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}
-Padel Divino - EN
-{% endblock %}
-
-{% block description %}
-Welcome to MYA Boutique Hotel, your home away from home. Experience luxury and comfort in the
-heart of the city with our premium amenities and top-notch service.
-{% endblock %}
-
-{% block keywords %}
-hotel, booking, business, restaurant, spa, resort, valle de Guadalupe, wine, padel, family owned, safe, farm to table,
-Ensenada, Mexico, boutique hotel, experience, landing
-{% endblock %}
-
-{% block favicon %}
-<link rel="icon" href="{{ url_for('static', filename='dist/img/favicons/favicon-3.png') }}" type="image/x-icon">
-{% endblock %}
-
-{% block hreflang %}
-<link rel="alternate" href="{{ url_for('main.divino', lang_code='en', _external=True) }}" hreflang="en">
-<link rel="alternate" href="{{ url_for('main.divino', lang_code='es', _external=True) }}" hreflang="es">
-{% endblock %}
-
-{% block logo %}
-<img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
-    class="xl:w-[65px] w-[35px] relative z-[2]">
-{% endblock %}
-
 {% block content %}
 <!-- Room -->
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="rooms">
@@ -875,17 +847,4 @@ Ensenada, Mexico, boutique hotel, experience, landing
         </div>
     </div>
 </section>
-{% endblock %}
-
-<!-- Sidebar -->
-{% block sidebar3 %}
-<a href="#hero" class="sidebar-link border !border-neutral-700/[.55] p-2 rounded-md"> 
-    <img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="sidebar-icon">
-</a>
-{% endblock %}
-
-
-<!-- Nav Logo -->
-{% block navlogo %}
-<img src="{{ url_for('static', filename='dist/img/logo/mya-white.svg') }}" alt="logo" class="w-[180px]">
 {% endblock %}

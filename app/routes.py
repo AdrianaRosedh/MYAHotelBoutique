@@ -34,8 +34,8 @@ def index_localized(lang_code):
     email = "info@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
     if lang_code == "es":
-        return render_template("index_es.html", email=email, phone=phone)
-    return render_template("index_en.html", email=email, phone=phone)
+        return render_template("index_es.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code)
+    return render_template("index_en.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code)
 
 @bp.route("/set_language", methods=["POST"])
 def set_language():
@@ -65,8 +65,8 @@ def oliveafarmtotable(lang_code):
     email = "olivea@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
     if lang_code == "es":
-        return render_template("oliveafarmtotable_es.html", email=email, phone=phone)
-    return render_template("oliveafarmtotable_en.html", email=email, phone=phone)
+        return render_template("oliveafarmtotable_es.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code)
+    return render_template("oliveafarmtotable_en.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code)
 
 @bp.route("/<lang_code>/divino")
 def divino(lang_code):
@@ -74,8 +74,8 @@ def divino(lang_code):
     email = "padel@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
     if lang_code == "es":
-        return render_template("divino_es.html", email=email, phone=phone)
-    return render_template("divino_en.html", email=email, phone=phone)
+        return render_template("divino_es.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code)
+    return render_template("divino_en.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code)
 
 @bp.route("/<lang_code>/reservation", methods=["GET", "POST"])
 def reservation(lang_code):
