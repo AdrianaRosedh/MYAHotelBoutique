@@ -348,34 +348,56 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* For Search Engine */
-document.addEventListener('DOMContentLoaded', function() {
+ddocument.addEventListener('DOMContentLoaded', function() {
   const checkinInput = document.querySelector('#checkin');
   const checkoutInput = document.querySelector('#checkout');
   const checkinIcon = document.querySelector('#checkin-icon');
   const checkoutIcon = document.querySelector('#checkout-icon');
+
+  const today = "{{ today }}";
+  const tomorrow = "{{ tomorrow }}";
+
   const checkinCalendar = flatpickr(checkinInput, {
     dateFormat: "Y-m-d",
-    defaultDate: "{{ today }}",
+    defaultDate: today,
     onClose: function() { checkinOpen = false; },
     onOpen: function() { checkinOpen = true; }
   });
+
   const checkoutCalendar = flatpickr(checkoutInput, {
     dateFormat: "Y-m-d",
-    defaultDate: "{{ tomorrow }}",
+    defaultDate: tomorrow,
     onClose: function() { checkoutOpen = false; },
     onOpen: function() { checkoutOpen = true; }
   });
+
   let checkinOpen = false;
   let checkoutOpen = false;
-  function toggleCalendar(calendar, isOpen) {
-    if (isOpen) { calendar.close(); } else { calendar.open(); }
-  }
-  checkinInput.addEventListener('click', function() { toggleCalendar(checkinCalendar, checkinOpen); });
-  checkinIcon.addEventListener('click', function() { toggleCalendar(checkinCalendar, checkinOpen); });
-  checkoutInput.addEventListener('click', function() { toggleCalendar(checkoutCalendar, checkoutOpen); });
-  checkoutIcon.addEventListener('click', function() { toggleCalendar(checkoutCalendar, checkoutOpen); });
-});
 
+  function toggleCalendar(calendar, isOpen) {
+    if (isOpen) {
+      calendar.close();
+    } else {
+      calendar.open();
+    }
+  }
+
+  checkinInput.addEventListener('click', function() {
+    toggleCalendar(checkinCalendar, checkinOpen);
+  });
+
+  checkinIcon.addEventListener('click', function() {
+    toggleCalendar(checkinCalendar, checkinOpen);
+  });
+
+  checkoutInput.addEventListener('click', function() {
+    toggleCalendar(checkoutCalendar, checkoutOpen);
+  });
+
+  checkoutIcon.addEventListener('click', function() {
+    toggleCalendar(checkoutCalendar, checkoutOpen);
+  });
+});
 /* Removing fade from arrow */
 document.addEventListener('DOMContentLoaded', () => {
   const fadeInElement = document.querySelector('.opacity-0');

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% include 'partials/meta_description.html' %}">
-    <meta name="keywords" content="{% include 'partials/meta_keywords.html' %}">
-    <title>{% include 'partials/title.html' %}</title>
+    <meta name="description" content="{% include 'partials/base/meta_description.html' %}">
+    <meta name="keywords" content="{% include 'partials/base/meta_keywords.html' %}">
+    <title>{% include 'partials/base/title.html' %}</title>
 
     <!-- Favicon -->
-    {% include 'partials/favicon.html' %}
+    {% include 'partials/base/favicon.html' %}
 
     <!-- hreflang -->
     {% if page_name == 'MYA' %}
@@ -29,6 +29,8 @@
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}">
@@ -38,35 +40,35 @@
 <body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}">
 
     <!-- Loader -->
-    {% include 'partials/loader.html' %}
+    {% include 'partials/base/loader.html' %}
     <header>
         <!-- Basic Header -->
-        {% include 'partials/basic-nav.html' %}
+        {% include 'partials/base/basic-nav.html' %}
         <!-- Basic Header -->
-        {% include 'partials/navbar.html' %}
+        {% include 'partials/base/navbar.html' %}
     </header>
 
     <!-- Mobile-menu -->
-    {% include 'partials/mobile-menu.html' %}
+    {% include 'partials/base/mobile-menu.html' %}
 
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        {% include 'partials/hero.html' %}
+        {% include 'partials/base/hero.html' %}
         {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    {% include 'partials/footer.html' %}
+    {% include 'partials/base/footer.html' %}
 
     <!-- Tap to top & Top Progress bar-->
-    {% include 'partials/permanent.html' %}
+    {% include 'partials/base/permanent.html' %}
 
     <!-- side bar -->
-    {% include 'partials/sidebar.html' %}
+    {% include 'partials/base/sidebar.html' %}
 
     <!-- Chatbot-->
-    {% include 'partials/chatbot.html' %}
+    {% include 'partials/base/chatbot.html' %}
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
