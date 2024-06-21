@@ -5,70 +5,7 @@
 {% include 'partials/olivea/olivea-reserve.html' %}
 
 <!-- Restaurant-gallery -->
-<section class="section-restaurant bg-[#d0cfcb]" id="gallery">
-    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
-        <div class="flex flex-wrap mb-[-24px] relative z-10 fade-out-on-scroll">
-            <div class="flex flex-wrap mb-[-24px]">
-                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
-                    <img src="{{ url_for('static', filename='dist/img/about/about-page-1.png') }}" alt="placeholder" class="w-100">
-                </div>
-                <div class="lg:w-1/2 w-full px-[12px] mb-[24px]" data-aos="fade-up" data-aos-duration="2000">
-                    <div class="h-full flex flex-col justify-center">
-                        <div class="text-left w-full lg:mb-[30px] mb-[12px]">
-                            <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
-                                The world's best <span class="text-[#ed5b31]">Luxury Hotel</span>
-                            </h2>
-                        </div>
-                        <div class="xl:pb-[24px] pb-[15px] border-b border-solid border-[#e3e1e1]">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem corrupti libero itaque,
-                                exercitationem nemo porro enim officiis consectetur fugit debitis repellendus sed
-                                ratione maxime adipisci eos vitae cupiditate neque expedita!</p>
-                        </div>
-                        <div class="flex flex-wrap mb-[-15px] ld-about-rows relative xl:py-[24px] py-[15px]">
-                            <div class="sm:w-1/2 w-full mb-[15px] sm:pr-[12px] pr-[0]">
-                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
-                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Mission
-                                </h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
-                                    Dicta modi incidunt cupiditate!</p>
-                            </div>
-                            <div class="sm:w-1/2 w-full mb-[15px] sm:pl-[12px] pl-[0]">
-                                <h4 class="mb-[12px] text-[#000] text-[18px] font-semibold leading-[1.25]">
-                                    <i class="ri-arrow-right-up-line mr-[5px] text-[18px] rotate-[-42deg]"></i>Our Vision
-                                </h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, veritatis est.
-                                    Dicta modi incidunt cupiditate!</p>
-                            </div>
-                        </div>
-                        <div class="text-[18px] font-medium">
-                            <i class="ri-phone-line text-[#ed5b31]"></i> +1 987 654 3210
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery">
-            <ul class="cards">
-                <li>0</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-            </ul>
-        </div>
-    </div>
-</section>
+{% include 'partials/olivea/gallery.html' %}
 
 <!-- About -->
 <section class="section-about bg-[#f7f5f1] relative xl:py-[100px] py-[70px]">
@@ -741,45 +678,5 @@
 </section>
 
 <!-- Find Us -->
-<section class="section-contact relative xl:py-[100px] py-[70px]" id="contact">
-    <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-        <div class="p-[24px] bg-[#f7f5f1] rounded-[15px] mx-[12px]" data-aos="fade-up" data-aos-duration="2000">
-            <div class="flex flex-wrap mb-[-24px]">
-                <div class="lg:w-1/2 lg:pr-[12px] w-full pr-[0] pl-[0] mb-[24px] w-full">
-                    <div class="lh-contact-touch-inner">
-                        <div class="lh-contact-touch-contain">
-                            <h4 class="text-[#000] pb-[15px] 2xl:text-[28px] xl:text-[26px] lg:text-[24px] font-bold md:text-[22px] sm:text-[20px] text-[18px]">
-                                Get In Touch With Us Fell Free To Write Us</h4>
-                            <p>This is the dolor consectetur adpisicing elit. Deleniti quam exercitationem a
-                                expedita natus quisquam. Deleniti Facere exercitationem ratione nihil Deleniti
-                                delectus possimus!</p>
-                        </div>
-                        <div class="pt-[30px]">
-                            <form action="#">
-                                <div class="flex xl:mb-[30px] mb-[15px]">
-                                    <input type="text" name="firstname" placeholder="Your Name*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px] mr-[30px]" required="">
-                                    <input type="email" name="email" placeholder="Your Email*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]" required="">
-                                </div>
-                                <div class="flex xl:mb-[30px] mb-[15px]">
-                                    <input type="text" name="firstname" placeholder="Your Subject*" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]" required="">
-                                </div>
-                                <div class="flex xl:mb-[30px] mb-[15px]">
-                                    <textarea class="border-0 bg-[#fff] outline-none px-[20px] py-[15px] h-[150px] w-full rounded-[15px]" placeholder="Message*"></textarea>
-                                </div>
-                                <button class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]" type="submit">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 lg:pl-[12px] w-full pr-[0] pl-[0] mb-[24px] w-full">
-                    <div class="h-full">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1sen!2smx!4v1718487866175!5m2!1sen!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full mb-[-10px] rounded-[15px]"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'partials/base/find-us.html' %}
 {% endblock %}
