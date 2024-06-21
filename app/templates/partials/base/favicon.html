@@ -1,9 +1,6 @@
-{% if page_name == 'MYA' %}
-<link rel="icon" href="{{ url_for('static', filename='dist/img/favicons/favicon.png') }}" type="image/x-icon">
-{% elif page_name == 'Olivea' %}
-<link rel="icon" href="{{ url_for('static', filename='dist/img/favicons/favicon-2.png') }}" type="image/x-icon">
-{% elif page_name == 'Divino' %}
-<link rel="icon" href="{{ url_for('static', filename='dist/img/favicons/favicon-3.png') }}" type="image/x-icon">
-{% else %}
-<link rel="icon" href="{{ url_for('main.favicon') }}" type="image/x-icon">
-{% endif %}
+
+<link rel="icon" href="
+    {% if page_name == 'MYA' %}{{ url_for('static', filename='dist/img/favicons/favicon.png') }}
+    {% elif page_name == 'Olivea' %}{{ url_for('static', filename='dist/img/favicons/favicon-2.png') }}
+    {% elif page_name == 'Divino' %}{{ url_for('static', filename='dist/img/favicons/favicon-3.png') }}
+    {% else %}{{ url_for('main.favicon') }}{% endif %}" type="image/x-icon">
