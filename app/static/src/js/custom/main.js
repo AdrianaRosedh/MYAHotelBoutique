@@ -348,56 +348,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* For Search Engine */
-ddocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const checkinInput = document.querySelector('#checkin');
   const checkoutInput = document.querySelector('#checkout');
   const checkinIcon = document.querySelector('#checkin-icon');
   const checkoutIcon = document.querySelector('#checkout-icon');
-
-  const today = "{{ today }}";
-  const tomorrow = "{{ tomorrow }}";
-
   const checkinCalendar = flatpickr(checkinInput, {
     dateFormat: "Y-m-d",
-    defaultDate: today,
+    defaultDate: "{{ today }}",
     onClose: function() { checkinOpen = false; },
     onOpen: function() { checkinOpen = true; }
   });
-
   const checkoutCalendar = flatpickr(checkoutInput, {
     dateFormat: "Y-m-d",
-    defaultDate: tomorrow,
+    defaultDate: "{{ tomorrow }}",
     onClose: function() { checkoutOpen = false; },
     onOpen: function() { checkoutOpen = true; }
   });
-
   let checkinOpen = false;
   let checkoutOpen = false;
-
   function toggleCalendar(calendar, isOpen) {
-    if (isOpen) {
-      calendar.close();
-    } else {
-      calendar.open();
-    }
+    if (isOpen) { calendar.close(); } else { calendar.open(); }
   }
-
-  checkinInput.addEventListener('click', function() {
-    toggleCalendar(checkinCalendar, checkinOpen);
-  });
-
-  checkinIcon.addEventListener('click', function() {
-    toggleCalendar(checkinCalendar, checkinOpen);
-  });
-
-  checkoutInput.addEventListener('click', function() {
-    toggleCalendar(checkoutCalendar, checkoutOpen);
-  });
-
-  checkoutIcon.addEventListener('click', function() {
-    toggleCalendar(checkoutCalendar, checkoutOpen);
-  });
+  checkinInput.addEventListener('click', function() { toggleCalendar(checkinCalendar, checkinOpen); });
+  checkinIcon.addEventListener('click', function() { toggleCalendar(checkinCalendar, checkinOpen); });
+  checkoutInput.addEventListener('click', function() { toggleCalendar(checkoutCalendar, checkoutOpen); });
+  checkoutIcon.addEventListener('click', function() { toggleCalendar(checkoutCalendar, checkoutOpen); });
 });
+
 /* Removing fade from arrow */
 document.addEventListener('DOMContentLoaded', () => {
   const fadeInElement = document.querySelector('.opacity-0');
@@ -436,32 +414,5 @@ document.addEventListener('DOMContentLoaded', function() {
   reservationDateIcon.addEventListener('click', function() { toggleCalendar(reservationDateCalendar, reservationDateOpen); });
   timeInput.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
   timeIcon.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
-});
-
-/* Particles */
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
-    opacity: { value: 0.5, random: true, anim: { enable: false } },
-    size: { value: 10, random: true, anim: { enable: false } },
-    line_linked: { enable: false },
-    move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false } }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "bubble" },
-      onclick: { enable: true, mode: "repulse" },
-      resize: true
-    },
-    modes: {
-      bubble: { distance: 100, size: 10, duration: 2, opacity: 0.8, speed: 3 },
-      repulse: { distance: 200, duration: 0.4 },
-      push: { particles_nb: 4 },
-      remove: { particles_nb: 2 }
-    }
-  },
-  retina_detect: true
 });
 
