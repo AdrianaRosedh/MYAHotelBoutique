@@ -1,0 +1,37 @@
+<div class="relative">
+    <nav id="floating-sidebar" class="floating-sidebar backdrop-filter backdrop-blur-lg">
+        {% if page_name == 'MYA' %}
+        <a href="#hero" class="sidebar-link border !border-neutral-700/[.55] p-2 rounded-md">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/mya-wine.svg') }}" alt="MYALogo"
+                class="sidebar-icon">
+        </a>
+        {% else %}
+        <a href="{{ url_for('main.index_localized', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/mya-wine.svg') }}" alt="MYALogo"
+                class="sidebar-icon">
+        </a>
+        {% endif %}
+        {% if page_name == 'Olivea' %}
+        <a href="#hero" class="sidebar-link border !border-neutral-700/[.55] p-2 rounded-md">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo"
+                class="sidebar-icon w-15">
+        </a>
+        {% else %}
+        <a href="{{ url_for('main.oliveafarmtotable', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/olivea-wine.svg') }}" alt="OliveaLogo"
+                class="sidebar-icon">
+        </a>
+        {% endif %}
+        {% if page_name == 'Divino' %}
+        <a href="#hero" class="sidebar-link border !border-neutral-700/[.55] p-2 rounded-md">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
+                class="sidebar-icon">
+        </a>
+        {% else %}
+        <a href="{{ url_for('main.divino', lang_code=session.get('language', 'en')) }}" class="sidebar-link">
+            <img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo"
+                class="sidebar-icon">
+        </a>
+        {% endif %}
+    </nav>
+</div>
