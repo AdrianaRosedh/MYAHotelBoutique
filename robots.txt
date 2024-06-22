@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+Sitemap: https://www.myahotelboutique.com/sitemap.xml
+Sitemap: https://www.oliveafarmtotable.com/sitemap.xml
+

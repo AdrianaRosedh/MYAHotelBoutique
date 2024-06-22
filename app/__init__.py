@@ -1,20 +1,17 @@
 from flask import Flask, request, session, render_template
-
 from flask_babel import Babel
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
+from flask_sitemap import Sitemap
 
 load_dotenv()  # Load environment variables from .env file
-
 
 def get_locale():
     # Detect language from session or Accept-Language header
     return session.get("language", request.accept_languages.best_match(["en", "es"]))
 
-
 def get_timezone():
     return "UTC"
-
 
 def create_app():
     app = Flask(__name__)
@@ -27,9 +24,11 @@ def create_app():
     # Initialize Babel with the locale and timezone selector functions
     babel = Babel(app, locale_selector=get_locale, timezone_selector=get_timezone)
 
+    # Initialize Flask-Sitemap
+    sitemap = Sitemap(app)
+
     # Register Blueprints
     from .routes import bp as main_bp
-
     app.register_blueprint(main_bp)
 
     from .chatbot_routes import bp as chatbot_bp
@@ -61,3 +60,4 @@ def create_app():
         return render_template("custom_404.html"), 404
 
     return app
+

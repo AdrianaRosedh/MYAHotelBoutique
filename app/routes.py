@@ -10,8 +10,10 @@ from flask import (
 )
 from datetime import datetime, timedelta
 import os
+from flask_sitemap import Sitemap
 
 bp = Blueprint("main", __name__)
+sitemap = Sitemap()
 
 def detect_language():
     languages = request.headers.get("Accept-Language", "").split(",")
@@ -33,9 +35,10 @@ def index_localized(lang_code):
     session["language"] = lang_code
     email = "info@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
+    canonical_url = url_for('main.index_localized', lang_code=lang_code, _external=True)
     if lang_code == "es":
-        return render_template("index_es.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code)
-    return render_template("index_en.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code)
+        return render_template("index_es.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
+    return render_template("index_en.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/set_language", methods=["POST"])
 def set_language():
@@ -64,24 +67,27 @@ def oliveafarmtotable(lang_code):
     session["language"] = lang_code
     email = "olivea@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
+    canonical_url = url_for('main.oliveafarmtotable', lang_code=lang_code, _external=True)
     if lang_code == "es":
-        return render_template("oliveafarmtotable_es.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code)
-    return render_template("oliveafarmtotable_en.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code)
+        return render_template("oliveafarmtotable_es.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
+    return render_template("oliveafarmtotable_en.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/<lang_code>/divino")
 def divino(lang_code):
     session["language"] = lang_code
     email = "padel@myahotelboutique.com"
     phone = "+52 (646) 388-2369"
+    canonical_url = url_for('main.divino', lang_code=lang_code, _external=True)
     if lang_code == "es":
-        return render_template("divino_es.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code)
-    return render_template("divino_en.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code)
+        return render_template("divino_es.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
+    return render_template("divino_en.html", page_name='Divino', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/<lang_code>/reservation", methods=["GET", "POST"])
 def reservation(lang_code):
     session["language"] = lang_code
     today = datetime.today().strftime("%Y-%m-%d")
     tomorrow = (datetime.today() + timedelta(days=1)).strftime("%Y-%m-%d")
+    canonical_url = url_for('main.reservation', lang_code=lang_code, _external=True)
 
     if request.method == "POST":
         checkin_date = request.form.get("checkin", today)
@@ -105,6 +111,7 @@ def reservation(lang_code):
                 today=today,
                 tomorrow=tomorrow,
                 lang_code=lang_code,
+                canonical_url=canonical_url,
             )
 
     print("Handling GET request")
@@ -113,6 +120,7 @@ def reservation(lang_code):
         today=today,
         tomorrow=tomorrow,
         lang_code=lang_code,
+        canonical_url=canonical_url,
     )
 
 @bp.route("/<lang_code>/opentable_reservation", methods=["GET", "POST"])
@@ -120,6 +128,7 @@ def opentable_reservation(lang_code):
     session["language"] = lang_code
     today = datetime.today().strftime("%Y-%m-%d")
     default_time = "19:00"
+    canonical_url = url_for('main.opentable_reservation', lang_code=lang_code, _external=True)
 
     if request.method == "POST":
         reservation_date = request.form.get("reservation_date", today)
@@ -144,6 +153,7 @@ def opentable_reservation(lang_code):
                 today=today,
                 default_time=default_time,
                 lang_code=lang_code,
+                canonical_url=canonical_url,
             )
 
     print("Handling GET request")
@@ -152,17 +162,45 @@ def opentable_reservation(lang_code):
         today=today,
         default_time=default_time,
         lang_code=lang_code,
+        canonical_url=canonical_url,
     )
 
 @bp.route("/favicon.ico")
 def favicon():
     return send_from_directory(
-        os.path.join(bp.root_path, "static", "img", "favicons"),
+        os.path.join(bp.root_path, "static", "dist", "img", "favicons"),
         "favicon.ico",
         mimetype="image/vnd.microsoft.icon",
     )
+
+@bp.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(bp.root_path, 'static', 'robots.txt')
 
 # Error handler for 404 errors
 @bp.app_errorhandler(404)
 def page_not_found(e):
     return render_template('custom_404.html'), 404
+
+# Register routes with the sitemap
+@sitemap.register_generator
+def index():
+    yield 'main.index', {}
+
+@sitemap.register_generator
+def index_localized():
+    languages = ['en', 'es']
+    for lang in languages:
+        yield 'main.index_localized', {'lang_code': lang}
+
+@sitemap.register_generator
+def oliveafarmtotable():
+    languages = ['en', 'es']
+    for lang in languages:
+        yield 'main.oliveafarmtotable', {'lang_code': lang}
+
+@sitemap.register_generator
+def divino():
+    languages = ['en', 'es']
+    for lang in languages:
+        yield 'main.divino', {'lang_code': lang}
