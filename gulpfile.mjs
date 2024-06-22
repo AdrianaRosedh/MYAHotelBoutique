@@ -16,14 +16,17 @@ import * as sassCompiler from 'sass';
 import gulpSass from 'gulp-sass';
 import tailwindcss from 'tailwindcss';
 import tailwindConfig from './tailwind.config.cjs';
+import htmlmin from 'gulp-htmlmin';
+import { stream as critical } from 'critical';
+import responsiveImages from 'gulp-responsive-images';
+import browserSync from 'browser-sync';
 
 const sass = gulpSass(sassCompiler);
+const bs = browserSync.create();
 
 const paths = {
   customStyles: {
-    src: 
-      'app/static/src/css/custom/**/*.{css,scss}'
-    ,
+    src: 'app/static/src/css/custom/**/*.{css,scss}',
     dest: 'app/static/dist/css/custom'
   },
   chatbotStyles: {
@@ -67,6 +70,10 @@ const paths = {
   fonts: {
     src: 'app/static/src/fonts/**/*.{eot,svg,ttf,woff,woff2}',
     dest: 'app/static/dist/fonts'
+  },
+  html: {
+    src: 'app/templates/**/*.html',
+    dest: 'app/static/dist/templates'
   }
 };
 
@@ -96,7 +103,8 @@ function customStyles() {
     ]))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.customStyles.dest));
+    .pipe(gulp.dest(paths.customStyles.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function chatbotStyles() {
@@ -112,7 +120,8 @@ function chatbotStyles() {
     ]))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.chatbotStyles.dest));
+    .pipe(gulp.dest(paths.chatbotStyles.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function vendorStyles() {
@@ -124,7 +133,8 @@ function vendorStyles() {
       cssnano()
     ]))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.vendorStyles.dest));
+    .pipe(gulp.dest(paths.vendorStyles.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function scripts() {
@@ -135,7 +145,8 @@ function scripts() {
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function chatbotScripts() {
@@ -145,7 +156,8 @@ function chatbotScripts() {
     .pipe(concat('chatbot.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function images() {
@@ -155,15 +167,92 @@ function images() {
       imageminMozjpeg({ quality: 75, progressive: true }),
       imageminOptipng({ optimizationLevel: 5 })
     ]))
-    .pipe(gulp.dest(paths.images.dest));
+    .pipe(gulp.dest(paths.images.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
+function responsiveImg() {
+  return gulp.src(paths.images.src)
+    .pipe(responsiveImages({
+      '*.png': [
+        { width: 320, suffix: '-320px' },
+        { width: 640, suffix: '-640px' },
+        { width: 1024, suffix: '-1024px' }
+      ],
+      '*.jpg': [
+        { width: 320, suffix: '-320px' },
+        { width: 640, suffix: '-640px' },
+        { width: 1024, suffix: '-1024px' }
+      ]
+    }))
+    .pipe(gulp.dest(paths.images.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
 function fonts() {
   return gulp.src(paths.fonts.src)
-    .pipe(gulp.dest(paths.fonts.dest));
+    .pipe(gulp.dest(paths.fonts.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, fonts));
+function html() {
+  return gulp.src(paths.html.src)
+    .pipe(plumber({ errorHandler: handleError('html') }))
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+      minifyJS: true,
+      minifyCSS: true,
+      ignoreCustomFragments: [/\{\%[\s\S]*?\%\}/, /\{\{[\s\S]*?\}\}/] // Ignore Jinja2 template tags
+    }))
+    .pipe(gulp.dest(paths.html.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
+function criticalCSS() {
+  return gulp.src('app/static/dist/templates/*.html')
+    .pipe(critical({
+      base: 'app/static/dist/',
+      inline: true,
+      css: ['app/static/dist/css/custom/styles.min.css'],
+      dimensions: [
+        {
+          width: 1300,
+          height: 900,
+        },
+        {
+          width: 375,
+          height: 812,
+        },
+      ],
+    }))
+    .pipe(gulp.dest('app/static/dist/templates'));
+}
+
+function favicon() {
+  return gulp.src('app/static/src/img/favicons/**/*.{ico,png}')
+    .pipe(gulp.dest('app/static/dist/img/favicons'))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
+function serve() {
+  bs.init({
+    server: {
+      baseDir: './app'
+    }
+  });
+
+  gulp.watch(paths.customStyles.src, customStyles);
+  gulp.watch(paths.chatbotStyles.src, chatbotStyles);
+  gulp.watch(paths.vendorStyles.src, vendorStyles);
+  gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
+  gulp.watch(paths.scripts.chatbot, chatbotScripts);
+  gulp.watch(paths.images.src, images);
+  gulp.watch(paths.fonts.src, fonts);
+  gulp.watch(paths.html.src, html);
+}
+
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, html, favicon), criticalCSS);
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -173,10 +262,11 @@ function watchFiles() {
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
+  gulp.watch(paths.html.src, html);
 }
 
 gulp.task('build', build);
-gulp.task('watch', gulp.parallel(watchFiles));
+gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, fonts, clean, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, clean, html, favicon, criticalCSS, watchFiles as watch };
 export default build;
