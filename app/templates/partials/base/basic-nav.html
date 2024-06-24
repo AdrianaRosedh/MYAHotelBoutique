@@ -4,18 +4,21 @@
         <div class="w-1/2 py-[10px] flex items-center">
             <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-cente">
                 <i class="ri-mail-line mr-[5px] text-[#fafafa] text-[16px]"></i>
-                <a class="text-[#fafafa] hover:text-[#bfbfc0]" href="mailto:{% if email %}{{ email }}{% else %}info@myahotelboutique.com{% endif %}">
+                <a class="text-[#fafafa] hover:text-[#bfbfc0]"
+                    href="mailto:{% if email %}{{ email }}{% else %}info@myahotelboutique.com{% endif %}">
                     {% if email %}
-                        {{ email }}
+                    {{ email }}
                     {% else %}
-                        info@myahotelboutique.com
+                    info@myahotelboutique.com
                     {% endif %}
                 </a>
             </div>
             <div class="flex items-center pl-[15px] lh-location">
-                <div class="flex items-center custom-select text-[14px]">
+                <div class="flex items-center custom-select-container text-[14px]">
                     <i class="ri-earth-line mr-[5px] text-[#fafafa] text-[16px]"></i>
-                    {% include 'partials/base/language-form.html' %}
+                    <div class="custom-select-element">
+                        {% include 'partials/base/language-form.html' %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -23,9 +26,9 @@
             <div class="pr-[15px] border-r border-solid border-[#ddd] flex items-center text-[#fafafa]">
                 <i class="ri-phone-line mr-[5px] text-[#fafafa] text-[16px]"></i>
                 {% if phone %}
-                        {{ phone }}
-                    {% else %}
-                        +52&nbsp;(646)&nbsp;388-2369 
+                {{ phone }}
+                {% else %}
+                +52&nbsp;(646)&nbsp;388-2369
                 {% endif %}
             </div>
             <div class="mx-[-5px] pl-[15px] flex items-center">
