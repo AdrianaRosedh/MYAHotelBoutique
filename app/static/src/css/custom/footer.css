@@ -3,33 +3,31 @@
 @tailwind utilities;
 
 /* Footer */
-  
 footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control {
   background: #4b4b4c;
   color: #fafafa;
+  padding: 10px; /* Ensure consistent padding */
+  font-size: 16px; /* Consistent font size */
+  border-radius: 5px; /* Rounded corners for better touch experience */
 }
-footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-webkit-input-placeholder {
-  font-family: "Roboto";
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.702);
-}
-footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-moz-placeholder {
-  font-family: "Roboto";
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.702);
-}
-footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control:-ms-input-placeholder {
-  font-family: "Roboto";
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.702);
-}
-footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-ms-input-placeholder {
-  font-family: "Roboto";
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.702);
-}
+
 footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::placeholder {
   font-family: "Roboto";
-  font-size: 16px;
   color: rgba(255, 255, 255, 0.702);
+}
+
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control:-webkit-input-placeholder,
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-moz-placeholder,
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control:-ms-input-placeholder,
+footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control::-ms-input-placeholder {
+  font-family: "Roboto";
+  color: rgba(255, 255, 255, 0.702);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  footer .footer-top-section .lh-social-media .lh-footer-social .lh-control-footer .form-control {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
 }

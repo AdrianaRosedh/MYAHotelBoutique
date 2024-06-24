@@ -32,14 +32,19 @@
     <link rel="canonical" href="{{ canonical_url }}">
     {% endif %}
 
+    {% block links %}
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}" media="print"
+        onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}" media="print" onload="this.media='all'">
 
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}" media="print"
+        onload="this.media='all'">
+    {% endblock %}
+
+    {% block loader_styles %}{% endblock %}
 </head>
 
 <body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}">
@@ -56,13 +61,16 @@
     <!-- Mobile-menu -->
     {% include 'partials/base/mobile-menu.html' %}
 
+    {% block main %}
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         {% include 'partials/base/hero.html' %}
         {% block content %}{% endblock %}
     </main>
+    {% endblock %}
 
+    {% block plugs %}
     <!-- Footer -->
     {% include 'partials/base/footer.html' %}
 
@@ -74,20 +82,21 @@
 
     <!-- Chatbot-->
     {% include 'partials/base/chatbot.html' %}
+    {% endblock %}
 
+    {% block scripts %}
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js" defer></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js" defer></script>
 
-    
-
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='dist/js/main.min.js') }}" defer></script>
 
-    <!-- Google Maps Script -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>-->
+    {% endblock %}
 
+    {% block loader_scripts %}{% endblock %}
 </body>
+
 </html>
