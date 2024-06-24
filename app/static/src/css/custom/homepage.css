@@ -2,7 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 /* Home-page */
-.search-box .custom-select .custom-select:after {
-    right: 15px;
-    font-size: 18px;
-  }
