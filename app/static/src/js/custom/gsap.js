@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fade out the element with .fade-out-on-scroll class based on the position of the first card
     ScrollTrigger.create({
         trigger: ".cards li:nth-child(1)",
-        start: "center top",
-        end: "top top",
+        start: "bottom -40",
+        end: "top 10",
         scrub: true,
         onEnter: () => {
             gsap.to(".fade-out-on-scroll", {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         onLeaveBack: () => {
             gsap.to(".fade-out-on-scroll", {
                 opacity: 1,
-                duration: 0.1
+                duration: 0.5
             });
         }
     });

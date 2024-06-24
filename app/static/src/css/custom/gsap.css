@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Base styles for the section and gallery */
 .section-restaurant {
     display: flex;
@@ -10,6 +11,7 @@
     height: 100vh;
     width: 100%;
     overflow: hidden;
+    z-index: 10; /* Lower z-index than the sidebar */
 }
 
 .gallery {
@@ -18,23 +20,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 20;
+    z-index: 20; /* Lower z-index than the sidebar */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-.gallery .cards {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%; 
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 .gallery .cards {
     position: relative;
     display: flex;
@@ -43,6 +34,9 @@
     width: 50rem; 
     height: 40rem; 
     transition: transform 0.5s ease;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .cards li {
@@ -62,54 +56,40 @@
     border-radius: 0.8rem; 
     flex: 0 0 100%;
     max-width: 100%;
-    /* transition: transform 0.5s ease-in-out;*/
-/* 
-    .cards li {
-        list-style: none; 
-        padding: 0;
-        margin: 0;
-        width: 50rem; 
-        height: 40rem; 
-        text-align: center;
-        line-height: 40rem; 
-        font-size: 2rem;
-        font-family: sans-serif;
-        background-color: #9d7cce;
-        position: absolute;
-        top: 0;
-        left: 0; 
-        border-radius: 0.8rem; */
-    }
-    
+    overflow: hidden;
+}
+
+.cards li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire card area */
+    object-position: center; /* Center the image */
+    border-radius: 0.8rem;
+}
+
 @media (max-width: 767px) {
-    .cards li {
-        flex: 0 0 100%;
+    .gallery .cards {
+        width: 100%;
+        height: 70vh; /* Increase height on mobile */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-}
-
-body.scrolling .fade-out-on-scroll {
-    opacity: 0 !important;
-}
-
-.navigation {
-    position: absolute;
-    top: 85%;
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.navigation button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#prev {
-    left: 10px;
-}
-
-#next {
-    right: 10px;
+    .cards li {
+        width: 100%; 
+        height: 70vh; /* Increase height on mobile */
+        line-height: normal; 
+        font-size: 1.5rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cards li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center; /* Center the image */
+        border-radius: 0.8rem;
+    }
 }

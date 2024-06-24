@@ -64,7 +64,7 @@ const paths = {
     dest: 'app/static/dist/js'
   },
   images: {
-    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg}',
+    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp}',
     dest: 'app/static/dist/img'
   },
   fonts: {

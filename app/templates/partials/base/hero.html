@@ -3,7 +3,7 @@
         class="relative flex flex-col justify-center px-[12px] hero-image md:h-[calc(115vh_-_100px)] sm:h-[80vh] min-[481px]:h-[580px] h-[375px] w-full bg-cover bg-center 
         {% if page_name == 'MYA' %} bg-[url('{{ url_for('static', filename='dist/img/hero/HERO-MYA-100.jpg') }}')] 
         {% elif page_name == 'Olivea' %} bg-[url('{{ url_for('static', filename='dist/img/hero/Olivea.jpg') }}')] 
-        {% elif page_name == 'Divino' %} bg-[url('{{ url_for('static', filename='dist/img/hero/HERO-MYA-100.jpg') }}')] 
+        {% elif page_name == 'Divino' %} bg-[url('{{ url_for('static', filename='dist/img/hero/divino-hero.png') }}')] 
         {% endif %} bg-blend-overlay bg-[#000cc]">
         <div class="flex w-full h-full">
             <div class="relative w-full h-full">
@@ -28,7 +28,7 @@
                                 {% if lang_code == 'es' %}
                                 <span class="typing-container" style="animation-delay: 2s;">Café y Padel DiVino:</span>
                                 {% else %}
-                                <span class="typing-container" style="animation-delay: 2s;">Café and Padel DiVino:</span>
+                                <span class="typing-container" style="animation-delay: 2s;">Café & Padel DiVino:</span>
                                 {% endif %}
                             {% endif %}
                         </span>
