@@ -17,7 +17,6 @@ import gulpSass from 'gulp-sass';
 import tailwindcss from 'tailwindcss';
 import tailwindConfig from './tailwind.config.cjs';
 import htmlmin from 'gulp-htmlmin';
-import { stream as critical } from 'critical';
 import responsiveImages from 'gulp-responsive-images';
 import browserSync from 'browser-sync';
 
@@ -61,7 +60,6 @@ const paths = {
       'app/static/src/js/custom/features/feature1.js',
       'app/static/src/js/custom/features/feature2.js'
     ],
-    tailwind: 'app/static/src/js/vendor/tailwindcss3.4.0.js', 
     dest: 'app/static/dist/js'
   },
   custom404: {
@@ -82,7 +80,7 @@ const paths = {
   },
   html: {
     src: 'app/templates/**/*.html',
-    dest: 'app/static/dist/templates'
+    dest: 'app/templates'
   }
 };
 
@@ -169,17 +167,6 @@ function chatbotScripts() {
     .pipe(bs.stream()); // Inject changes without reloading
 }
 
-function tailwindScripts() { // New task for Tailwind JS
-  return gulp.src(paths.scripts.tailwind, { sourcemaps: true })
-    .pipe(plumber({ errorHandler: handleError('tailwindScripts') }))
-    .pipe(sourcemaps.init())
-    .pipe(concat('tailwind.min.js'))
-    .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
-}
-
 function custom404Script() {
   return gulp.src(paths.custom404.src, { sourcemaps: true })
     .pipe(plumber({ errorHandler: handleError('custom404Script') }))
@@ -253,26 +240,6 @@ function html() {
     .pipe(bs.stream()); // Inject changes without reloading
 }
 
-function criticalCSS() {
-  return gulp.src('app/static/dist/templates/*.html')
-    .pipe(critical({
-      base: 'app/static/dist/',
-      inline: true,
-      css: ['app/static/dist/css/custom/styles.min.css'],
-      dimensions: [
-        {
-          width: 1300,
-          height: 900,
-        },
-        {
-          width: 375,
-          height: 812,
-        },
-      ],
-    }))
-    .pipe(gulp.dest('app/static/dist/templates'));
-}
-
 function favicon() {
   return gulp.src('app/static/src/img/favicons/**/*.{ico,png}')
     .pipe(gulp.dest('app/static/dist/img/favicons'))
@@ -291,7 +258,6 @@ function serve() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
-  gulp.watch(paths.scripts.tailwind, tailwindScripts); // Watch for Tailwind JS changes
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
@@ -299,7 +265,7 @@ function serve() {
   gulp.watch(paths.sweetalert2.src, sweetalert2Script); // Watch for SweetAlert2 script changes
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, tailwindScripts, images, responsiveImg, fonts, html, favicon, custom404Script, sweetalert2Script), criticalCSS);
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, html, favicon, custom404Script, sweetalert2Script));
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -307,7 +273,6 @@ function watchFiles() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
-  gulp.watch(paths.scripts.tailwind, tailwindScripts); // Watch for Tailwind JS changes
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
@@ -318,5 +283,5 @@ function watchFiles() {
 gulp.task('build', build);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, tailwindScripts, images, responsiveImg, fonts, clean, html, favicon, criticalCSS, custom404Script, sweetalert2Script, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, clean, html, favicon, custom404Script, sweetalert2Script, watchFiles as watch };
 export default build;
