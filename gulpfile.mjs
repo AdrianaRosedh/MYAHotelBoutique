@@ -30,7 +30,7 @@ const paths = {
     dest: 'app/static/dist/css/custom'
   },
   chatbotStyles: {
-    src: 'app/static/src/css/chatbot/**/*.{css,scss}',
+    src: 'app/static/src/css/custom/chatbot/**/*.{css,scss}',
     dest: 'app/static/dist/css/chatbot'
   },
   vendorStyles: {
