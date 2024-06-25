@@ -5,4 +5,4 @@ Disallow: /temp/
 
 Sitemap: https://www.myahotelboutique.com/sitemap.xml
 Sitemap: https://www.oliveafarmtotable.com/sitemap.xml
-
+Sitemap: https://search.google.com/test/rich-results/
