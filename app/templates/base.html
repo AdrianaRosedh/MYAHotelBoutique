@@ -40,6 +40,7 @@
     
     <!-- Tailwind js -->
     <script src="{{ url_for('static', filename='dist/js/tailwind.min.js') }}" defer></script>
+
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}" media="print"
         onload="this.media='all'">
@@ -86,6 +87,7 @@
     {% include 'partials/base/chatbot.html' %}
     {% endblock %}
 
+    {% block progress_bar %}{% endblock %}
     {% block scripts %}
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
@@ -97,6 +99,7 @@
     <script src="{{ url_for('static', filename='dist/js/main.min.js') }}" defer></script>
 
     {% endblock %}
+    {% block sweetalert %}{% endblock %}
     {% block reservation_js %}{% endblock %}
     {% block loader_scripts %}{% endblock %}
 </body>

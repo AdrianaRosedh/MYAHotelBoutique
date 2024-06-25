@@ -25,7 +25,7 @@
 
 <!-- Pop up -->
 {% block scripts %}
-{{ super() }}
+{{ super() }} 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script src="{{ url_for('static', filename='dist/js/sweetalert2.min.js') }}" defer></script>
 {% endblock %}

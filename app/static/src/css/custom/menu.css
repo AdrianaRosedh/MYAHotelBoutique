@@ -1,0 +1,25 @@
+ 
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+/* Parent container to center the content */
+.parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Additional styles for the .nav-tabs */
+.nav-tabs.rooms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+}
+
+.nav-tabs.rooms .nav-link {
+    flex: 1; /* Ensure buttons are evenly spaced */
+    min-width: 100px; /* Minimum width for buttons */
+}
