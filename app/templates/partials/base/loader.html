@@ -5,9 +5,11 @@
         overflow: hidden;
     }
     .page-loader {
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         position: fixed;
+        top: 0;
+        left: 0;
         background: rgb(168, 162, 158);
         z-index: 1000;
         display: flex;
@@ -63,6 +65,7 @@
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
 {% endblock %}
+
 
 <div class="page-loader" id="loader">
     <div class="grape-loader">
@@ -121,3 +124,5 @@
     });
 </script>
 {% endblock %}
+
+
