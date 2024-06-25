@@ -3,6 +3,9 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
 
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://www.myahotelboutique.com/sitemap.xml
 Sitemap: https://www.oliveafarmtotable.com/sitemap.xml
 Sitemap: https://search.google.com/sitemap.xml
