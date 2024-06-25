@@ -4,7 +4,7 @@
             <div class="md:flex flex-wrap mb-[-24px] w-full">
                 <div class="lg:w-1/2 lg:pr-[12px] pr-[0] pl-[0] mb-[24px] w-full rs-pb-one" data-aos="fade-up" data-aos-duration="1500">
                     <div class="lh-spa-services-image">
-                        <img src="assets/img/spa/4.png" alt="spa-4" class="w-full rounded-[15px]">
+                        <img src="{{ url_for('static', filename='dist/img/spa/4.png') }}" alt="spa-4" class="w-full rounded-[15px]">
                     </div>
                 </div>
                 <div class="lg:w-1/2 lg:pl-[12px] pr-[0] pl-[0] mb-[24px] w-full rs-pb-one" data-aos="fade-up" data-aos-duration="2000">
@@ -32,11 +32,11 @@
                 </div>
                 <div class="lg:w-1/2 lg:pl-[12px] pr-[0] pl-[0] mb-[24px] w-full" data-aos="fade-up" data-aos-duration="2000">
                     <div class="lh-spa-services-image">
-                        <img src="assets/img/spa/5.png" alt="spa-5" class="w-full rounded-[15px]">
+                        <img src="{{ url_for('static', filename='dist/img/spa/5.png') }}" alt="spa-5" class="w-full rounded-[15px]">
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
-    <div class="after:bg-[url('assets/img/theme/12.png')] after:z-[-1] bg-size-full dark-opicity-1 after:absolute 2xl:after:w-[500px] after:w-[350px] 2xl:after:h-[810px] xl:after:h-[680px] after:h-[500px] lg:block hidden xl:after:top-[300px] top-[100px] 2xl:after:right-0 after:right-[-45px]"></div>
+    <div class="after:bg-[url('{{ url_for('static', filename='dist/img/theme/12.png') }}')] after:z-[-1] bg-size-full dark-opicity-1 after:absolute 2xl:after:w-[500px] after:w-[350px] 2xl:after:h-[810px] xl:after:h-[680px] after:h-[500px] lg:block hidden xl:after:top-[300px] top-[100px] 2xl:after:right-0 after:right-[-45px]"></div>
 </section>

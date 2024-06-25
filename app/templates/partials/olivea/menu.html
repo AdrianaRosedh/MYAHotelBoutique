@@ -1,5 +1,5 @@
 <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="{% if lang_code == 'es' %}menú{% else %}menu{% endif %}">
-    <div class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('assets/img/theme/1.png')]"></div>
+    <div class="2xl:before:w-[150px] xl:before:w-[130px] before:w-[80px] 2xl:before:h-[150px] dark-opicity-5 xl:before:h-[130px] before:h-[80px] bg-size-full before:absolute 2xl:before:top-[100px] before:top-0 2xl:before:right-[180px] xl:before:right-[50px] before:right-0 before:z-[-1] before:bg-[url('{{ url_for('static', filename='dist/img/theme/1.png') }}')]"></div>
     <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
         <div class="text-center w-full mb-[30px]">
             <h2 class="text-[#000] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">Choose Your Luxurious <span class="text-[#ed5b31]">Room</span></h2>
@@ -7,15 +7,15 @@
         <nav>
             <div class="nav nav-tabs rooms lh-room border-0" id="nav-tab" role="tablist">
                 <button class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link active" id="nav-Deluxe-tab" data-bs-toggle="tab" data-bs-target="#nav-Deluxe" type="button" role="tab" aria-controls="nav-Deluxe" aria-selected="true">
-                    <img src="assets/img/room/1.png" alt="1" class="w-full mb-[15px] rounded-[15px]">
+                    <img src="{{ url_for('static', filename='dist/img/room/room-1.png') }}" alt="1" class="w-full mb-[15px] rounded-[15px]">
                     Menú
                 </button>
                 <button class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link" id="nav-Single-tab" data-bs-toggle="tab" data-bs-target="#nav-Single" type="button" role="tab" aria-controls="nav-Single" aria-selected="false">
-                    <img src="assets/img/room/2.png" alt="2" class="w-full mb-[15px] rounded-[15px]">
+                    <img src="{{ url_for('static', filename='dist/img/room/room-2.png') }}" alt="2" class="w-full mb-[15px] rounded-[15px]">
                     Vinos
                 </button>
                 <button class="mb-0 text-[20px] leading-[28px] text-[#000] focus:text-[#000] w-1/4 border-0 text-center nav-link" id="nav-Super-tab" data-bs-toggle="tab" data-bs-target="#nav-Super" type="button" role="tab" aria-controls="nav-Super" aria-selected="false">
-                    <img src="assets/img/room/3.png" alt="3" class="w-full mb-[15px] rounded-[15px]">
+                    <img src="{{ url_for('static', filename='dist/img/room/room-3.png') }}" alt="3" class="w-full mb-[15px] rounded-[15px]">
                     Bebidas
                 </button>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="xl:w-1/2 w-full">
                         <div class="room-img h-full w-full relative">
-                            <img src="assets/img/room/room-1.png" alt="room-img" class="room-image h-full w-full">
+                            <img src="{{ url_for('static', filename='dist/img/room/room-1.png') }}" alt="room-img" class="room-image h-full w-full">
                             <a href="room-details.html" class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
                                 <i class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
                             </a>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="xl:w-1/2 w-full">
                         <div class="room-img h-full w-full relative">
-                            <img src="assets/img/room/room-2.png" alt="room-img" class="room-image h-full w-full">
+                            <img src="{{ url_for('static', filename='dist/img/room/room-1.png') }}" alt="room-img" class="room-image h-full w-full">
                             <a href="room-details.html" class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
                                 <i class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
                             </a>
@@ -174,7 +174,7 @@
                     </div>
                     <div class="xl:w-1/2 w-full">
                         <div class="room-img h-full w-full relative">
-                            <img src="assets/img/room/room-3.png" alt="room-img" class="room-image h-full w-full">
+                            <img src="{{ url_for('static', filename='dist/img/room/room-3.png') }}" alt="room-img" class="room-image h-full w-full">
                             <a href="room-details.html" class="link w-[200px] h-[200px] absolute bottom-[-200px] right-[-200px] bg-[#000000cc] rounded-[50%]">
                                 <i class="ri-arrow-right-line absolute bottom-[100px] right-[100px] text-[#fff] text-[25px]"></i>
                             </a>
@@ -184,5 +184,5 @@
             </div>
         </div>
     </div>
-    <div class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('assets/img/theme/2.png')]"></div>
+    <div class="2xl:after:w-[500px] lg:after:w-[400px] after:w-[300px] dark-opicity-1 2xl:after:h-[500px] xl:after:h-[400px] after:h-[300px] bg-size-full after:absolute 2xl:after:top-[100px] after:top-[75px] after:left-[-180px] after:z-[-1] after:bg-[url('{{ url_for('static', filename='dist/img/theme/2.png') }}')]"></div>
 </section>

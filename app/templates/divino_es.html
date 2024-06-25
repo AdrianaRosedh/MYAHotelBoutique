@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block links %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" media="print" onload="this.media='all'">
+{% endblock %}
+
 {% block content %}
 
 <!-- About Us -->
@@ -19,4 +24,8 @@
 {% endblock %}
 
 <!-- Pop up -->
-{% include 'partials/diVino/sweetalert2.html' %}
+{% block scripts %}
+{{ super() }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="{{ url_for('static', filename='dist/js/sweetalert2.min.js') }}" defer></script>
+{% endblock %}

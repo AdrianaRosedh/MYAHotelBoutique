@@ -1,3 +1,7 @@
+{% block reservation %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
 <section class="section-search-control absolute bottom-0 z-[1] w-full">
     <div
         class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
@@ -52,3 +56,17 @@
         </form>
     </div>
 </section>
+
+{% block reservation_js %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+ <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#checkin", {
+                dateFormat: "Y-m-d",
+            });
+            flatpickr("#checkout", {
+                dateFormat: "Y-m-d",
+            });
+        });
+</script>
+{% endblock %}
