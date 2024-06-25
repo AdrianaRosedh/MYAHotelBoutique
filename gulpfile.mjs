@@ -19,6 +19,7 @@ import tailwindConfig from './tailwind.config.cjs';
 import htmlmin from 'gulp-htmlmin';
 import responsiveImages from 'gulp-responsive-images';
 import browserSync from 'browser-sync';
+import cache from 'gulp-cache'; // Import gulp-cache
 
 const sass = gulpSass(sassCompiler);
 const bs = browserSync.create();
@@ -191,13 +192,13 @@ function sweetalert2Script() {
 
 function images() {
   return gulp.src(paths.images.src)
-    .pipe(imagemin([
+    .pipe(cache(imagemin([
       imageminGifsicle({ interlaced: true }),
       imageminMozjpeg({ quality: 75, progressive: true }),
       imageminOptipng({ optimizationLevel: 5 })
     ], {
       verbose: true // Add this line to get detailed logs
-    }).on('error', handleError('images')))
+    }).on('error', handleError('images'))))
     .pipe(gulp.dest(paths.images.dest))
     .pipe(bs.stream()); // Inject changes without reloading
 }

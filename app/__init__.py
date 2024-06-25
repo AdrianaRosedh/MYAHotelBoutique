@@ -1,8 +1,12 @@
+# /app/__init__.py
+
 from flask import Flask, request, session, render_template
 from flask_babel import Babel
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from flask_sitemap import Sitemap
+from flask_compress import Compress
+from flask_caching import Cache
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -20,6 +24,13 @@ def create_app():
     app.config["BABEL_DEFAULT_LOCALE"] = "en"
     app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
     app.secret_key = "your_secret_key"
+
+    # Enable compression
+    Compress(app)
+
+    # Configure caching
+    cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+    cache.init_app(app)
 
     # Initialize Babel with the locale and timezone selector functions
     babel = Babel(app, locale_selector=get_locale, timezone_selector=get_timezone)
@@ -61,3 +72,6 @@ def create_app():
 
     return app
 
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
