@@ -9,7 +9,10 @@
                 {% elif page_name == 'Divino' %}
                     <img src="{{ url_for('static', filename='dist/img/logo/svg/padel-wine.svg') }}" alt="PadelLogo" class="xl:w-[65px] w-[35px] relative z-[2]">
                 {% else %}
+                <a href="{{ url_for('main.index', lang_code=session.get('language', 'en')) }}">
                     <img src="{{ url_for('static', filename='dist/img/logo/mya-464644.svg') }}" alt="MYAlogo" class="xl:w-[65px] w-[35px] relative z-[2]">
+                </a>
+                
                 {% endif %}
             </a>
             <button class="navbar-toggler shadow-none flex basis-[auto] grow items-center text-[24px] text-[#111827] lg:hidden flex justify-end" type="button" data-bs-toggle="collapse" data-bs-target="#" aria-label="Toggle navigation">

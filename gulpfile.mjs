@@ -61,6 +61,15 @@ const paths = {
       'app/static/src/js/custom/features/feature1.js',
       'app/static/src/js/custom/features/feature2.js'
     ],
+    tailwind: 'app/static/src/js/vendor/tailwindcss3.4.0.js', 
+    dest: 'app/static/dist/js'
+  },
+  custom404: {
+    src: 'app/static/src/js/custom/404.js',
+    dest: 'app/static/dist/js'
+  },
+  sweetalert2: {
+    src: 'app/static/src/js/custom/sweetalert2/DiVino.js',
     dest: 'app/static/dist/js'
   },
   images: {
@@ -160,13 +169,48 @@ function chatbotScripts() {
     .pipe(bs.stream()); // Inject changes without reloading
 }
 
+function tailwindScripts() { // New task for Tailwind JS
+  return gulp.src(paths.scripts.tailwind, { sourcemaps: true })
+    .pipe(plumber({ errorHandler: handleError('tailwindScripts') }))
+    .pipe(sourcemaps.init())
+    .pipe(concat('tailwind.min.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
+function custom404Script() {
+  return gulp.src(paths.custom404.src, { sourcemaps: true })
+    .pipe(plumber({ errorHandler: handleError('custom404Script') }))
+    .pipe(sourcemaps.init())
+    .pipe(concat('404.min.js'))
+    .pipe(uglify().on('error', handleError('custom404Script')))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.custom404.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
+function sweetalert2Script() {
+  return gulp.src(paths.sweetalert2.src, { sourcemaps: true })
+    .pipe(plumber({ errorHandler: handleError('sweetalert2Script') }))
+    .pipe(sourcemaps.init())
+    .pipe(concat('sweetalert2.min.js'))
+    .pipe(uglify().on('error', handleError('sweetalert2Script')))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.sweetalert2.dest))
+    .pipe(bs.stream()); // Inject changes without reloading
+}
+
 function images() {
   return gulp.src(paths.images.src)
     .pipe(imagemin([
       imageminGifsicle({ interlaced: true }),
       imageminMozjpeg({ quality: 75, progressive: true }),
       imageminOptipng({ optimizationLevel: 5 })
-    ]))
+    ], {
+      verbose: true // Add this line to get detailed logs
+    }).on('error', handleError('images')))
     .pipe(gulp.dest(paths.images.dest))
     .pipe(bs.stream()); // Inject changes without reloading
 }
@@ -247,12 +291,15 @@ function serve() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
+  gulp.watch(paths.scripts.tailwind, tailwindScripts); // Watch for Tailwind JS changes
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
+  gulp.watch(paths.custom404.src, custom404Script); // Watch for 404.js changes
+  gulp.watch(paths.sweetalert2.src, sweetalert2Script); // Watch for SweetAlert2 script changes
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, html, favicon), criticalCSS);
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, tailwindScripts, images, responsiveImg, fonts, html, favicon, custom404Script, sweetalert2Script), criticalCSS);
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -260,13 +307,16 @@ function watchFiles() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
+  gulp.watch(paths.scripts.tailwind, tailwindScripts); // Watch for Tailwind JS changes
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
+  gulp.watch(paths.custom404.src, custom404Script); // Watch for 404.js changes
+  gulp.watch(paths.sweetalert2.src, sweetalert2Script); // Watch for SweetAlert2 script changes
 }
 
 gulp.task('build', build);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, clean, html, favicon, criticalCSS, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, tailwindScripts, images, responsiveImg, fonts, clean, html, favicon, criticalCSS, custom404Script, sweetalert2Script, watchFiles as watch };
 export default build;
