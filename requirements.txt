@@ -45,3 +45,4 @@ urllib3==2.2.1
 Werkzeug==3.0.3
 yarl==1.9.4
 gunicorn==20.1.0
+flask_compress==1.15
