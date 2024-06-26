@@ -91,3 +91,71 @@
   animation-delay: 3s, 4s; /* Adjust the delay as needed */
 }
 
+/* Ensure the img within the picture element covers the hero section */
+#hero .hero-image img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure the picture element fills the hero section */
+#hero picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive text sizes and line heights */
+@screen sm {
+  #hero h1 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+  #hero .typing-container {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}
+@screen md {
+  #hero h1 {
+    font-size: 35px;
+    line-height: 1.1;
+  }
+  #hero .typing-container {
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+@screen lg {
+  #hero h1 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+  #hero .typing-container {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+}
+@screen xl {
+  #hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+  #hero .typing-container {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+}
+@screen 2xl {
+  #hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+  }
+  #hero .typing-container {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+}

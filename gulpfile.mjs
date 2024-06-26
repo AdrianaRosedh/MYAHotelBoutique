@@ -7,19 +7,22 @@ import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import imagemin from 'gulp-imagemin';
-import imageminGifsicle from 'imagemin-gifsicle';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminOptipng from 'imagemin-optipng';
 import plumber from 'gulp-plumber';
 import * as sassCompiler from 'sass';
 import gulpSass from 'gulp-sass';
 import tailwindcss from 'tailwindcss';
 import tailwindConfig from './tailwind.config.cjs';
 import htmlmin from 'gulp-htmlmin';
-import responsiveImages from 'gulp-responsive-images';
+import imagemin from 'gulp-imagemin';
+import imageminMozjpeg from 'imagemin-mozjpeg';
+import imageminOptipng from 'imagemin-optipng';
+import imageminWebp from 'imagemin-webp';
+import through2 from 'through2';
+import imageResize from 'gulp-image-resize';
 import browserSync from 'browser-sync';
 import cache from 'gulp-cache';
+import path from 'path';
+import filter from 'gulp-filter';
 
 const sass = gulpSass(sassCompiler);
 const bs = browserSync.create();
@@ -72,7 +75,7 @@ const paths = {
     dest: 'app/static/dist/js'
   },
   images: {
-    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp,JPG}',
+    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp,JPG,JPEG,PNG,GIF,SVG,WEBP}',
     dest: 'app/static/dist/img'
   },
   fonts: {
@@ -99,6 +102,7 @@ function handleError(task) {
 }
 
 function customStyles() {
+  console.log('Running customStyles task');
   return gulp.src(paths.customStyles.src)
     .pipe(plumber({ errorHandler: handleError('customStyles') }))
     .pipe(sourcemaps.init())
@@ -116,6 +120,7 @@ function customStyles() {
 }
 
 function chatbotStyles() {
+  console.log('Running chatbotStyles task');
   return gulp.src(paths.chatbotStyles.src)
     .pipe(plumber({ errorHandler: handleError('chatbotStyles') }))
     .pipe(sourcemaps.init())
@@ -133,6 +138,7 @@ function chatbotStyles() {
 }
 
 function vendorStyles() {
+  console.log('Running vendorStyles task');
   return gulp.src(paths.vendorStyles.src)
     .pipe(plumber({ errorHandler: handleError('vendorStyles') }))
     .pipe(concat('vendor.css'))
@@ -146,6 +152,7 @@ function vendorStyles() {
 }
 
 function scripts() {
+  console.log('Running scripts task');
   const scriptPaths = [...paths.scripts.vendor, ...paths.scripts.custom];
   return gulp.src(scriptPaths, { sourcemaps: true, allowEmpty: true })
     .pipe(plumber({ errorHandler: handleError('scripts') }))
@@ -158,6 +165,7 @@ function scripts() {
 }
 
 function chatbotScripts() {
+  console.log('Running chatbotScripts task');
   return gulp.src(paths.scripts.chatbot, { sourcemaps: true, allowEmpty: true })
     .pipe(plumber({ errorHandler: handleError('chatbotScripts') }))
     .pipe(sourcemaps.init())
@@ -169,6 +177,7 @@ function chatbotScripts() {
 }
 
 function custom404Script() {
+  console.log('Running custom404Script task');
   return gulp.src(paths.custom404.src, { sourcemaps: true })
     .pipe(plumber({ errorHandler: handleError('custom404Script') }))
     .pipe(sourcemaps.init())
@@ -180,6 +189,7 @@ function custom404Script() {
 }
 
 function sweetalert2Script() {
+  console.log('Running sweetalert2Script task');
   return gulp.src(paths.sweetalert2.src, { sourcemaps: true })
     .pipe(plumber({ errorHandler: handleError('sweetalert2Script') }))
     .pipe(sourcemaps.init())
@@ -190,45 +200,110 @@ function sweetalert2Script() {
     .pipe(bs.stream());
 }
 
-function images() {
+function processImages() {
+  console.log('Running processImages task');
+  const imgFilter = filter(['**/*.{jpg,jpeg,png,JPG,JPEG,PNG}', '!**/*.{gif,svg,webp,GIF,SVG,WEBP}'], { restore: true });
+
   return gulp.src(paths.images.src)
-    .pipe(plumber({ errorHandler: handleError('images') }))
-    .pipe(cache(imagemin([
-      imageminGifsicle({ interlaced: true }),
-      imageminMozjpeg({ quality: 75, progressive: true }),
-      imageminOptipng({ optimizationLevel: 5 })
-    ], {
-      verbose: true
-    })).on('error', handleError('images')))
-    .pipe(gulp.dest(paths.images.dest))
-    .pipe(bs.stream());
+    .pipe(plumber({ errorHandler: handleError('processImages') }))
+    .pipe(gulp.dest(paths.images.dest)) // Copy original images to dist
+    .pipe(imgFilter) // Filter only images that need to be resized and converted
+    .pipe(
+      through2.obj(function (file, _, cb) {
+        const ext = path.extname(file.path);
+        const basename = path.basename(file.path, ext);
+        const dir = path.dirname(file.path);
+
+        if (dir.includes('hero')) {
+          // Treat hero images: keep large image at its original size, create medium and small versions
+          const sizes = [
+            { width: 600, suffix: '-600' },
+            { width: 900, suffix: '-900' }
+          ];
+
+          // Create original size WebP version
+          const originalWebpPromise = new Promise((resolve, reject) => {
+            gulp.src(file.path)
+              .pipe(imagemin([imageminWebp({ quality: 100 })]))
+              .pipe(rename({ suffix: '-original', extname: '.webp' }))
+              .pipe(gulp.dest(dir))
+              .on('end', resolve)
+              .on('error', reject);
+          });
+
+          // Create resized JPEG versions
+          const resizePromises = sizes.map(size => {
+            return new Promise((resolve, reject) => {
+              gulp.src(file.path)
+                .pipe(imageResize({ width: size.width }))
+                .pipe(rename({ suffix: size.suffix }))
+                .pipe(gulp.dest(dir))
+                .on('end', resolve)
+                .on('error', reject);
+            });
+          });
+
+          // Create resized WebP versions
+          const webpPromises = sizes.map(size => {
+            return new Promise((resolve, reject) => {
+              gulp.src(file.path)
+                .pipe(imageResize({ width: size.width }))
+                .pipe(imagemin([imageminWebp({ quality: 100 })]))
+                .pipe(rename({ suffix: size.suffix, extname: '.webp' }))
+                .pipe(gulp.dest(dir))
+                .on('end', resolve)
+                .on('error', reject);
+            });
+          });
+
+          Promise.all([originalWebpPromise, ...resizePromises, ...webpPromises])
+            .then(() => cb(null, file))
+            .catch(err => cb(err));
+        } else {
+          // Resize and convert other images
+          const sizes = [300, 600, 900];
+          const originalPromises = sizes.map(size => {
+            return new Promise((resolve, reject) => {
+              gulp.src(file.path)
+                .pipe(imageResize({ width: size }))
+                .pipe(rename({ suffix: `-${size}` }))
+                .pipe(gulp.dest(dir))
+                .on('end', resolve)
+                .on('error', reject);
+            });
+          });
+
+          const webpPromises = sizes.map(size => {
+            return new Promise((resolve, reject) => {
+              gulp.src(file.path)
+                .pipe(imageResize({ width: size }))
+                .pipe(imagemin([imageminWebp({ quality: 100 })]))
+                .pipe(rename({ suffix: `-${size}`, extname: '.webp' }))
+                .pipe(gulp.dest(dir))
+                .on('end', resolve)
+                .on('error', reject);
+            });
+          });
+
+          Promise.all([...originalPromises, ...webpPromises])
+            .then(() => cb(null, file))
+            .catch(err => cb(err));
+        }
+      })
+    )
+    .pipe(imgFilter.restore); // Restore the filtered-out files to the stream
 }
 
-function responsiveImg() {
-  return gulp.src(paths.images.src)
-    .pipe(responsiveImages({
-      '*.png': [
-        { width: 320, suffix: '-320px' },
-        { width: 640, suffix: '-640px' },
-        { width: 1024, suffix: '-1024px' }
-      ],
-      '*.jpg': [
-        { width: 320, suffix: '-320px' },
-        { width: 640, suffix: '-640px' },
-        { width: 1024, suffix: '-1024px' }
-      ]
-    }).on('error', handleError('responsiveImg')))
-    .pipe(gulp.dest(paths.images.dest))
-    .pipe(bs.stream());
-}
 
 function fonts() {
+  console.log('Running fonts task');
   return gulp.src(paths.fonts.src)
     .pipe(gulp.dest(paths.fonts.dest))
     .pipe(bs.stream());
 }
 
 function html() {
+  console.log('Running html task');
   return gulp.src(paths.html.src)
     .pipe(plumber({ errorHandler: handleError('html') }))
     .pipe(htmlmin({
@@ -243,6 +318,7 @@ function html() {
 }
 
 function favicon() {
+  console.log('Running favicon task');
   return gulp.src('app/static/src/img/favicons/**/*.{ico,png}')
     .pipe(gulp.dest('app/static/dist/img/favicons'))
     .pipe(bs.stream());
@@ -260,14 +336,14 @@ function serve() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
-  gulp.watch(paths.images.src, images);
+  gulp.watch(paths.images.src, gulp.series(processImages));
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.custom404.src, custom404Script);
   gulp.watch(paths.sweetalert2.src, sweetalert2Script);
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, html, favicon, custom404Script, sweetalert2Script));
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, html, favicon, custom404Script, sweetalert2Script));
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -275,7 +351,7 @@ function watchFiles() {
   gulp.watch(paths.vendorStyles.src, vendorStyles);
   gulp.watch([...paths.scripts.vendor, ...paths.scripts.custom], scripts);
   gulp.watch(paths.scripts.chatbot, chatbotScripts);
-  gulp.watch(paths.images.src, images);
+  gulp.watch(paths.images.src, gulp.series(processImages));
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.custom404.src, custom404Script);
@@ -285,5 +361,5 @@ function watchFiles() {
 gulp.task('build', build);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, clean, html, favicon, custom404Script, sweetalert2Script, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, clean, html, favicon, custom404Script, sweetalert2Script, watchFiles as watch };
 export default build;

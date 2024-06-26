@@ -5,6 +5,8 @@
     padding-top: calc(548 / 624 * 100%); /* Aspect ratio 624:548 */
     position: relative;
     overflow: hidden;
+    border-radius: 0.8rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .responsive-img {
