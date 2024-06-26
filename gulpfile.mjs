@@ -19,7 +19,7 @@ import tailwindConfig from './tailwind.config.cjs';
 import htmlmin from 'gulp-htmlmin';
 import responsiveImages from 'gulp-responsive-images';
 import browserSync from 'browser-sync';
-import cache from 'gulp-cache'; // Import gulp-cache
+import cache from 'gulp-cache';
 
 const sass = gulpSass(sassCompiler);
 const bs = browserSync.create();
@@ -72,7 +72,7 @@ const paths = {
     dest: 'app/static/dist/js'
   },
   images: {
-    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp}',
+    src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp,JPG}',
     dest: 'app/static/dist/img'
   },
   fonts: {
@@ -92,8 +92,8 @@ function clean() {
 function handleError(task) {
   return function(err) {
     console.error(`Error in ${task} task:`, err.message);
-    console.error(`File: ${err.fileName}`);
-    console.error(`Line: ${err.lineNumber}`);
+    if (err.fileName) console.error(`File: ${err.fileName}`);
+    if (err.lineNumber) console.error(`Line: ${err.lineNumber}`);
     this.emit('end');
   };
 }
@@ -112,7 +112,7 @@ function customStyles() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.customStyles.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function chatbotStyles() {
@@ -129,7 +129,7 @@ function chatbotStyles() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.chatbotStyles.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function vendorStyles() {
@@ -142,7 +142,7 @@ function vendorStyles() {
     ]))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(paths.vendorStyles.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function scripts() {
@@ -154,7 +154,7 @@ function scripts() {
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function chatbotScripts() {
@@ -165,7 +165,7 @@ function chatbotScripts() {
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function custom404Script() {
@@ -176,7 +176,7 @@ function custom404Script() {
     .pipe(uglify().on('error', handleError('custom404Script')))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.custom404.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function sweetalert2Script() {
@@ -187,20 +187,21 @@ function sweetalert2Script() {
     .pipe(uglify().on('error', handleError('sweetalert2Script')))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.sweetalert2.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function images() {
   return gulp.src(paths.images.src)
+    .pipe(plumber({ errorHandler: handleError('images') }))
     .pipe(cache(imagemin([
       imageminGifsicle({ interlaced: true }),
       imageminMozjpeg({ quality: 75, progressive: true }),
       imageminOptipng({ optimizationLevel: 5 })
     ], {
-      verbose: true // Add this line to get detailed logs
-    }).on('error', handleError('images'))))
+      verbose: true
+    })).on('error', handleError('images')))
     .pipe(gulp.dest(paths.images.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function responsiveImg() {
@@ -216,15 +217,15 @@ function responsiveImg() {
         { width: 640, suffix: '-640px' },
         { width: 1024, suffix: '-1024px' }
       ]
-    }))
+    }).on('error', handleError('responsiveImg')))
     .pipe(gulp.dest(paths.images.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function fonts() {
   return gulp.src(paths.fonts.src)
     .pipe(gulp.dest(paths.fonts.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function html() {
@@ -235,16 +236,16 @@ function html() {
       removeComments: true,
       minifyJS: true,
       minifyCSS: true,
-      ignoreCustomFragments: [/\{\%[\s\S]*?\%\}/, /\{\{[\s\S]*?\}\}/] // Ignore Jinja2 template tags
+      ignoreCustomFragments: [/\{\%[\s\S]*?\%\}/, /\{\{[\s\S]*?\}\}/]
     }))
     .pipe(gulp.dest(paths.html.dest))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function favicon() {
   return gulp.src('app/static/src/img/favicons/**/*.{ico,png}')
     .pipe(gulp.dest('app/static/dist/img/favicons'))
-    .pipe(bs.stream()); // Inject changes without reloading
+    .pipe(bs.stream());
 }
 
 function serve() {
@@ -262,8 +263,8 @@ function serve() {
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
-  gulp.watch(paths.custom404.src, custom404Script); // Watch for 404.js changes
-  gulp.watch(paths.sweetalert2.src, sweetalert2Script); // Watch for SweetAlert2 script changes
+  gulp.watch(paths.custom404.src, custom404Script);
+  gulp.watch(paths.sweetalert2.src, sweetalert2Script);
 }
 
 const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, images, responsiveImg, fonts, html, favicon, custom404Script, sweetalert2Script));
@@ -277,8 +278,8 @@ function watchFiles() {
   gulp.watch(paths.images.src, images);
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
-  gulp.watch(paths.custom404.src, custom404Script); // Watch for 404.js changes
-  gulp.watch(paths.sweetalert2.src, sweetalert2Script); // Watch for SweetAlert2 script changes
+  gulp.watch(paths.custom404.src, custom404Script);
+  gulp.watch(paths.sweetalert2.src, sweetalert2Script);
 }
 
 gulp.task('build', build);
