@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS to maintain the aspect ratio */
+.aspect-ratio-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
