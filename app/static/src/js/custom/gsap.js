@@ -1,4 +1,3 @@
-// Temporarily disable ScrollTrigger to debug
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -11,11 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
             gsap.set(card, {
                 xPercent: 100 * (i - currentIndex),
                 scale: 0.8,
-                opacity: i < 2 ? 0 : 0.8,
+                opacity: i < 2 ? 0 : 0.8, // Keep the first and second cards invisible
                 zIndex: 50
             });
         });
 
+        // Ensure the fade-out-on-scroll element is visible initially
         gsap.set(".fade-out-on-scroll", { opacity: 1 });
     }
 
@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
         cards.forEach((card, i) => {
             gsap.to(card, {
                 xPercent: 100 * (i - currentIndex),
-                duration: 0.5,
-                ease: "power3",
+                duration: 0.7, // Increased duration for smoother transitions
+                ease: "power2.out", // Changed easing function for smoother animations
                 scale: i === currentIndex ? 1 : 0.8,
-                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
+                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8), // Keep first and second cards invisible
                 zIndex: i === currentIndex ? 100 : 50
             });
         });
@@ -51,15 +51,28 @@ document.addEventListener("DOMContentLoaded", function () {
         start: "top top",
         end: () => `+=${window.innerHeight * (totalCards - 1)}`,
         pin: true,
-        scrub: true,
+        scrub: 1, // Set scrub to 1 for a smoother scrubbing effect
         onUpdate: (self) => {
             const progressIndex = Math.round(self.progress * (totalCards - 1));
             if (progressIndex !== currentIndex) {
                 scrollToCard(progressIndex);
             }
+        },
+        onLeave: () => {
+            gsap.to(".section-restaurant", {
+                opacity: 0,
+                duration: 0.5
+            });
+        },
+        onEnterBack: () => {
+            gsap.to(".section-restaurant", {
+                opacity: 1,
+                duration: 0.5
+            });
         }
     });
 
+    // Fade out the element with .fade-out-on-scroll class based on the position of the first card
     ScrollTrigger.create({
         trigger: ".cards li:nth-child(1)",
         start: "bottom -40",
@@ -79,15 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function handleResize() {
-        if (window.innerWidth <= 768) {
-            console.log('Mobile resize detected');
-        }
-    }
-
-    window.addEventListener('resize', handleResize);
-
     initializeCards();
     updateCardsLayout();
-    handleResize();
 });
