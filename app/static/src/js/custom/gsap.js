@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             gsap.set(card, {
                 xPercent: 100 * (i - currentIndex),
                 scale: 0.8,
-                opacity: i < 2 ? 0 : 0.8, // Keep the first and second cards invisible
+                opacity: i < 2 ? 0 : 0.8,
                 zIndex: 50
             });
         });
@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
         cards.forEach((card, i) => {
             gsap.to(card, {
                 xPercent: 100 * (i - currentIndex),
-                duration: 0.7, // Increased duration for smoother transitions
-                ease: "power2.out", // Changed easing function for smoother animations
+                duration: 1,
+                ease: "power2.out",
                 scale: i === currentIndex ? 1 : 0.8,
-                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8), // Keep first and second cards invisible
+                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
                 zIndex: i === currentIndex ? 100 : 50
             });
         });
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         start: "top top",
         end: () => `+=${window.innerHeight * (totalCards - 1)}`,
         pin: true,
-        scrub: 1, // Set scrub to 1 for a smoother scrubbing effect
+        scrub: 1,
         onUpdate: (self) => {
             const progressIndex = Math.round(self.progress * (totalCards - 1));
             if (progressIndex !== currentIndex) {
@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Fade out the element with .fade-out-on-scroll class based on the position of the first card
     ScrollTrigger.create({
         trigger: ".cards li:nth-child(1)",
         start: "bottom -40",
