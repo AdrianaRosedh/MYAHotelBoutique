@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+.fade-out-on-scroll {
+  transition: opacity 0.5s ease;
+}
+
 /* Base styles for the section and gallery */
 .section-restaurant {
   display: flex;
