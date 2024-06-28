@@ -13,6 +13,68 @@ body {
   background-color: #d0cfcb;
 }
 
+/* Apply background images to the body */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 45%; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-size: contain; /* Adjust as needed */
+  opacity: 0.15;
+  z-index: -1; /* Ensure it's behind the content */
+  pointer-events: none; /* Ensure it doesn't interfere with interactions */
+}
+
+body::before {
+  left: 0;
+  background-image: url("/static/dist/img/background/BackgroundLeft.svg");
+  background-position: left bottom;
+}
+
+body::after {
+  right: 0;
+  background-image: url("/static/dist/img/background/BackgroundRight.svg");
+  background-position: right bottom;
+}
+
+/* Apply background images to the body */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 35%; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-size: contain; /* Adjust as needed */
+  opacity: 0.15;
+  z-index: -1; /* Ensure it's behind the content */
+  pointer-events: none; /* Ensure it doesn't interfere with interactions */
+  display: block; /* Ensure they are rendered */
+}
+
+body::before {
+  left: 1rem;
+  background-image: url("/static/dist/img/background/BackgroundLeft.svg");
+  background-position: left bottom;
+}
+
+body::after {
+  right: 1rem;
+  width: 25%;
+  background-image: url("/static/dist/img/background/BackgroundRight.svg");
+  background-position: right bottom;
+}
+
+/* Ensure the hero section is positioned relative */
+#hero {
+  position: relative;
+  z-index: 1; /* Ensure it's above the background images */
+}
+
+
+
 .hero-image {
     background-size: cover;
     background-position: bottom;
