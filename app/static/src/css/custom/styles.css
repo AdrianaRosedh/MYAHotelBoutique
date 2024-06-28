@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* common */
+/* Common Styles */
 body {
   font-family: "Roboto";
   font-size: 14px;
@@ -12,7 +12,6 @@ body {
   letter-spacing: 0.02rem;
   background-color: #d0cfcb;
 }
-
 
 /* Apply background images to the body */
 body::before, body::after {
@@ -41,6 +40,7 @@ body::after {
   background-image: url("/static/dist/img/background/BackgroundRight.svg");
   background-position: right bottom;
 }
+
 /* Media query for phones */
 @media (max-width: 767px) {
   body::before {
@@ -48,7 +48,7 @@ body::after {
   }
 
   body::after {
-    left: auto; 
+    left: auto;
     right: 0.2rem;
     bottom: 0;
     width: 70%; 
@@ -65,22 +65,26 @@ body::after {
   z-index: 1; /* Ensure it's above the background images */
 }
 
+/* Ensure hero-image dimensions */
 .hero-image {
-    background-size: cover;
-    background-position: bottom;
-    background-blend-mode: overlay;
-    transition: transform 0.5s ease;
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode: overlay;
+  transition: transform 0.5s ease;
+  width: 100%; /* Ensure width is set */
+  height: 300px; /* Set a fixed height */
 }
 
 @layer utilities {
   .delay-500ms {
-      animation-delay: 0.5s;
+    animation-delay: 0.5s;
   }
   .delay-1000ms {
-      animation-delay: 1s;
+    animation-delay: 1s;
   }
 }
 
+/* Text selection styles */
 ::-moz-selection {
   color: #676663;
   background: rgba(237, 90, 49, 0.15);
@@ -91,10 +95,6 @@ body::after {
   background: rgba(237, 90, 49, 0.15);
 }
 
-.font-Montserrat {
-  font-family: "Montserrat";
-}
-
 .font-Roboto {
   font-family: "Roboto";
 }
@@ -103,10 +103,12 @@ body::after {
   font-family: "Poppins";
 }
 
+/* Word spacing utility */
 .wordspac_15 {
   word-spacing: 15px;
 }
 
+/* Paragraph, list, and anchor tag styles */
 p, li, a {
   margin-bottom: 0;
   font-family: "Roboto";
@@ -117,12 +119,10 @@ p, li, a {
   letter-spacing: 0.03rem;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins";
   color: #fafafa;
   margin-bottom: 0;
   letter-spacing: 0.03rem;
 }
- 
-

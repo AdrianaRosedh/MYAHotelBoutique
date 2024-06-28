@@ -8,6 +8,7 @@
 #chatbox {
   overflow-y: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 500px; /* Ensure fixed height to avoid shift */
 }
 
 #chatbot-chat {
@@ -20,6 +21,7 @@
   padding-top: 4rem !important;
   z-index: 100 !important;
   max-width: calc(100% - 1rem); /* Ensure it doesn't overflow */
+  width: 100%; /* Ensure width consistency */
 }
 
 #chatbot-toggle {
@@ -65,6 +67,7 @@
   left: 0 !important;
   right: 0 !important;
   z-index: 20 !important;
+  height: 200px; /* Ensure fixed height to avoid shift */
 }
 
 .message {
