@@ -15,6 +15,8 @@
 
 .room-button img {
   display: block;
+  width: 100%; /* Ensure the image takes full width */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .button-icon {
@@ -51,62 +53,62 @@
 
 @media screen and (max-width: 1279px) {
   .room-img {
-      padding: 0 24px 24px 24px;
+    padding: 0 24px 24px 24px;
   }
 
   .room-img .room-image {
-      border-radius: 15px !important;
+    border-radius: 15px !important;
   }
 }
 
 @media screen and (max-width: 991px) {
   .tab-content {
-      margin-top: 0px;
+    margin-top: 0;
   }
 
   .lh-room button {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .nav-tabs.rooms .nav-link {
-      width: 50%;
-      margin-bottom: 24px !important;
+    width: 50%;
+    margin-bottom: 24px !important;
   }
 }
 
 @media screen and (max-width: 767px) {
   .lh-room button {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .lh-room-contain .lh-contain-heading {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 
   .lh-room-contain .lh-contain-heading .lh-room-price {
-      margin-top: 15px;
+    margin-top: 15px;
   }
 
   .lh-room-contain .lh-main-features .lh-room-features {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 
   .lh-room-contain .lh-main-features .lh-room-features .lh-cols-room:last-child {
-      padding-top: 15px;
-      padding-left: 0;
+    padding-top: 15px;
+    padding-left: 0;
   }
 }
 
 @media screen and (max-width: 360px) {
   .nav-tabs.rooms .nav-link {
-      width: 100%;
+    width: 100%;
   }
 }

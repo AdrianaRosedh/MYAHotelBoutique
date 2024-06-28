@@ -1,3 +1,4 @@
+// Temporarily disable ScrollTrigger to debug
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -10,12 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
             gsap.set(card, {
                 xPercent: 100 * (i - currentIndex),
                 scale: 0.8,
-                opacity: i < 2 ? 0 : 0.8, // Keep the first and second cards invisible
+                opacity: i < 2 ? 0 : 0.8,
                 zIndex: 50
             });
         });
 
-        // Ensure the fade-out-on-scroll element is visible initially
         gsap.set(".fade-out-on-scroll", { opacity: 1 });
     }
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 duration: 0.5,
                 ease: "power3",
                 scale: i === currentIndex ? 1 : 0.8,
-                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8), // Keep first and second cards invisible
+                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
                 zIndex: i === currentIndex ? 100 : 50
             });
         });
@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Fade out the element with .fade-out-on-scroll class based on the position of the first card
     ScrollTrigger.create({
         trigger: ".cards li:nth-child(1)",
         start: "bottom -40",
@@ -80,6 +79,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            console.log('Mobile resize detected');
+        }
+    }
+
+    window.addEventListener('resize', handleResize);
+
     initializeCards();
     updateCardsLayout();
+    handleResize();
 });

@@ -4,11 +4,12 @@
 
 /* Blog */
 .section-blog .blog-card:hover figure:before {
-  -webkit-animation: shine 0.75s;
   animation: shine 0.75s;
 }
 .section-blog .blog-card figure {
   border-radius: 15px;
+  position: relative; /* Ensure the figure is positioned relative for the pseudo-element */
+  overflow: hidden; /* Ensure the pseudo-element is clipped by the figure */
 }
 .section-blog .blog-card figure:before {
   position: absolute;
@@ -19,9 +20,7 @@
   content: "";
   width: 50%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.3)));
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-  -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
 
@@ -29,11 +28,6 @@
   color: #676663;
 }
 
-@-webkit-keyframes shine {
-  100% {
-    left: 125%;
-  }
-}
 @keyframes shine {
   100% {
     left: 125%;
@@ -53,7 +47,6 @@
   opacity: 1;
 }
 .lh-our-blog-instagram .lh-our-blog-instagram-image .lh-our-blog-instagram-image-inner a:after {
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   content: "";
   position: absolute;
@@ -66,7 +59,6 @@
   opacity: 0;
 }
 .lh-our-blog-instagram .lh-our-blog-instagram-image .lh-our-blog-instagram-image-inner a:before {
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   content: "\ee66";
   position: absolute;

@@ -32,10 +32,12 @@
   /* Zoom Hero image */
   document.addEventListener("scroll", function() {
     const heroImage = document.querySelector(".hero-image");
-    const scrollPosition = window.scrollY;
-    const maxZoom = 1.5;
-    const zoomFactor = scrollPosition / (document.body.scrollHeight - window.innerHeight) * (maxZoom - 1) + 1;
-    heroImage.style.transform = `scale(${zoomFactor})`;
+    if (heroImage) {
+      const scrollPosition = window.scrollY;
+      const maxZoom = 1.5;
+      const zoomFactor = scrollPosition / (document.body.scrollHeight - window.innerHeight) * (maxZoom - 1) + 1;
+      heroImage.style.transform = `scale(${zoomFactor})`;
+    }
   });
 
   /* Responsive Mobile Menu */
@@ -347,8 +349,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-
 /* Removing fade from arrow */
 document.addEventListener('DOMContentLoaded', () => {
   const fadeInElement = document.querySelector('.opacity-0');
@@ -388,4 +388,3 @@ document.addEventListener('DOMContentLoaded', function() {
   timeInput.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
   timeIcon.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
 });
-
