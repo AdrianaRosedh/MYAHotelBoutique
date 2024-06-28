@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.section-search-control {
+  position: relative;
+  z-index: 10;
+}
+
 /* Search Control Section */
 @media screen and (max-width: 1023px) {
   .section-search-control {
