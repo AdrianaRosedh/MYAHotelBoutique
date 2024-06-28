@@ -206,6 +206,13 @@ function processImages() {
 
   return gulp.src(paths.images.src)
     .pipe(plumber({ errorHandler: handleError('processImages') }))
+    .pipe(cache(imagemin([ // Use gulp-cache to cache the processed images
+      imageminMozjpeg({ quality: 75, progressive: true }),
+      imageminOptipng({ optimizationLevel: 5 }),
+      imageminWebp({ quality: 100 })
+    ], {
+      verbose: true
+    })))
     .pipe(gulp.dest(paths.images.dest)) // Copy original images to dist
     .pipe(imgFilter) // Filter only images that need to be resized and converted
     .pipe(
@@ -293,7 +300,6 @@ function processImages() {
     )
     .pipe(imgFilter.restore); // Restore the filtered-out files to the stream
 }
-
 
 function fonts() {
   console.log('Running fonts task');
