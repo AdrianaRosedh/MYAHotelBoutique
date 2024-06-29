@@ -1,1 +1,57 @@
-{% block reservation %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> {% endblock %} <section class="section-search-control absolute bottom-0 z-[1] w-full"><div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]"><form class="w-full" id="reservationForm" action="{{ url_for('main.reservation', lang_code=session.get('language', 'en')) }}" method="post"><div class="search-control-boxing shadow-[0_0_50px_0_rgba(0,0,0,0.1)] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] flex justify-between"><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Registro</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Check In</h4> {% endif %} <div class="relative"><input type="text" id="checkin" name="checkin" value="{{ today }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText"> <i class="fas fa-calendar-alt calendar-icon" id="checkin-icon"></i></div></div></div><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Salida</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Check Out</h4> {% endif %} <div class="relative"><input type="text" id="checkout" name="checkout" value="{{ tomorrow }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText"> <i class="fas fa-calendar-alt calendar-icon" id="checkout-icon"></i></div></div></div><div class="flex p-[12px]"><div class="search-control-button flex items-center min-w-[117px]"> {% if lang_code == 'es' %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Verificar</button> {% else %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Check Now</button> {% endif %} </div></div></div></form></div></section> {% block reservation_js %} <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer="defer"></script><script>document.addEventListener("DOMContentLoaded",function(){flatpickr("#checkin",{dateFormat:"Y-m-d"}),flatpickr("#checkout",{dateFormat:"Y-m-d"})})</script> {% endblock %}
+{% block reservation %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
+<section class="section-search-control absolute bottom-0 z-[1] w-full">
+  <div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+    <form class="w-full" id="reservationForm" action="{{ url_for('main.reservation', lang_code=session.get('language', 'en')) }}" method="post">
+      <div class="search-control-boxing shadow-[0_0_50px_0_rgba(0,0,0,0.1)] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] flex justify-between">
+        <div class="w-full p-[12px]">
+          <div class="search-box relative">
+            {% if lang_code == 'es' %}
+              <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Registro</h4>
+            {% else %}
+              <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Check In</h4>
+            {% endif %}
+            <div class="relative">
+              <input type="text" id="checkin" name="checkin" value="{{ today }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText">
+              <i class="fas fa-calendar-alt calendar-icon" id="checkin-icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="w-full p-[12px]">
+          <div class="search-box relative">
+            {% if lang_code == 'es' %}
+              <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Salida</h4>
+            {% else %}
+              <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#000] font-bold">Check Out</h4>
+            {% endif %}
+            <div class="relative">
+              <input type="text" id="checkout" name="checkout" value="{{ tomorrow }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText">
+              <i class="fas fa-calendar-alt calendar-icon" id="checkout-icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="flex p-[12px]">
+          <div class="search-control-button flex items-center min-w-[117px]">
+            {% if lang_code == 'es' %}
+              <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Verificar</button>
+            {% else %}
+              <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Check Now</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% block reservation_js %}
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      flatpickr("#checkin", { dateFormat: "Y-m-d" });
+      flatpickr("#checkout", { dateFormat: "Y-m-d" });
+    });
+  </script>
+{% endblock %}
