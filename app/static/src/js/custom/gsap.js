@@ -20,15 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateCardsLayout() {
-        cards.forEach((card, i) => {
-            gsap.to(card, {
-                xPercent: 100 * (i - currentIndex),
-                duration: 1,
-                ease: "power2.out",
-                scale: i === currentIndex ? 1 : 0.8,
-                opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
-                zIndex: i === currentIndex ? 100 : 50
-            });
+        gsap.to(cards, {
+            xPercent: (i) => 100 * (i - currentIndex),
+            duration: 1,
+            ease: "power2.out",
+            scale: (i) => i === currentIndex ? 1 : 0.8,
+            opacity: (i) => i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
+            zIndex: (i) => i === currentIndex ? 100 : 50,
+            stagger: 0.1
         });
     }
 
@@ -93,4 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initializeCards();
     updateCardsLayout();
+
+    // Initialize AOS after GSAP setup
+    AOS.init({
+        duration: 600, // Shorter duration for faster appearance
+        easing: 'ease-in-out', // Smooth easing
+        once: true // Animations should happen only once
+    });
 });
