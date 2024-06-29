@@ -70,6 +70,17 @@ def create_app():
     def page_not_found(e):
         return render_template("custom_404.html"), 404
 
+    # Add cache headers for static files
+    @app.after_request
+    def add_cache_headers(response):
+        if 'maps.googleapis.com' in request.url:
+            response.headers['Cache-Control'] = 'public, max-age=86400'  # 1 day
+        elif 'cdn.jsdelivr.net' in request.url:
+            response.headers['Cache-Control'] = 'public, max-age=604800'  # 7 days
+        elif 'hammerjs.github.io' in request.url:
+            response.headers['Cache-Control'] = 'public, max-age=86400'  # 1 day
+        return response
+
     return app
 
 if __name__ == "__main__":
