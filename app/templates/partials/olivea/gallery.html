@@ -11,10 +11,10 @@
                                 sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
                             <source
                                 srcset="{{ url_for('static', filename='dist/img/about/olivea_about-300.jpg') }} 300w, {{ url_for('static', filename='dist/img/about/olivea_about-600.jpg') }} 600w, {{ url_for('static', filename='dist/img/about/olivea_about-900.jpg') }} 900w"
-                                sizes="(max-width: 600px) 100vw, 600px" type="image/jpeg">
-                            <img src="{{ url_for('static', filename='dist/img/about/olivea_about-600.jpg') }}"
+                                sizes="(max-width: 600px) 100vw, 600px" type="image/jpeg"><img
+                                src="{{ url_for('static', filename='dist/img/about/olivea_about-600.jpg') }}"
                                 alt="{% if lang_code == 'es' %}Hotel Boutique MYA{% else %}MYA Hotel Boutique{% endif %}"
-                                class="responsive-img lazyload" width="600" height="400" loading="lazy">
+                                class="responsive-img lazyload" width="600" height="400">
                         </picture>
                     </div>
                 </div>
@@ -63,19 +63,19 @@
         </div>
         <div class="gallery">
             <ul class="cards">
-                <li><img src="{{ url_for('static', filename='dist/img/about/about.png') }}" alt="placeholder" loading="lazy"></li>
-                <li><img src="{{ url_for('static', filename='dist/img/about/about.png') }}" alt="placeholder" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='dist/img/about/about.png') }}" alt="placeholder"></li>
+                <li><img src="{{ url_for('static', filename='dist/img/about/about.png') }}" alt="placeholder"></li>
                 <li><img src="{{ url_for('static', filename='dist/img/about/1_olivea.jpg') }}"
                         alt="{% if lang_code == 'es' %}Chef Rafael Magaña y el sous chef Daniel en nuestro jardín{% else %}Chef Rafael Magaña and sous chef Daniel at our garden{% endif %}"
-                        width="600" height="400" loading="lazy"></li>
+                        width="600" height="400"></li>
                 <li><img src="{{ url_for('static', filename='dist/img/about/3_olivea.jpg') }}"
-                        alt="{% if lang_code == 'es' %}Jardín{% else %}Garden{% endif %}" width="600" height="400" loading="lazy"></li>
+                        alt="{% if lang_code == 'es' %}Jardín{% else %}Garden{% endif %}" width="600" height="400"></li>
                 <li><img src="{{ url_for('static', filename='dist/img/about/9_olivea.jpg') }}"
                         alt="{% if lang_code == 'es' %}Plato de pescado rodeado de ingredientes del jardín{% else %}Fish plate surrounded by garden ingredients{% endif %}"
-                        width="600" height="400" loading="lazy"></li>
+                        width="600" height="400"></li>
                 <li><img src="{{ url_for('static', filename='dist/img/about/12_olivea.jpg') }}"
                         alt="{% if lang_code == 'es' %}Postre directamente del jardín{% else %}Dessert straight from the garden{% endif %}"
-                        width="600" height="400" loading="lazy"></li>
+                        width="600" height="400"></li>
             </ul>
         </div>
     </div>
