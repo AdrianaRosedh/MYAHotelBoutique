@@ -190,12 +190,13 @@
 /* Additional CSS for SweetAlert2 Customization */
 .swal2-popup.chatbot-swal-popup {
   width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  max-height: 100% !important;
+  border-radius: 0 !important;
   padding: 0 !important;
-  border-radius: 1 !important;
-  background-color: #fff !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .swal2-popup .swal2-title {

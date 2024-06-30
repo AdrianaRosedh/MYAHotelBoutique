@@ -1,4 +1,4 @@
-export function initChatbot() {
+function initChatbot() {
     function toggleChatbot() {
         if (window.innerWidth <= 640) {
             openChatbotMobile();
@@ -35,13 +35,13 @@ export function initChatbot() {
             if (lang === 'es') {
                 messages = [
                     "¡Hola! 🌟",
-                    "¿Tienes preguntas sobre MYA, Olivea o DiVino? ¡Pregúntame, estoy aquí para ayudarte!",
+                    "¿Tienes preguntas sobre MYA, Olivea o DiVino?",
                     "¡Pregúntame, estoy aquí para ayudarte!"
                 ];
             } else {
                 messages = [
                     "Hey there! 🌟",
-                    "Got questions about MYA, Olivea, or DiVino? Ask away, I'm here to help!",
+                    "Got questions about MYA, Olivea, or DiVino?",
                     "Ask away, I'm here to help!"
                 ];
             }
@@ -85,6 +85,7 @@ export function initChatbot() {
                 popup: 'chatbot-swal-popup'
             },
             width: '100%',
+            heightAuto: false,
             padding: '0',
             background: '#fff',
             backdrop: true,
@@ -93,27 +94,25 @@ export function initChatbot() {
             didOpen: () => {
                 console.log("Modal opened");
 
-                // Add initial bot messages with delay if not shown before
                 const chatbox = document.getElementById('chatbox-swal');
                 if (!localStorage.getItem('initialMessagesShownMobile')) {
                     let messages;
                     if (lang === 'es') {
                         messages = [
                             "¡Hola! 🌟",
-                            "¿Tienes preguntas sobre MYA, Olivea o DiVino? ¡Pregúntame, estoy aquí para ayudarte!",
+                            "¿Tienes preguntas sobre MYA, Olivea o DiVino?",
                             "¡Pregúntame, estoy aquí para ayudarte!"
                         ];
                     } else {
                         messages = [
                             "Hey there! 🌟",
-                            "Got questions about MYA, Olivea, or DiVino? Ask away, I'm here to help!",
+                            "Got questions about MYA, Olivea, or DiVino?",
                             "Ask away, I'm here to help!"
                         ];
                     }
                     showInitialMessages(chatbox, messages, 'chatHistoryMobile');
                     localStorage.setItem('initialMessagesShownMobile', 'true');
                 } else {
-                    // Restore existing chatbox content if initial messages have already been shown
                     chatbox.innerHTML = localStorage.getItem('chatHistoryMobile') || '';
                 }
 
@@ -129,6 +128,11 @@ export function initChatbot() {
 
                 const sendButton = document.getElementById('send-button-swal');
                 sendButton.addEventListener('click', () => {
+                    const event = new Event('submit');
+                    sendMessageSwal(event);
+                });
+
+                sendButton.addEventListener('touchstart', () => {
                     const event = new Event('submit');
                     sendMessageSwal(event);
                 });
@@ -256,6 +260,9 @@ export function initChatbot() {
         }
     });
     document.querySelector('.send-button').addEventListener('click', (event) => {
+        sendMessage(event);
+    });
+    document.querySelector('.send-button').addEventListener('touchstart', (event) => {
         sendMessage(event);
     });
 

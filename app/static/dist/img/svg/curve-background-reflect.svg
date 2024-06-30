@@ -8,5 +8,5 @@
             <animate attributeName="x2" values="100%;0%;100%" dur="5s" repeatCount="indefinite" />
         </linearGradient>
     </defs>
-    <path fill="url(#gradient)" fill-opacity="1" d="M1440,320L1360,280C1280,240,1120,160,960,160C800,160,640,240,480,280C320,320,160,320,80,300L0,280L0,0L1440,0Z" />
+    <path fill="url(#gradient)" fill-opacity="1" d="M0,320L80,280C160,240,320,160,480,160C640,160,800,240,960,280C1120,320,1280,320,1360,300L1440,280L1440,0L0,0Z" />
 </svg>
