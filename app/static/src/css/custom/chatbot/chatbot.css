@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Your chatbot-specific styles here */
-
 /* Chatbot CSS */
 #chatbox {
   overflow-y: auto;
@@ -127,30 +125,32 @@
 @media (max-width: 767px) {
   #chatbot-container.open {
     display: flex !important;
-    max-width: 100%; /* Ensure it doesn't overflow */
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
+    max-width: 24rem !important; /* Ensure fixed width */
+    width: 24rem !important; /* Fixed width */
+    height: 40rem !important; /* Fixed height */
     position: fixed; /* Fixed position */
     bottom: 0; /* Stick to bottom */
-    left: 0; /* Stick to left */
-    right: 0; /* Stick to right */
-    top: 0; /* Stick to top */
+    left: 0; /* Center horizontally */
+    right: 0; /* Center horizontally */
+    margin: auto;
     padding: 0 !important; /* Remove padding */
-    border-radius: 0 !important; /* Remove border radius */
+    border-radius: 0.5rem !important; /* Remove border radius */
+    overflow: hidden; /* Prevent content overflow */
   }
 }
 
 @media screen and (max-width: 640px) {
   #chatbot-container.open {
-    width: 100% !important;
+    width: 24rem !important;
     right: 0 !important;
     left: 0 !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
+    height: 40rem !important;
+    max-height: 40rem !important;
+    border-radius: 0.5rem !important;
     position: fixed !important;
     top: 0 !important;
     z-index: 1100 !important;
+    margin: auto;
   }
 
   #chatbot-toggle {
@@ -166,6 +166,8 @@
 
   #chatbox {
     padding: 1rem !important;
+    height: calc(100% - 5rem) !important; /* Adjust to allow scrolling */
+    overflow-y: auto !important; /* Enable vertical scrolling */
   }
 
   .input-area {
@@ -189,11 +191,11 @@
 
 /* Additional CSS for SweetAlert2 Customization */
 .swal2-popup.chatbot-swal-popup {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  border-radius: 0 !important;
+  width: 24rem !important; /* Fixed width */
+  height: 40rem !important; /* Fixed height */
+  max-width: 24rem !important; /* Fixed width */
+  max-height: 40rem !important; /* Fixed height */
+  border-radius: 0.5rem !important;
   padding: 0 !important;
   display: flex;
   flex-direction: column;
@@ -220,6 +222,7 @@
   padding: 0 !important; /* Remove padding */
   margin: 0 !important; /* Remove margin */
 }
+
 .chatbot-message {
   margin-bottom: 16px; /* Adjust the value to increase space between messages */
 }

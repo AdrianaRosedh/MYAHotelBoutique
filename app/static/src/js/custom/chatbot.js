@@ -82,7 +82,7 @@ function initChatbot() {
             customClass: {
                 popup: 'chatbot-swal-popup'
             },
-            width: '100%',
+            width: '24rem',
             heightAuto: false,
             padding: '0',
             background: '#fff',
