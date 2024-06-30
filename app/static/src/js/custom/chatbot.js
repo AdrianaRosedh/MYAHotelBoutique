@@ -136,6 +136,8 @@ function openChatbotMobile() {
 
             const sendButton = document.getElementById('send-button-swal');
             sendButton.addEventListener('click', (event) => sendMessageSwal(event));
+
+            console.log("Event listeners attached");
         }
     });
 }
