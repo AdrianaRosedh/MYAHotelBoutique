@@ -128,8 +128,10 @@ function initChatbot() {
 
                 const sendButton = document.getElementById('send-button-swal');
                 sendButton.addEventListener('click', (event) => sendMessageSwal(event));
-
-                sendButton.addEventListener('touchstart', (event) => sendMessageSwal(event));
+                sendButton.addEventListener('touchstart', (event) => {
+                    event.preventDefault(); // Prevent default touch behavior
+                    sendMessageSwal(event);
+                });
 
                 userInput.focus();
             }
@@ -254,7 +256,10 @@ function initChatbot() {
         }
     });
     document.querySelector('.send-button').addEventListener('click', (event) => sendMessage(event));
-    document.querySelector('.send-button').addEventListener('touchstart', (event) => sendMessage(event));
+    document.querySelector('.send-button').addEventListener('touchstart', (event) => {
+        event.preventDefault(); // Prevent default touch behavior
+        sendMessage(event);
+    });
 
     // Ensure the bounce animation only runs once on load
     const chatbotToggle = document.getElementById('chatbot-toggle');
