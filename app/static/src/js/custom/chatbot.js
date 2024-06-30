@@ -1,87 +1,221 @@
 export function initChatbot() {
     function toggleChatbot() {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        if (chatbotContainer.classList.contains('hidden')) {
-            openChatbot();
+        if (window.innerWidth <= 640) {
+            openChatbotMobile();
         } else {
-            closeChatbot();
+            const chatbotContainer = document.getElementById('chatbot-container');
+            if (chatbotContainer.classList.contains('hidden')) {
+                openChatbot();
+            } else {
+                closeChatbot();
+            }
         }
     }
 
     function openChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.remove('hidden');
-        if (window.innerWidth <= 640) {
-            chatbotContainer.classList.add('open'); // Add class to expand on mobile
-        }
+        chatbotContainer.style.width = '20rem'; // Set the width to the desired size
+        chatbotContainer.style.height = '28rem'; // Set the height to auto or specific size
+        chatbotContainer.style.maxHeight = '28rem'; // Set the maximum height
+        chatbotContainer.style.minHeight = '24rem'; // Set the minimum height
+        chatbotContainer.style.bottom = '1rem';
+        chatbotContainer.style.right = '1rem';
+        chatbotContainer.style.left = 'auto';
+        chatbotContainer.style.borderRadius = '0.5rem';
         document.body.classList.add('chatbot-open'); // Apply darkening effect
         document.getElementById('user-input').focus();
+
+        const chatbox = document.getElementById('chatbox');
+        const lang = document.body.getAttribute('data-lang') || 'en';
+
+        // Check if initial messages have already been shown
+        if (!localStorage.getItem('initialMessagesShown')) {
+            let messages;
+            if (lang === 'es') {
+                messages = [
+                    "¡Hola! 🌟",
+                    "¿Tienes preguntas sobre MYA, Olivea o DiVino? ¡Pregúntame, estoy aquí para ayudarte!",
+                    "¡Pregúntame, estoy aquí para ayudarte!"
+                ];
+            } else {
+                messages = [
+                    "Hey there! 🌟",
+                    "Got questions about MYA, Olivea, or DiVino? Ask away, I'm here to help!",
+                    "Ask away, I'm here to help!"
+                ];
+            }
+            showInitialMessages(chatbox, messages, 'chatHistoryDesktop');
+            localStorage.setItem('initialMessagesShown', 'true');
+        } else {
+            // Restore existing chatbox content if initial messages have already been shown
+            chatbox.innerHTML = localStorage.getItem('chatHistoryDesktop') || '';
+        }
     }
 
     function closeChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.add('hidden');
-        chatbotContainer.classList.remove('open'); // Remove class to revert on mobile
         document.body.classList.remove('chatbot-open'); // Remove darkening effect
         document.getElementById('chatbot-toggle').focus();
     }
 
-    function dragElement(element) {
-        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        const header = document.getElementById('chatbot-header');
-        if (header) {
-            header.onmousedown = dragMouseDown;
-        } else {
-            element.onmousedown = dragMouseDown;
-        }
+    function openChatbotMobile() {
+        const lang = document.body.getAttribute('data-lang') || 'en';
+        Swal.fire({
+            title: 'Chatbot',
+            html: `
+                <div id="chatbot-container-swal" class="flex flex-col w-full h-full">
+                    <div id="chatbot-header-swal" class="p-4 flex justify-between items-center">
+                        <img src="/static/dist/img/svg/mya-ai-bounce.svg" alt="Avatar" class="w-16 h-16">
+                        <button id="close-chatbot-swal" class="text-white" aria-label="Close Chatbot">&times;</button>
+                    </div>
+                    <div id="chatbox-swal" class="flex-1 p-4 overflow-auto"></div>
+                    <div class="input-area-swal p-2 flex items-center">
+                        <input type="text" id="user-input-swal" class="p-2 flex-grow focus:outline-none">
+                        <button id="send-button-swal" class="send-button-swal" aria-label="Send message">
+                            <img src="/static/dist/img/svg/sending.svg" alt="Sending">
+                        </button>
+                    </div>
+                </div>
+            `,
+            showCloseButton: false,
+            showConfirmButton: false,
+            customClass: {
+                popup: 'chatbot-swal-popup'
+            },
+            width: '100%',
+            padding: '0',
+            background: '#fff',
+            backdrop: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            didOpen: () => {
+                console.log("Modal opened");
 
-        function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup = closeDragElement;
-            document.onmousemove = elementDrag;
-        }
+                // Add initial bot messages with delay if not shown before
+                const chatbox = document.getElementById('chatbox-swal');
+                if (!localStorage.getItem('initialMessagesShownMobile')) {
+                    let messages;
+                    if (lang === 'es') {
+                        messages = [
+                            "¡Hola! 🌟",
+                            "¿Tienes preguntas sobre MYA, Olivea o DiVino? ¡Pregúntame, estoy aquí para ayudarte!",
+                            "¡Pregúntame, estoy aquí para ayudarte!"
+                        ];
+                    } else {
+                        messages = [
+                            "Hey there! 🌟",
+                            "Got questions about MYA, Olivea, or DiVino? Ask away, I'm here to help!",
+                            "Ask away, I'm here to help!"
+                        ];
+                    }
+                    showInitialMessages(chatbox, messages, 'chatHistoryMobile');
+                    localStorage.setItem('initialMessagesShownMobile', 'true');
+                } else {
+                    // Restore existing chatbox content if initial messages have already been shown
+                    chatbox.innerHTML = localStorage.getItem('chatHistoryMobile') || '';
+                }
 
-        function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            element.style.top = (element.offsetTop - pos2) + "px";
-            element.style.left = (element.offsetLeft - pos1) + "px";
-        }
+                const closeButton = document.getElementById('close-chatbot-swal');
+                closeButton.addEventListener('click', () => Swal.close());
 
-        function closeDragElement() {
-            document.onmouseup = null;
-            document.onmousemove = null;
-        }
+                const userInput = document.getElementById('user-input-swal');
+                userInput.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        sendMessageSwal(event);
+                    }
+                });
+
+                const sendButton = document.getElementById('send-button-swal');
+                sendButton.addEventListener('click', () => {
+                    const event = new Event('submit');
+                    sendMessageSwal(event);
+                });
+
+                userInput.focus();
+            }
+        });
     }
 
-    async function sendMessage(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();  // Prevent form submission
-            const userInput = document.getElementById('user-input').value;
-            if (userInput.trim() === "") return;
+    async function sendMessageSwal(event) {
+        event.preventDefault();  // Prevent form submission
 
-            const chatbox = document.getElementById('chatbox');
-            chatbox.innerHTML += `<div class="text-left"><strong>You:</strong> ${userInput}</div>`;
-            document.getElementById('user-input').value = '';
+        const userInput = document.getElementById('user-input-swal');
+        const userInputValue = userInput.value;
+        if (userInputValue.trim() === "") return;
 
+        console.log("Sending message:", userInputValue);
+
+        const chatbox = document.getElementById('chatbox-swal');
+        chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>You:</strong> ${userInputValue}</div>`;
+        userInput.value = '';
+
+        try {
             const response = await fetch('/chatbot/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: userInput })
+                body: JSON.stringify({ message: userInputValue })
             });
             const data = await response.json();
-            chatbox.innerHTML += `<div class="text-left"><strong>Bot:</strong> ${data.response}</div>`;
+            chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${data.response}</div>`;
             chatbox.scrollTop = chatbox.scrollHeight;
+            localStorage.setItem('chatHistoryMobile', chatbox.innerHTML); // Save chat history
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong with sending your message!',
+            });
         }
+    }
+
+    async function sendMessage(event) {
+        event.preventDefault();  // Prevent form submission
+
+        const userInput = document.getElementById('user-input');
+        const userInputValue = userInput.value;
+        if (userInputValue.trim() === "") return;
+
+        const chatbox = document.getElementById('chatbox');
+        chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>You:</strong> ${userInputValue}</div>`;
+        userInput.value = '';
+
+        try {
+            const response = await fetch('/chatbot/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInputValue })
+            });
+            const data = await response.json();
+            chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${data.response}</div>`;
+            chatbox.scrollTop = chatbox.scrollHeight;
+            localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML); // Save chat history
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong with sending your message!',
+            });
+        }
+    }
+
+    // Show initial messages one by one with delay
+    function showInitialMessages(chatbox, messages, historyKey) {
+        chatbox.innerHTML = ''; // Clear any previous content
+        let delay = 0;
+        messages.forEach((message, index) => {
+            setTimeout(() => {
+                chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${message}</div>`;
+                chatbox.scrollTop = chatbox.scrollHeight;
+                localStorage.setItem(historyKey, chatbox.innerHTML); // Save chat history
+            }, delay);
+            delay += 1000; // 1 second delay between messages
+        });
     }
 
     // Add keyboard navigation support
@@ -116,7 +250,14 @@ export function initChatbot() {
 
     // Attach event listeners
     document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
-    document.getElementById('user-input').addEventListener('keypress', sendMessage);
+    document.getElementById('user-input').addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            sendMessage(event);
+        }
+    });
+    document.querySelector('.send-button').addEventListener('click', (event) => {
+        sendMessage(event);
+    });
 
     // Ensure the bounce animation only runs once on load
     const chatbotToggle = document.getElementById('chatbot-toggle');
