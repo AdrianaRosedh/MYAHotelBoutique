@@ -15,21 +15,20 @@ function initChatbot() {
     function openChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.remove('hidden');
-        chatbotContainer.style.width = '20rem'; // Set the width to the desired size
-        chatbotContainer.style.height = '28rem'; // Set the height to auto or specific size
-        chatbotContainer.style.maxHeight = '28rem'; // Set the maximum height
-        chatbotContainer.style.minHeight = '24rem'; // Set the minimum height
+        chatbotContainer.style.width = '20rem';
+        chatbotContainer.style.height = '28rem';
+        chatbotContainer.style.maxHeight = '28rem';
+        chatbotContainer.style.minHeight = '24rem';
         chatbotContainer.style.bottom = '1rem';
         chatbotContainer.style.right = '1rem';
         chatbotContainer.style.left = 'auto';
         chatbotContainer.style.borderRadius = '0.5rem';
-        document.body.classList.add('chatbot-open'); // Apply darkening effect
+        document.body.classList.add('chatbot-open');
         document.getElementById('user-input').focus();
 
         const chatbox = document.getElementById('chatbox');
         const lang = document.body.getAttribute('data-lang') || 'en';
 
-        // Check if initial messages have already been shown
         if (!localStorage.getItem('initialMessagesShown')) {
             let messages;
             if (lang === 'es') {
@@ -48,7 +47,6 @@ function initChatbot() {
             showInitialMessages(chatbox, messages, 'chatHistoryDesktop');
             localStorage.setItem('initialMessagesShown', 'true');
         } else {
-            // Restore existing chatbox content if initial messages have already been shown
             chatbox.innerHTML = localStorage.getItem('chatHistoryDesktop') || '';
         }
     }
@@ -56,7 +54,7 @@ function initChatbot() {
     function closeChatbot() {
         const chatbotContainer = document.getElementById('chatbot-container');
         chatbotContainer.classList.add('hidden');
-        document.body.classList.remove('chatbot-open'); // Remove darkening effect
+        document.body.classList.remove('chatbot-open');
         document.getElementById('chatbot-toggle').focus();
     }
 
@@ -129,7 +127,7 @@ function initChatbot() {
                 const sendButton = document.getElementById('send-button-swal');
                 sendButton.addEventListener('click', (event) => sendMessageSwal(event));
                 sendButton.addEventListener('touchstart', (event) => {
-                    event.preventDefault(); // Prevent default touch behavior
+                    event.preventDefault();
                     sendMessageSwal(event);
                 });
 
@@ -139,7 +137,7 @@ function initChatbot() {
     }
 
     async function sendMessageSwal(event) {
-        event.preventDefault();  // Prevent form submission
+        event.preventDefault();
 
         const userInput = document.getElementById('user-input-swal');
         const userInputValue = userInput.value;
@@ -162,7 +160,7 @@ function initChatbot() {
             const data = await response.json();
             chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${data.response}</div>`;
             chatbox.scrollTop = chatbox.scrollHeight;
-            localStorage.setItem('chatHistoryMobile', chatbox.innerHTML); // Save chat history
+            localStorage.setItem('chatHistoryMobile', chatbox.innerHTML);
         } catch (error) {
             Swal.fire({
                 icon: 'error',
@@ -173,7 +171,7 @@ function initChatbot() {
     }
 
     async function sendMessage(event) {
-        event.preventDefault();  // Prevent form submission
+        event.preventDefault();
 
         const userInput = document.getElementById('user-input');
         const userInputValue = userInput.value;
@@ -194,7 +192,7 @@ function initChatbot() {
             const data = await response.json();
             chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${data.response}</div>`;
             chatbox.scrollTop = chatbox.scrollHeight;
-            localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML); // Save chat history
+            localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML);
         } catch (error) {
             Swal.fire({
                 icon: 'error',
@@ -204,38 +202,33 @@ function initChatbot() {
         }
     }
 
-    // Show initial messages one by one with delay
     function showInitialMessages(chatbox, messages, historyKey) {
-        chatbox.innerHTML = ''; // Clear any previous content
+        chatbox.innerHTML = '';
         let delay = 0;
         messages.forEach((message, index) => {
             setTimeout(() => {
                 chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${message}</div>`;
                 chatbox.scrollTop = chatbox.scrollHeight;
-                localStorage.setItem(historyKey, chatbox.innerHTML); // Save chat history
+                localStorage.setItem(historyKey, chatbox.innerHTML);
             }, delay);
-            delay += 1000; // 1 second delay between messages
+            delay += 1000;
         });
     }
 
-    // Add keyboard navigation support
     document.addEventListener('keydown', function(event) {
         const chatbotToggle = document.getElementById('chatbot-toggle');
         const chatbotContainer = document.getElementById('chatbot-container');
         const userInput = document.getElementById('user-input');
         const closeButton = chatbotContainer.querySelector('button[aria-label="Close Chatbot"]');
 
-        // Toggle chatbot with Enter key on the toggle button
         if (event.key === 'Enter' && document.activeElement === chatbotToggle) {
             toggleChatbot();
         }
 
-        // Close chatbot with Enter key on the close button
         if (event.key === 'Enter' && document.activeElement === closeButton) {
             closeChatbot();
         }
 
-        // Focus on user input when chatbot is opened
         if (!chatbotContainer.classList.contains('hidden')) {
             if (event.key === 'Tab' && document.activeElement === chatbotToggle) {
                 userInput.focus();
@@ -248,7 +241,6 @@ function initChatbot() {
         dragElement(document.getElementById('chatbot-container'));
     });
 
-    // Attach event listeners
     document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
     document.getElementById('user-input').addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
@@ -257,17 +249,15 @@ function initChatbot() {
     });
     document.querySelector('.send-button').addEventListener('click', (event) => sendMessage(event));
     document.querySelector('.send-button').addEventListener('touchstart', (event) => {
-        event.preventDefault(); // Prevent default touch behavior
+        event.preventDefault();
         sendMessage(event);
     });
 
-    // Ensure the bounce animation only runs once on load
     const chatbotToggle = document.getElementById('chatbot-toggle');
     chatbotToggle.addEventListener('animationend', () => {
         chatbotToggle.style.animation = 'none';
     });
 
-    // Make the chatbot container responsive
     window.addEventListener('resize', () => {
         const chatbotContainer = document.getElementById('chatbot-container');
         const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -279,7 +269,7 @@ function initChatbot() {
             chatbotContainer.style.left = '0';
             chatbotContainer.style.maxHeight = '100%';
             chatbotContainer.style.borderRadius = '0';
-            chatbotToggle.style.display = 'block'; // Ensure toggle button is visible on mobile
+            chatbotToggle.style.display = 'block';
         } else {
             chatbotContainer.style.width = '20rem';
             chatbotContainer.style.height = 'auto';
@@ -288,14 +278,12 @@ function initChatbot() {
             chatbotContainer.style.left = 'auto';
             chatbotContainer.style.maxHeight = '24rem';
             chatbotContainer.style.borderRadius = '0.5rem';
-            chatbotToggle.style.display = 'block'; // Ensure toggle button is visible on desktop
+            chatbotToggle.style.display = 'block';
         }
     });
 
-    // Initial trigger to set correct sizes
     window.dispatchEvent(new Event('resize'));
 
-    // Ensure the chatbot-toggle is visible on mobile
     window.addEventListener('load', function () {
         const toggle = document.getElementById('chatbot-toggle');
         if (window.innerWidth <= 640) {
@@ -304,12 +292,10 @@ function initChatbot() {
     });
 }
 
-// Call the initialization function when the document is ready
 document.addEventListener('DOMContentLoaded', function() {
     initChatbot();
 });
 
-// JavaScript to dynamically set the placeholder based on language
 document.addEventListener('DOMContentLoaded', function() {
     const lang = document.body.getAttribute('data-lang') || 'en';
     const userInput = document.getElementById('user-input');
