@@ -14,7 +14,7 @@
   padding-top: 4rem !important;
   z-index: 100 !important;
   max-width: calc(100% - 1rem); /* Ensure it doesn't overflow */
-  width: 100%; /* Ensure width consistency */
+  width: 100%;
 }
 
 #chatbot-toggle {
@@ -119,16 +119,16 @@
 /* Mobile-specific styles */
 @media (max-width: 767px) {
   #chatbot-container {
-    width: 24rem !important; /* Fixed width */
-    height: 40rem !important; /* Fixed height */
-    position: fixed; /* Fixed position */
-    bottom: 0; /* Stick to bottom */
-    left: 0; /* Center horizontally */
-    right: 0; /* Center horizontally */
+    width: 24rem !important;
+    height: 40rem !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
-    padding: 0 !important; /* Remove padding */
-    border-radius: 0.5rem !important; /* Remove border radius */
-    overflow: hidden; /* Prevent content overflow */
+    padding: 0 !important;
+    border-radius: 0.5rem !important;
+    overflow: hidden;
   }
 }
 
@@ -140,7 +140,7 @@
     height: 40rem !important;
     max-height: 40rem !important;
     border-radius: 0.5rem !important;
-    position: fixed !important;
+    position: fixed;
     top: 0 !important;
     z-index: 1100 !important;
     margin: auto;
