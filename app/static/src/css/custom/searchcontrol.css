@@ -11,11 +11,15 @@
 @media screen and (max-width: 1023px) {
   .section-search-control {
     position: relative !important;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    z-index: 10;
+    z-index: 10; /* Ensure the section is above other elements */
   }
   .section-search-control .search-control-boxing {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
   .section-search-control .w-full {
@@ -34,11 +38,11 @@
 }
 
 .widgetHotelsInputText {
-  padding: 5px 35px 5px 10px;
+  padding: 5px 35px 5px 10px; /* Adjust padding to accommodate the icon */
   font-size: 14px;
   border: 1px solid #e3e1e1;
   border-radius: 5px;
-  width: 100% !important;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .submit_link {
@@ -69,7 +73,7 @@
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 10;
-  color: #676663;
+  color: #676663; /* Match the color to the theme */
 }
 
 .flatpickr-calendar {
@@ -77,7 +81,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 10; /* Ensure the Flatpickr calendar is above other elements */
 }
 
 .flatpickr-months {
