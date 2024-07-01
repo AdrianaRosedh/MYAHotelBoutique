@@ -23,28 +23,21 @@
 .delay-2000ms {
   animation-delay: 5.5s;
 }
+.delay-2500ms {
+  animation-delay: 6s;
+}
 
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
-.animate-typing {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 0.15em solid orange;
-  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
-  opacity: 1; /* Ensure text is visible during typing */
-}
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: orange; }
-}
+
 .typing-container {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards, typing 2s steps(30, end) forwards;
+  animation: fadeIn 0.1s ease-in-out forwards, typing 2.5s steps(30, end) forwards;
 }
 @keyframes fadeIn {
   0% {
@@ -53,14 +46,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.fadeIn {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.top-40 {
-  top: 40% !important;
 }
 
 @keyframes bounce {
@@ -78,79 +63,4 @@
   opacity: 0;
   animation: fadeIn 1s forwards, bounce 2s infinite;
   animation-delay: 3s, 4s; /* Adjust the delay as needed */
-}
-
-/* Ensure the img within the picture element covers the hero section */
-#hero .hero-image img {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-/* Ensure the picture element fills the hero section */
-#hero .hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Responsive text sizes and line heights */
-@screen sm {
-  #hero h1 {
-    font-size: 30px;
-    line-height: 1.1;
-  }
-  #hero .typing-container {
-    font-size: 18px;
-    line-height: 1.1;
-  }
-}
-@screen md {
-  #hero h1 {
-    font-size: 35px;
-    line-height: 1.1;
-  }
-  #hero .typing-container {
-    font-size: 20px;
-    line-height: 1.1;
-  }
-}
-@screen lg {
-  #hero h1 {
-    font-size: 42px;
-    line-height: 1.1;
-  }
-  #hero .typing-container {
-    font-size: 28px;
-    line-height: 1.1;
-  }
-}
-@screen xl {
-  #hero h1 {
-    font-size: 48px;
-    line-height: 1.1;
-  }
-  #hero .typing-container {
-    font-size: 32px;
-    line-height: 1.1;
-  }
-}
-@screen 2xl {
-  #hero h1 {
-    font-size: 56px;
-    line-height: 1.1;
-  }
-  #hero .typing-container {
-    font-size: 36px;
-    line-height: 1.1;
-  }
-}
-
-/* Set hero height for all devices */
-#hero {
-  height: 100vh;
-  position: relative;
 }
