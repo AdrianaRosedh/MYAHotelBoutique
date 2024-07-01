@@ -127,3 +127,12 @@ ul.navbar-nav .dropdown:hover .dropdown-menu {
     visibility: inherit !important;
   }
 }
+
+/* Toggle Switch */
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+  transform: translateX(100%);
+  background-color: #f3f4f6; /* Light color when toggled */
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4b5563; /* Dark color when toggled */
+}

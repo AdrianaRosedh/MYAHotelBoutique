@@ -18,21 +18,15 @@
     left: 0;
 }
 
+/* Adjust the container size for iPad devices (481px to 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .image-container {
+        max-width: 100%;
+        padding-top: calc(548 / 624 * 100%); /* Maintain original aspect ratio */
+    }
+}
+
 /* Adjust the container size for smaller screens */
-@media (max-width: 1024px) {
-    .image-container {
-        max-width: 480px;
-        padding-top: calc(548 / 480 * 100%); /* Maintain aspect ratio */
-    }
-}
-
-@media (max-width: 768px) {
-    .image-container {
-        max-width: 360px;
-        padding-top: calc(548 / 360 * 100%); /* Maintain aspect ratio */
-    }
-}
-
 @media (max-width: 480px) {
     .image-container {
         max-width: 100%;
