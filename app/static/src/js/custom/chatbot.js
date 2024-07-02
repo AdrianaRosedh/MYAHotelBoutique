@@ -9,10 +9,9 @@ function initChatbot() {
             sendMessage(event);
         }
     });
-
-    const sendButton = document.querySelector('.send-button');
-    sendButton.addEventListener('click', sendMessage);
-    sendButton.addEventListener('touchstart', sendMessage);
+    document.querySelector('.send-button').addEventListener('click', function(event) {
+        sendMessage(event);
+    });
 
     window.addEventListener('resize', handleResize);
     handleResize(); // Ensure proper styling on load
@@ -136,8 +135,7 @@ function openChatbotMobile() {
             });
 
             const sendButton = document.getElementById('send-button-swal');
-            sendButton.addEventListener('click', sendMessageSwal);
-            sendButton.addEventListener('touchstart', sendMessageSwal);
+            sendButton.addEventListener('click', (event) => sendMessageSwal(event));
 
             console.log("Event listeners attached");
         }
@@ -170,11 +168,7 @@ async function sendMessageSwal(event) {
         chatbox.scrollTop = chatbox.scrollHeight;
         localStorage.setItem('chatHistoryMobile', chatbox.innerHTML);
     } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong with sending your message!',
-        });
+        console.error('Error sending message:', error);
     }
 }
 
@@ -202,11 +196,7 @@ async function sendMessage(event) {
         chatbox.scrollTop = chatbox.scrollHeight;
         localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML);
     } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong with sending your message!',
-        });
+        console.error('Error sending message:', error);
     }
 }
 
