@@ -9,9 +9,8 @@ function initChatbot() {
             sendMessage(event);
         }
     });
-    document.querySelector('.send-button').addEventListener('click', function(event) {
-        sendMessage(event);
-    });
+    document.querySelector('.send-button').addEventListener('click', sendMessage);
+    document.querySelector('.send-button').addEventListener('touchstart', sendMessage);
 
     window.addEventListener('resize', handleResize);
     handleResize(); // Ensure proper styling on load
@@ -135,7 +134,8 @@ function openChatbotMobile() {
             });
 
             const sendButton = document.getElementById('send-button-swal');
-            sendButton.addEventListener('click', (event) => sendMessageSwal(event));
+            sendButton.addEventListener('click', sendMessageSwal);
+            sendButton.addEventListener('touchstart', sendMessageSwal);
 
             console.log("Event listeners attached");
         }
