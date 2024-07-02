@@ -9,8 +9,9 @@ function initChatbot() {
             sendMessage(event);
         }
     });
-    document.querySelector('.send-button').addEventListener('click', sendMessage);
-    document.querySelector('.send-button').addEventListener('touchstart', sendMessage);
+    const sendButton = document.querySelector('.send-button');
+    sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('touchstart', sendMessage);
 
     window.addEventListener('resize', handleResize);
     handleResize(); // Ensure proper styling on load
@@ -137,13 +138,14 @@ function openChatbotMobile() {
             sendButton.addEventListener('click', sendMessageSwal);
             sendButton.addEventListener('touchstart', sendMessageSwal);
 
-            console.log("Event listeners attached");
+            console.log("Event listeners attached for Swal modal");
         }
     });
 }
 
 async function sendMessageSwal(event) {
     event.preventDefault();
+    console.log("sendMessageSwal triggered");
 
     const userInput = document.getElementById('user-input-swal');
     const userInputValue = userInput.value;
@@ -174,10 +176,13 @@ async function sendMessageSwal(event) {
 
 async function sendMessage(event) {
     event.preventDefault();
+    console.log("sendMessage triggered");
 
     const userInput = document.getElementById('user-input');
     const userInputValue = userInput.value;
     if (userInputValue.trim() === "") return;
+
+    console.log("Sending message:", userInputValue);
 
     const chatbox = document.getElementById('chatbox');
     chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>You:</strong> ${userInputValue}</div>`;
@@ -196,7 +201,7 @@ async function sendMessage(event) {
         chatbox.scrollTop = chatbox.scrollHeight;
         localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML);
     } catch (error) {
-        console.error('Error sending message:', error);
+        console.error('Error sending message:", error);
     }
 }
 
