@@ -19,15 +19,27 @@
     $(".lh-loader").fadeOut("slow");
   });
 
-  /* Mobile menu slider */
-  $('.navbar-toggler').on("click", function () {
-    $('.lh-sidebar-overlay').fadeIn();
-    $('.lh-mobile-menu').addClass("lh-menu-open");
-  });
-  $('.lh-sidebar-overlay, .lh-close').on("click", function () {
-    $('.lh-sidebar-overlay').fadeOut();
-    $('.lh-mobile-menu').removeClass("lh-menu-open");
-  });
+// Mobile menu slider
+document.getElementById('menuButton').addEventListener('click', function() {
+  this.classList.toggle('menu-open');
+  document.querySelector('.lh-sidebar-overlay').classList.toggle('lh-menu-open');
+  document.querySelector('.lh-mobile-menu').classList.toggle('lh-menu-open');
+  $('.lh-sidebar-overlay').fadeIn();
+});
+
+document.querySelector('.lh-sidebar-overlay').addEventListener('click', function() {
+  this.classList.remove('lh-menu-open');
+  document.querySelector('.lh-mobile-menu').classList.remove('lh-menu-open');
+  document.getElementById('menuButton').classList.remove('menu-open');
+  $('.lh-sidebar-overlay').fadeOut();
+});
+
+document.querySelector('.lh-close').addEventListener('click', function() {
+  document.querySelector('.lh-sidebar-overlay').classList.remove('lh-menu-open');
+  document.querySelector('.lh-mobile-menu').classList.remove('lh-menu-open');
+  document.getElementById('menuButton').classList.remove('menu-open');
+  $('.lh-sidebar-overlay').fadeOut();
+});
 
   /* Zoom Hero image */
   document.addEventListener("scroll", function() {
