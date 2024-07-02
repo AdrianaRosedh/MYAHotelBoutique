@@ -176,6 +176,7 @@ document.querySelector('.lh-close').addEventListener('click', function() {
     });
   });
 
+  
   /* Tap to top */
   window.addEventListener('scroll', function() {
     const tapToTop = document.getElementById('tapToTop');
@@ -400,3 +401,15 @@ document.addEventListener('DOMContentLoaded', function() {
   timeInput.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
   timeIcon.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
 });
+
+/* Open Table Date and Time Pickers */
+function toggleLanguage() {
+  const toggle = document.getElementById('language-toggle');
+  const languageInput = document.getElementById('language-input');
+  if (toggle.checked) {
+      languageInput.value = 'en';
+  } else {
+      languageInput.value = 'es';
+  }
+  toggle.closest('form').submit();
+}
