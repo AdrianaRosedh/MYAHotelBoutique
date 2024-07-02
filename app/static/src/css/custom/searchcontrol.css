@@ -35,6 +35,14 @@
   .section-search-control .search-control-button {
     margin-top: 12px;
   }
+  .lh-prices {
+    max-width: 450px;
+    margin: auto;
+  }
+  .flatpickr-input {
+    width: 100% !important; 
+
+  }
 }
 
 .widgetHotelsInputText {
@@ -42,7 +50,7 @@
   font-size: 14px;
   border: 1px solid #e3e1e1;
   border-radius: 5px;
-  width: 100%; /* Ensure it takes full width */
+  width: 100% !important; /* Ensure it takes full width */
 }
 
 .submit_link {
@@ -127,10 +135,3 @@
   color: #676663;
 }
 
-/* Responsive */
-@media screen and (max-width: 1023px) {
-  .lh-prices {
-    max-width: 450px;
-    margin: auto;
-  }
-}
