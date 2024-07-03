@@ -201,7 +201,7 @@ async function sendMessage(event) {
         chatbox.scrollTop = chatbox.scrollHeight;
         localStorage.setItem('chatHistoryDesktop', chatbox.innerHTML);
     } catch (error) {
-        console.error('Error sending message:", error);
+        console.error('Error sending message:', error);
     }
 }
 
