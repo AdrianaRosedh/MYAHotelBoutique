@@ -1,5 +1,4 @@
-# /app/__init__.py
-
+import os
 from flask import Flask, request, session, render_template
 from flask_babel import Babel
 from dotenv import load_dotenv
@@ -8,10 +7,10 @@ from flask_sitemap import Sitemap
 from flask_compress import Compress
 from flask_caching import Cache
 
-load_dotenv()  # Load environment variables from .env file
+# Load environment variables from .env file
+load_dotenv()
 
 def get_locale():
-    # Detect language from session or Accept-Language header
     return session.get("language", request.accept_languages.best_match(["en", "es"]))
 
 def get_timezone():
@@ -23,7 +22,13 @@ def create_app():
     # Configuration
     app.config["BABEL_DEFAULT_LOCALE"] = "en"
     app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
-    app.secret_key = "your_secret_key"
+    app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")
+
+    # Gmail API configuration
+    app.config["GMAIL_CLIENT_SECRET_FILE"] = os.getenv("GMAIL_CLIENT_SECRET_FILE")
+    app.config["GMAIL_SCOPES"] = [os.getenv("GMAIL_SCOPES")]
+    app.config["GMAIL_USER"] = os.getenv("GMAIL_USER")
+    app.config["MAIL_TO"] = os.getenv("MAIL_TO")
 
     # Enable compression
     Compress(app)
@@ -32,7 +37,7 @@ def create_app():
     cache = Cache(app, config={'CACHE_TYPE': 'simple'})
     cache.init_app(app)
 
-    # Initialize Babel with the locale and timezone selector functions
+    # Initialize Babel
     babel = Babel(app, locale_selector=get_locale, timezone_selector=get_timezone)
 
     # Initialize Flask-Sitemap
@@ -45,7 +50,6 @@ def create_app():
     from .chatbot_routes import bp as chatbot_bp
     app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
 
-    # Set default language in session if not set
     @app.before_request
     def set_default_language():
         if "language" not in session:
@@ -53,24 +57,20 @@ def create_app():
                 ["en", "es"], default="en"
             )
 
-    # Define context processor to inject `locale` into templates
     @app.context_processor
     def inject_locale():
         return {"locale": get_locale()}
 
-    # Define context processor to inject `today` and `tomorrow` into templates
     @app.context_processor
     def inject_dates():
         today = datetime.today().strftime("%Y-%m-%d")
         tomorrow = (datetime.today() + timedelta(days=1)).strftime("%Y-%m-%d")
         return {"today": today, "tomorrow": tomorrow}
 
-    # Custom error handler for 404
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template("custom_404.html"), 404
 
-    # Add cache headers for static files
     @app.after_request
     def add_cache_headers(response):
         if 'maps.googleapis.com' in request.url:

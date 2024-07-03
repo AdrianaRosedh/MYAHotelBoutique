@@ -7,10 +7,13 @@ from flask import (
     url_for,
     send_from_directory,
     flash,
+    jsonify,
+    current_app
 )
 from datetime import datetime, timedelta
 import os
 from flask_sitemap import Sitemap
+from .send_email import send_email
 
 bp = Blueprint("main", __name__)
 sitemap = Sitemap()
@@ -61,6 +64,28 @@ def set_language():
     )
 
     return redirect(new_url)
+
+@bp.route("/<lang_code>/find_us", methods=["GET", "POST"])
+def find_us(lang_code):
+    session["language"] = lang_code
+    email = "info@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    canonical_url = url_for('main.find_us', lang_code=lang_code, _external=True)
+
+    if request.method == "POST":
+        firstname = request.form.get("firstname")
+        email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+
+        # Send an email using the Gmail API
+        send_email(current_app.config["MAIL_TO"], subject, f"Name: {firstname}\nEmail: {email}\nSubject: {subject}\nMessage: {message}")
+
+        print(f"Name: {firstname}, Email: {email}, Subject: {subject}, Message: {message}")
+
+        return jsonify({"success": True})
+
+    return render_template("partials/base/find-us.html", page_name='Find Us', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/<lang_code>/oliveafarmtotable")
 def oliveafarmtotable(lang_code):
