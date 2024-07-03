@@ -6,7 +6,7 @@ import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
+import terser from 'gulp-terser';
 import plumber from 'gulp-plumber';
 import * as sassCompiler from 'sass';
 import gulpSass from 'gulp-sass';
@@ -158,7 +158,7 @@ function scripts() {
     .pipe(plumber({ errorHandler: handleError('scripts') }))
     .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
-    .pipe(uglify())
+    .pipe(terser()) // Changed to terser
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(bs.stream());
@@ -170,7 +170,7 @@ function chatbotScripts() {
     .pipe(plumber({ errorHandler: handleError('chatbotScripts') }))
     .pipe(sourcemaps.init())
     .pipe(concat('chatbot.min.js'))
-    .pipe(uglify())
+    .pipe(terser()) // Changed to terser
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(bs.stream());
@@ -182,7 +182,7 @@ function custom404Script() {
     .pipe(plumber({ errorHandler: handleError('custom404Script') }))
     .pipe(sourcemaps.init())
     .pipe(concat('404.min.js'))
-    .pipe(uglify().on('error', handleError('custom404Script')))
+    .pipe(terser().on('error', handleError('custom404Script'))) // Changed to terser
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.custom404.dest))
     .pipe(bs.stream());
@@ -194,7 +194,7 @@ function sweetalert2Script() {
     .pipe(plumber({ errorHandler: handleError('sweetalert2Script') }))
     .pipe(sourcemaps.init())
     .pipe(concat('sweetalert2.min.js'))
-    .pipe(uglify().on('error', handleError('sweetalert2Script')))
+    .pipe(terser().on('error', handleError('sweetalert2Script'))) // Changed to terser
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.sweetalert2.dest))
     .pipe(bs.stream());
