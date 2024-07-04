@@ -1,3 +1,29 @@
+# Environment variables
 .env
+
+# Node modules
 node_modules
+
+# Secrets directory
 secrets/
+client_secret.json
+token.pickle
+token.pickle.base64
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Heroku
+*.log
+*.pid
