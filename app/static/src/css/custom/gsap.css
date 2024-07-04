@@ -101,7 +101,7 @@ html {
   .section-restaurant {
     height: auto;
     /* Allow section height to adjust based on content */
-    overflow: auto;
+    overflow: hidden;
     /* Enable scrolling if content overflows */
   }
 }

@@ -93,8 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         initializeCards();
         updateCardsLayout();
-    } else {
-        // Optional: Additional JavaScript for mobile-specific behavior if needed
     }
 });
 
