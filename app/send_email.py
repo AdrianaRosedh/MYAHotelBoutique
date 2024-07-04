@@ -1,9 +1,10 @@
+# app/send_email.py
 import os
 import pickle
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
-from email.mime.text import MIMEText
 import base64
+from google.auth.transport.requests import Request
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
 from dotenv import load_dotenv, find_dotenv
 
 # Load environment variables from .env file
@@ -11,25 +12,58 @@ dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)
 
 # Ensure environment variables are loaded
-GMAIL_USER = os.getenv("GMAIL_USER")
+SCOPES = os.getenv('GMAIL_SCOPES').split(',')
+CLIENT_SECRET_FILE = 'client_secret.json'
+TOKEN_PICKLE_FILE = 'token.pickle'
+
+# Decode and save the client secret json file
+client_secret_base64 = os.getenv('GMAIL_CLIENT_SECRET_BASE64')
+if client_secret_base64:
+    with open(CLIENT_SECRET_FILE, 'wb') as f:
+        f.write(base64.b64decode(client_secret_base64))
+
+# Decode and save the token pickle file
+token_pickle_base64 = os.getenv('TOKEN_PICKLE_BASE64')
+if token_pickle_base64:
+    with open(TOKEN_PICKLE_FILE, 'wb') as f:
+        f.write(base64.b64decode(token_pickle_base64))
 
 def get_gmail_service():
     creds = None
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    if os.path.exists(TOKEN_PICKLE_FILE):
+        with open(TOKEN_PICKLE_FILE, 'rb') as token:
             creds = pickle.load(token)
     if not creds or not creds.valid:
-        raise Exception("The credentials are not valid. Please run get_credentials.py to obtain valid credentials.")
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open(TOKEN_PICKLE_FILE, 'wb') as token:
+            pickle.dump(creds, token)
     service = build('gmail', 'v1', credentials=creds)
     return service
 
 def send_email(to, subject, message_text):
     service = get_gmail_service()
+    message = create_message(os.getenv('GMAIL_USER'), to, subject, message_text)
+    send_message(service, 'me', message)
+
+def create_message(sender, to, subject, message_text):
+    from email.mime.text import MIMEText
+    import base64
+
     message = MIMEText(message_text)
     message['to'] = to
-    message['from'] = GMAIL_USER
+    message['from'] = sender
     message['subject'] = subject
-    raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode('utf-8')
-    body = {'raw': raw_message}
-    message = (service.users().messages().send(userId="me", body=body).execute())
-    print(f"Message Id: {message['id']}")
+    raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
+    return {'raw': raw}
+
+def send_message(service, user_id, message):
+    try:
+        message = service.users().messages().send(userId=user_id, body=message).execute()
+        print(f'Message Id: {message["id"]}')
+        return message
+    except Exception as error:
+        print(f'An error occurred: {error}')

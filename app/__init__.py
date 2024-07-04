@@ -22,7 +22,7 @@ def create_app():
     # Configuration
     app.config["BABEL_DEFAULT_LOCALE"] = "en"
     app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
-    app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")
+    app.secret_key = os.getenv("SECRET_KEY", "you-will-never-guess")
 
     # Gmail API configuration
     app.config["GMAIL_CLIENT_SECRET_FILE"] = os.getenv("GMAIL_CLIENT_SECRET_FILE")
