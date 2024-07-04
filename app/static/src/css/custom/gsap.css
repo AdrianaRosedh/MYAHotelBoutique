@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide mobile section on desktop */
+@media (min-width: 768px) {
+  .gallery-mobile {
+    display: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -19,7 +26,8 @@ html {
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  z-index: 10; /* Lower z-index than the sidebar */
+  z-index: 10;
+  /* Lower z-index than the sidebar */
 }
 
 .gallery {
@@ -28,11 +36,13 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 20; /* Lower z-index than the sidebar */
+  z-index: 20;
+  /* Lower z-index than the sidebar */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Prevent overflow */
+  overflow: hidden;
+  /* Prevent overflow */
 }
 
 .gallery .cards {
@@ -70,39 +80,76 @@ html {
 .cards li img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the entire card area */
-  object-position: center; /* Center the image */
+  object-fit: cover;
+  /* Ensures the image covers the entire card area */
+  object-position: center;
+  /* Center the image */
   border-radius: 0.8rem;
+}
+
+/* Hide gallery on mobile */
+@media (max-width: 767px) {
+  .gallery {
+    display: none;
+  }
+
+  .fade-out-on-scroll {
+    display: none;
+    /* Hide fade-out-on-scroll on mobile */
+  }
+
+  .section-restaurant {
+    height: auto;
+    /* Allow section height to adjust based on content */
+    overflow: auto;
+    /* Enable scrolling if content overflows */
+  }
+}
+
+/* Hide mobile section on desktop */
+@media (min-width: 768px) {
+  .mobile-section {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
   .gallery .cards {
     width: 100%;
-    height: 70vh; /* Increase height on mobile */
+    height: 70vh;
+    /* Increase height on mobile */
   }
+
   .cards li {
     width: 100%;
-    height: 70vh; /* Increase height on mobile */
+    height: 70vh;
+    /* Increase height on mobile */
     line-height: normal;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .cards li img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* Center the image */
+    object-position: center;
+    /* Center the image */
     border-radius: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .gallery .cards {
-    height: 70vh; /* Adjust as necessary */
+    height: 70vh;
+    /* Adjust as necessary */
   }
+
   .cards li {
-    height: 70vh; /* Ensure correct height for mobile */
+    height: 70vh;
+    /* Ensure correct height for mobile */
   }
 }
+
