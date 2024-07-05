@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     opacity: i < 2 ? 0 : 0.8,
                     zIndex: 50
                 });
+                console.log(`Initializing card ${i} with xPercent: ${100 * (i - currentIndex)}`);
             });
 
             gsap.set(".fade-out-on-scroll", { opacity: 1 });
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     opacity: i < 2 ? 0 : (i === currentIndex ? 1 : 0.8),
                     zIndex: i === currentIndex ? 100 : 50
                 });
+                console.log(`Updating card ${i} to xPercent: ${100 * (i - currentIndex)}`);
             });
         }
 
