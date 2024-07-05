@@ -128,3 +128,10 @@ html {
     display: none;
   }
 }
+
+/* Hide mobile section on desktop */
+@media (min-width: 768px) {
+  .gallery-mobile {
+    display: none;
+  }
+}
