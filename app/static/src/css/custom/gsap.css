@@ -82,10 +82,10 @@ html {
   border-radius: 0.8rem;
 }
 
-/* Hide gallery on mobile */
+/* Gallery Visibility on Mobile */
 @media (max-width: 767px) {
   .gallery {
-    display: none;
+    display: block; /* Ensure gallery is displayed on mobile */
   }
 
   .fade-out-on-scroll {
@@ -96,10 +96,7 @@ html {
     height: auto; /* Allow section height to adjust based on content */
     overflow: hidden; /* Disable scrolling */
   }
-}
 
-/* Ensure figures are displayed correctly on mobile */
-@media (max-width: 767px) {
   .gallery .cards {
     width: 100%;
     height: auto; /* Adjust height to auto for better flexibility */
@@ -122,5 +119,12 @@ html {
     object-fit: cover;
     object-position: center; /* Center the image */
     border-radius: 0.8rem;
+  }
+}
+
+/* Hide mobile section on desktop */
+@media (min-width: 768px) {
+  .gallery-mobile {
+    display: none;
   }
 }
