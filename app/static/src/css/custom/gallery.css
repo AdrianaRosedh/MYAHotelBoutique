@@ -105,14 +105,21 @@
     font-size: 20px; /* Adjust icon size for smaller screens */
   }
 }
+
 /* Responsive Enhancements */
-@media (max-width: 768px) {
-  .lh-gallery-second .lh-gallery-in img {
-    height: 200px; /* Adjust image height for smaller screens */
+@media (max-width: 480px) {
+  .card-columns {
+    columns: 1 !important; /* Ensure one column on very small screens */
   }
+
+  .card-columns figure {
+    margin-bottom: 24px; /* Add space between figures */
+  }
+
   .mfp-title, .mfp-counter {
     font-size: 12px; /* Adjust font size for smaller screens */
   }
+
   .card-columns figure .gallery-img:after {
     font-size: 20px; /* Adjust icon size for smaller screens */
   }
