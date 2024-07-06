@@ -5,6 +5,7 @@
 /* Basic Navbar */
 .basic-nav {
   background-color: #969591;
+  z-index: 1000; 
 }
 
 .language-form {
