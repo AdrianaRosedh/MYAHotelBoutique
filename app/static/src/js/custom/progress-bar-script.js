@@ -4,13 +4,18 @@ window.addEventListener('scroll', function () {
     var docHeight = document.documentElement.scrollHeight;
     var winHeight = window.innerHeight;
     var scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-    document.getElementById('progressBar').style.width = scrollPercent + '%';
+    var progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+    }
 
     // Show/hide back to top button
     var backToTop = document.getElementById('backToTop');
-    if (scrollTop > 300) { // Show after scrolling down 300px
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none';
+    if (backToTop) {
+        if (scrollTop > 300) { // Show after scrolling down 300px
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
     }
 });

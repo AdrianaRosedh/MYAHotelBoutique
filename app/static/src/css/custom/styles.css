@@ -138,3 +138,8 @@ h1, h2, h3, h4, h5, h6 {
 section {
   overflow-x: hidden;
 }
+
+.swal2-title, .swal2-content {
+  color: #000 !important; /* Ensure text is visible */
+  display: block; /* Ensure elements are displayed */
+}

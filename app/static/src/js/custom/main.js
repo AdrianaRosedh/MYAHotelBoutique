@@ -341,11 +341,6 @@ document.querySelector('.lh-close').addEventListener('click', function() {
 
 })(jQuery);
 
-/* Language Form */
-document.querySelector('.language-form select').addEventListener('change', function() {
-  this.form.submit();
-});
-
 /* Tap To Top */
 document.addEventListener('DOMContentLoaded', function() {
   var tapToTopButton = document.getElementById('tapToTop');
@@ -365,51 +360,84 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Removing fade from arrow */
 document.addEventListener('DOMContentLoaded', () => {
   const fadeInElement = document.querySelector('.opacity-0');
-  fadeInElement.classList.remove('opacity-0');
-  fadeInElement.classList.add('opacity-100');
+  if (fadeInElement) {
+    fadeInElement.classList.remove('opacity-0');
+    fadeInElement.classList.add('opacity-100');
+  }
 });
 
-/* Open Table Date and Time Pickers */
+
 document.addEventListener('DOMContentLoaded', function() {
-  const reservationDateInput = document.querySelector('#reservation_date');
-  const timeInput = document.querySelector('#time');
-  const partySizeInput = document.querySelector('#party_size');
-  const reservationDateIcon = document.querySelector('#reservation_date-icon');
-  const timeIcon = document.querySelector('#time-icon');
-  const reservationDateCalendar = flatpickr(reservationDateInput, {
-    dateFormat: "Y-m-d",
-    defaultDate: "{{ today }}",
-    onClose: function() { reservationDateOpen = false; },
-    onOpen: function() { reservationDateOpen = true; }
-  });
-  const timeCalendar = flatpickr(timeInput, {
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i",
-    defaultDate: "19:00",
-    time_24hr: true,
-    onClose: function() { timeOpen = false; },
-    onOpen: function() { timeOpen = true; }
-  });
-  let reservationDateOpen = false;
-  let timeOpen = false;
-  function toggleCalendar(calendar, isOpen) {
-    if (isOpen) { calendar.close(); } else { calendar.open(); }
+  // Language Form
+  const selectElement = document.querySelector('.language-form select');
+  if (selectElement) {
+      selectElement.addEventListener('change', function() {
+          this.form.submit();
+      });
   }
-  reservationDateInput.addEventListener('click', function() { toggleCalendar(reservationDateCalendar, reservationDateOpen); });
-  reservationDateIcon.addEventListener('click', function() { toggleCalendar(reservationDateCalendar, reservationDateOpen); });
-  timeInput.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
-  timeIcon.addEventListener('click', function() { toggleCalendar(timeCalendar, timeOpen); });
-});
 
-/* Open Table Date and Time Pickers */
-function toggleLanguage() {
-  const toggle = document.getElementById('language-toggle');
-  const languageInput = document.getElementById('language-input');
-  if (toggle.checked) {
-      languageInput.value = 'en';
-  } else {
-      languageInput.value = 'es';
+  // Toggle Language Functionality
+  function toggleLanguage() {
+      const toggle = document.getElementById('language-toggle');
+      const languageInput = document.getElementById('language-input');
+      if (toggle && languageInput) {
+          if (toggle.checked) {
+              languageInput.value = 'en';
+          } else {
+              languageInput.value = 'es';
+          }
+          toggle.closest('form').submit();
+      }
   }
-  toggle.closest('form').submit();
-}
+
+  const toggleButton = document.getElementById('language-toggle');
+  if (toggleButton) {
+      toggleButton.addEventListener('click', toggleLanguage);
+  }
+
+  // OpenTable Reservation Form
+  const reservationDateInput = document.querySelector('#reservation_date');
+  const reservationDateDiv = document.querySelector('#reservation_date_div');
+  const timeInput = document.querySelector('#time');
+  const timeDiv = document.querySelector('#time_div');
+
+  const today = "{{ today }}"; // Ensure this is a valid date string in YYYY-MM-DD format
+  const defaultTime = "19:00"; // Default time
+
+  let reservationDateCalendar, timeCalendar;
+
+  function toggleCalendar(calendar) {
+      if (calendar.isOpen) {
+          calendar.close();
+      } else {
+          calendar.open();
+      }
+  }
+
+  if (reservationDateInput) {
+      reservationDateCalendar = flatpickr(reservationDateInput, {
+          dateFormat: "Y-m-d",
+          defaultDate: today,
+      });
+
+      reservationDateDiv.addEventListener('click', function(event) {
+          event.stopPropagation();  // Prevent the click event from bubbling up
+          reservationDateInput._flatpickr.open();
+      });
+  }
+
+  if (timeInput) {
+      timeCalendar = flatpickr(timeInput, {
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          defaultDate: defaultTime,
+          time_24hr: true
+      });
+
+      timeDiv.addEventListener('click', function(event) {
+          event.stopPropagation();  // Prevent the click event from bubbling up
+          timeInput._flatpickr.open();
+      });
+  }
+});

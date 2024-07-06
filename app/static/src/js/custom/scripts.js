@@ -1,16 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const header = document.querySelector('header.navbar');
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        header.classList.toggle('sticky', window.scrollY > 0);
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    }
 });
 
 //openai
