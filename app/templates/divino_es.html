@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %} {% include 'partials/diVino/gallery.html' %} {%
+{% extends "base.html" %} {% block content %} {% include 'partials/diVino/gallery.html' %}<div class="gallery-mobile"> {% include 'partials/mya/gallery-mobile.html' %} </div> {%
     include 'partials/diVino/amenities.html' %} {% include 'partials/diVino/padel.html' %} {% include
     'partials/diVino/cafe.html' %} {% include 'partials/base/find-us.html' %} {% endblock %} {% block scripts %} {{ super()
     }} <script src="{{ url_for('static', filename='dist/js/sweetalert2.min.js') }}" defer="defer"></script> {% endblock %}
