@@ -75,7 +75,7 @@
 
 @media (max-width: 767px) {
   .floating-sidebar {
-    top: 30%;
+    top: 50%;
     right: 0.5rem;
     width: 60px;
     transform: translateY(-30%);
