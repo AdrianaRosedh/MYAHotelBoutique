@@ -94,6 +94,17 @@ document.querySelector('.lh-close').addEventListener('click', function() {
     });
   });
 
+    /* Story */
+    $(document).ready(function() {
+      $('.unique-popup-image').magnificPopup({
+          delegate: 'a', // child item selector, by clicking on it popup will open
+          type: 'image',
+          gallery: {
+              enabled: true // set to true to enable gallery mode
+          }
+      });
+  });
+
   /* Custom select */
   $(document).ready(function() {
     $('select.language-form').each(function () {
