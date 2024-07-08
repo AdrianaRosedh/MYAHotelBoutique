@@ -78,56 +78,6 @@ document.querySelector('.lh-close').addEventListener('click', function() {
   }
   ResponsiveMobileMenu();
 
-  /* Testimonials Slider */
-  $('.lh-slider').slick({
-    rows: 1,
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 1500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [
-      { breakpoint: 992, settings: { dots: false, arrows: false } }
-    ]
-  });
-
-  $(window).on('load resize', function () {
-    setTimeout(function () {
-      $('.lh-slider .slick-prev').prepend('<div class="prev-slick-arrow arrow-icon"><span>&#60;</span></div><div class="prev-slick-img slick-thumb-nav"><img src="/prev.jpg" class="img-responsive"></div>');
-      $('.lh-slider .slick-next').append('<div class="next-slick-arrow arrow-icon"><span>&#62;</span></div><div class="next-slick-img slick-thumb-nav"><img src="/next.jpg" class="img-responsive"></div>');
-      get_prev_slick_img();
-      get_next_slick_img();
-    }, 100);
-  });
-
-  $('.lh-slider').on('click', '.slick-prev', function () { get_prev_slick_img(); });
-  $('.lh-slider').on('click', '.slick-next', function () { get_next_slick_img(); });
-  $('.lh-slider').on('swipe', function (event, slick, direction) {
-    if (direction == 'left') { get_prev_slick_img(); } else { get_next_slick_img(); }
-  });
-  $('.slick-dots').on('click', 'li button', function () {
-    var li_no = $(this).parent('li').index();
-    if ($(this).parent('li').index() > li_no) { get_prev_slick_img(); } else { get_next_slick_img(); }
-  });
-
-  function get_prev_slick_img() {
-    var prev_slick_img = $('.lh-slider .slick-current').prev().find('img').attr('src');
-    $('.lh-slider .prev-slick-img img').attr('src', prev_slick_img);
-    $('.lh-slider .prev-slick-img').css('background-image', 'url(' + prev_slick_img + ')');
-    var prev_next_slick_img = $('.lh-slider .slick-current').next().find('img').attr('src');
-    $('.lh-slider .next-slick-img img').attr('src', prev_next_slick_img);
-    $('.lh-slider .next-slick-img').css('background-image', 'url(' + prev_next_slick_img + ')');
-  }
-
-  function get_next_slick_img() {
-    var next_slick_img = $('.lh-slider .slick-current').next('').find('img').attr('src');
-    $('.lh-slider .next-slick-img img').attr('src', next_slick_img);
-    $('.lh-slider .next-slick-img').css('background-image', 'url(' + next_slick_img + ')');
-    var next_prev_slick_img = $('.lh-slider .slick-current').prev('').find('img').attr('src');
-    $('.lh-slider .prev-slick-img img').attr('src', next_prev_slick_img);
-    $('.lh-slider .prev-slick-img').css('background-image', 'url(' + next_prev_slick_img + ')');
-  }
 
   /* Gallery */
   $(document).ready(function () {
@@ -185,82 +135,6 @@ document.querySelector('.lh-close').addEventListener('click', function() {
     } else {
       tapToTop.classList.add('hidden');
     }
-  });
-
-  /* Side tool */
-  $(".btn-lh-tool").on("click", function (e) {
-    e.preventDefault();
-    if ($(this).hasClass("close-tool")) {
-      $(".lh-tool").addClass("lh-tool-active");
-      $(".tool-overlay").fadeIn();
-      if ($(".btn-lh-tool").not("close-tool")) {
-        $(".lh-tool").removeClass("lh-tool-active");
-        $(".btn-lh-tool").addClass("close-tool");
-      }
-      if ($(".btn-lh-tool").not("close-tool")) {
-        $(".lh-tool").addClass("lh-tool-active");
-        $(".btn-lh-tool").addClass("close-tool");
-        $(".tool-overlay").fadeIn();
-      }
-    } else {
-      $(".lh-tool").removeClass("lh-tool-active");
-      $(".tool-overlay").fadeOut();
-    }
-    $(this).toggleClass("close-tool");
-    return false;
-  });
-
-  $(".tool-overlay").on("click", function (e) {
-    $(".btn-lh-tool").addClass("close-tool");
-    $(".lh-tool").removeClass("lh-tool-active");
-    $(".tool-overlay").fadeOut();
-  });
-
-  $(".lh-color li").click(function () {
-    $("li").removeClass("active-colors");
-    $(this).addClass("active-colors");
-  });
-
-  /* Color show */
-  $(".c1").click(function () { $("#add_class").remove(); });
-  $(".c2").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-1.css" id="add_class">'); });
-  $(".c3").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-2.css" id="add_class">'); });
-  $(".c4").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-3.css" id="add_class">'); });
-  $(".c5").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-4.css" id="add_class">'); });
-  $(".c6").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-5.css" id="add_class">'); });
-  $(".c7").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-6.css" id="add_class">'); });
-  $(".c8").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-7.css" id="add_class">'); });
-  $(".c9").click(function () { $("#add_class").remove(); $("head").append('<link rel="stylesheet" href="assets/css/color-8.css" id="add_class">'); });
-
-  /* Dark mode */
-  $(".dark-mode li").click(function () {
-    $("li").removeClass("active-dark-mode");
-    $(this).addClass("active-dark-mode");
-  });
-
-  $(".dark").click(function () {
-    $("#add_dark_mode").remove();
-    $("head").append('<link rel="stylesheet" class="dark-link-mode" href="assets/css/dark.css" id="add_dark_mode">');
-  });
-  $(".white").click(function () { $("#add_dark_mode").remove(); });
-
-  /* Skin mode */
-  $(".skin-1").click(function () {
-    $("#add_skin").remove();
-    $("head").append('<link rel="stylesheet" href="assets/css/shape-1.css" id="add_skin">');
-    $(".skin-mode li").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".skin-2").click(function () {
-    $("#add_skin").remove();
-    $("head").append('<link rel="stylesheet" href="assets/css/shape-2.css" id="add_skin">');
-    $(".skin-mode li").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".skin-3").click(function () {
-    $("#add_skin").remove();
-    $(".skin-mode li").removeClass("active");
-    $(this).addClass("active");
   });
 
   /* Slider room details */
