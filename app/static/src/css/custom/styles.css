@@ -141,5 +141,6 @@ section {
 
 .swal2-title, .swal2-content {
   color: #000 !important; /* Ensure text is visible */
+  font-size: 1.5em; /* Adjust font size if necessary */
   display: block; /* Ensure elements are displayed */
 }

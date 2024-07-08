@@ -70,10 +70,6 @@ const paths = {
     src: 'app/static/src/js/custom/404.js',
     dest: 'app/static/dist/js'
   },
-  sweetalert2: {
-    src: 'app/static/src/js/custom/sweetalert2/DiVino.js',
-    dest: 'app/static/dist/js'
-  },
   images: {
     src: 'app/static/src/img/**/*.{jpg,jpeg,png,gif,svg,webp,JPG,JPEG,PNG,GIF,SVG,WEBP}',
     dest: 'app/static/dist/img'
@@ -185,18 +181,6 @@ function custom404Script() {
     .pipe(terser().on('error', handleError('custom404Script'))) // Changed to terser
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.custom404.dest))
-    .pipe(bs.stream());
-}
-
-function sweetalert2Script() {
-  console.log('Running sweetalert2Script task');
-  return gulp.src(paths.sweetalert2.src, { sourcemaps: true })
-    .pipe(plumber({ errorHandler: handleError('sweetalert2Script') }))
-    .pipe(sourcemaps.init())
-    .pipe(concat('sweetalert2.min.js'))
-    .pipe(terser().on('error', handleError('sweetalert2Script'))) // Changed to terser
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.sweetalert2.dest))
     .pipe(bs.stream());
 }
 
@@ -346,10 +330,9 @@ function serve() {
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.custom404.src, custom404Script);
-  gulp.watch(paths.sweetalert2.src, sweetalert2Script);
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, html, favicon, custom404Script, sweetalert2Script));
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, html, favicon, custom404Script));
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -361,11 +344,10 @@ function watchFiles() {
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.custom404.src, custom404Script);
-  gulp.watch(paths.sweetalert2.src, sweetalert2Script);
 }
 
 gulp.task('build', build);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, clean, html, favicon, custom404Script, sweetalert2Script, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, clean, html, favicon, custom404Script, watchFiles as watch };
 export default build;
