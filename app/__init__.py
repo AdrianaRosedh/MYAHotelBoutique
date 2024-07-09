@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from flask_sitemap import Sitemap
 from flask_compress import Compress
 from flask_caching import Cache
+from flask_talisman import Talisman
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,6 +19,9 @@ def get_timezone():
 
 def create_app():
     app = Flask(__name__)
+
+    # Print environment variable for debugging
+    print(f"FLASK_ENV: {os.getenv('FLASK_ENV')}")
 
     # Configuration
     app.config["BABEL_DEFAULT_LOCALE"] = "en"
@@ -49,6 +53,13 @@ def create_app():
 
     from .chatbot_routes import bp as chatbot_bp
     app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
+
+    # Initialize Flask-Talisman only in development
+    if os.getenv('FLASK_ENV') == 'development':
+        print("Initializing Talisman for development")
+        Talisman(app)
+    else:
+        print("Not initializing Talisman for production")
 
     @app.before_request
     def set_default_language():
@@ -85,4 +96,7 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    if os.getenv('FLASK_ENV') == 'development':
+        app.run(ssl_context=('path/to/cert.pem', 'path/to/key.pem'), debug=True)
+    else:
+        app.run(debug=True)
