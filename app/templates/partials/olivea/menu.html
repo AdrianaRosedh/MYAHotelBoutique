@@ -1,11 +1,379 @@
-{% block menu_line %} <style>.room-button{border:none;background:0 0;padding:0;cursor:pointer;position:relative;display:block;width:100%;height:100%}.button-icon{display:flex;justify-content:center;align-items:center;width:200px;height:200px;position:absolute;bottom:0;right:0;background-color:rgba(0,0,0,.8);border-radius:50%;transition:all .3s ease}.room-button:hover .button-icon{bottom:0;right:0}.room-button i{box-shadow:0 4px 8px rgba(0,0,0,.5);color:rgba(0,0,0,.5);font-size:25px}.center-button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background-color:rgba(0,0,0,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fafafa;font-size:25px;transition:all .3s ease;opacity:0}.room-img:hover .center-button{opacity:1}.nav-tabs{display:flex;justify-content:space-between;flex-wrap:nowrap;padding:0;margin:0;width:100%}.nav-tabs .nav-link{flex:0 0 auto;display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:25%;padding:0;margin:0;text-align:center;box-sizing:border-box;min-width:55px!important;background-color:#e4e3e1;backdrop-filter:blur(5px)}.nav-tabs .nav-link span{flex-grow:1;text-align:center}.nav-tabs .nav-link img{display:block;height:12;object-fit:contain}.nav-tabs .nav-link i{font-size:24px;display:none}.nav-tabs.rooms .nav-link.active{background-color:rgba(228,227,225,0);border:4px solid #e4e3e1}@media (max-width:600px){.room-button img{display:block!important}.center-button{display:flex!important}.nav-tabs .nav-link picture,.nav-tabs .nav-link span,.room-button img{display:none}.nav-tabs{justify-content:space-between;overflow-x:auto;padding:0 10px}.nav-tabs .nav-link{width:25%;padding:10px 0;margin:0 5px}.nav-tabs .nav-link i{display:block;font-size:24px}}</style> {% endblock %} <section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000" id="{% if lang_code == 'es' %}menú{% else %}menu{% endif %}"><div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]"><div class="parent-container"><div class="nav nav-tabs rooms lh-room border-0" id="nav-tab" role="tablist"><button class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link active" id="nav-Deluxe-tab" data-bs-toggle="tab" data-bs-target="#nav-Deluxe" type="button" role="tab" aria-controls="nav-Deluxe" aria-selected="true"><span>Menú</span> <img src="{{ url_for('static', filename='dist/img/svg/menu.svg') }}" alt="1" class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy"></button> <button class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link" id="nav-Single-tab" data-bs-toggle="tab" data-bs-target="#nav-Single" type="button" role="tab" aria-controls="nav-Single" aria-selected="false"><span>Vinos</span> <img src="{{ url_for('static', filename='dist/img/svg/wine.svg') }}" alt="2" class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy"></button> <button class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link" id="nav-Super-tab" data-bs-toggle="tab" data-bs-target="#nav-Super" type="button" role="tab" aria-controls="nav-Super" aria-selected="false"><span>Liquor</span> <img src="{{ url_for('static', filename='dist/img/svg/liquor.svg') }}" alt="3" class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy"></button> <button class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link" id="nav-Cocktails-tab" data-bs-toggle="tab" data-bs-target="#nav-Cocktails" type="button" role="tab" aria-controls="nav-Cocktails" aria-selected="false"><span>Cocktails</span> <img src="{{ url_for('static', filename='dist/img/svg/cocktail.svg') }}" alt="4" class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy"></button></div></div><div class="tab-content rounded-[15px] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg relative p-0 mt-[25px] overflow-hidden" id="nav-tabContent"><div class="tab-pane fade active show" id="nav-Deluxe" role="tabpanel" aria-labelledby="nav-Deluxe-tab"><div class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]"><div class="xl:w-1/2 w-full px-[12px]"><div class="lh-room-contain relative px-[12px] py-[24px]"><div class="lh-contain-heading pb-[15px] flex justify-between"><h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">Menú</h4></div><p>At Olivea Farm-to-Table, the culinary journey is unforgettable, beginning with the freshest ingredients straight from our garden and ending with a delightful dessert. Imagine tasting basil, a radish, or a carrot that starts as a vibrant salad, transforms into a delicate sashimi, accompanies a locally sourced protein, and culminates in a garden-inspired dessert. This spectacular journey showcases the magic of fresh ingredients, offering a passionate and immersive dining experience from start to finish.</p><div class="lh-main-features border-t border-solid border-[#464644] pt-[30px] mt-[30px]"><div class="lh-contain-heading pb-[15px] flex justify-between"><h5 class="xl:text-[18px] text-[16px] leading-[1.2] font-bold text-[#464644] text-left">Allergies</h5></div><div class="lh-room-features flex"><p>Olivea Farm to Table prioritizes your health and food preferences. We cater to all allergies and dietary restrictions, ensuring you have a safe and enjoyable dining experience.</p></div></div></div></div><div class="xl:w-1/2 w-full"><div class="room-img h-full w-full relative"><button class="room-button w-full h-full relative" data-room-details="Details about the room go here."><picture><source srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-6-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-900.webp') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/webp"><source srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-6-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-900.png') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img src="{{ url_for('static', filename='dist/img/room/OLIVEA-6-600.png') }}" alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400" loading="lazy"></picture><button class="center-button"><i class="ri-arrow-right-line"></i></button></button></div></div></div></div><div class="tab-pane fade" id="nav-Single" role="tabpanel" aria-labelledby="nav-Single-tab"><div class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]"><div class="xl:w-1/2 w-full px-[12px]"><div class="lh-room-contain relative px-[12px] py-[24px]"><div class="lh-contain-heading pb-[15px] flex justify-between"><h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">Vinos</h4></div><p>At Olivea Farm to Table, we are proud to promote local wines from the best vineyards in the region. We offer an extensive selection, ensuring that every guest can find a wine that perfectly complements their meal and satisfies their unique tastes. Whether you prefer a robust red, a crisp white, or a delicate rosé, our curated collection will delight your palate. Join us for a dining experience that celebrates local flavors and exceptional wines.</p></div></div><div class="xl:w-1/2 w-full"><div class="room-img h-full w-full relative"><picture><source srcset="{{ url_for('static', filename='dist/img/room/WINE-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/WINE-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/WINE-900.webp') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/webp"><source srcset="{{ url_for('static', filename='dist/img/room/WINE-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/WINE-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/WINE-900.png') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img src="{{ url_for('static', filename='dist/img/room/WINE-600.png') }}" alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400" loading="lazy"></picture><button class="center-button"><i class="ri-arrow-right-line"></i></button></div></div></div></div><div class="tab-pane fade" id="nav-Super" role="tabpanel" aria-labelledby="nav-Super-tab"><div class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]"><div class="xl:w-1/2 w-full px-[12px]"><div class="lh-room-contain relative px-[12px] py-[24px]"><div class="lh-contain-heading pb-[15px] flex justify-between"><h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">Liquor</h4></div><p>At Olivea Farm to Table, we understand that sometimes you crave a tasting experience beyond wine, even though we adore our wine valley. That's why we offer a wide selection of distilled spirits for our valued customers. Enjoy our curated collection of premium mezcal and tequila, highlighting the rich flavors and traditions of Mexico. From smooth, smoky mezcal to vibrant, bold tequilas, our offerings cater to every preference. Join us for a unique and sophisticated tasting journey with our exceptional Mexican spirits.</p></div></div><div class="xl:w-1/2 w-full"><div class="room-img h-full w-full relative"><picture><source srcset="{{ url_for('static', filename='dist/img/room/liquor-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/liquor-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/liquor-900.webp') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/webp"><source srcset="{{ url_for('static', filename='dist/img/room/liquor-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/liquor-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/liquor-900.png') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img src="{{ url_for('static', filename='dist/img/room/liquor-600.png') }}" alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400" loading="lazy"></picture><button class="center-button"><i class="ri-arrow-right-line"></i></button></div></div></div></div><div class="tab-pane fade" id="nav-Cocktails" role="tabpanel" aria-labelledby="nav-Cocktails-tab"><div class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]"><div class="xl:w-1/2 w-full px-[12px]"><div class="lh-room-contain relative px-[12px] py-[24px]"><div class="lh-contain-heading pb-[15px] flex justify-between"><h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">Cocktails</h4></div><p>At Olivea Farm to Table, our exquisite kitchen extends its creativity to our cocktail menu, bringing the essence of the farm directly to your glass. Imagine sipping on a cocktail infused with fresh herbs handpicked from our garden, or tasting a concoction made with seasonal fruits harvested at their peak ripeness. Each drink is meticulously crafted to highlight the vibrant, natural flavors that our farm provides. Our mixologists work closely with our chefs to create cocktails that perfectly complement our farm-to-table dishes. From a refreshing mint mojito made with locally grown mint to a tangy citrus margarita featuring our own organic limes, every sip embodies the harmony of our farm and surroundings. Join us at Olivea Farm to Table and enjoy a truly unique cocktail experience that celebrates the bounty of our farm. Our delicious, farm-inspired cocktails are sure to delight your palate and enhance your dining journey.</p></div></div><div class="xl:w-1/2 w-full"><div class="room-img h-full w-full relative"><picture><source srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-23-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-900.webp') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/webp"><source srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-23-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-900.png') }} 900w" sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img src="{{ url_for('static', filename='dist/img/room/OLIVEA-23-600.png') }}" alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400" loading="lazy"></picture><button class="center-button"><i class="ri-arrow-right-line"></i></button></div></div></div></div></div></div></section> {% block menu_line2 %} <script>document.querySelectorAll('.room-button').forEach(button => {
+{% block menu_line %}
+<style>
+    .room-button {
+        border: none;
+        background: 0 0;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2); /* Increased opacity */
+        transition: opacity 0.3s ease;
+    }
+
+    .room-img:hover .overlay {
+        opacity: 0;
+    }
+
+    .button-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, .8);
+        border-radius: 50%;
+        transition: all .3s ease;
+    }
+
+    .room-button:hover .button-icon {
+        bottom: 0;
+        right: 0;
+    }
+
+    .room-button i {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+        color: rgba(0, 0, 0, .5);
+        font-size: 25px;
+    }
+
+    .center-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        background-color: transparent; /* Transparent button */
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fafafa;
+        font-size: 25px;
+        padding: 10px 20px;
+        transition: all .3s ease;
+        opacity: 1;
+        border: 2px solid #fafafa; /* Optional border to make the button more visible */
+    }
+
+    .room-img:hover .center-button {
+        opacity: 1;
+    }
+
+    .nav-tabs {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-tabs .nav-link {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 25%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        box-sizing: border-box;
+        min-width: 55px !important;
+        background-color: #e4e3e1;
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-tabs .nav-link span {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .nav-tabs .nav-link img {
+        display: block;
+        height: 12;
+        object-fit: contain;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 24px;
+        display: none;
+    }
+
+    .nav-tabs.rooms .nav-link.active {
+        background-color: rgba(228, 227, 225, 0);
+        border: 4px solid #e4e3e1;
+    }
+
+    @media (max-width:600px) {
+        .room-button img {
+            display: block !important;
+        }
+
+        .center-button {
+            display: flex !important;
+        }
+
+        .nav-tabs .nav-link picture,
+        .nav-tabs .nav-link span,
+        .room-button img {
+            display: none;
+        }
+
+        .nav-tabs {
+            justify-content: space-between;
+            overflow-x: auto;
+            padding: 0 10px;
+        }
+
+        .nav-tabs .nav-link {
+            width: 25%;
+            padding: 10px 0;
+            margin: 0 5px;
+        }
+
+        .nav-tabs .nav-link i {
+            display: block;
+            font-size: 24px;
+        }
+    }
+</style>
+{% endblock %}
+
+<section class="section-room relative xl:py-[100px] py-[70px]" data-aos="fade-up" data-aos-duration="2000"
+    id="{% if lang_code == 'es' %}menú{% else %}menu{% endif %}">
+    <div
+        class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]">
+        <div class="parent-container">
+            <div class="nav nav-tabs rooms lh-room border-0" id="nav-tab" role="tablist">
+                <button
+                    class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link active"
+                    id="nav-Deluxe-tab" data-bs-toggle="tab" data-bs-target="#nav-Deluxe" type="button" role="tab"
+                    aria-controls="nav-Deluxe" aria-selected="true">
+                    <span>Menú</span>
+                    <img src="{{ url_for('static', filename='dist/img/svg/menu.svg') }}" alt="1"
+                        class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy">
+                </button>
+                <button
+                    class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link"
+                    id="nav-Single-tab" data-bs-toggle="tab" data-bs-target="#nav-Single" type="button" role="tab"
+                    aria-controls="nav-Single" aria-selected="false">
+                    <span>Vinos</span>
+                    <img src="{{ url_for('static', filename='dist/img/svg/wine.svg') }}" alt="2"
+                        class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy">
+                </button>
+                <button
+                    class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link"
+                    id="nav-Super-tab" data-bs-toggle="tab" data-bs-target="#nav-Super" type="button" role="tab"
+                    aria-controls="nav-Super" aria-selected="false">
+                    <span>Liquor</span>
+                    <img src="{{ url_for('static', filename='dist/img/svg/liquor.svg') }}" alt="3"
+                        class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy">
+                </button>
+                <button
+                    class="mb-0 text-[20px] leading-[28px] text-[#464644] focus:text-[#464644] w-1/4 border border-[#e4e3e1] text-center nav-link"
+                    id="nav-Cocktails-tab" data-bs-toggle="tab" data-bs-target="#nav-Cocktails" type="button" role="tab"
+                    aria-controls="nav-Cocktails" aria-selected="false">
+                    <span>Cocktails</span>
+                    <img src="{{ url_for('static', filename='dist/img/svg/cocktail.svg') }}" alt="4"
+                        class="mb-[15px] rounded-[15px] h-20 object-contain" loading="lazy">
+                </button>
+            </div>
+        </div>
+        <div class="tab-content rounded-[15px] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg relative p-0 mt-[25px] overflow-hidden"
+            id="nav-tabContent">
+            <div class="tab-pane fade active show" id="nav-Deluxe" role="tabpanel" aria-labelledby="nav-Deluxe-tab">
+                <div
+                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                    <div class="xl:w-1/2 w-full px-[12px]">
+                        <div class="lh-room-contain relative px-[12px] py-[24px]">
+                            <div class="lh-contain-heading pb-[15px] flex justify-between">
+                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">
+                                    Menú</h4>
+                            </div>
+                            <p>At Olivea Farm-to-Table, the culinary journey is unforgettable, beginning with the
+                                freshest ingredients straight from our garden and ending with a delightful dessert.
+                                Imagine tasting basil, a radish, or a carrot that starts as a vibrant salad, transforms
+                                into a delicate sashimi, accompanies a locally sourced protein, and culminates in a
+                                garden-inspired dessert. This spectacular journey showcases the magic of fresh
+                                ingredients, offering a passionate and immersive dining experience from start to finish.
+                            </p>
+                            <div class="lh-main-features border-t border-solid border-[#464644] pt-[30px] mt-[30px]">
+                                <div class="lh-contain-heading pb-[15px] flex justify-between">
+                                    <h5
+                                        class="xl:text-[18px] text-[16px] leading-[1.2] font-bold text-[#464644] text-left">
+                                        Allergies</h5>
+                                </div>
+                                <div class="lh-room-features flex">
+                                    <p>Olivea Farm to Table prioritizes your health and food preferences. We cater to
+                                        all allergies and dietary restrictions, ensuring you have a safe and enjoyable
+                                        dining experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/2 w-full">
+                        <div class="room-img h-full w-full relative">
+                            <div class="overlay"></div>
+                            <picture>
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-6-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-900.webp') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-6-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-6-900.png') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img
+                                    src="{{ url_for('static', filename='dist/img/room/OLIVEA-6-600.png') }}"
+                                    alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400"
+                                    loading="lazy">
+                            </picture>
+                            <button class="room-button center-button">
+                                Click Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-Single" role="tabpanel" aria-labelledby="nav-Single-tab">
+                <div
+                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                    <div class="xl:w-1/2 w-full px-[12px]">
+                        <div class="lh-room-contain relative px-[12px] py-[24px]">
+                            <div class="lh-contain-heading pb-[15px] flex justify-between">
+                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">
+                                    Vinos</h4>
+                            </div>
+                            <p>At Olivea Farm to Table, we are proud to promote local wines from the best vineyards in
+                                the region. We offer an extensive selection, ensuring that every guest can find a wine
+                                that perfectly complements their meal and satisfies their unique tastes. Whether you
+                                prefer a robust red, a crisp white, or a delicate rosé, our curated collection will
+                                delight your palate. Join us for a dining experience that celebrates local flavors and
+                                exceptional wines.</p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/2 w-full">
+                        <div class="room-img h-full w-full relative">
+                            <div class="overlay"></div>
+                            <picture>
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/WINE-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/WINE-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/WINE-900.webp') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/WINE-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/WINE-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/WINE-900.png') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img
+                                    src="{{ url_for('static', filename='dist/img/room/WINE-600.png') }}" alt="room-img"
+                                    class="room-image h-full w-full lazyload" width="600" height="400" loading="lazy">
+                            </picture>
+                            <button class="room-button center-button">Click Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-Super" role="tabpanel" aria-labelledby="nav-Super-tab">
+                <div
+                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                    <div class="xl:w-1/2 w-full px-[12px]">
+                        <div class="lh-room-contain relative px-[12px] py-[24px]">
+                            <div class="lh-contain-heading pb-[15px] flex justify-between">
+                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">
+                                    Liquor</h4>
+                            </div>
+                            <p>At Olivea Farm to Table, we understand that sometimes you crave a tasting experience
+                                beyond wine, even though we adore our wine valley. That's why we offer a wide selection
+                                of distilled spirits for our valued customers. Enjoy our curated collection of premium
+                                mezcal and tequila, highlighting the rich flavors and traditions of Mexico. From smooth,
+                                smoky mezcal to vibrant, bold tequilas, our offerings cater to every preference. Join us
+                                for a unique and sophisticated tasting journey with our exceptional Mexican spirits.</p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/2 w-full">
+                        <div class="room-img h-full w-full relative">
+                            <div class="overlay"></div>
+                            <picture>
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/liquor-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/liquor-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/liquor-900.webp') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/liquor-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/liquor-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/liquor-900.png') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img
+                                    src="{{ url_for('static', filename='dist/img/room/liquor-600.png') }}"
+                                    alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400"
+                                    loading="lazy">
+                            </picture>
+                            <button class="room-button center-button">Click Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-Cocktails" role="tabpanel" aria-labelledby="nav-Cocktails-tab">
+                <div
+                    class="flex flex-wrap justify-between mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                    <div class="xl:w-1/2 w-full px-[12px]">
+                        <div class="lh-room-contain relative px-[12px] py-[24px]">
+                            <div class="lh-contain-heading pb-[15px] flex justify-between">
+                                <h4 class="xl:text-[22px] text-[18px] leading-[1.2] font-bold text-[#464644] text-left">
+                                    Cocktails</h4>
+                            </div>
+                            <p>At Olivea Farm to Table, our exquisite kitchen extends its creativity to our cocktail
+                                menu, bringing the essence of the farm directly to your glass. Imagine sipping on a
+                                cocktail infused with fresh herbs handpicked from our garden, or tasting a concoction
+                                made with seasonal fruits harvested at their peak ripeness. Each drink is meticulously
+                                crafted to highlight the vibrant, natural flavors that our farm provides. Our
+                                mixologists work closely with our chefs to create cocktails that perfectly complement
+                                our farm-to-table dishes. From a refreshing mint mojito made with locally grown mint to
+                                a tangy citrus margarita featuring our own organic limes, every sip embodies the harmony
+                                of our farm and surroundings. Join us at Olivea Farm to Table and enjoy a truly unique
+                                cocktail experience that celebrates the bounty of our farm. Our delicious, farm-inspired
+                                cocktails are sure to delight your palate and enhance your dining journey.</p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/2 w-full">
+                        <div class="room-img h-full w-full relative">
+                            <div class="overlay"></div>
+                            <picture>
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-23-300.webp') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-600.webp') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-900.webp') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
+                                <source
+                                    srcset="{{ url_for('static', filename='dist/img/room/OLIVEA-23-300.png') }} 300w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-600.png') }} 600w, {{ url_for('static', filename='dist/img/room/OLIVEA-23-900.png') }} 900w"
+                                    sizes="(max-width: 600px) 100vw, 600px" type="image/png"><img
+                                    src="{{ url_for('static', filename='dist/img/room/OLIVEA-23-600.png') }}"
+                                    alt="room-img" class="room-image h-full w-full lazyload" width="600" height="400"
+                                    loading="lazy">
+                            </picture>
+                            <button class="room-button center-button">Click Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% block menu_line2 %}
+<script>
+    document.querySelectorAll('.room-button').forEach(button => {
         button.addEventListener('click', () => {
             Swal.fire({
                 html: '<div style="position: relative; width: 100%; height: 0; padding-top: 129.4118%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;"><iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAGJWsKpEn8/3aQZ-jMHGrUqtONEtr6Bpg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe></div>',
                 showCloseButton: true,
-                showCancelButton: true,
+                showCancelButton: false,
                 focusConfirm: false,
-                confirmButtonText: 'Close'
             });
         });
-    });</script> {% endblock %}
+    });
+</script>
+{% endblock %}
