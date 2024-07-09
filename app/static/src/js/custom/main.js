@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const timeInput = document.querySelector('#time');
   const timeDiv = document.querySelector('#time_div');
 
-  const today = "{{ today }}"; // Ensure this is a valid date string in YYYY-MM-DD format
+  const today = "2024-07-08"; // Ensure this is a valid date string in YYYY-MM-DD format
   const defaultTime = "19:00"; // Default time
 
   let reservationDateCalendar, timeCalendar;
@@ -300,29 +300,54 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (reservationDateInput) {
-      reservationDateCalendar = flatpickr(reservationDateInput, {
-          dateFormat: "Y-m-d",
-          defaultDate: today,
-      });
+      try {
+          reservationDateCalendar = flatpickr(reservationDateInput, {
+              dateFormat: "Y-m-d",
+              defaultDate: today,
+          });
 
-      reservationDateDiv.addEventListener('click', function(event) {
-          event.stopPropagation();  // Prevent the click event from bubbling up
-          reservationDateInput._flatpickr.open();
-      });
+          console.log('reservationDateCalendar initialized:', reservationDateCalendar);
+
+          reservationDateDiv.addEventListener('click', function(event) {
+              event.stopPropagation();  // Prevent the click event from bubbling up
+              if (reservationDateInput._flatpickr) {
+                  reservationDateInput._flatpickr.open();
+              } else {
+                  console.error('Flatpickr not initialized on reservationDateInput');
+              }
+          });
+      } catch (error) {
+          console.error('Error initializing flatpickr on reservationDateInput:', error);
+      }
+  } else {
+      console.error('reservationDateInput not found');
   }
 
   if (timeInput) {
-      timeCalendar = flatpickr(timeInput, {
-          enableTime: true,
-          noCalendar: true,
-          dateFormat: "H:i",
-          defaultDate: defaultTime,
-          time_24hr: true
-      });
+      try {
+          timeCalendar = flatpickr(timeInput, {
+              enableTime: true,
+              noCalendar: true,
+              dateFormat: "H:i",
+              defaultDate: defaultTime,
+              time_24hr: true
+          });
 
-      timeDiv.addEventListener('click', function(event) {
-          event.stopPropagation();  // Prevent the click event from bubbling up
-          timeInput._flatpickr.open();
-      });
+          console.log('timeCalendar initialized:', timeCalendar);
+
+          timeDiv.addEventListener('click', function(event) {
+              event.stopPropagation();  // Prevent the click event from bubbling up
+              if (timeInput._flatpickr) {
+                  timeInput._flatpickr.open();
+              } else {
+                  console.error('Flatpickr not initialized on timeInput');
+              }
+          });
+      } catch (error) {
+          console.error('Error initializing flatpickr on timeInput:', error);
+      }
+  } else {
+      console.error('timeInput not found');
   }
 });
+
