@@ -29,9 +29,13 @@ def detect_language():
 def index():
     if "language" not in session:
         session["language"] = detect_language()
-    return redirect(
-        url_for("main.index_localized", lang_code=session.get("language", "en"))
-    )
+    
+    # Check the host and redirect accordingly
+    host = request.host
+    lang_code = session.get("language", "en")
+    if "oliveafarmtotable.com" in host:
+        return redirect(url_for("main.oliveafarmtotable", lang_code=lang_code))
+    return redirect(url_for("main.index_localized", lang_code=lang_code))
 
 @bp.route("/<lang_code>")
 def index_localized(lang_code):
@@ -42,6 +46,16 @@ def index_localized(lang_code):
     if lang_code == "es":
         return render_template("index_es.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
     return render_template("index_en.html", page_name='MYA', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
+
+@bp.route("/<lang_code>/oliveafarmtotable")
+def oliveafarmtotable(lang_code):
+    session["language"] = lang_code
+    email = "olivea@myahotelboutique.com"
+    phone = "+52 (646) 388-2369"
+    canonical_url = url_for('main.oliveafarmtotable', lang_code=lang_code, _external=True)
+    if lang_code == "es":
+        return render_template("oliveafarmtotable_es.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
+    return render_template("oliveafarmtotable_en.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/set_language", methods=["POST"])
 def set_language():
@@ -78,7 +92,6 @@ def find_us(lang_code):
         subject = request.form.get("subject")
         message = request.form.get("message")
 
-        # Send an email using the Gmail API
         send_email(current_app.config["MAIL_TO"], subject, f"Name: {firstname}\nEmail: {email}\nSubject: {subject}\nMessage: {message}")
 
         print(f"Name: {firstname}, Email: {email}, Subject: {subject}, Message: {message}")
@@ -86,16 +99,6 @@ def find_us(lang_code):
         return jsonify({"success": True})
 
     return render_template("partials/base/find-us.html", page_name='Find Us', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
-
-@bp.route("/<lang_code>/oliveafarmtotable")
-def oliveafarmtotable(lang_code):
-    session["language"] = lang_code
-    email = "olivea@myahotelboutique.com"
-    phone = "+52 (646) 388-2369"
-    canonical_url = url_for('main.oliveafarmtotable', lang_code=lang_code, _external=True)
-    if lang_code == "es":
-        return render_template("oliveafarmtotable_es.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
-    return render_template("oliveafarmtotable_en.html", page_name='Olivea', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
 @bp.route("/<lang_code>/divino")
 def divino(lang_code):
