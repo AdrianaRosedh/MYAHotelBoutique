@@ -1,1 +1,74 @@
-{% block reservation %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> {% endblock %}<section class="section-search-control absolute bottom-0 z-[1] w-full"><div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]"><form class="w-full" id="reservationForm" action="{{ url_for('main.opentable_reservation', lang_code=session.get('language', 'en')) }}" method="post"><div class="search-control-boxing shadow-[0_0_50px_0_rgba(0,0,0,0.1)] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] flex justify-between"><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Fecha de Reserva</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Reservation Date</h4> {% endif %} <div class="relative"><input type="text" id="reservation_date" name="reservation_date" value="{{ today }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-calendar-alt calendar-icon" id="reservation_date-icon"></i></div></div></div><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Hora</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Time</h4> {% endif %} <div class="relative"><input type="text" id="time" name="time" value="19:00" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-clock calendar-icon" id="time-icon"></i></div></div></div><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Tamaño del Grupo</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Party Size</h4> {% endif %} <div class="relative"><input type="number" id="party_size" name="party_size" value="2" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-users calendar-icon" id="party_size-icon"></i></div></div></div><div class="flex p-[12px]"><div class="search-control-button flex items-center min-w-[117px]"> {% if lang_code == 'es' %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Ver disponibilidad</button> {% else %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Check Availability</button> {% endif %} </div></div></div></form></div></section> {% block reservation_js %} <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer="defer"></script><script>document.addEventListener("DOMContentLoaded",function(){flatpickr("#reservation_date",{dateFormat:"Y-m-d"}),flatpickr("#time",{enableTime:!0,noCalendar:!0,dateFormat:"H:i",time_24hr:!0})})</script> {% endblock %}
+{% block reservation %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> {% endblock %} <section class="section-search-control absolute bottom-0 z-[1] w-full"><div class="flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-[12px]"><form class="w-full" id="reservationForm" action="{{ url_for('main.opentable_reservation', lang_code=session.get('language', 'en')) }}" method="post"><div class="search-control-boxing shadow-[0_0_50px_0_rgba(0,0,0,0.1)] p-[12px] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] flex justify-between"><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Fecha de Reserva</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Reservation Date</h4> {% endif %} <div class="relative"><input type="text" id="reservation_date" name="reservation_date" value="{{ today }}" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-calendar-alt calendar-icon" id="reservation_date-icon"></i></div></div></div><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Hora</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Time</h4> {% endif %} <div class="relative"><input type="text" id="time" name="time" value="19:00" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-clock calendar-icon" id="time-icon"></i></div></div></div><div class="w-full p-[12px]"><div class="search-box relative"> {% if lang_code == 'es' %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Tamaño del Grupo</h4> {% else %} <h4 class="pb-[5px] lg:text-[16px] text-[14px] text-[#464644] font-bold">Party Size</h4> {% endif %} <div class="relative"><input type="number" id="party_size" name="party_size" value="2" class="border-t-0 border-l-0 border-r-0 text-left bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg w-full border-b border-[#e3e1e1] outline-0 border-solid widgetHotelsInputText" loading="lazy"> <i class="fas fa-users calendar-icon" id="party_size-icon"></i></div></div></div><div class="flex p-[12px]"><div class="search-control-button flex items-center min-w-[117px]"> {% if lang_code == 'es' %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Ver disponibilidad</button> {% else %} <button type="submit" class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]">Check Availability</button> {% endif %} </div></div></div></form></div></section> {% block reservation_js %} <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer="defer"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><script>document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#reservation_date", { 
+            dateFormat: "Y-m-d",
+            onOpen: function(selectedDates, dateStr, instance) {
+                instance.calendarContainer.style.zIndex = 9999;  // Ensure the calendar is on top
+            }
+        });
+        flatpickr("#time", { 
+            enableTime: true, 
+            noCalendar: true, 
+            dateFormat: "H:i", 
+            time_24hr: true,
+            onOpen: function(selectedDates, dateStr, instance) {
+                instance.calendarContainer.style.zIndex = 9999;  // Ensure the calendar is on top
+            }
+        });
+
+        document.getElementById("reservationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const reservationDate = document.getElementById("reservation_date").value;
+            const time = document.getElementById("time").value;
+            const partySize = document.getElementById("party_size").value;
+            const langCode = "{{ lang_code }}";
+
+            console.log('Form submission intercepted');
+            console.log('Reservation Date:', reservationDate);
+            console.log('Time:', time);
+            console.log('Party Size:', partySize);
+            console.log('Lang Code:', langCode);
+
+            // Construct the URL for the iframe
+            const url = `https://www.opentable.com.mx/restref/client/?rid=1313743&restref=1313743&lang=${langCode}&color=8&r3uid=cfe&dark=false&partysize=${partySize}&datetime=${reservationDate}T${time}&ot_source=Restaurant%20website&logo_pid=0&background_pid=0&font=arialBlack&ot_logo=standard&primary_color=ffffff&primary_font_color=333333&button_color=da3743&button_font_color=ffffff&corrid=ea21e764-72c0-4b7c-bbd4-1f25a194b7b4`;
+
+            console.log('Constructed URL:', url);
+
+            // Function to get the responsive width and height
+            function getResponsiveDimensions() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+
+                let popupWidth = '80%';
+                let popupHeight = '70vh';
+
+                if (width <= 768) { // For screens less than 768px (mobile)
+                    popupWidth = '95%';
+                    popupHeight = '90vh';
+                }
+
+                return { popupWidth, popupHeight };
+            }
+
+            // Get responsive dimensions
+            const { popupWidth, popupHeight } = getResponsiveDimensions();
+
+            // Display the iframe in SweetAlert2 popup
+            Swal.fire({
+                html: `<div class="iframe-container" style="position: relative; width: 100%; height: ${popupHeight}; max-width: 100%; background: #000;">
+                            <iframe src="${url}" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+                       </div>`,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
+                width: popupWidth,
+                height: popupHeight,
+                padding: '0',
+                showCloseButton: true,
+                showConfirmButton: false,
+            });
+        });
+    });</script> {% endblock %}
