@@ -1,1 +1,35 @@
-<nav id="floating-sidebar" class="fixed top-0 left-0 mt-20 lg:mt-40 ml-2 sm:ml-0 md:ml-4 lg:ml-8 z-20"><button id="michelinButton" class="focus:outline-none p-0 flex items-center justify-center w-10 h-10"><img src="{{ url_for('static', filename='dist/img/svg/michelin.svg') }}" alt="MichelinLogo2024" class="lazyload w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg animate-pulse rounded-full" loading="lazy"></button></nav>{% block sweetalert2 %} <script>document.getElementById("michelinButton").addEventListener("click",function(){Swal.fire({title:"Michelin",text:"This is a SweetAlert2 popup!",icon:"info",confirmButtonText:"OK"})})</script> {% endblock %}
+<nav id="floating-sidebar" class="fixed top-0 left-0 mt-20 lg:mt-40 ml-2 sm:ml-0 md:ml-4 lg:ml-8 z-20"><button id="michelinButton" class="focus:outline-none p-0 flex items-center justify-center w-10 h-10"><img src="{{ url_for('static', filename='dist/img/svg/michelin.svg') }}" alt="MichelinLogo2024" class="lazyload w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg animate-pulse rounded-full" loading="lazy"></button></nav> {% block sweetalert2 %} <script>document.getElementById("michelinButton").addEventListener("click", function () {
+    Swal.fire({
+        title: "Olivea Farm to Table: Mexico's Youngest Michelin-Recognized Restaurant",
+        html: `
+            <h2 style="color: #000 !important; font-size: 1.5em !important; font-weight: bold !important; margin-bottom: 0.5em !important;">Olivea Farm to Table: Mexico's Youngest Michelin-Recognized Restaurant</h2>
+            <p style="color: #000 !important; font-size: 1em !important; margin: 0.5em 0 !important;">Olivea Farm to Table proudly announces our inclusion in the Michelin Guide, making us the youngest restaurant in Mexico to earn this honor in under a year. This recognition highlights our commitment to exceptional culinary experiences and farm-to-table principles.</p>
+            <h3 style="color: #000 !important; font-size: 1.5em !important; margin: 0.5em 0 !important;">Our Journey</h3>
+            <p style="color: #000 !important; font-size: 1em !important; margin: 0.5em 0 !important;">Achieving Michelin recognition so quickly is a testament to our hard work, passion, and dedication. From seed to plate, our focus on organic farming and fresh ingredients sets us apart. We strive to improve daily, ensuring every meal celebrates quality, sustainability, and culinary artistry.</p>
+            <h3 style="color: #000 !important; font-size: 1.5em !important; margin: 0.5em 0 !important;">Visit Olivea Farm to Table</h3>
+            <p style="color: #000 !important; font-size: 1em !important; margin: 0.5em 0 !important;">Discover the essence of farm-to-table dining at Olivea Farm to Table. Taste the difference that quality, sustainability, and passion make.</p>
+        `,
+        iconHtml: '<img src="{{ url_for('static', filename='dist/img/svg/michelin.svg') }}" alt="Michelin Logo" style="width: 80px; height: 80px;">',
+        customClass: {
+            popup: 'swal2-popup-custom'
+        },
+        showCancelButton: true,
+        cancelButtonText: "Close",
+        confirmButtonText: "Visit Us",
+        backdrop: `
+            rgba(0,0,123,0.4)
+        `,
+        timer: 30000, // Popup closes after 30 seconds
+        timerProgressBar: true,
+        showClass: {
+            popup: 'animate__animated animate__bounceInLeft'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__bounceOutLeft'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "https://oliveafarmtotable.com";
+        }
+    });
+});</script> {% endblock %}
