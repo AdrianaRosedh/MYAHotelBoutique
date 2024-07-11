@@ -203,7 +203,11 @@ def favicon():
 
 @bp.route('/robots.txt')
 def robots_txt():
-    return send_from_directory(bp.root_path, 'static', 'robots.txt')
+    return send_from_directory(
+        os.path.join(bp.root_path, "static"),
+        "robots.txt",
+        mimetype="text/plain"
+    )
 
 # Error handler for 404 errors
 @bp.app_errorhandler(404)
