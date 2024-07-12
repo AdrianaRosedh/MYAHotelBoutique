@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ session.get('language', 'en') }}">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{% include 'partials/base/meta_description.html' %}">
-    <meta name="keywords" content="{% include 'partials/base/meta_keywords.html' %}">
-    <title>{% include 'partials/base/title.html' %}</title> {% include 'partials/base/favicon.html' %} {% if page_name
-    == 'MYA' %}
-    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en">
-    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es"> {%
-    elif page_name == 'Olivea' %}
-    <link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='en', _external=True) }}" hreflang="en">
-    <link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='es', _external=True) }}" hreflang="es">
-    {% elif page_name == 'Divino' %}
-    <link rel="alternate" href="{{ url_for('main.divino', lang_code='en', _external=True) }}" hreflang="en">
-    <link rel="alternate" href="{{ url_for('main.divino', lang_code='es', _external=True) }}" hreflang="es"> {% else %}
-    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en">
-    <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es"> {%
-    endif %} {% if canonical_url %}
-    <link rel="canonical" href="{{ canonical_url }}"> {% endif %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">{% block
-    loader_styles %}{%endblock %} {% block chatbot %}{% endblock %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">{%
-    block menu_line %}{% endblock %} {% block reservation %}{% endblock %} {% block links %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}" media="print"
-        onload='this.media="all"'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}" media="print"
-        onload='this.media="all"'><noscript>
-        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}">
-    </noscript> {% endblock %} {% block extra %}{% endblock %}
-</head>
-
-<body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}"> {% include 'partials/base/loader.html'
+<!DOCTYPE html><html lang="{{ session.get('language', 'en') }}"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{% include 'partials/base/meta_description.html' %}"><meta name="keywords" content="{% include 'partials/base/meta_keywords.html' %}"><title>{% include 'partials/base/title.html' %}</title> {% include 'partials/base/favicon.html' %} {% if page_name
+    == 'MYA' %} <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en"><link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es"> {%
+    elif page_name == 'Olivea' %} <link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='en', _external=True) }}" hreflang="en"><link rel="alternate" href="{{ url_for('main.oliveafarmtotable', lang_code='es', _external=True) }}" hreflang="es"> {% elif page_name == 'Divino' %} <link rel="alternate" href="{{ url_for('main.divino', lang_code='en', _external=True) }}" hreflang="en"><link rel="alternate" href="{{ url_for('main.divino', lang_code='es', _external=True) }}" hreflang="es"> {% else %} <link rel="alternate" href="{{ url_for('main.index_localized', lang_code='en', _external=True) }}" hreflang="en"><link rel="alternate" href="{{ url_for('main.index_localized', lang_code='es', _external=True) }}" hreflang="es"> {%
+    endif %} {% if canonical_url %} <link rel="canonical" href="{{ canonical_url }}"> {% endif %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">{% block
+    loader_styles %}{%endblock %} {% block chatbot %}{% endblock %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">{%
+    block menu_line %}{% endblock %} {% block reservation %}{% endblock %} {% block links %} <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}" media="print" onload='this.media="all"'><link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}" media="print" onload='this.media="all"'><noscript><link rel="stylesheet" href="{{ url_for('static', filename='dist/css/vendor/vendor.min.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='dist/css/custom/styles.min.css') }}"></noscript> {% endblock %} {% block extra %}{% endblock %} </head><body class="overflow-x-hidden bg-gray-10" data-lang="{{ session['language'] }}"> {% include 'partials/base/loader.html'
     %} <header> {% include 'partials/base/basic-nav.html' %} {% include 'partials/base/navbar.html' %} </header> {%
     include 'partials/base/mobile-menu.html' %} {% block main %} <main> {% include 'partials/base/hero.html' %} {% block
         content %}{% endblock %} </main> {% endblock %} {% block plugs %} {% include 'partials/base/footer.html' %} {%
     include 'partials/base/permanent.html' %} {% include 'partials/base/sidebar.html' %} {% include
-    'partials/base/chatbot.html' %} {% endblock %} {% block progress_bar %}{% endblock %} {% block scripts %}
-    <script src="https://hammerjs.github.io/dist/hammer.min.js" defer="defer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer="defer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js" defer="defer"></script> {%
-    endblock %} {% block reservation_js %}{% endblock %}
-    <script src="{{ url_for('static', filename='dist/js/main.min.js') }}" defer="defer"></script> {% block find_us %}{%
+    'partials/base/chatbot.html' %} {% endblock %} {% block progress_bar %}{% endblock %} {% block scripts %} <script src="https://hammerjs.github.io/dist/hammer.min.js" defer="defer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer="defer"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js" defer="defer"></script> {%
+    endblock %} {% block reservation_js %}{% endblock %} <script src="{{ url_for('static', filename='dist/js/main.min.js') }}" defer="defer"></script> {% block find_us %}{%
     endblock %} {% block chatbot2 %}{% endblock %} {% block sweetalert2 %}{% endblock %}{% block menu_line2 %}{%
-    endblock %}
-</body>
-
-</html>
+    endblock %} </body></html>

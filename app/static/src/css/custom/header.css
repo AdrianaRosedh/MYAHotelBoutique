@@ -5,7 +5,7 @@
 /* Basic Navbar */
 .basic-nav {
   background-color: #969591;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .language-form {
@@ -129,8 +129,8 @@ ul.navbar-nav .dropdown:hover .dropdown-menu {
   }
 }
 
- /* Custom styles for the hamburger menu */
- .menu-button-wrapper {
+/* Custom styles for the hamburger menu */
+.menu-button-wrapper {
   width: 65px;
   height: 45px;
   cursor: pointer;
@@ -215,7 +215,7 @@ ul.navbar-nav .dropdown:hover .dropdown-menu {
 
 .toggle-switch {
   position: relative;
-  display: inline-block;
+  display: inline-flex; /* Change this to inline-flex for better alignment */
   width: 60px;
   height: 30px;
 }
