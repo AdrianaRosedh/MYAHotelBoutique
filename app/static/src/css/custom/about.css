@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .image-container {
     width: 100%;
     max-width: 624px;
