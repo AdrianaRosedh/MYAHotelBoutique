@@ -1,19 +1,19 @@
-{% extends "base.html" %} {% block content %} {% include 'partials/diVino/gallery.html' %}<div class="gallery-mobile"> {% include 'partials/mya/gallery-mobile.html' %} </div> {%
-include 'partials/diVino/amenities.html' %} {% include 'partials/diVino/padel.html' %} {% include
-'partials/diVino/cafe.html' %}{% include 'partials/base/owners.html' %} {% include 'partials/base/sustainability.html' %}{% include 'partials/base/find-us.html' %} {% endblock %} {% block sweetalert2 %} <script>document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        Swal.fire({
-            title: "You can already get Coffee and Wine!",
-            width: 600,
-            padding: "3em",
-            color: "#716add",
-            background: "#fff", 
-            backdrop: `
+{% extends "base.html" %} {% block content %} {% include 'partials/diVino/gallery.html' %} {% include 'partials/diVino/gallery-mobile.html' %} {% include 'partials/base/owners.html' %} {% include 'partials/base/sustainability.html'
+%}{% include 'partials/base/find-us.html' %} {% endblock %} {% block sweetalert2 %}
+<script>document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            Swal.fire({
+                title: "You can already get Coffee and Wine!",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff",
+                backdrop: `
                 rgba(0,0,123,0.4)
                 url('{{ url_for('static', filename='dist/img/gif/giphy.webp') }}')
                 left top
                 no-repeat
             `
-        });
-    }, 10000); // 10000 milliseconds = 10 seconds
-});</script> {% endblock %}
+            });
+        }, 10000); // 10000 milliseconds = 10 seconds
+    });</script> {% endblock %}
