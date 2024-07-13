@@ -1,1 +1,26 @@
-<section class="relative flex flex-col items-start mx-auto lg:flex-row-reverse lg:max-w-6xl xl:max-w-7xl p-4 sm:p-6 lg:p-0 rounded-lg lg:rounded-none min-h-[760px] lg:min-h-[720px]"><div class="w-full h-64 lg:w-1/2 lg:h-auto lg:relative lg:mr-4 lg:right-0 rounded-[15px] rounded-bl-[70px] overflow-hidden" data-aos="fade-left" data-aos-duration="1200"><img class="h-full w-full object-cover rounded-[15px] rounded-bl-[200px] transition-transform duration-500 ease-in-out transform hover:scale-110 sm:hover:scale-110" src="{{ url_for('static', filename='dist/img/hero/MyA-900.jpg') }}" alt="Winding mountain road"></div><div class="absolute top-[15rem] lg:top-[12rem] bg-[#e4e3e1] left-4 right-4 max-w-lg md:max-w-2xl md:shadow-lg lg:w-3/5 mt-55 lg:mt-35 lg:ml-20 xl:mt-38 xl:ml-12 rounded-[15px] z-10 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200"><div class="flex flex-col p-6 sm:p-12 md:px-14 lg:rounded-[15px]"><h2 class="text-[#464644] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">Meet <span class="text-[#388eea]">M</span>ike and <span class="text-[#388eea]">A</span>nge</h2><p class="mt-4 text-sm sm:text-base">When Mike and Ange embarked on their journey to create something special, they knew they wanted a name that reflected their relationship and the love they shared. Thus, MYA was born, a blend of "M" from Mike and "A" from Ange, symbolizing their union.<br><br>The names MYA, Olivea and DiVino emerged from countless conversations throughout their time together, each carrying deep personal significance.<br><br>Now, as they see their dreams materialize, Mike and Ange feel a profound sense of peace and happiness. They are overjoyed to share this feeling with everyone who visits their little piece of heaven, MYA, Olivea, and DiVino. This project is more than a business; it is a testament to their journey, their love, and their dedication to creating a space of warmth and welcome for all.</p></div></div></section>
+<section
+    class="relative flex flex-col items-start mx-auto lg:flex-row-reverse lg:max-w-6xl xl:max-w-7xl p-4 sm:p-6 lg:p-0 rounded-lg lg:rounded-none min-h-[760px] lg:min-h-[720px]">
+    <div class="w-full h-64 lg:w-1/2 lg:h-auto lg:relative lg:mr-4 lg:right-0 rounded-[15px] rounded-bl-[70px] overflow-hidden"
+        data-aos="fade-left" data-aos-duration="1200"><img
+            class="h-full w-full object-cover rounded-[15px] rounded-bl-[200px] transition-transform duration-500 ease-in-out transform hover:scale-110 sm:hover:scale-110"
+            src="{{ url_for('static', filename='dist/img/hero/MyA-900.jpg') }}" alt="Winding mountain road"></div>
+    <div class="absolute top-[15rem] lg:top-[12rem] bg-[#e4e3e1] left-4 right-4 max-w-lg md:max-w-2xl md:shadow-lg lg:w-3/5 mt-55 lg:mt-35 lg:ml-20 xl:mt-38 xl:ml-12 rounded-[15px] z-10 aos-init aos-animate"
+        data-aos="fade-right" data-aos-duration="1200">
+        <div class="flex flex-col p-6 sm:p-12 md:px-14 lg:rounded-[15px]">
+            <h2
+                class="text-[#464644] font-medium leading-[1.2] 2xl:text-[40px] xl:text-[35px] xl:pb-0 lg:text-[30px] md:text-[28px] sm:text-[26px] text-[22px]">
+                {% if lang_code == 'es' %}Conozcan a <span class="text-[#388eea]">M</span>ike y <span
+                    class="text-[#388eea]">A</span>nge</h2>{% else %}Meet <span class="text-[#388eea]">M</span>ike and
+            <span class="text-[#388eea]">A</span>nge</h2>{% endif %}
+            <p class="mt-4 text-sm sm:text-base">{% if lang_code == 'es' %}Cuando Mike y Ange comenzaron su viaje para crear algo especial, sabían que querían un nombre que reflejara su relación y el amor que compartían. Así nació MYA, una mezcla de la "M" de Mike y la "A" de Ange, simbolizando su unión.<br><br>Los nombres MYA, Olivea y DiVino surgieron de innumerables conversaciones a lo largo de su tiempo juntos, cada uno con un profundo significado personal.<br><br>Ahora, al ver sus sueños materializarse, Mike y Ange sienten una profunda paz y felicidad. Están encantados de compartir este sentimiento con todos los que visitan su pequeño rincón del cielo: MYA, Olivea y DiVino. Este proyecto es más que un negocio; es un testimonio de su viaje, su amor y su dedicación para crear un espacio de calidez y bienvenida para todos.</p>{% else %}When Mike and Ange embarked on their journey to create something
+            special, they knew they wanted a name that reflected their relationship and the love they shared. Thus,
+            MYA was born, a blend of "M" from Mike and "A" from Ange, symbolizing their union.<br><br>The names MYA,
+            Olivea and DiVino emerged from countless conversations throughout their time together, each carrying
+            deep personal significance.<br><br>Now, as they see their dreams materialize, Mike and Ange feel a
+            profound sense of peace and happiness. They are overjoyed to share this feeling with everyone who visits
+            their little piece of heaven, MYA, Olivea, and DiVino. This project is more than a business; it is a
+            testament to their journey, their love, and their dedication to creating a space of warmth and welcome
+            for all.</p>{% endif %}
+        </div>
+    </div>
+</section>
