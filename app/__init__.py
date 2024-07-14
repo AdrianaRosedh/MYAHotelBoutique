@@ -1,4 +1,3 @@
-# app/__init__.py
 import os
 from flask import Flask, request, session, render_template
 from flask_babel import Babel

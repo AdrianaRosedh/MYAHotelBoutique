@@ -1,4 +1,3 @@
-# app/routes.py
 from flask import (
     Blueprint,
     render_template,
@@ -14,7 +13,7 @@ from flask import (
 from datetime import datetime, timedelta
 import os
 from flask_sitemap import Sitemap
-from .send_email import send_email  # Correct import
+from .send_email import send_email
 
 bp = Blueprint("main", __name__)
 sitemap = Sitemap()
