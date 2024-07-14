@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Parent container to center the content */
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Ensure the container takes full height if needed */
+}
+
+/* Additional styles for the .nav-tabs */
+.nav-tabs.rooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+  gap: 10px; /* Add spacing between buttons */
+}
+
+.nav-tabs.rooms .nav-link {
+  flex: 1; /* Ensure buttons are evenly spaced */
+  min-width: 100px; /* Minimum width for buttons */
+  text-align: center; /* Center align text in buttons */
+  padding: 10px 20px; /* Add padding for better click area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Hover and active state for better UX */
+.nav-tabs.rooms .nav-link:hover, 
+.nav-tabs.rooms .nav-link.active {
+  background-color: #f0f0f0; /* Change background color on hover/active */
+}

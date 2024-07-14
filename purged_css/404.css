@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --custom-g1: rgb(98, 0, 234);
+    --custom-g2: rgb(236, 64, 122);
+    --custom-g3: rgb(255, 165, 0);
+    --custom-g4: rgb(34, 193, 195);
+    --custom-g5: rgb(253, 187, 45);
+    --custom-tile-size: 50px; /* Default tile size */
+}
+
+.custom-hero-section {
+    background: linear-gradient(to right, var(--custom-g1), var(--custom-g2), var(--custom-g3), var(--custom-g4), var(--custom-g5), var(--custom-g1));
+    background-size: 200%;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: 1; /* Ensure the gradient is layered correctly */
+}
+
+.custom-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#custom-tiles {
+    height: calc(100vh - 1px);
+    width: calc(100vw - 1px);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--custom-tile-size));
+    grid-template-rows: repeat(auto-fill, var(--custom-tile-size));
+    position: relative;
+    z-index: 2;
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+#custom-title {
+    width: 50vw;
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-size: 10vw;
+    margin: 0;
+    pointer-events: none;
+    transition: opacity 1200ms ease;
+    z-index: 3;
+}
+
+#custom-title .custom-fancy {
+    color: var(--custom-g2);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5em;
+    line-height: 0.9em;
+}
