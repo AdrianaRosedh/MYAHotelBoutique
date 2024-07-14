@@ -1,3 +1,4 @@
+# app/routes.py
 from flask import (
     Blueprint,
     render_template,
@@ -13,8 +14,7 @@ from flask import (
 from datetime import datetime, timedelta
 import os
 from flask_sitemap import Sitemap
-from .send_email import send_email, reauthenticate
-from google.auth.exceptions import RefreshError
+from .send_email import send_email  # Correct import
 
 bp = Blueprint("main", __name__)
 sitemap = Sitemap()
@@ -63,6 +63,9 @@ def set_language():
     selected_language = request.form.get("language")
     current_url = request.form.get("current_url")
 
+    print(f"Selected Language: {selected_language}")
+    print(f"Current URL: {current_url}")
+
     session["language"] = selected_language
 
     if current_url.startswith("/es/") or current_url.startswith("/en/"):
@@ -76,6 +79,7 @@ def set_language():
         else f"/{selected_language}"
     )
 
+    print(f"Redirecting to: {new_url}")
     return redirect(new_url)
 
 @bp.route("/<lang_code>/find_us", methods=["GET", "POST"])
@@ -91,15 +95,11 @@ def find_us(lang_code):
         subject = request.form.get("subject")
         message = request.form.get("message")
 
-        try:
-            send_email(current_app.config["MAIL_TO"], subject, f"Name: {firstname}\nEmail: {email}\nSubject: {subject}\nMessage: {message}")
-            return jsonify({"success": True}), 200
-        except RefreshError:
-            reauthenticate()
-            return jsonify({'status': 'error', 'message': 'Token has expired or been revoked. Please re-authenticate.'}), 500
-        except Exception as e:
-            current_app.logger.error(f"Exception on /{lang_code}/find_us [POST]: {e}")
-            return jsonify({'status': 'error', 'message': 'An error occurred. Please try again later.'}), 500
+        send_email(current_app.config["MAIL_TO"], subject, f"Name: {firstname}\nEmail: {email}\nSubject: {subject}\nMessage: {message}")
+
+        print(f"Name: {firstname}, Email: {email}, Subject: {subject}, Message: {message}")
+
+        return jsonify({"success": True})
 
     return render_template("partials/base/find-us.html", page_name='Find Us', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
@@ -124,15 +124,35 @@ def reservation(lang_code):
         checkin_date = request.form.get("checkin", today)
         checkout_date = request.form.get("checkout", tomorrow)
 
+        print(
+            f"Received POST request with check-in date: {checkin_date} and check-out date: {checkout_date}"
+        )
+
         try:
             url = f"https://hotels.cloudbeds.com/{lang_code}/reservation/pkwNrX?checkin={checkin_date}&checkout={checkout_date}"
+            print(f"Constructed redirect URL: {url}")
             return redirect(url)
         except Exception as e:
-            current_app.logger.error(f"Error during redirection: {e}")
-            flash("An error occurred while processing your reservation. Please try again.")
-            return render_template(f"reservation_{lang_code}.html", today=today, tomorrow=tomorrow, lang_code=lang_code, canonical_url=canonical_url)
+            print(f"Error during redirection: {e}")
+            flash(
+                "An error occurred while processing your reservation. Please try again."
+            )
+            return render_template(
+                f"reservation_{lang_code}.html",
+                today=today,
+                tomorrow=tomorrow,
+                lang_code=lang_code,
+                canonical_url=canonical_url,
+            )
 
-    return render_template(f"reservation_{lang_code}.html", today=today, tomorrow=tomorrow, lang_code=lang_code, canonical_url=canonical_url)
+    print("Handling GET request")
+    return render_template(
+        f"reservation_{lang_code}.html",
+        today=today,
+        tomorrow=tomorrow,
+        lang_code=lang_code,
+        canonical_url=canonical_url,
+    )
 
 @bp.route("/<lang_code>/opentable_reservation", methods=["GET", "POST"])
 def opentable_reservation(lang_code):
@@ -146,15 +166,35 @@ def opentable_reservation(lang_code):
         time = request.form.get("time", default_time)
         party_size = request.form.get("party_size", "2")
 
+        print(
+            f"Received POST request with reservation date: {reservation_date}, time: {time}, and party size: {party_size}"
+        )
+
         try:
             url = f"https://www.opentable.com.mx/restref/client/?rid=1313743&restref=1313743&lang={lang_code}&color=8&r3uid=cfe&dark=false&partysize={party_size}&datetime={reservation_date}T{time}&ot_source=Restaurant%20website&logo_pid=0&background_pid=0&font=arialBlack&ot_logo=standard&primary_color=ffffff&primary_font_color=333333&button_color=da3743&button_font_color=ffffff&corrid=ea21e764-72c0-4b7c-bbd4-1f25a194b7b4"
+            print(f"Constructed redirect URL: {url}")
             return redirect(url)
         except Exception as e:
-            current_app.logger.error(f"Error during redirection: {e}")
-            flash("An error occurred while processing your reservation. Please try again.")
-            return render_template(f"reservation_{lang_code}.html", today=today, default_time=default_time, lang_code=lang_code, canonical_url=canonical_url)
+            print(f"Error during redirection: {e}")
+            flash(
+                "An error occurred while processing your reservation. Please try again."
+            )
+            return render_template(
+                f"reservation_{lang_code}.html",
+                today=today,
+                default_time=default_time,
+                lang_code=lang_code,
+                canonical_url=canonical_url,
+            )
 
-    return render_template(f"reservation_{lang_code}.html", today=today, default_time=default_time, lang_code=lang_code, canonical_url=canonical_url)
+    print("Handling GET request")
+    return render_template(
+        f"reservation_{lang_code}.html",
+        today=today,
+        default_time=default_time,
+        lang_code=lang_code,
+        canonical_url=canonical_url,
+    )
 
 @bp.route("/favicon.ico")
 def favicon():
