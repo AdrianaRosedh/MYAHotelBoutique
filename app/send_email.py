@@ -18,15 +18,32 @@ TOKEN_PICKLE_FILE = 'token.pickle'
 
 # Decode and save the client secret json file
 client_secret_base64 = os.getenv('GMAIL_CLIENT_SECRET_BASE64')
+
 if client_secret_base64:
-    with open(CLIENT_SECRET_FILE, 'wb') as f:
-        f.write(base64.b64decode(client_secret_base64))
+    # Ensure the base64 string is correctly padded
+    missing_padding = len(client_secret_base64) % 4
+    if missing_padding:
+        client_secret_base64 += '=' * (4 - missing_padding)
+    
+    try:
+        with open(CLIENT_SECRET_FILE, 'wb') as f:
+            f.write(base64.b64decode(client_secret_base64))
+    except base64.binascii.Error as e:
+        raise ValueError(f"Invalid base64-encoded string for client secret: {str(e)}")
 
 # Decode and save the token pickle file
 token_pickle_base64 = os.getenv('TOKEN_PICKLE_BASE64')
 if token_pickle_base64:
-    with open(TOKEN_PICKLE_FILE, 'wb') as f:
-        f.write(base64.b64decode(token_pickle_base64))
+    # Ensure the base64 string is correctly padded
+    missing_padding = len(token_pickle_base64) % 4
+    if missing_padding:
+        token_pickle_base64 += '=' * (4 - missing_padding)
+    
+    try:
+        with open(TOKEN_PICKLE_FILE, 'wb') as f:
+            f.write(base64.b64decode(token_pickle_base64))
+    except base64.binascii.Error as e:
+        raise ValueError(f"Invalid base64-encoded string for token pickle: {str(e)}")
 
 def get_gmail_service():
     creds = None
