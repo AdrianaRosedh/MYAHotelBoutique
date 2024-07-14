@@ -56,19 +56,12 @@ const paths = {
     custom: [
       'app/static/src/js/custom/particles.js',
       'app/static/src/js/custom/gsap.js',
-      'app/static/src/js/custom/scripts.js',
       'app/static/src/js/custom/main.js',
       'app/static/src/js/custom/progress-bar-script.js',
     ],
     chatbot: [
-      'app/static/src/js/custom/chatbot.js',
-      'app/static/src/js/custom/features/feature1.js',
-      'app/static/src/js/custom/features/feature2.js'
+      'app/static/src/js/custom/chatbot.js'
     ],
-    dest: 'app/static/dist/js'
-  },
-  custom404: {
-    src: 'app/static/src/js/custom/404.js',
     dest: 'app/static/dist/js'
   },
   images: {
@@ -90,7 +83,7 @@ function clean() {
 }
 
 function handleError(task) {
-  return function(err) {
+  return function (err) {
     console.error(`Error in ${task} task:`, err.message);
     if (err.fileName) console.error(`File: ${err.fileName}`);
     if (err.lineNumber) console.error(`Line: ${err.lineNumber}`);
@@ -192,18 +185,6 @@ function chatbotScripts() {
     .pipe(terser())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(bs.stream());
-}
-
-function custom404Script() {
-  console.log('Running custom404Script task');
-  return gulp.src(paths.custom404.src, { sourcemaps: true })
-    .pipe(plumber({ errorHandler: handleError('custom404Script') }))
-    .pipe(sourcemaps.init())
-    .pipe(concat('404.min.js'))
-    .pipe(terser().on('error', handleError('custom404Script')))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.custom404.dest))
     .pipe(bs.stream());
 }
 
@@ -347,10 +328,10 @@ function serve() {
   gulp.watch(paths.images.src, gulp.series(processImages));
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
-  gulp.watch(paths.custom404.src, custom404Script);
+  
 }
 
-const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, html, favicon, custom404Script));
+const build = gulp.series(clean, gulp.parallel(customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, html, favicon));
 
 function watchFiles() {
   gulp.watch(paths.customStyles.src, customStyles);
@@ -361,11 +342,10 @@ function watchFiles() {
   gulp.watch(paths.images.src, gulp.series(processImages));
   gulp.watch(paths.fonts.src, fonts);
   gulp.watch(paths.html.src, html);
-  gulp.watch(paths.custom404.src, custom404Script);
 }
 
 gulp.task('build', build);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
 
-export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, clean, html, favicon, custom404Script, watchFiles as watch };
+export { customStyles, chatbotStyles, vendorStyles, scripts, chatbotScripts, processImages, fonts, clean, html, favicon, watchFiles as watch };
 export default build;
