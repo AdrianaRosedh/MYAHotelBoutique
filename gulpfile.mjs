@@ -23,6 +23,7 @@ import browserSync from 'browser-sync';
 import cache from 'gulp-cache';
 import path from 'path';
 import filter from 'gulp-filter';
+import purgecss from '@fullhuman/postcss-purgecss';
 
 const sass = gulpSass(sassCompiler);
 const bs = browserSync.create();
@@ -107,7 +108,18 @@ function customStyles() {
     .pipe(postcss([
       tailwindcss(tailwindConfig),
       autoprefixer(),
-      cssnano()
+      cssnano(),
+      purgecss({
+        content: [
+          './app/templates/**/*.html',
+          './app/static/src/js/**/*.js'
+        ],
+        safelist: {
+          standard: [/^navbar/, /^footer/, 'your-specific-class', 'another-specific-class'],
+          deep: [/data-theme$/]
+        },
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+      })
     ]))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
@@ -125,7 +137,18 @@ function chatbotStyles() {
     .pipe(postcss([
       tailwindcss(tailwindConfig),
       autoprefixer(),
-      cssnano()
+      cssnano(),
+      purgecss({
+        content: [
+          './app/templates/**/*.html',
+          './app/static/src/js/**/*.js'
+        ],
+        safelist: {
+          standard: [/^navbar/, /^footer/, 'your-specific-class', 'another-specific-class'],
+          deep: [/data-theme$/]
+        },
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+      })
     ]))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
@@ -154,7 +177,7 @@ function scripts() {
     .pipe(plumber({ errorHandler: handleError('scripts') }))
     .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
-    .pipe(terser()) // Changed to terser
+    .pipe(terser())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(bs.stream());
@@ -166,7 +189,7 @@ function chatbotScripts() {
     .pipe(plumber({ errorHandler: handleError('chatbotScripts') }))
     .pipe(sourcemaps.init())
     .pipe(concat('chatbot.min.js'))
-    .pipe(terser()) // Changed to terser
+    .pipe(terser())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(bs.stream());
@@ -178,7 +201,7 @@ function custom404Script() {
     .pipe(plumber({ errorHandler: handleError('custom404Script') }))
     .pipe(sourcemaps.init())
     .pipe(concat('404.min.js'))
-    .pipe(terser().on('error', handleError('custom404Script'))) // Changed to terser
+    .pipe(terser().on('error', handleError('custom404Script')))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.custom404.dest))
     .pipe(bs.stream());
@@ -190,15 +213,15 @@ function processImages() {
 
   return gulp.src(paths.images.src)
     .pipe(plumber({ errorHandler: handleError('processImages') }))
-    .pipe(cache(imagemin([ // Use gulp-cache to cache the processed images
+    .pipe(cache(imagemin([
       imageminMozjpeg({ quality: 75, progressive: true }),
       imageminOptipng({ optimizationLevel: 5 }),
       imageminWebp({ quality: 100 })
     ], {
       verbose: true
     })))
-    .pipe(gulp.dest(paths.images.dest)) // Copy original images to dist
-    .pipe(imgFilter) // Filter only images that need to be resized and converted
+    .pipe(gulp.dest(paths.images.dest))
+    .pipe(imgFilter)
     .pipe(
       through2.obj(function (file, _, cb) {
         const ext = path.extname(file.path);
@@ -206,13 +229,11 @@ function processImages() {
         const dir = path.dirname(file.path);
 
         if (dir.includes('hero')) {
-          // Treat hero images: keep large image at its original size, create medium and small versions
           const sizes = [
             { width: 600, suffix: '-600' },
             { width: 900, suffix: '-900' }
           ];
 
-          // Create original size WebP version
           const originalWebpPromise = new Promise((resolve, reject) => {
             gulp.src(file.path)
               .pipe(imagemin([imageminWebp({ quality: 100 })]))
@@ -222,7 +243,6 @@ function processImages() {
               .on('error', reject);
           });
 
-          // Create resized JPEG versions
           const resizePromises = sizes.map(size => {
             return new Promise((resolve, reject) => {
               gulp.src(file.path)
@@ -234,7 +254,6 @@ function processImages() {
             });
           });
 
-          // Create resized WebP versions
           const webpPromises = sizes.map(size => {
             return new Promise((resolve, reject) => {
               gulp.src(file.path)
@@ -251,7 +270,6 @@ function processImages() {
             .then(() => cb(null, file))
             .catch(err => cb(err));
         } else {
-          // Resize and convert other images
           const sizes = [300, 600, 900];
           const originalPromises = sizes.map(size => {
             return new Promise((resolve, reject) => {
@@ -282,7 +300,7 @@ function processImages() {
         }
       })
     )
-    .pipe(imgFilter.restore); // Restore the filtered-out files to the stream
+    .pipe(imgFilter.restore);
 }
 
 function fonts() {

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Blog */
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/* Responsive Enhancements */

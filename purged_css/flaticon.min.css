@@ -1,0 +1,42 @@
+
+@charset "UTF-8";
+/*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+ @font-face {
+  font-family: "uicons-regular-rounded";
+  src: url("/static/dist/fonts/icon/uicons-regular-rounded.eot#iefix") format("embedded-opentype"),
+      url("/static/dist/fonts/icon/uicons-regular-rounded.woff2") format("woff2"),
+      url("/static/dist/fonts/icon/uicons-regular-rounded.woff") format("woff");
+}
+
+@font-face {
+  font-family: "uicons-brands";
+  src: url("/static/dist/fonts/icon/uicons-brands.eot#iefix") format("embedded-opentype"),
+      url("/static/dist/fonts/icon/uicons-brands.woff2") format("woff2"),
+      url("/static/dist/fonts/icon/uicons-brands.woff") format("woff");
+}
+
+@font-face {
+  font-family: "uicons-regular-straight";
+  src: url("/static/dist/fonts/icon/uicons-regular-straight.eot#iefix") format("embedded-opentype"),
+      url("/static/dist/fonts/icon/uicons-regular-straight.woff2") format("woff2"),
+      url("/static/dist/fonts/icon/uicons-regular-straight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "uicons-thin-rounded";
+  src: url("/static/dist/fonts/icon/uicons-thin-rounded.eot#iefix") format("embedded-opentype"),
+      url("/static/dist/fonts/icon/uicons-thin-rounded.woff2") format("woff2"),
+      url("/static/dist/fonts/icon/uicons-thin-rounded.woff") format("woff");
+}
+
+@font-face {
+  font-family: "uicons-thin-straight";
+  src: url("/static/dist/fonts/icon/uicons-thin-straight.eot#iefix") format("embedded-opentype"),
+      url("/static/dist/fonts/icon/uicons-thin-straight.woff2") format("woff2"),
+      url("/static/dist/fonts/icon/uicons-thin-straight.woff") format("woff");
+}

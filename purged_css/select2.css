@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom select */
+
+/* Home-page */
+
+.custom-select-container {
+  color: #fafafa;
+  display: flex !important;
+  align-items: center !important;
+  transition: all 0.2s ease-in;
+  font-size: 14px;
+}
+
+.custom-select-container:focus {
+  outline: 2px;
+}
