@@ -1,3 +1,5 @@
+# app/get_credentials.py
+
 import os
 import pickle
 from google.auth.transport.requests import Request
@@ -11,10 +13,6 @@ load_dotenv(dotenv_path)
 # Ensure environment variables are loaded
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 CLIENT_SECRET_FILE = os.getenv("GMAIL_CLIENT_SECRET_FILE")
-
-# Debugging print statements
-print(f"Loaded .env from: {dotenv_path}")
-print(f"CLIENT_SECRET_FILE: {CLIENT_SECRET_FILE}")
 
 if not CLIENT_SECRET_FILE:
     raise ValueError("No client secret file specified. Ensure GMAIL_CLIENT_SECRET_FILE is set in the .env file.")
