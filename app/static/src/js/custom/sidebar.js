@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     var sidebar = document.getElementById('floating-sidebar');
+    if (!sidebar) {
+        console.error('Element with id "floating-sidebar" not found');
+        return;
+    }
+
     var startX, currentX;
     var threshold = 50; // Minimum swipe distance to trigger action
 

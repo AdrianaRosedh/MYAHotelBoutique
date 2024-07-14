@@ -6,23 +6,25 @@ include 'partials/olivea/garden.html' %} {% include 'partials/olivea/story.html'
 'partials/olivea/menu.html' %}{% include
 'partials/olivea/extra.html' %} {% include 'partials/base/owners.html' %} {% include 'partials/base/sustainability.html'
 %} {% include 'partials/base/find-us.html' %} {%
-endblock %} {% block sweetalert2 %} <script>document.getElementById("bookNowButton").addEventListener("click", function (event) {
-        event.preventDefault();
-        Swal.fire({
-            html: `
+endblock %} {% block sweetalert2 %} <script>document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("bookNowButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            Swal.fire({
+                html: `
                     <div class="iframe-container">
                         <iframe src="https://www.opentable.com.mx/restref/client/?restref=1313743&lang=es&ot_source=Restaurant%20website&corrid=087e6f67-2caf-4de1-9a93-0d90fcd2bfc8"></iframe>
                     </div>
                 `,
-            showClass: {
-                popup: 'animate__animated animate__zoomIn'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__zoomOut'
-            },
-            width: '50%',
-            padding: '0',
-            showCloseButton: true,
-            showConfirmButton: false,
+                showClass: {
+                    popup: 'animate__animated animate__zoomIn'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__zoomOut'
+                },
+                width: '50%',
+                padding: '0',
+                showCloseButton: true,
+                showConfirmButton: false,
+            });
         });
     });</script> {% endblock %}

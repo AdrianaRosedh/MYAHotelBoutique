@@ -1,3 +1,9 @@
-export function someUtilityFunction() {
-    console.log('Utility function executed');
-}
+document.addEventListener('DOMContentLoaded', (event) => {
+
+    function someUtilityFunction() {
+        // Utility function logic
+    }
+
+    // Call the function
+    someUtilityFunction();
+});

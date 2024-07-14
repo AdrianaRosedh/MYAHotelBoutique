@@ -1,21 +1,16 @@
-// Top Progress bar
-window.addEventListener('scroll', function () {
-    var scrollTop = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight;
-    var winHeight = window.innerHeight;
-    var scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-    var progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        progressBar.style.width = scrollPercent + '%';
-    }
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Show/hide back to top button
-    var backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        if (scrollTop > 300) { // Show after scrolling down 300px
-            backToTop.style.display = 'block';
+    window.addEventListener('scroll', function () {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight;
+        var winHeight = window.innerHeight;
+        var scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+        var progressBar = document.getElementById('progressBar');
+
+        if (progressBar) {
+            progressBar.style.width = scrollPercent + '%';
         } else {
-            backToTop.style.display = 'none';
+            console.error('Progress bar element not found');
         }
-    }
+    });
 });

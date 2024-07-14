@@ -1,20 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
     initChatbot();
+    setupCloseButton();
+    feature1();
+    feature2();
 });
 
+export function feature1() {
+    // Feature 1 logic
+}
+
+export function feature2() {
+    // Feature 2 logic
+}
+
 function initChatbot() {
-    document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
-    document.getElementById('user-input').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            sendMessage(event);
-        }
-    });
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const userInput = document.getElementById('user-input');
     const sendButton = document.querySelector('.send-button');
-    sendButton.addEventListener('click', sendMessage);
-    sendButton.addEventListener('touchstart', sendMessage);
+    
+    if (chatbotToggle) {
+        chatbotToggle.addEventListener('click', toggleChatbot);
+    } else {
+        console.error('Chatbot toggle button not found');
+    }
+
+    if (userInput) {
+        userInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage(event);
+            }
+        });
+    } else {
+        console.error('User input field not found');
+    }
+
+    if (sendButton) {
+        sendButton.addEventListener('click', sendMessage);
+        sendButton.addEventListener('touchstart', sendMessage);
+    } else {
+        console.error('Send button not found');
+    }
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Ensure proper styling on load
+    handleResize();
+}
+
+function setupCloseButton() {
+    const closeButton = document.getElementById('close-chatbot');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeChatbot);
+    } else {
+        console.error('Close button not found');
+    }
 }
 
 function toggleChatbot() {
@@ -22,50 +59,60 @@ function toggleChatbot() {
         openChatbotMobile();
     } else {
         const chatbotContainer = document.getElementById('chatbot-container');
-        if (chatbotContainer.classList.contains('hidden')) {
+        if (chatbotContainer && chatbotContainer.classList.contains('hidden')) {
             openChatbot();
-        } else {
+        } else if (chatbotContainer) {
             closeChatbot();
+        } else {
+            console.error('Chatbot container not found');
         }
     }
 }
 
 function openChatbot() {
     const chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.classList.remove('hidden');
-    document.body.classList.add('chatbot-open');
-    document.getElementById('user-input').focus();
+    if (chatbotContainer) {
+        chatbotContainer.classList.remove('hidden');
+        document.body.classList.add('chatbot-open');
+        document.getElementById('user-input').focus();
 
-    const chatbox = document.getElementById('chatbox');
-    const lang = document.body.getAttribute('data-lang') || 'en';
+        const chatbox = document.getElementById('chatbox');
+        const lang = document.body.getAttribute('data-lang') || 'en';
 
-    if (!localStorage.getItem('initialMessagesShown')) {
-        let messages;
-        if (lang === 'es') {
-            messages = [
-                "¡Hola! 🌟",
-                "¿Tienes preguntas sobre MYA, Olivea o DiVino?",
-                "¡Pregúntame, estoy aquí para ayudarte!"
-            ];
+        if (!localStorage.getItem('initialMessagesShown')) {
+            let messages;
+            if (lang === 'es') {
+                messages = [
+                    "¡Hola! 🌟",
+                    "¿Tienes preguntas sobre MYA, Olivea o DiVino?",
+                    "¡Pregúntame, estoy aquí para ayudarte!"
+                ];
+            } else {
+                messages = [
+                    "Hey there! 🌟",
+                    "Got questions about MYA, Olivea, or DiVino?",
+                    "Ask away, I'm here to help!"
+                ];
+            }
+            showInitialMessages(chatbox, messages, 'chatHistoryDesktop');
+            localStorage.setItem('initialMessagesShown', 'true');
         } else {
-            messages = [
-                "Hey there! 🌟",
-                "Got questions about MYA, Olivea, or DiVino?",
-                "Ask away, I'm here to help!"
-            ];
+            chatbox.innerHTML = localStorage.getItem('chatHistoryDesktop') || '';
         }
-        showInitialMessages(chatbox, messages, 'chatHistoryDesktop');
-        localStorage.setItem('initialMessagesShown', 'true');
     } else {
-        chatbox.innerHTML = localStorage.getItem('chatHistoryDesktop') || '';
+        console.error('Chatbot container not found');
     }
 }
 
 function closeChatbot() {
     const chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.classList.add('hidden');
-    document.body.classList.remove('chatbot-open');
-    document.getElementById('chatbot-toggle').focus();
+    if (chatbotContainer) {
+        chatbotContainer.classList.add('hidden');
+        document.body.classList.remove('chatbot-open');
+        document.getElementById('chatbot-toggle').focus();
+    } else {
+        console.error('Chatbot container not found');
+    }
 }
 
 function openChatbotMobile() {
@@ -100,8 +147,6 @@ function openChatbotMobile() {
         allowOutsideClick: false,
         allowEscapeKey: false,
         didOpen: () => {
-            console.log("Modal opened");
-
             const chatbox = document.getElementById('chatbox-swal');
             if (!localStorage.getItem('initialMessagesShownMobile')) {
                 let messages;
@@ -125,33 +170,40 @@ function openChatbotMobile() {
             }
 
             const closeButton = document.getElementById('close-chatbot-swal');
-            closeButton.addEventListener('click', () => Swal.close());
+            if (closeButton) {
+                closeButton.addEventListener('click', () => Swal.close());
+            } else {
+                console.error('Close button for Swal modal not found');
+            }
 
             const userInput = document.getElementById('user-input-swal');
-            userInput.addEventListener('keypress', (event) => {
-                if (event.key === 'Enter') {
-                    sendMessageSwal(event);
-                }
-            });
+            if (userInput) {
+                userInput.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        sendMessageSwal(event);
+                    }
+                });
+            } else {
+                console.error('User input for Swal modal not found');
+            }
 
             const sendButton = document.getElementById('send-button-swal');
-            sendButton.addEventListener('click', sendMessageSwal);
-            sendButton.addEventListener('touchstart', sendMessageSwal);
-
-            console.log("Event listeners attached for Swal modal");
+            if (sendButton) {
+                sendButton.addEventListener('click', sendMessageSwal);
+                sendButton.addEventListener('touchstart', sendMessageSwal);
+            } else {
+                console.error('Send button for Swal modal not found');
+            }
         }
     });
 }
 
 async function sendMessageSwal(event) {
     event.preventDefault();
-    console.log("sendMessageSwal triggered");
 
     const userInput = document.getElementById('user-input-swal');
     const userInputValue = userInput.value;
     if (userInputValue.trim() === "") return;
-
-    console.log("Sending message:", userInputValue);
 
     const chatbox = document.getElementById('chatbox-swal');
     chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>You:</strong> ${userInputValue}</div>`;
@@ -176,13 +228,10 @@ async function sendMessageSwal(event) {
 
 async function sendMessage(event) {
     event.preventDefault();
-    console.log("sendMessage triggered");
 
     const userInput = document.getElementById('user-input');
     const userInputValue = userInput.value;
     if (userInputValue.trim() === "") return;
-
-    console.log("Sending message:", userInputValue);
 
     const chatbox = document.getElementById('chatbox');
     chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>You:</strong> ${userInputValue}</div>`;
@@ -220,6 +269,11 @@ function showInitialMessages(chatbox, messages, historyKey) {
 
 function handleResize() {
     const chatbotContainer = document.getElementById('chatbot-container');
+    if (!chatbotContainer) {
+        console.error('Chatbot container not found during resize');
+        return;
+    }
+
     if (window.innerWidth <= 640) {
         chatbotContainer.style.width = '100%';
         chatbotContainer.style.height = 'auto';
@@ -238,10 +292,3 @@ function handleResize() {
         chatbotContainer.style.borderRadius = '0.5rem';
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const closeButton = document.getElementById('close-chatbot');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeChatbot);
-    }
-});
