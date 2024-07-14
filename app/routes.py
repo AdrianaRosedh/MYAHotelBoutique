@@ -62,11 +62,12 @@ def set_language():
     selected_language = request.form.get("language")
     current_url = request.form.get("current_url")
 
+    print(f"Selected Language: {selected_language}")
+    print(f"Current URL: {current_url}")
+
     session["language"] = selected_language
 
-    if current_url.startswith("/es/"):
-        current_url = current_url[3:]
-    elif current_url.startswith("/en/"):
+    if current_url.startswith("/es/") or current_url.startswith("/en/"):
         current_url = current_url[3:]
     elif current_url in ["/es", "/en"]:
         current_url = "/"
@@ -77,6 +78,7 @@ def set_language():
         else f"/{selected_language}"
     )
 
+    print(f"Redirecting to: {new_url}")
     return redirect(new_url)
 
 @bp.route("/<lang_code>/find_us", methods=["GET", "POST"])
