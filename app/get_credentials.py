@@ -1,4 +1,3 @@
-# app/get_credentials.py
 import os
 import pickle
 import base64
@@ -11,15 +10,20 @@ dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)
 
 # Ensure environment variables are loaded
-SCOPES = os.getenv('GMAIL_SCOPES').split(',')
+SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 CLIENT_SECRET_FILE = 'client_secret.json'
 TOKEN_PICKLE_FILE = 'token.pickle'
 
+# Debugging print statements
+print(f"Loaded .env from: {dotenv_path}")
+client_secret_base64 = os.getenv("GMAIL_CLIENT_SECRET_BASE64")
+if not client_secret_base64:
+    raise ValueError("No client secret specified. Ensure GMAIL_CLIENT_SECRET_BASE64 is set in the .env file.")
+
 # Decode and save the client secret json file
-client_secret_base64 = os.getenv('GMAIL_CLIENT_SECRET_BASE64')
-if client_secret_base64:
-    with open(CLIENT_SECRET_FILE, 'wb') as f:
-        f.write(base64.b64decode(client_secret_base64))
+with open(CLIENT_SECRET_FILE, 'wb') as f:
+    f.write(base64.b64decode(client_secret_base64))
+print(f"Client secret file saved to: {CLIENT_SECRET_FILE}")
 
 def get_credentials():
     creds = None
