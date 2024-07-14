@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         customTile.style.width = '50px';  // Ensure square shape
         customTile.style.height = '50px';  // Ensure square shape
         customTile.style.opacity = 0.7;  // Less opacity
-        customTile.onclick = e => customHandleOnClick(index);
+        customTile.onclick = () => customHandleOnClick(index);  // Removed the unused 'e' variable
         return customTile;
     };
 

@@ -167,18 +167,3 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
-
-// Language Toggle
-function toggleLanguage() {
-  const languageInput = document.getElementById('language-input');
-  const languageToggle = document.getElementById('language-toggle');
-  const form = languageInput.closest('form');
-
-  if (languageToggle.checked) {
-      languageInput.value = 'en';
-  } else {
-      languageInput.value = 'es';
-  }
-
-  form.submit();
-}

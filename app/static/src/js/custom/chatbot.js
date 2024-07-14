@@ -208,7 +208,7 @@ async function sendMessage(event) {
 function showInitialMessages(chatbox, messages, historyKey) {
     chatbox.innerHTML = '';
     let delay = 0;
-    messages.forEach((message, index) => {
+    messages.forEach((message) => {
         setTimeout(() => {
             chatbox.innerHTML += `<div class="text-left chatbot-message"><strong>Bot:</strong> ${message}</div>`;
             chatbox.scrollTop = chatbox.scrollHeight;
