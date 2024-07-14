@@ -2,7 +2,8 @@
 import os
 import base64
 from googleapiclient.discovery import build
-from .get_credentials import get_credentials  # Ensure this import is correct
+from app.get_credentials import get_credentials  # Ensure this matches your project structure
+
 
 def get_gmail_service():
     creds = get_credentials()
