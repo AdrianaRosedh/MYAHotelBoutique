@@ -13,7 +13,6 @@ from flask import (
 from datetime import datetime, timedelta
 import os
 from flask_sitemap import Sitemap
-from .send_email import send_email
 
 bp = Blueprint("main", __name__)
 sitemap = Sitemap()
@@ -93,8 +92,6 @@ def find_us(lang_code):
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
-
-        send_email(current_app.config["MAIL_TO"], subject, f"Name: {firstname}\nEmail: {email}\nSubject: {subject}\nMessage: {message}")
 
         print(f"Name: {firstname}, Email: {email}, Subject: {subject}, Message: {message}")
 

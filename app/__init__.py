@@ -28,12 +28,6 @@ def create_app():
     app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
     app.secret_key = os.getenv("SECRET_KEY", "you-will-never-guess")
 
-    # Gmail API configuration
-    app.config["GMAIL_CLIENT_SECRET_FILE"] = os.getenv("GMAIL_CLIENT_SECRET_FILE")
-    app.config["GMAIL_SCOPES"] = [os.getenv("GMAIL_SCOPES")]
-    app.config["GMAIL_USER"] = os.getenv("GMAIL_USER")
-    app.config["MAIL_TO"] = os.getenv("MAIL_TO")
-
     # Enable compression
     Compress(app)
 
