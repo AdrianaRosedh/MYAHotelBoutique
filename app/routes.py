@@ -13,6 +13,7 @@ from flask import (
 from datetime import datetime, timedelta
 import os
 from flask_sitemap import Sitemap
+from .send_email import send_email
 
 bp = Blueprint("main", __name__)
 sitemap = Sitemap()
@@ -89,13 +90,38 @@ def find_us(lang_code):
 
     if request.method == "POST":
         firstname = request.form.get("firstname")
+        lastname = request.form.get("lastname")
         email = request.form.get("email")
+        phone = request.form.get("phone")
         subject = request.form.get("subject")
         message = request.form.get("message")
 
-        print(f"Name: {firstname}, Email: {email}, Subject: {subject}, Message: {message}")
+        subject_email = f"Contact Form Submission: {subject}"
+        sender = current_app.config["GMAIL_USER"]
+        recipient = current_app.config["MAIL_TO"]
+        message_text = f"""
+        New contact form submission:
 
-        return jsonify({"success": True})
+        First Name: {firstname}
+        Last Name: {lastname}
+        Email: {email}
+        Phone: {phone}
+        Subject: {subject}
+        Message: {message}
+        """
+
+        try:
+            message_id = send_email(recipient, subject_email, message_text)
+            if message_id:
+                response = jsonify({"success": True, "message": "Your message has been sent successfully!"})
+            else:
+                response = jsonify({"success": False, "message": "Failed to send your message. Please try again later."})
+        except Exception as e:
+            print(f"Error sending email: {e}")
+            response = jsonify({"success": False, "message": "An error occurred while sending your message. Please try again later."})
+        
+        response.status_code = 200 if response.json["success"] else 500
+        return response
 
     return render_template("partials/base/find-us.html", page_name='Find Us', email=email, phone=phone, lang_code=lang_code, canonical_url=canonical_url)
 
@@ -208,7 +234,6 @@ def robots_txt():
         mimetype="text/plain"
     )
 
-# Error handler for 404 errors
 @bp.app_errorhandler(404)
 def page_not_found(e):
     return render_template('custom_404.html'), 404
