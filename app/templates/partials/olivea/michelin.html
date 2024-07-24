@@ -30,16 +30,6 @@
                             Achieving Michelin recognition so quickly is a testament to our hard work, passion, and dedication. From seed to plate, our focus on organic farming and fresh ingredients sets us apart. We strive to improve daily, ensuring every meal celebrates quality, sustainability, and culinary artistry.
                         {% endif %}
                     </p>
-                    <h3 style="color: #000 !important; font-size: 1.5em !important; margin: 0.5em 0 !important;">
-                        {% if lang_code == 'es' %}Visita Olivea Farm to Table{% else %}Visit Olivea Farm to Table{% endif %}
-                    </h3>
-                    <p style="color: #000 !important; font-size: 1em !important; margin: 0.5em 0 !important;">
-                        {% if lang_code == 'es' %}
-                            Descubre la esencia de la cocina de la granja a la mesa en Olivea Farm to Table. Prueba la diferencia que hacen la calidad, la sostenibilidad y la pasión.
-                        {% else %}
-                            Discover the essence of farm-to-table dining at Olivea Farm to Table. Taste the difference that quality, sustainability, and passion make.
-                        {% endif %}
-                    </p>
                 `,
                 iconHtml: '<img src="{{ url_for('static', filename='dist/img/svg/michelin.svg') }}" alt="Michelin Logo" style="width: 80px; height: 80px; border: none; background: transparent;">',
                 customClass: {
@@ -47,7 +37,6 @@
                 },
                 showCancelButton: true,
                 cancelButtonText: "{% if lang_code == 'es' %}Cerrar{% else %}Close{% endif %}",
-                confirmButtonText: "{% if lang_code == 'es' %}Visítanos{% else %}Visit Us{% endif %}",
                 backdrop: `rgba(0,0,123,0.4)`,
                 timer: 30000, // Popup closes after 30 seconds
                 timerProgressBar: true,
@@ -56,10 +45,6 @@
                 },
                 hideClass: {
                     popup: 'animate__animated animate__bounceOutLeft'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "https://wwww.oliveafarmtotable.com";
                 }
             });
         };
