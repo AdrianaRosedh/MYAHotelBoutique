@@ -1,4 +1,5 @@
 import os
+import base64
 from flask import Flask, request, session, render_template
 from flask_babel import Babel
 from dotenv import load_dotenv
@@ -6,10 +7,23 @@ from datetime import datetime, timedelta
 from flask_sitemap import Sitemap
 from flask_compress import Compress
 from flask_caching import Cache
-from flask_talisman import Talisman
 
 # Load environment variables from .env file
 load_dotenv()
+
+def decode_and_write_file(encoded_data, output_path):
+    with open(output_path, 'wb') as file:
+        file.write(base64.b64decode(encoded_data))
+
+# Decode and write client_secret.json
+client_secret_base64 = os.getenv('CLIENT_SECRET_BASE64')
+if client_secret_base64:
+    decode_and_write_file(client_secret_base64, 'client_secret.json')
+
+# Decode and write token.pickle
+token_base64 = os.getenv('TOKEN_BASE64')
+if token_base64:
+    decode_and_write_file(token_base64, 'token.pickle')
 
 def get_locale():
     return session.get("language", request.accept_languages.best_match(["en", "es"]))
@@ -27,6 +41,12 @@ def create_app():
     app.config["BABEL_DEFAULT_LOCALE"] = "en"
     app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
     app.secret_key = os.getenv("SECRET_KEY", "you-will-never-guess")
+
+    # Gmail API configuration
+    app.config["GMAIL_CLIENT_SECRET_FILE"] = 'client_secret.json'
+    app.config["GMAIL_SCOPES"] = [os.getenv("GMAIL_SCOPES")]
+    app.config["GMAIL_USER"] = os.getenv("GMAIL_USER")
+    app.config["MAIL_TO"] = os.getenv("MAIL_TO")
 
     # Enable compression
     Compress(app)
@@ -47,13 +67,6 @@ def create_app():
 
     from .chatbot_routes import bp as chatbot_bp
     app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
-
-    # Initialize Flask-Talisman only in development
-    if os.getenv('FLASK_ENV') == 'development':
-        print("Initializing Talisman for development")
-        Talisman(app)
-    else:
-        print("Not initializing Talisman for production")
 
     @app.before_request
     def set_default_language():
@@ -86,11 +99,36 @@ def create_app():
             response.headers['Cache-Control'] = 'public, max-age=86400'  # 1 day
         return response
 
+    # Register sitemap generators
+    register_sitemap_generators(app)
+
     return app
+
+def register_sitemap_generators(app):
+    sitemap = app.extensions['sitemap']
+
+    @sitemap.register_generator
+    def index():
+        yield 'main.index', {}
+
+    @sitemap.register_generator
+    def index_localized():
+        languages = ['en', 'es']
+        for lang in languages:
+            yield 'main.index_localized', {'lang_code': lang}
+
+    @sitemap.register_generator
+    def oliveafarmtotable():
+        languages = ['en', 'es']
+        for lang in languages:
+            yield 'main.oliveafarmtotable', {'lang_code': lang}
+
+    @sitemap.register_generator
+    def divino():
+        languages = ['en', 'es']
+        for lang in languages:
+            yield 'main.divino', {'lang_code': lang}
 
 if __name__ == "__main__":
     app = create_app()
-    if os.getenv('FLASK_ENV') == 'development':
-        app.run(ssl_context=('path/to/cert.pem', 'path/to/key.pem'), debug=True)
-    else:
-        app.run(debug=True)
+    app.run(debug=True)
