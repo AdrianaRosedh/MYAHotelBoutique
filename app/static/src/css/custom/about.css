@@ -37,3 +37,27 @@
         padding-top: calc(548 / 624 * 100%); /* Maintain original aspect ratio */
     }
 }
+
+.section-restaurant .flex-wrap {
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .section-restaurant .flex-wrap {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-restaurant .flex-wrap {
+        flex-direction: column;
+    }
+
+    .section-restaurant .order-1 {
+        order: 1;
+    }
+
+    .section-restaurant .order-2 {
+        order: 2;
+    }
+}
