@@ -7,5 +7,14 @@
     display: block;
     width: 100%;
     height: auto;
-    object-fit: cover; 
+    object-fit: cover;
+    border-radius: 15px; /* Ensures rounded corners */
+}
+
+/* Ensure proper aspect ratio on mobile devices */
+@media (max-width: 600px) {
+    .aspect-ratio-image {
+        height: auto; /* Maintains aspect ratio */
+        border-radius: 15px;
+    }
 }
