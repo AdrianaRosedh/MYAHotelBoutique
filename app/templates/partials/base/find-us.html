@@ -1,100 +1,7 @@
-<section class="section-contact relative xl:py-[100px] py-[70px]"
-    id="{% if lang_code == 'es' %}encuéntranos{% else %}contact{% endif %}">
-    <div class="p-[24px] shadow-[0_0_50px_0_rgba(0,0,0,0.1)] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] mx-[12px] flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]"
-        data-aos="fade-up" data-aos-duration="600">
-        <div class="flex flex-wrap w-full">
-            <div class="lg:w-1/2 lg:pr-[12px] w-full pr-[0] pl-[0] mb-[24px]">
-                <div class="lh-contact-touch-inner">
-                    <div class="lh-contact-touch-contain">
-                        <h4
-                            class="text-[#000] pb-[15px] 2xl:text-[28px] xl:text-[26px] lg:text-[24px] font-bold md:text-[22px] sm:text-[20px] text-[18px]">
-                            {% if lang_code == 'es' %}No dudes en comunicarte para más información.{% else %}Feel free
-                            to reach out for more information{% endif %} </h4>
-                        <p> {% if lang_code == 'es' %}Si tienes necesidades específicas para tu experiencia, por favor
-                            háznoslo saber. Estamos aquí para asegurarnos de que disfrutes tu tiempo con nosotros.{%
-                            else %}If you have specific needs for your experience, please let us know. We're here to
-                            ensure you enjoy your time with us.{% endif %} </p>
-                    </div>
-                    <div class="pt-[30px]">
-                        <form id="contactForm" action="{{ url_for('main.find_us', lang_code=lang_code) }}" method="POST">
-                            <div class="flex xl:mb-[30px] mb-[15px]">
-                                <input type="text" name="firstname"
-                                    placeholder="{% if lang_code == 'es' %}Nombre{% else %}First Name{% endif %}"
-                                    class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px] mr-[15px]"
-                                    required="">
-                                <input type="text" name="lastname"
-                                    placeholder="{% if lang_code == 'es' %}Apellido{% else %}Last Name{% endif %}"
-                                    class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px]"
-                                    required="">
-                            </div>
-                            <div class="flex xl:mb-[30px] mb-[15px]">
-                                <input type="email" name="email"
-                                    placeholder="{% if lang_code == 'es' %}Correo Electrónico{% else %}Email{% endif %}"
-                                    class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px] mr-[15px]"
-                                    required="">
-                                <input type="tel" id="phoneInput" name="phone"
-                                    placeholder="{% if lang_code == 'es' %}Número de Teléfono{% else %}Phone Number{% endif %}"
-                                    class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px]"
-                                    required="">
-                                <span id="phoneError" style="color: red; display: none;">{% if lang_code == 'es' %}Número de teléfono inválido{% else %}Invalid phone number{% endif %}</span>
-                            </div>                            
-                            <div class="flex xl:mb-[30px] mb-[15px]">
-                                <input type="text" name="subject"
-                                    placeholder="{% if lang_code == 'es' %}Asunto{% else %}Subject{% endif %}"
-                                    class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]"
-                                    required="">
-                            </div>
-                            <div class="flex xl:mb-[30px] mb-[15px]">
-                                <textarea
-                                    class="border-0 bg-[#fff] outline-none px-[20px] py-[15px] h-[150px] w-full rounded-[15px]"
-                                    name="message"
-                                    placeholder="{% if lang_code == 'es' %}Mensaje{% else %}Message{% endif %}"
-                                    required=""></textarea>
-                            </div>
-                            <button
-                                class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]"
-                                type="submit"> 
-                                {% if lang_code == 'es' %}Enviar Mensaje{% else %}Send Message{% endif %}
-                            </button>
-                        </form>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="lg:w-1/2 lg:pl-[12px] w-full mb-[24px]">
-                <div class="h-full flex items-center justify-center" style="min-height:500px"> {% if lang_code == 'es'
-                    %} {% if page_name == 'MYA' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891586151436!2d-116.64444389223883!3d31.99095427872926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ed35dc35eead%3A0x7154814e9efe4263!2sMYA%20Hotel%20Boutique!5e0!3m2!1ses!2smx!4v1718485264471!5m2!1ses!2smx"
-                        title="Vista de la alberca desde el pasillo" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Olivea' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1ses!2smx!4v1718487866175!5m2!1ses!2smx"
-                        title="Ubicación de Olivea Farm to Table" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Divino' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891328086845!2d-116.64470348923378!3d31.990961273893696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8fbc3be53c8f1%3A0x7b213fd57d77f04a!2sPadel%20DiVino!5e0!3m2!1ses!2smx!4v1718489237342!5m2!1ses!2smx"
-                        title="Ubicación de Padel DiVino" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% endif %} {% else %} {% if page_name
-                    == 'MYA' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891586151436!2d-116.64444389223883!3d31.99095427872926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ed35dc35eead%3A0x7154814e9efe4263!2sMYA%20Hotel%20Boutique!5e0!3m2!1sen!2smx!4v1718485264471!5m2!1sen!2smx"
-                        title="Pool view from the hallway" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Olivea' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1sen!2smx!4v1718487866175!5m2!1sen!2smx"
-                        title="Location of Olivea Farm to Table" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Divino' %} <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891328086845!2d-116.64470348923378!3d31.990961273893696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8fbc3be53c8f1%3A0x7b213fd57d77f04a!2sPadel%20DiVino!5e0!3m2!1sen!2smx!4v1718489237342!5m2!1sen!2smx"
-                        title="Location of Padel DiVino" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full rounded-[15px] lazyload"></iframe> {% endif %} {% endif %} </div>
-            </div>
-        </div>
-    </div>
-</section> {% block find_us %}
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+<section class="section-contact relative xl:py-[100px] py-[70px]" id="{% if lang_code == 'es' %}encuéntranos{% else %}contact{% endif %}"><div class="p-[24px] shadow-[0_0_50px_0_rgba(0,0,0,0.1)] bg-[#fafafa] bg-opacity-45 backdrop-filter backdrop-blur-lg rounded-[15px] mx-[12px] flex flex-wrap justify-between items-center mx-auto 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]" data-aos="fade-up" data-aos-duration="600"><div class="flex flex-wrap w-full"><div class="lg:w-1/2 lg:pr-[12px] w-full pr-[0] pl-[0] mb-[24px]"><div class="lh-contact-touch-inner"><div class="lh-contact-touch-contain"><h4 class="text-[#000] pb-[15px] 2xl:text-[28px] xl:text-[26px] lg:text-[24px] font-bold md:text-[22px] sm:text-[20px] text-[18px]"> {% if lang_code == 'es' %}No dudes en comunicarte para más información.{% else %}Feel free to reach out for more information{% endif %} </h4><p> {% if lang_code == 'es' %}Si tienes necesidades específicas para tu experiencia, por favor háznoslo saber. Estamos aquí para asegurarnos de que disfrutes tu tiempo con nosotros.{%
+                            else %}If you have specific needs for your experience, please let us know. We're here to ensure you enjoy your time with us.{% endif %} </p></div><div class="pt-[30px]"><form id="contactForm" action="{{ url_for('main.find_us', lang_code=lang_code) }}" method="POST"><div class="flex xl:mb-[30px] mb-[15px]"><input type="text" name="firstname" placeholder="{% if lang_code == 'es' %}Nombre{% else %}First Name{% endif %}" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px] mr-[15px]" required=""> <input type="text" name="lastname" placeholder="{% if lang_code == 'es' %}Apellido{% else %}Last Name{% endif %}" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px]" required=""></div><div class="flex xl:mb-[30px] mb-[15px]"><input type="email" name="email" placeholder="{% if lang_code == 'es' %}Correo Electrónico{% else %}Email{% endif %}" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px] mr-[15px]" required=""> <input type="tel" id="phoneInput" name="phone" placeholder="{% if lang_code == 'es' %}Número de Teléfono{% else %}Phone Number{% endif %}" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full lg:w-1/2 rounded-[15px]" required=""> <span id="phoneError" style="color:red;display:none">{% if lang_code == 'es' %}Número de teléfono inválido{% else %}Invalid phone number{% endif %}</span></div><div class="flex xl:mb-[30px] mb-[15px]"><input type="text" name="subject" placeholder="{% if lang_code == 'es' %}Asunto{% else %}Subject{% endif %}" class="border-0 bg-[#fff] pl-[20px] outline-[0] h-[50px] w-full rounded-[15px]" required=""></div><div class="flex xl:mb-[30px] mb-[15px]"><textarea class="border-0 bg-[#fff] outline-none px-[20px] py-[15px] h-[150px] w-full rounded-[15px]" name="message" placeholder="{% if lang_code == 'es' %}Mensaje{% else %}Message{% endif %}" required=""></textarea></div><button class="m-[auto] duration-[0.3s] ease-in-out border-[1px] border-solid border-[#676663] px-[15px] py-[5px] leading-[28px] bg-[#676663] text-[#fafafa] relative z-[2] text-[15px] font-medium tracking-[1px] rounded-[10px] hover:bg-inherit hover:text-[#676663]" type="submit"> {% if lang_code == 'es' %}Enviar Mensaje{% else %}Send Message{% endif %} </button></form></div></div></div><div class="lg:w-1/2 lg:pl-[12px] w-full mb-[24px]"><div class="h-full flex items-center justify-center" style="min-height:500px"> {% if lang_code == 'es'
+                    %} {% if page_name == 'MYA' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891586151436!2d-116.64444389223883!3d31.99095427872926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ed35dc35eead%3A0x7154814e9efe4263!2sMYA%20Hotel%20Boutique!5e0!3m2!1ses!2smx!4v1718485264471!5m2!1ses!2smx" title="Vista de la alberca desde el pasillo" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Olivea' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1ses!2smx!4v1718487866175!5m2!1ses!2smx" title="Ubicación de Olivea Farm to Table" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Divino' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891328086845!2d-116.64470348923378!3d31.990961273893696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8fbc3be53c8f1%3A0x7b213fd57d77f04a!2sPadel%20DiVino!5e0!3m2!1ses!2smx!4v1718489237342!5m2!1ses!2smx" title="Ubicación de Padel DiVino" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% endif %} {% else %} {% if page_name
+                    == 'MYA' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891586151436!2d-116.64444389223883!3d31.99095427872926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ed35dc35eead%3A0x7154814e9efe4263!2sMYA%20Hotel%20Boutique!5e0!3m2!1sen!2smx!4v1718485264471!5m2!1sen!2smx" title="Pool view from the hallway" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Olivea' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.8922872748217!2d-116.6447095892338!3d31.990935273893545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8eda5aec9876d%3A0x6c5367c9c38f1204!2sOlivea%20Farm%20to%20Table!5e0!3m2!1sen!2smx!4v1718487866175!5m2!1sen!2smx" title="Location of Olivea Farm to Table" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% elif page_name == 'Divino' %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.891328086845!2d-116.64470348923378!3d31.990961273893696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8fbc3be53c8f1%3A0x7b213fd57d77f04a!2sPadel%20DiVino!5e0!3m2!1sen!2smx!4v1718489237342!5m2!1sen!2smx" title="Location of Padel DiVino" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full rounded-[15px] lazyload"></iframe> {% endif %} {% endif %} </div></div></div></div></section> {% block find_us %} <script>document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent the default form submission
     const formData = new FormData(this);
     fetch('{{ url_for("main.find_us", lang_code=lang_code) }}', {
@@ -178,6 +85,4 @@ document.addEventListener("DOMContentLoaded", function() {
                 phoneError.style.display = 'none';
             }
         });
-    });
-</script>
- {% endblock %}
+    });</script> {% endblock %}
