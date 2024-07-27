@@ -118,7 +118,6 @@ function closeChatbot() {
 function openChatbotMobile() {
     const lang = document.body.getAttribute('data-lang') || 'en';
     Swal.fire({
-        title: 'Chatbot',
         html: `
             <div id="chatbot-container-swal" class="flex flex-col w-full h-full">
                 <div id="chatbot-header-swal" class="p-4 flex justify-between items-center">
