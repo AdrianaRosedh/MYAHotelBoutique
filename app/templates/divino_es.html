@@ -3,7 +3,10 @@
 'partials/base/sustainability.html' %} {% include 'partials/base/find-us.html' %} {% endblock %} {% block sweetalert2 %} <script>document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () {
             Swal.fire({
-                title: "You can already get Coffee and Wine!",
+                title: "Trabajo en progreso",
+                html: `
+                    <p style="color: #000 !important; font-size: 1em !important; margin: 0.5em 0 !important;">¡Ya puedes conseguir Café y Vino!</p>
+                `,
                 width: 600,
                 padding: "3em",
                 color: "#716add",
@@ -15,5 +18,5 @@
                     no-repeat
                 `
             });
-        }, 10000); // 10000 milliseconds = 10 seconds
+        }, 5000); // 5000 milliseconds = 5 seconds
     });</script> {% endblock %}
