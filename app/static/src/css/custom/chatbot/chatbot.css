@@ -34,7 +34,7 @@
   }
 }
 
-#chatbot-toggle:hover .chatbot-icon {
+.chatbot-icon1:hover .chatbot-icon {
   transform: scale(1.1) !important;
   transition: transform 0.2s ease-in-out !important;
 }
