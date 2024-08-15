@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #chatbot-toggle {
+  position: fixed !important; /* Fixes the button to the viewport */
+  bottom: 20px !important;    /* Adjust the distance from the bottom of the viewport */
+  right: 20px !important;     /* Adjust the distance from the right of the viewport */
   transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
-  z-index: 50 !important;
+  z-index: 9999 !important;   /* Ensures the button appears above other elements */
 }
 
 .chatbot-icon {
