@@ -65,9 +65,6 @@ def create_app():
     from .routes import bp as main_bp
     app.register_blueprint(main_bp)
 
-    from .chatbot_routes import bp as chatbot_bp
-    app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
-
     @app.before_request
     def set_default_language():
         if "language" not in session:
