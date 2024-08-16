@@ -20,7 +20,7 @@
   bottom: 14px !important;      /* Position near the icon */
   right: 14px !important;       /* Position near the icon */
   z-index: 999 !important;      /* Keep it below the icon when closed */
-  pointer-events: none !important; /* Prevent it from blocking clicks */
+  pointer-events: none !important; /* Prevent it from blocking clicks when closed */
   height: 58px;                 /* Default height */
   width: 72px;                  /* Default width */
   overflow: hidden !important;  /* Ensure no overflow */
@@ -32,7 +32,6 @@
   height: auto !important;      /* Allow it to expand when open */
   width: auto !important;       /* Allow it to expand when open */
 }
-
 
 .chatbot-icon {
   width: 60px !important;
