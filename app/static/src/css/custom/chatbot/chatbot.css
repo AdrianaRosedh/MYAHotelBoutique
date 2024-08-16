@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .chatbot-icon1 {
+  position: fixed !important; /* Fixes the button to the viewport */
+  bottom: 20px !important;    /* Positions the button 20px from the bottom of the viewport */
+  right: 20px !important;     /* Positions the button 20px from the right side of the viewport */
+  z-index: 1000 !important; /* Ensures the button stays on top of other elements */
   transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
-  z-index: 50 !important;
+  cursor: pointer;            /* Ensures the cursor changes to a pointer on hover */
 }
 
 .chatbot-icon {
