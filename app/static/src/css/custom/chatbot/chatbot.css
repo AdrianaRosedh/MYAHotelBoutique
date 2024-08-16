@@ -6,7 +6,6 @@
 .chatbot-icon1 {
   transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
-  z-index: 50 !important;
 }
 
 .chatbot-icon {
