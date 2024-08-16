@@ -13,12 +13,12 @@
 }
 
 /* Whistle Chat Window */
-.whistle-live-chat-widget {
+#w-live-chat {
   z-index: 900 !important;  /* Lower z-index when chat window is closed */
   position: fixed;          /* Ensure it's positioned properly on the screen */
 }
 
-.whistle-live-chat-widget.open {
+#w-live-chat {
   z-index: 1010 !important; /* Higher z-index when chat window is open */
 }
 
