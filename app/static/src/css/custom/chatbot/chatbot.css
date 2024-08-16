@@ -16,17 +16,23 @@
 
 /* Whistle Chat Window */
 #w-live-chat {
-  position: fixed;              /* Fixed positioning */
-  bottom: 70px !important;      /* Adjust position so it doesn't overlap with the icon */
-  right: 20px !important;       /* Position near the icon */
-  z-index: 1000 !important;     /* Ensure it stays below the icon */
-  pointer-events: none;         /* Ignore clicks when the chat window is closed */
+  position: fixed !important;   /* Ensure it stays in place */
+  bottom: 14px !important;      /* Position near the icon */
+  right: 14px !important;       /* Position near the icon */
+  z-index: 999 !important;      /* Keep it below the icon when closed */
+  pointer-events: none !important; /* Prevent it from blocking clicks */
+  height: 58px;                 /* Default height */
+  width: 72px;                  /* Default width */
+  overflow: hidden !important;  /* Ensure no overflow */
 }
 
 #w-live-chat.open {
   z-index: 1002 !important;     /* Bring chat window to the front when open */
-  pointer-events: auto;         /* Enable clicks when the chat window is open */
+  pointer-events: auto !important; /* Enable clicks when the chat window is open */
+  height: auto !important;      /* Allow it to expand when open */
+  width: auto !important;       /* Allow it to expand when open */
 }
+
 
 .chatbot-icon {
   width: 60px !important;
