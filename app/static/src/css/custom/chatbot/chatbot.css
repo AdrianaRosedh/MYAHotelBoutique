@@ -13,13 +13,17 @@
 }
 
 /* Whistle Chat Window */
-#w-live-chat {
-  z-index: 900 !important;  /* Lower z-index when chat window is closed */
-  position: fixed;          /* Ensure it's positioned properly on the screen */
+.whistle-live-chat-widget {
+  position: fixed;             /* Fixed positioning */
+  bottom: 70px !important;     /* Adjust position so it doesn't overlap with the icon */
+  right: 20px !important;      /* Position near the icon */
+  z-index: 999 !important;     /* Ensure it stays below the icon when closed */
+  pointer-events: none;        /* Ignore clicks when the chat window is closed */
 }
 
-#w-live-chat {
-  z-index: 1010 !important; /* Higher z-index when chat window is open */
+.whistle-live-chat-widget.open {
+  z-index: 1010 !important;    /* Bring chat window to the front when open */
+  pointer-events: auto;        /* Enable clicks when the chat window is open */
 }
 
 .chatbot-icon {
