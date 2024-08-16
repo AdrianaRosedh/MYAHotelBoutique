@@ -12,6 +12,16 @@
   cursor: pointer;            /* Ensures the cursor changes to a pointer on hover */
 }
 
+/* Whistle Chat Window */
+.whistle-live-chat-widget {
+  z-index: 900 !important;  /* Lower z-index when chat window is closed */
+  position: fixed;          /* Ensure it's positioned properly on the screen */
+}
+
+.whistle-live-chat-widget.open {
+  z-index: 1010 !important; /* Higher z-index when chat window is open */
+}
+
 .chatbot-icon {
   width: 60px !important;
   height: 60px !important;
