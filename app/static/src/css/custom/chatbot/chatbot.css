@@ -2,18 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Chatbot Icon */
 .chatbot-icon1 {
-  position: fixed !important; /* Fixes the button to the viewport */
-  bottom: 20px !important;    /* Positions the button 20px from the bottom of the viewport */
-  right: 20px !important;     /* Positions the button 20px from the right side of the viewport */
-  z-index: 1000 !important; /* Ensures the button stays on top of other elements */
+  position: fixed !important;  /* Keep the icon fixed in the viewport */
+  bottom: 20px !important;     /* Position at the bottom of the viewport */
+  right: 20px !important;      /* Position at the right of the viewport */
+  z-index: 1000 !important;    /* Ensure the chatbot icon is below the chat window only when open */
   transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
-  cursor: pointer;            /* Ensures the cursor changes to a pointer on hover */
+  cursor: pointer;             /* Show pointer cursor on hover */
 }
 
 /* Whistle Chat Window */
-.whistle-live-chat-widget {
+#w-live-chat {
   position: fixed;             /* Fixed positioning */
   bottom: 70px !important;     /* Adjust position so it doesn't overlap with the icon */
   right: 20px !important;      /* Position near the icon */
@@ -21,7 +22,7 @@
   pointer-events: none;        /* Ignore clicks when the chat window is closed */
 }
 
-.whistle-live-chat-widget.open {
+#w-live-chat.open {
   z-index: 1010 !important;    /* Bring chat window to the front when open */
   pointer-events: auto;        /* Enable clicks when the chat window is open */
 }
