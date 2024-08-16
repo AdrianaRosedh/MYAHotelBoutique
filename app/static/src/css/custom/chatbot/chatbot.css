@@ -4,27 +4,28 @@
 
 /* Chatbot Icon */
 .chatbot-icon1 {
-  position: fixed !important;  /* Keep the icon fixed in the viewport */
-  bottom: 20px !important;     /* Position at the bottom of the viewport */
-  right: 20px !important;      /* Position at the right of the viewport */
-  z-index: 1000 !important;    /* Ensure the chatbot icon is below the chat window only when open */
+  position: fixed !important;   /* Keep the icon fixed in the viewport */
+  bottom: 20px !important;      /* Position at the bottom of the viewport */
+  right: 20px !important;       /* Position at the right of the viewport */
+  z-index: 1001 !important;     /* Ensure the chatbot icon stays on top */
   transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
-  cursor: pointer;             /* Show pointer cursor on hover */
+  cursor: pointer;              /* Show pointer cursor on hover */
+  pointer-events: auto !important; /* Ensure the icon is always clickable */
 }
 
 /* Whistle Chat Window */
 #w-live-chat {
-  position: fixed;             /* Fixed positioning */
-  bottom: 70px !important;     /* Adjust position so it doesn't overlap with the icon */
-  right: 20px !important;      /* Position near the icon */
-  z-index: 999 !important;     /* Ensure it stays below the icon when closed */
-  pointer-events: none;        /* Ignore clicks when the chat window is closed */
+  position: fixed;              /* Fixed positioning */
+  bottom: 70px !important;      /* Adjust position so it doesn't overlap with the icon */
+  right: 20px !important;       /* Position near the icon */
+  z-index: 1000 !important;     /* Ensure it stays below the icon */
+  pointer-events: none;         /* Ignore clicks when the chat window is closed */
 }
 
 #w-live-chat.open {
-  z-index: 1010 !important;    /* Bring chat window to the front when open */
-  pointer-events: auto;        /* Enable clicks when the chat window is open */
+  z-index: 1002 !important;     /* Bring chat window to the front when open */
+  pointer-events: auto;         /* Enable clicks when the chat window is open */
 }
 
 .chatbot-icon {
