@@ -8,7 +8,7 @@
   bottom: 20px !important;
   right: 20px !important;
   z-index: 1001 !important;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+  transition: transform 0.3s ease-in-out !important;
   animation: bounceIn 2s ease-in-out !important;
   cursor: pointer;
   pointer-events: auto !important;
@@ -17,8 +17,8 @@
 /* Whistle Chat Window */
 #w-live-chat {
   position: fixed !important;
-  bottom: 0 !important;
-  right: 0 !important;
+  bottom: 14px !important;
+  right: 14px !important;
   z-index: 999 !important;
   pointer-events: none !important; /* No interaction when closed */
   height: 58px;
@@ -30,11 +30,8 @@
 #w-live-chat.open {
   z-index: 1002 !important;
   pointer-events: auto !important; /* Interaction enabled when open */
-  width: 100vw !important; /* Full width of the viewport */
-  height: 100vh !important; /* Full height of the viewport */
-  bottom: 0 !important; /* Align to the bottom of the screen */
-  right: 0 !important; /* Align to the right of the screen */
-  overflow: auto !important; /* Allow scrolling if content overflows */
+  height: auto !important;
+  width: auto !important;
 }
 
 #w-live-chat iframe {
@@ -77,16 +74,7 @@
   }
 
   #w-live-chat {
-    width: 100vw !important; /* Full width on mobile */
-    height: 100vh !important; /* Full height on mobile */
-    max-height: none !important; /* No maximum height */
-    bottom: 0 !important; /* Ensure chat window starts from the bottom */
-    right: 0 !important; /* Align chat window to the right */
-  }
-
-  /* Hide chatbot icon when the chat is open */
-  .chatbot-icon1.hidden {
-    opacity: 0 !important; /* Hide the icon */
-    pointer-events: none !important; /* Prevent interaction */
+    bottom: 70px !important; /* Ensure chat window is above the icon on mobile */
+    right: 10px !important; /* Align with the icon's right margin */
   }
 }
