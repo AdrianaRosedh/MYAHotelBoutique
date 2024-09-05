@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Chatbot Icon */
+/* Chatbot Icon Container */
 .chatbot-icon1 {
   position: fixed !important;
   bottom: 20px !important;
@@ -38,11 +38,19 @@
   pointer-events: auto !important; /* Ensure iframe is interactable */
 }
 
+/* Chatbot Icon */
 .chatbot-icon {
   width: 60px !important;
   height: 60px !important;
   display: inline-block !important;
   vertical-align: middle !important;
+  transition: opacity 0.3s ease-in-out !important; /* Smooth transition for hiding/showing */
+}
+
+/* Hidden State for Chatbot Icon */
+.chatbot-icon-hidden {
+  opacity: 0 !important; /* Make the icon invisible */
+  pointer-events: none !important; /* Disable interaction with the hidden icon */
 }
 
 /* Bounce animation for the chatbot icon */
@@ -64,11 +72,4 @@
 .chatbot-icon1:hover .chatbot-icon {
   transform: scale(1.1) !important;
   transition: transform 0.2s ease-in-out !important;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .chatbot-icon {
-    z-index: 900 !important;
-  }
 }
