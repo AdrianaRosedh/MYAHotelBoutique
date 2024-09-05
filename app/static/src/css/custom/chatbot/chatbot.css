@@ -73,3 +73,14 @@
   transform: scale(1.1) !important;
   transition: transform 0.2s ease-in-out !important;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .chatbot-icon-hidden {
+    opacity: 0 !important; /* Ensure hidden state on mobile */
+  }
+
+  .chatbot-icon {
+    z-index: 900 !important;
+  }
+}
