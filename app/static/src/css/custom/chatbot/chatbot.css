@@ -20,15 +20,16 @@
   bottom: 14px !important;
   right: 14px !important;
   z-index: 999 !important;
-  pointer-events: none !important;
+  pointer-events: none !important; /* No interaction when closed */
   height: 58px;
   width: 72px;
   overflow: hidden !important;
+  transition: height 0.3s ease, width 0.3s ease; /* Smooth transition for open/close */
 }
 
 #w-live-chat.open {
   z-index: 1002 !important;
-  pointer-events: auto !important; /* Ensure interaction when open */
+  pointer-events: auto !important; /* Interaction enabled when open */
   height: auto !important;
   width: auto !important;
 }
@@ -44,6 +45,7 @@
   vertical-align: middle !important;
 }
 
+/* Bounce animation for the chatbot icon */
 @keyframes bounceIn {
   0%, 20%, 40%, 60%, 80%, 100% {
     transform: translateY(0);
@@ -62,4 +64,17 @@
 .chatbot-icon1:hover .chatbot-icon {
   transform: scale(1.1) !important;
   transition: transform 0.2s ease-in-out !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .chatbot-icon1 {
+    bottom: 10px !important; /* Adjust bottom margin for mobile */
+    right: 10px !important; /* Adjust right margin for mobile */
+  }
+
+  #w-live-chat {
+    bottom: 70px !important; /* Ensure chat window is above the icon on mobile */
+    right: 10px !important; /* Align with the icon's right margin */
+  }
 }
