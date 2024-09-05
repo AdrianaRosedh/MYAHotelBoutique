@@ -68,13 +68,7 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .chatbot-icon1 {
-    bottom: 10px !important; /* Adjust bottom margin for mobile */
-    right: 10px !important; /* Adjust right margin for mobile */
-  }
-
-  #w-live-chat {
-    bottom: 70px !important; /* Ensure chat window is above the icon on mobile */
-    right: 10px !important; /* Align with the icon's right margin */
+  .chatbot-icon {
+    z-index: 900 !important;
   }
 }
