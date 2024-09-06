@@ -21,17 +21,19 @@
   right: 14px !important;
   z-index: 999 !important; /* Lower z-index by default */
   pointer-events: none !important; /* No interaction when closed */
-  height: 58px;
-  width: 72px;
+  height: 0; /* Minimized when closed */
+  width: 0; /* Minimized when closed */
   overflow: hidden !important;
-  transition: height 0.3s ease, width 0.3s ease; /* Smooth transition for open/close */
+  visibility: hidden; /* Hidden by default */
+  transition: height 0.3s ease, width 0.3s ease, visibility 0s 0.3s; /* Smooth transition for open/close */
 }
 
 #w-live-chat.open {
   z-index: 1002 !important; /* Higher z-index when open */
   pointer-events: auto !important; /* Interaction enabled when open */
-  height: auto !important;
-  width: auto !important;
+  height: auto !important; /* Full height when open */
+  width: auto !important; /* Full width when open */
+  visibility: visible !important; /* Visible when open */
 }
 
 #w-live-chat iframe {
