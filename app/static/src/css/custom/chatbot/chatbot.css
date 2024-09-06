@@ -21,16 +21,14 @@
   right: 14px !important;
   z-index: 999 !important; /* Lower z-index by default */
   pointer-events: none !important; /* No interaction when closed */
-  transition: visibility 0.3s, opacity 0.3s ease-in-out; /* Smooth transition for open/close */
-  visibility: hidden; /* Hidden by default */
-  opacity: 0; /* Invisible by default */
+  display: none; /* Completely hide the chat window when closed */
+  transition: display 0.3s, opacity 0.3s ease-in-out; /* Smooth transition for open/close */
 }
 
 #w-live-chat.open {
   z-index: 1002 !important; /* Higher z-index when open */
   pointer-events: auto !important; /* Interaction enabled when open */
-  visibility: visible !important; /* Visible when open */
-  opacity: 1 !important; /* Fully visible when open */
+  display: block !important; /* Make the chat window visible */
 }
 
 #w-live-chat iframe {
