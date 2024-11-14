@@ -1,10 +1,21 @@
-# Ignore local venv
+# Ignore Python virtual environment
 venv/
 
-# Ignore cache files
+# Ignore Git files
+.git/
+
+# Ignore Python cache
 __pycache__/
 *.pyc
 *.pyo
 
-# Ignore testing and dev tools
+# Ignore logs
+*.log
+*.tmp
+
+# Ignore test-related files
+tests/
 requirements-dev.txt
+
+# Ignore local environment files
+*.env
