@@ -10,14 +10,33 @@ __pycache__/
 *.pyo
 .cache/
 .pip-cache/
+*.pyd
+
+# Ignore node modules and Puppeteer binaries
+node_modules/
+node_modules/puppeteer/.local-chromium/
+
+# Ignore archives and temporary files
+*.gz
+*.zip
+*.tar
+*.tar.gz
+*.tmp
+
+# Ignore large static and media files
+static/
+media/
+uploads/
+dist/
+build/
 
 # Ignore logs
 *.log
-*.tmp
 
-# Ignore test-related files
+# Ignore test-related files and dev dependencies
 tests/
 requirements-dev.txt
 
 # Ignore local environment files
 *.env
+*.flaskenv
