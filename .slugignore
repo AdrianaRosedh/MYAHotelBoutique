@@ -1,17 +1,10 @@
-# Ignore the virtual environment
+# Ignore local venv
 venv/
 
-# Ignore Git directory
-.git/
-
-# Ignore Python cache files
+# Ignore cache files
 __pycache__/
 *.pyc
 *.pyo
 
-# Ignore static files if served externally
-staticfiles/
-
-# Ignore logs and temporary files
-*.log
-*.tmp
+# Ignore testing and dev tools
+requirements-dev.txt
