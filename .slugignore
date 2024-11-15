@@ -20,7 +20,7 @@ node_modules/
 npm-debug.log
 
 # Static files from development, not required for production
-/static/src/
+app/static/src/
 gulpfile.js
 webpack.config.js
 package-lock.json
@@ -52,4 +52,3 @@ venv/
 example/
 demo/
 backup/
-static/src/
