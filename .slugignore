@@ -1,42 +1,9 @@
-# Ignore Python virtual environment
-venv/
-
-# Ignore Git files
 .git/
-
-# Ignore Python cache
-__pycache__/
-*.pyc
-*.pyo
-.cache/
-.pip-cache/
-*.pyd
-
-# Ignore node modules and Puppeteer binaries
+venv/
 node_modules/
-node_modules/puppeteer/.local-chromium/
-
-# Ignore archives and temporary files
-*.gz
-*.zip
-*.tar
-*.tar.gz
-*.tmp
-
-# Ignore large static and media files
 static/
 media/
 uploads/
-dist/
-build/
-
-# Ignore logs
 *.log
-
-# Ignore test-related files and dev dependencies
-tests/
+*.tmp
 requirements-dev.txt
-
-# Ignore local environment files
-*.env
-*.flaskenv
