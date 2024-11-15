@@ -1,9 +1,0 @@
-.git/
-venv/
-node_modules/
-static/
-media/
-uploads/
-*.log
-*.tmp
-requirements-dev.txt
