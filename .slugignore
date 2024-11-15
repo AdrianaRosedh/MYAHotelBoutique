@@ -1,9 +1,55 @@
-node_modules/
-.git/
+# Exclude development and testing-related files
 *.log
-tmp/
-*.cache
+*.env
+*.test
+*.spec
+
+# Exclude cache and temporary files
 __pycache__/
-tests/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+Thumbs.db
+.cache/
+*.egg-info/
+
+# Node.js build artifacts (if applicable)
+node_modules/
+npm-debug.log
+
+# Static files from development, not required for production
+/static/src/
+gulpfile.js
+webpack.config.js
+package-lock.json
+yarn.lock
+
+# Documentation
+README.md
 docs/
+
+# Version control files
+.git/
+.gitignore
+
+# Virtual environment directory
+venv/
+.virtualenv/
+
+# Local development files
+.idea/
+.vscode/
+
+# Exclude any large unnecessary files
+*.zip
+*.tar.gz
+*.rar
+
+# Large or non-production assets
+/tests/
+example/
+demo/
+backup/
 static/src/
